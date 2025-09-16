@@ -1,0 +1,17 @@
+{
+  "name": "1403-11-02---redesign",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:mobile": "npx tailwindcss -c tailwind.config.mobile.js -i ./mobile/assets/css/input.css -o ./mobile/assets/css/output.css --watch",
+    "watch:web": "npx tailwindcss -c tailwind.config.web.js -i ./web/assets/css/input.css -o ./web/assets/css/output.css --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
