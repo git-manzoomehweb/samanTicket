@@ -1,15 +1,81 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './web/**/*.html',          // فقط فایل‌های وب
     './web/assets/js/**/*.js'
   ],
-  theme: {
+    theme: {
     extend: {
-      colors: {
-        primary: '#1E40AF',
-        secondary: '#A21CAF',
+      /* ---------------- Fonts ---------------- */
+      fontFamily: {
+        danablack:   ["Dana_black", "sans-serif"],
+        danabold:    ["Dana_bold", "sans-serif"],
+        danademibold:["Dana_demibold", "sans-serif"],
+        danaextrabold:["Dana_extrabold", "sans-serif"],
+        danaextralight:["Dana_extralight", "sans-serif"],
+        danalight:   ["Dana_light", "sans-serif"],
+        danamedium:  ["Dana_medium", "sans-serif"],
+        danaregular: ["Dana_regular", "sans-serif"],
+        danathin:    ["Dana_thin", "sans-serif"],
+        danaultrabold:["Dana_ultrabold", "sans-serif"],
+        danaheavy:   ["Dana_heavy", "sans-serif"],
       },
+
+      /* ---------------- Colors ---------------- */
+      colors: {
+        back: {
+          DEFAULT: "var(--bg)",
+        },
+
+        /* Primary */
+        primary: {
+          DEFAULT: "var(--primary)",
+          50:  "var(--primary-50)",
+          100: "var(--primary-100)",
+          200: "var(--primary-200)",
+          300: "var(--primary-300)",
+          400: "var(--primary-400)",
+          500: "var(--primary-500)",
+          600: "var(--primary-600)",
+          700: "var(--primary-700)",
+          800: "var(--primary-800)",
+          900: "var(--primary-900)",
+          950: "var(--primary-950)",
+        },
+
+        /* Secondary-1 (orange scale) */
+        "secondary-1": {
+          DEFAULT: "var(--secondary)",
+          50:  "var(--secondary-1-50)",
+          100: "var(--secondary-1-100)",
+          200: "var(--secondary-1-200)",
+          300: "var(--secondary-1-300)",
+          400: "var(--secondary-1-400)",
+          500: "var(--secondary-1-500)",
+          600: "var(--secondary-1-600)",
+          700: "var(--secondary-1-700)",
+          800: "var(--secondary-1-800)",
+          900: "var(--secondary-1-900)",
+          950: "var(--secondary-1-950)",
+        },
+
+        /* Secondary-2 (azure/cyan scale) */
+        "secondary-2": {
+          DEFAULT: "var(--secondary-2)",
+          50:  "var(--secondary-2-50)",
+          100: "var(--secondary-2-100)",
+          200: "var(--secondary-2-200)",
+          300: "var(--secondary-2-300)",
+          400: "var(--secondary-2-400)",
+          500: "var(--secondary-2-500)",
+          600: "var(--secondary-2-600)",
+          700: "var(--secondary-2-700)",
+          800: "var(--secondary-2-800)",
+          900: "var(--secondary-2-900)",
+          950: "var(--secondary-2-950)",
+        },
     },
   },
+},
   plugins: [],
 };

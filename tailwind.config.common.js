@@ -1,8 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
-    './mobile/**/*.html',       // فقط فایل‌های موبایل
-    './mobile/assets/js/**/*.js'
+    './common/**/*.html',          // فقط فایل‌های وب
+    './common/assets/js/**/*.js'
   ],
     theme: {
     extend: {
