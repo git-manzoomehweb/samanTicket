@@ -4,9 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch:mobile": "npx tailwindcss -c tailwind.config.mobile.js -i ./mobile/assets/css/input.css -o ./mobile/assets/css/output.css --watch",
-    "watch:web": "npx tailwindcss -c tailwind.config.web.js -i ./web/assets/css/input.css -o ./web/assets/css/output.css --watch",
-    "watch:common": "npx tailwindcss -c tailwind.config.common.js -i ./common/assets/css/input.css -o ./common/assets/css/output.css --watch"
+    "watch:mobile": "npx tailwindcss -c tailwind.config.mobile.js -i ./mobile/assets/css/input.css -o ./mobile/assets/css/samanparvaz.ui.mob.min.css --watch",
+    "watch:web": "npx tailwindcss -c tailwind.config.web.js -i ./web/assets/css/input.css -o ./web/assets/css/samanparvaz.ui.min.css --watch",
+    "watch:common": "npx tailwindcss -c tailwind.config.common.js -i ./common/assets/css/input.css -o ./common/assets/css/customized.ui.min.css --watch"
   },
   "keywords": [],
   "author": "",

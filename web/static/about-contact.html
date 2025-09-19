@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/output.css">
+    <!-- <style>
+        #navbar-desktop {
+            background: none;
+        }
+    </style> -->
+
+    <link rel="stylesheet" href="https://cdn.basiscore.net/basisfly.com/css/swiper-bundle.min.css">
+    <script src="https://cdn.basiscore.net/basisfly.com/js/swiper-bundle.min.js"></script>
+
+</head>
+
+<body class="font-danaregular bg-zinc-100 transparent-header">
+
+
+    <header>
+        <nav id="navbar-desktop"
+            class="w-full h-[132px] text-white fixed top-0 left-0 right-0 z-[999] flex flex-col items-center justify-center">
+            <div class="max-w-7xl max-xl:w-[98%] w-full mx-auto ">
+                <div class="flex h-12 items-center justify-between">
+
+                    <!-- Logo -->
+                    <a href="/" class="text-xl font-danabold text-white w-[49px] h-12 ">
+                        <img class="object-contain" src="../assets/images/logo.png" width="49" height="47"
+                            alt="saman parvaz">
+                    </a>
+
+                    <ul
+                        class="flex text-base font-danaregular justify-start gap-x-4 dir-rtl pr-4 w-[calc(100%_-_240px)]">
+
+                        <!-- صفحه اصلی -->
+                        <li>
+                            <a href="#"
+                                class="block min-w-[100px] h-12 leading-[48px] text-secondary-1-700 text-center px-3 rounded-xl border border-solid border-secondary-1-700">
+                                صفحه اصلی
+                            </a>
+                        </li>
+
+                        <!-- پرواز -->
+                        <li
+                            class="relative group/mainlink dropdown min-w-[120px] h-12 leading-[48px] text-center pr-3 rounded-xl border border-solid border-primary-500 text-primary-100 hover:bg-primary-600 hover:text-white cursor-pointer transition">
+
+                            <!-- عنوان اصلی -->
+                            <a href="#" class="flex justify-between items-center h-12">
+                                <span>پرواز</span>
+                                <svg width="48" height="48"
+                                    class="group-hover:stroke-secondary-1-700 group-hover:fill-secondary-1-700"
+                                    class="fill-current group-hover/mainlink:rotate-180 transition-all ease-in-out duration-100">
+                                    <use href="../assets/images/sprite-icons.svg#chavron-icon"></use>
+                                </svg>
+                            </a>
+
+                            <!-- سطح 1 -->
+                            <ul
+                                class="absolute top-full right-0 hidden group-hover/mainlink:block dropdown bg-white text-primary-900 border border-solid border-primary-500 divide-y divide-primary-500 rounded-md shadow-lg min-w-[180px] text-sm z-50">
+
+
+                                <li><a href="#" class="block px-4 py-2 hover:bg-primary-50 cursor-pointer">پرواز
+                                        خارجی</a>
+
+                                </li>
+                                <li class="relative group/sub1 dropdown border-b hover:bg-primary-50 cursor-pointer">
+                                    <a href="#" class="block px-4 py-2">پرواز داخلی</a>
+
+                                    <!-- سطح 2 -->
+                                    <ul
+                                        class="absolute top-0 right-full hidden group-hover/sub1:block bg-white text-primary-900 border border-solid border-primary-500 divide-y divide-primary-500 rounded-md shadow-lg min-w-[180px] z-50">
+
+
+                                        <li><a href="#"
+                                                class="block px-4 py-2 hover:bg-primary-50 cursor-pointer">مشهد</a></li>
+                                        <li
+                                            class="relative group/sub2 dropdown border-b hover:bg-primary-50 cursor-pointer">
+                                            <a href="#" class="block px-4 py-2">تهران</a>
+
+                                            <!-- سطح 3 -->
+                                            <ul
+                                                class="absolute top-0 right-full hidden group-hover/sub2:block bg-white text-primary-900 border border-solid border-primary-500 divide-y divide-primary-500 rounded-md shadow-lg min-w-[180px] z-50">
+
+                                                <li
+                                                    class="relative group/sub3 dropdown border-b hover:bg-primary-50 cursor-pointer">
+                                                    <a href="#" class="block px-4 py-2">مهرآباد</a>
+
+                                                    <!-- سطح 4 -->
+                                                    <ul
+                                                        class="absolute top-0 right-full hidden group-hover/sub3:block bg-white text-primary-900 border border-solid border-primary-500 divide-y divide-primary-500 rounded-md shadow-lg min-w-[180px] z-50">
+                                                        <li><a href="#"
+                                                                class="block px-4 py-2 hover:bg-primary-50 cursor-pointer">ترمینال
+                                                                1</a></li>
+                                                        <li><a href="#"
+                                                                class="block px-4 py-2 hover:bg-primary-50 cursor-pointer">ترمینال
+                                                                1</a></li>
+                                                        <li><a href="#"
+                                                                class="block px-4 py-2 hover:bg-primary-50 cursor-pointer">ترمینال
+                                                                1</a></li>
+                                                        <li><a href="#"
+                                                                class="block px-4 py-2 hover:bg-primary-50 cursor-pointer">ترمینال
+                                                                1</a></li>
+                                                        <li><a href="#"
+                                                                class="block px-4 py-2 hover:bg-primary-50 cursor-pointer">ترمینال
+                                                                1</a></li>
+                                                        <li><a href="#"
+                                                                class="block px-4 py-2 hover:bg-primary-50 cursor-pointer">ترمینال
+                                                                2</a></li>
+                                                    </ul>
+                                                </li>
+
+                                                <li><a href="#"
+                                                        class="block px-4 py-2 hover:bg-primary-50 cursor-pointer">امام
+                                                        خمینی</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+
+                        <!-- ارتباط با ما -->
+                        <li>
+                            <a href="#"
+                                class="block min-w-[100px] h-12 leading-[48px] text-center px-3 rounded-xl border border-solid border-primary-500 text-primary-100 hover:bg-primary-600 hover:text-white transition">
+                                ارتباط با ما
+                            </a>
+                        </li>
+                    </ul>
+
+
+
+                    <div class=" min-w-[190px] flex justify-between gap-x-2 text-base font-danaregular">
+
+                        <div
+                            class="h-12 leading-[48px] text-secondary-1-700 w-[126px] rounded-xl border border-solid  border-secondary-1-700 px-4 inline-block text-center">
+                            ورود / ثبت نام
+                        </div>
+
+                        <a href="#"
+                            class="h-12 w-12 border-secondary-2-500 rounded-xl border border-solid flex justify-center items-center">
+                            <svg width="24" height="24">
+                                <use href="../assets/images/sprite-icons.svg#chat-icon"></use>
+                            </svg>
+                        </a>
+                    </div>
+
+
+                </div>
+            </div>
+        </nav>
+
+    </header>
+
+
+
+    <main class="-mt-20">
+
+
+        <div class="w-full relative h-[559px]"><svg
+                class="absolute bottom-0 left-0 right-0 mx-auto z-50 block max-w-[1280px] w-full h-auto"
+                viewBox="0 0 1280 450" xmlns="http://www.w3.org/2000/svg">
+                <image href="../assets/images/iran-map.svg" x="0" y="0" width="1000" height="450" />
+                <circle cx="350" cy="280" r="12" fill="#fddeb4" />
+                <circle cx="350" cy="280" r="24" fill="rgba(251,146,60,0.35)" />
+                <g transform="translate(350,260)">
+                    <foreignObject x="0" y="-210" width="935.5" height="250">
+                        <div xmlns="http://www.w3.org/1999/xhtml" dir="rtl"
+                            class="dialog-box bg-[#0b1533]/60 backdrop-blur-md text-white p-5">
+                            <div class="flex gap-4 items-start">
+                                <div class="flex-1 space-y-2">
+                                    <h3 class="text-2xl font-bold ">ارتباط با ما</h3>
+                                    <ul class="text-sm text-right flex flex-col gap-y-2">
+                                        <li class="group flex items-start leading-[30px] gap-x-2"><svg width="30"
+                                                height="30">
+                                                <use href="../assets/images/sprite-icons.svg#journey-icon"></use>
+                                            </svg>
+                                            <h2>تهران خیابان ولیعصر بالاتر از پارک ساعی خیاباو ورزنده پلاک12</h2>
+                                        </li>
+                                        <li class="group flex items-start leading-[30px] gap-x-2"><svg width="30"
+                                                height="30">
+                                                <use href="../assets/images/sprite-icons.svg#phone-icon"></use>
+                                            </svg><a class="leading-[30px] align-bottom" href="tel:">021-22222222</a>
+                                        </li>
+                                        <li class="group flex items-start leading-[30px] gap-x-2"><svg width="30"
+                                                height="30">
+                                                <use href="../assets/images/sprite-icons.svg#phone-icon"></use>
+                                            </svg><a class="leading-[30px] align-bottom" href="tel:">021-22222222</a>
+                                        </li>
+                                        <li class="group flex items-start leading-[30px] gap-x-2"><svg width="30"
+                                                height="30">
+                                                <use href="../assets/images/sprite-icons.svg#email-icon"></use>
+                                            </svg><a class="leading-[30px] align-bottom"
+                                                href="mailto:">info@samanflight.com</a></li>
+                                    </ul>
+                                </div>
+                                <div class="flex-1 space-y-2"><iframe class="rounded-3xl min-h-[203px]"
+                                        src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
+                                        frameborder="0"></iframe></div>
+                            </div>
+                        </div>
+                    </foreignObject>
+                </g>
+
+
+            </svg>
+
+            <div class="relative z-50 max-w-7xl mx-auto top-[430px] max-xl:top-[450px]">
+                <ul class="flex gap-x-3 ">
+                    <li>
+                        <a href="#"
+                            class="w-12 h-12 rounded-full group hover:bg-secondary-1-700 bg-primary-600 flex justify-center items-center">
+                            <svg width="24" height="26" class=" group-hover:animate-  ">
+                                <use href="../assets/images/sprite-icons.svg#telegram-icon">
+                                </use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="w-12 h-12 rounded-full group hover:bg-secondary-1-700 bg-primary-600 flex justify-center items-center">
+                            <svg width="24" height="26" class=" group-hover:animate-  ">
+                                <use href="../assets/images/sprite-icons.svg#twitter-icon">
+                                </use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="w-12 h-12 rounded-full group hover:bg-secondary-1-700 bg-primary-600 flex justify-center items-center">
+                            <svg width="24" height="26" class=" group-hover:animate-  ">
+                                <use href="../assets/images/sprite-icons.svg#instagram-icon">
+                                </use>
+                            </svg>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="w-12 h-12 rounded-full group hover:bg-secondary-1-700 bg-primary-600 flex justify-center items-center">
+                            <svg width="24" height="26" class=" group-hover:animate-  ">
+                                <use href="../assets/images/sprite-icons.svg#whatsapp-icon">
+                                </use>
+                            </svg>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <span
+                class="absolute inset-0 bg-gradient-to-t from-[#081230] to-[#020a21] top-0 left-0 bottom-0 right-0"></span>
+            <div class="max-w-7xl mx-auto w-[95%] absolute z-40 top-0 left-0 right-0 ">
+                <div
+                    class="absolute left-0 right-0 m-auto flex flex-col justify-center items-center top-0 bottom-0 text-center z-50">
+                    <h1 class="sr-only">سامان پرواز</h1>
+
+                </div>
+            </div>
+        </div>
+
+
+        <section class="pt-8">
+            <div class="max-w-7xl max-xl:w-[98%] mx-auto flex justify-between gap-x-4 ">
+
+
+
+                <div class="w-[calc(100%_-_493px)]">
+                    <h2 class="font-danabold text-2xl ">درباره ما</h2>
+                    <div class="text-base leading-5 font-danaregular text-zinc-900 my-4 text-justify pl-7">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
+                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی
+                        مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه
+                        درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری
+                        را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این
+                        صورت می توان امید داشت لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده
+                        از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای
+                        شرایط فعلی تکنولوژی مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای
+                        زیادی در شصت و سه درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم
+                        افزارها شناخت بیشتری را برای طراحان رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان
+                        فارسی ایجاد کرد، در این صورت می توان امید داشت
+                    </div>
+
+                </div>
+
+                <div class="w-[493px]">
+
+                    <figure class="w-[493px] h-[345px] bg-black rounded-3xl relative overflow-hidden">
+
+                        <img class="mx-auto w-[493px] h-[345px] object-cover"
+                            src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="493"
+                            height="345" alt="" srcset="">
+
+                    </figure>
+                </div>
+
+            </div>
+        </section>
+
+        <div class="clear-both"></div>
+        <section class="pt-32">
+            <div class="max-w-7xl max-xl:w-[98%] mx-auto flex justify-between gap-x-4 ">
+
+                <div class="w-[457px]">
+
+                    <figure class="w-[457px] h-[455px] bg-secondary-1-700 rounded-3xl relative">
+
+                        <img class="mx-auto -mt-[58px] absolute left-0 right-0"
+                            src="../assets/images/young-man-with-headset 1.png" alt="" srcset="">
+                        <figcaption
+                            class="absolute bottom-0 left-0 right-0 bg-primary-500 h-[75px] rounded-b-3xl leading-[75px] text-center text-white">
+                            ارتباط با پشتیبانی
+                        </figcaption>
+                    </figure>
+                </div>
+
+                <div class="w-[calc(100%_-_500px)]">
+
+                    <ul class="flex gap-x-3">
+                        <li
+                            class="bg-zinc-200 rounded-[50px] text-zinc-900 font-danaregular text-base py-3 px-5 cursor-pointer hover:text-white hover:bg-primary-500">
+                            پرواز</li>
+                        <li
+                            class="bg-zinc-200 rounded-[50px] text-zinc-900 font-danaregular text-base py-3 px-5 cursor-pointer hover:text-white hover:bg-primary-500">
+                            پرواز</li>
+                        <li
+                            class="bg-zinc-200 rounded-[50px] text-zinc-900 font-danaregular text-base py-3 px-5 cursor-pointer hover:text-white hover:bg-primary-500">
+                            پرواز</li>
+                        <li
+                            class="bg-zinc-200 rounded-[50px] text-zinc-900 font-danaregular text-base py-3 px-5 cursor-pointer hover:text-white hover:bg-primary-500">
+                            پرواز</li>
+                    </ul>
+
+
+
+                    <div class="load-answer">
+                        <ul class="flex flex-col gap-3 my-8">
+                            <li class="relative bg-white rounded-xl pr-14 pl-4 py-4">
+                                <span
+                                    class=" w-[58px] h-[58px] flex justify-center items-center  bg-primary-500 rounded-full absolute -right-6 top-0 bottom-0 my-auto">
+                                    <svg width="24" height="24">
+                                        <use href="../assets/images/sprite-icons.svg#user-faq-icon">
+                                        </use>
+                                    </svg>
+                                </span>
+
+                                <h2 class="text-base leading-6 font-danabold text-zinc-900 my-2">چگونه تور رزرو کنیم؟
+                                </h2>
+
+                                <div class="text-xs text-zinc-500 text-justify leading-5">
+                                    متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح
+                                    گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل
+                                    ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید
+                                </div>
+                            </li>
+                            <li class="relative bg-white rounded-xl pr-14 pl-4 py-4">
+                                <span
+                                    class=" w-[58px] h-[58px] flex justify-center items-center  bg-primary-500 rounded-full absolute -right-6 top-0 bottom-0 my-auto">
+                                    <svg width="24" height="24">
+                                        <use href="../assets/images/sprite-icons.svg#user-faq-icon">
+                                        </use>
+                                    </svg>
+                                </span>
+
+                                <h2 class="text-base leading-6 font-danabold text-zinc-900 my-2">چگونه تور رزرو کنیم؟
+                                </h2>
+
+                                <div class="text-xs text-zinc-500 text-justify leading-5 hidden">
+                                    متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح
+                                    گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل
+                                    ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید
+                                </div>
+                            </li>
+                            <li class="relative bg-white rounded-xl pr-14 pl-4 py-4">
+                                <span
+                                    class=" w-[58px] h-[58px] flex justify-center items-center  bg-primary-500 rounded-full absolute -right-6 top-0 bottom-0 my-auto">
+                                    <svg width="24" height="24">
+                                        <use href="../assets/images/sprite-icons.svg#user-faq-icon">
+                                        </use>
+                                    </svg>
+                                </span>
+
+                                <h2 class="text-base leading-6 font-danabold text-zinc-900 my-2">چگونه تور رزرو کنیم؟
+                                </h2>
+
+                                <div class="text-xs text-zinc-500 text-justify leading-5 hidden">
+                                    متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح
+                                    گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل
+                                    ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید
+                                </div>
+                            </li>
+                            <li class="relative bg-white rounded-xl pr-14 pl-4 py-4">
+                                <span
+                                    class=" w-[58px] h-[58px] flex justify-center items-center  bg-primary-500 rounded-full absolute -right-6 top-0 bottom-0 my-auto">
+                                    <svg width="24" height="24">
+                                        <use href="../assets/images/sprite-icons.svg#user-faq-icon">
+                                        </use>
+                                    </svg>
+                                </span>
+
+                                <h2 class="text-base leading-6 font-danabold text-zinc-900 my-2">چگونه تور رزرو کنیم؟
+                                </h2>
+
+                                <div class="text-xs text-zinc-500 text-justify leading-5 hidden">
+                                    متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح
+                                    گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل
+                                    ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+        <div class="clear-both"></div>
+        <section class=" pt-8">
+            <div class="max-w-7xl max-xl:w-[98%] mx-auto">
+                <div class="flex gap-x-2 items-center">
+                    <img src="../assets/images/logo-colored.png" width="48" height="48" alt="logo ">
+                    <h2 class="font-danabold text-2xl ">درباره ما</h2>
+                </div>
+
+                <div class="text-sm leading-5 font-danaregular text-zinc-900 my-4">
+                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
+                    چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
+                    نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته
+                    حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان
+                    رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید
+                    داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل
+                    حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار
+                    گیرد.
+                </div>
+                <div class="inline-block">
+                    <a href="#" class="flex items-center group">
+                        <h2 class="text-secondary-1-700 text-sm leading-6 font-danamedium ">بیشتر
+                            بخوانید</h2>
+                        <svg width="48" height="48"
+                            class="transition-all duration-200 ease-in-out group-hover:-translate-x-5  ">
+                            <use href="../assets/images/sprite-icons.svg#arrow-left-small-icon">
+                            </use>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-back w-full min-h-[525px] py-6">
+
+        <div class="max-w-7xl max-xl:w-[98%] mx-auto">
+            <div class=" bg-primary-50 p-4 rounded-3xl min-h-[68px] flex flex-col justify-center">
+                <ul class="flex justify-between text-sm">
+                    <li class="group flex items-center justify-center leading-[30px] gap-x-2">
+                        <svg width="30" height="30" class=" group-hover:animate-ping  ">
+                            <use href="../assets/images/sprite-icons.svg#journey-icon">
+                            </use>
+                        </svg>
+                        <h2>تهران خیابان ولیعصر بالاتر از پارک ساعی خیاباو ورزنده پلاک12</h2>
+                    </li>
+                    <li class="group flex items-center justify-center leading-[30px] gap-x-2">
+                        <a class="leading-[30px] align-bottom" href="tel:">021-22222222</a>
+                        <svg width="30" height="30" class=" group-hover:animate-ping  ">
+                            <use href="../assets/images/sprite-icons.svg#phone-icon">
+                            </use>
+                        </svg>
+                    </li>
+                    <li class="group flex items-center justify-center leading-[30px] gap-x-2">
+                        <a class="leading-[30px] align-bottom" href="tel:">021-22222222</a>
+                        <svg width="30" height="30" class=" group-hover:animate-ping  ">
+                            <use href="../assets/images/sprite-icons.svg#phone-icon">
+                            </use>
+                        </svg>
+
+                    </li>
+                    <li class="group flex items-center justify-center leading-[30px] gap-x-2">
+                        <a class="leading-[30px] align-bottom" href="mailto:">info@samanflight.com</a>
+                        <svg width="30" height="30" class=" group-hover:animate-ping  ">
+                            <use href="../assets/images/sprite-icons.svg#email-icon">
+                            </use>
+                        </svg>
+                    </li>
+                </ul>
+            </div>
+
+
+            <div class="flex min-h-[240px] mt-8 gap-x-6">
+                <div class="w-1/2 ">
+                    <img src="../assets/images/large-colored-logo.png" width="77" height="74" alt="samanticket">
+                    <div class="text-zinc-900 text-base leading-6 text-justify my-2">
+                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
+                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی
+                        مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه
+                        درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری
+                    </div>
+                </div>
+                <div class="w-1/2 ">
+                    <h2 class="text-2xl text-zinc-900 font-danabold">
+                        ارتباط با مشاورین ما
+                    </h2>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center mt-8">
+                <div class="w-1/2 ">
+                    <ul class="flex gap-x-3">
+                        <li>
+                            <a href="#"
+                                class="w-12 h-12 rounded-full group hover:bg-secondary-1-700 bg-primary-600 flex justify-center items-center">
+                                <svg width="24" height="26" class=" group-hover:animate-  ">
+                                    <use href="../assets/images/sprite-icons.svg#telegram-icon">
+                                    </use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="w-12 h-12 rounded-full group hover:bg-secondary-1-700 bg-primary-600 flex justify-center items-center">
+                                <svg width="24" height="26" class=" group-hover:animate-  ">
+                                    <use href="../assets/images/sprite-icons.svg#twitter-icon">
+                                    </use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="w-12 h-12 rounded-full group hover:bg-secondary-1-700 bg-primary-600 flex justify-center items-center">
+                                <svg width="24" height="26" class=" group-hover:animate-  ">
+                                    <use href="../assets/images/sprite-icons.svg#instagram-icon">
+                                    </use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="w-12 h-12 rounded-full group hover:bg-secondary-1-700 bg-primary-600 flex justify-center items-center">
+                                <svg width="24" height="26" class=" group-hover:animate-  ">
+                                    <use href="../assets/images/sprite-icons.svg#whatsapp-icon">
+                                    </use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="w-1/2 ">
+                    <ul class="flex gap-x-5 justify-end">
+                        <li>
+                            <a href="#"
+                                class="w-[58px] h-[55px] rounded-[4px] flex justify-center items-center bg-white border border-solid border-[#6D6A68]">
+                                <img src="../assets/images/airline.png" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="w-[58px] h-[55px] rounded-[4px] flex justify-center items-center bg-white border-[0.3px] border-solid border-[#6D6A68]">
+                                <img src="../assets/images/airline.png" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="w-[58px] h-[55px] rounded-[4px] flex justify-center items-center bg-white border-[0.3px] border-solid border-[#6D6A68]">
+                                <img src="../assets/images/airline.png" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="w-[58px] h-[55px] rounded-[4px] flex justify-center items-center bg-white border-[0.3px] border-solid border-[#6D6A68]">
+                                <img src="../assets/images/airline.png" alt="">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                class="w-[58px] h-[55px] rounded-[4px] flex justify-center items-center bg-white border-[0.3px] border-solid border-[#6D6A68]">
+                                <img src="../assets/images/airline.png" alt="">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flex items-center mt-5 pt-3 gap-2 w-full lg:!flex-row flex-col">
+                <div class="lg:!w-[27%] w-full flex lg:!justify-start justify-center">
+                    <a class="text-zinc-500 hover:text-secondary-950 lg:!whitespace-nowrap text-xs text-center lg:!text-start"
+                        href="https://www.basisfly.com/" target="_blank">طراحی سایت آژانس مسافرتی و رزرواسیون آنلاین
+                        توسط
+                        بیسیس فلای</a>
+                </div>
+                <div class="flex items-center w-full lg:!w-[80%] justify-center gap-4 lg:!justify-between">
+                    <a href="https://www.basisfly.com/" target="_blank">
+                        <img loading="lazy" width="102" height="26" class="w-[68px] h-[17px]"
+                            src="[##cms.cms.cdn##]/_images/basisfly-logo.png" alt="basisfly-logo"
+                            aria-label="basisfly-logo" />
+                    </a>
+                    <img loading="lazy" width="135" height="23" src="[##cms.cms.cdn##]/images/trust-logo.png"
+                        alt="Trust_logo" class="w-[68px] h-[14px]" />
+                </div>
+            </div>
+        </div>
+
+        </div>
+    </footer>
+
+
+    <script src="../assets/js/samanticket.core.js"></script>
+</body>
+
+</html>

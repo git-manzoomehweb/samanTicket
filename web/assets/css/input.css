@@ -71,8 +71,8 @@ body{
 }
 
 html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
-::-webkit-scrollbar{width:5px !important;}::-webkit-scrollbar-track{background:var(--primary-50);}
-::-webkit-scrollbar-thumb{background:var(--primary-400);border-radius:5px;}
+::-webkit-scrollbar{width:10px !important;}::-webkit-scrollbar-track{background:var(--primary-50);}
+::-webkit-scrollbar-thumb{background:var(--primary-400);border-radius:10px;}
 ::-webkit-scrollbar-thumb:hover{background:var(--primary-500);}
 
 @font-face{font-display:swap;font-family:'Dana_black';font-style:normal;src:url('../_fonts/dana-fanum-black.eot') format('embedded-opentype'),url(../_fonts/dana-fanum-black.woff) format('woff'),url(../_fonts/dana-fanum-black.woff2) format('woff2')}
@@ -167,3 +167,19 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
 .swiper-pagination-bullet-active {
     background: var(--primary-500) !important;
 }
+
+
+/* .dialog-box{
+  width: 935.5px;
+  height: 250px;
+  clip-path: path(
+  "M123.5 24C123.5 10.7452 134.245 0 147.5 0H911.5C924.755 0 935.5 10.7452 935.5 24V226C935.5 239.255 924.755 250 911.5 250H147.5C134.245 250 123.5 239.255 123.5 226V196.744C123.5 177.595 102.177 166.158 86.2246 176.75L0 234L116.739 113.48C121.075 109.003 123.5 103.015 123.5 96.7822V24Z"
+);
+} */
+ .dialog-box{
+  width: 100%;
+  height: 100%;
+  clip-path: path("M123.5 24C123.5 10.7452 134.245 0 147.5 0H911.5C924.755 0 935.5 10.7452 935.5 24V226C935.5 239.255 924.755 250 911.5 250H147.5C134.245 250 123.5 239.255 123.5 226V196.744C123.5 177.595 102.177 166.158 86.2246 176.75L0 234L116.739 113.48C121.075 109.003 123.5 103.015 123.5 96.7822V24Z");
+}
+
+

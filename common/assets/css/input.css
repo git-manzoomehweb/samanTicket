@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+
 table {
     text-indent: initial;
     border-color: initial;
@@ -61,14 +64,17 @@ body{
   --secondary-2-800: #0070B1;
   --secondary-2-900: #005190;
   --secondary-2-950: #004275;
+
+
+
+  --bg: #EFF3FB;
 }
 
 html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
-::-webkit-scrollbar{width:5px !important;}::-webkit-scrollbar-track{background:var(--primary-50);}
-::-webkit-scrollbar-thumb{background:var(--primary-400);border-radius:5px;}
+::-webkit-scrollbar{width:10px !important;}::-webkit-scrollbar-track{background:var(--primary-50);}
+::-webkit-scrollbar-thumb{background:var(--primary-400);border-radius:10px;}
 ::-webkit-scrollbar-thumb:hover{background:var(--primary-500);}
 
-/* final */
 /* @font-face{font-display:swap;font-family:'Dana_black';font-style:normal;src:url('../_fonts/dana-fanum-black.eot') format('embedded-opentype'),url(../_fonts/dana-fanum-black.woff) format('woff'),url(../_fonts/dana-fanum-black.woff2) format('woff2')}
 @font-face{font-display:swap;font-family:'Dana_bold';font-style:normal;src:url('../_fonts/dana-fanum-bold.eot') format('embedded-opentype'),url(../_fonts/dana-fanum-bold.woff) format('woff'),url(../_fonts/dana-fanum-bold.woff2) format('woff2')}
 @font-face{font-display:swap;font-family:'Dana_demibold';font-style:normal;src:url('../_fonts/dana-fanum-demibold.eot') format('embedded-opentype'),url(../_fonts/dana-fanum-demibold.woff) format('woff'),url(../_fonts/dana-fanum-demibold.woff2) format('woff2')}
@@ -82,7 +88,7 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
 @font-face{font-display:swap;font-family:'Dana_heavy';font-style:normal;src:url('../_fonts/Dana-Heavy.ttf') format('truetype'),url(../_fonts/Dana-Heavy.woff) format('woff'),url(../_fonts/Dana-Heavy.woff2) format('woff2')} */
 
 
-
+/* final */
 @font-face{font-display:swap;font-family:'Dana_black';font-style:normal;src:url(../_fonts/DanaFaNum-black.woff) format('woff'),url(../_fonts/DanaFaNum-black.woff2) format('woff2'),url(../_fonts/dana-fanum-black.eot) format('embedded-opentype')}
   @font-face{font-display:swap;font-family:'Dana_bold';font-style:normal;src:url(../_fonts/DanaFaNum-bold.woff) format('woff'),url(../_fonts/DanaFaNum-bold.woff2) format('woff2')}
   @font-face{font-display:swap;font-family:'Dana_demibold';font-style:normal;src:url(../_fonts/DanaFaNum-demibold.woff) format('woff'),url(../_fonts/DanaFaNum-demibold.woff2) format('woff2')}
@@ -94,3 +100,8 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
   @font-face{font-display:swap;font-family:'Dana_thin';font-style:normal;src:url(../_fonts/DanaFaNum-thin.woff) format('woff'),url(../_fonts/DanaFaNum-thin.woff2) format('woff2')}
   @font-face{font-display:swap;font-family:'Dana_ultrabold';font-style:normal;src:url(../_fonts/DanaFaNum-ultrabold.woff) format('woff'),url(../_fonts/DanaFaNum-ultrabold.woff2) format('woff2')}
   @font-face{font-display:swap;font-family:'FontAwesome';font-style:normal;src:url(../_fonts/fontawesome-webfont.woff) format('woff'),url(../_fonts/fontawesome-webfont.woff2) format('woff2'),url(../_fonts/fontawesome-webfont.otf) format('opentype'),url(../_fonts/fontawesome-webfont.ttf) format('typetrue')}
+
+
+
+
+
