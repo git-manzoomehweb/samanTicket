@@ -105,3 +105,61 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
 
 
 
+.Login_Information.h-12.leading-\[48px\].text-secondary-1-700.hover\:bg-secondary-1-700.hover\:text-white.w-\[170px\].rounded-xl.border.border-solid.border-secondary-1-700.px-4.inline-block.text-center {
+    width: 161px;
+}
+
+.load-category-items.flex.justify-between {
+    width: calc(100% - 390px) !important;
+}
+
+
+span.sub-title {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.searchHistory-content .title
+ {
+  display: flex;
+
+}
+
+
+
+/* forms edit */
+#Counselingform legend{font-size: 24px !important;color: #1f1f1f; font-family: 'Dana_bold' !important ;}
+#Counselingform div[data-bc-title-container]{display: none !important;}
+#Counselingform div[data-bc-question]{width: 100% !important;}
+#Counselingform [data-bc-answer-container] input[type="text"] {
+    width: 100% !important;
+    height: 55px !important;
+    border-radius: 12px;
+    padding: 0 16px;
+    outline: none !important;
+}
+#Counselingform [data-bc-answer-container] {
+
+    width: 100% !important;
+}
+/* #Counselingform fieldset > [data-bc-schema-column] {
+    box-sizing: border-box;
+    display: flex;
+    column-gap: 6px !important;
+    justify-content: space-between;
+} */
+#Counselingform  [data-bc-schema-direction="rtl"] [data-bc-part-container], #Counselingform  [data-bc-schema-direction="rtl"] [data-bc-btn-container] {
+    float: unset !important;
+}
+
+#Counselingform  [data-bc-part-container], #Counselingform  [data-bc-btn-container] {
+  width: 100% !important;
+}
+
+#Counselingform [data-bc-section] {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+#Counselingform [data-bc-schema-info-part="1"] [data-bc-part-related-cell]{width:100%!important;}
+#Counselingform [data-bc-question]{max-height:80px!important;}
+/* forms edit */

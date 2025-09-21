@@ -1,1728 +1,373 @@
+<basis core="dbsource" source="media" lid="1" name="db" usedforid="2382569" sourcemid="article">
+    <member type="list" name="airlines" format="4" order="ord" perpage="20"></member>
+</basis>
+
+<basis core="dbsource" source="basiscore" mid="20" name="tour" lid="1">
+    <member name="destinationcategory" type="tree" request="cat" parentid="217476"
+        postsql="select * from [tour.destinationcategory] where parentid in (217476)"></member>
+    <member name="specialtour" type="tree" request="cat" parentid="217512"
+        postsql="select * from [tour.specialtour] where parentid in (217512)"></member>
+    <member name="offeredtour" type="tree" request="cat" parentid="217513"
+        postsql="select * from [tour.offeredtour] where parentid in (217513)"></member>
+</basis>
+
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="articles" catid="217523">
+    <member name="latest" type="list" link="article.bc" propertyid="7244,7249" size="380X180" typeid="159" perpage="4"
+        order="ord">
+    </member>
+</basis>
+
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="info" catid="217519">
+    <member name="faq" type="list" link="article.bc" typeid="159" perpage="10" order="ord">
+    </member>
+</basis>
+
+<basis core="dbsource" source="basiscore" name="about" mid="1" lid="1" usedforid="2376925">
+    <member name="text" type="view" />
+</basis>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="fa">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <!-- <link rel="stylesheet" href="./css/samanparvaz.ui.min.css"> -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover" />
+    <title>
+        سامان پرواز | مجری تخصصی تور های خارجی ، رزرو بلیط ،هتل،خدمات ویزا ،بهترین قیمت
+        | اقساطی
+    </title>
+    <meta name="description" content="آژانس مسافرتی سامان پرواز، همراه مطمئن شما در سفر خدمات اخذ ویزا، رزرو تورهای داخلی و خارجی و برنامه ریزی سفرهای خاص.
+تجربه ای متفاوت از سفر را با ما تجربه کنید. برای اطلاعات بیشتر و مشاوره رایگان، به وبسایت ما مراجعه کنید." />
+    <link rel="canonical" href="[##cms.request.:scheme|(http)##]://[##cms.request.full-url##]" />
+    <meta name="og:locale" content="fa_IR" />
+    <meta property="og:title"
+        content="سامان پرواز | مجری تخصصی تور های خارجی ، رزرو بلیط ،هتل،خدمات ویزا ،بهترین قیمت | اقساطی" />
+    <meta property="og:url" content="https://cdn.basiscore.net/samanticket.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="سامان پرواز" />
+    <meta property="og:image:alt" content=" SamanTicket" />
+    <meta property="og:image" content="[##cms.cms.cdn##]/images/custom_image_1200x630.jpg" />
+    <meta property="og:description" content="آژانس مسافرتی سامان پرواز، همراه مطمئن شما در سفر خدمات اخذ ویزا، رزرو تورهای داخلی و خارجی و برنامه ریزی سفرهای خاص.
+تجربه ای متفاوت از سفر را با ما تجربه کنید. برای اطلاعات بیشتر و مشاوره رایگان، به وبسایت ما مراجعه کنید." />
+    <meta property="og:image:height" content="1200" />
+    <meta property="og:image:width" content="630" />
+    <meta property="og:image:type" content=" image/png" />
+    <meta name="twitter:card" content=" " />
+    <meta name="twitter:site" content=" " />
+    <meta name="twitter:creator" content=" " />
+    <meta name="twitter:image" content="[##cms.cms.cdn##]/images/custom_image_1200x630.jpg" />
+    <meta name="twitter:title"
+        content="سامان پرواز | مجری تخصصی تور های خارجی ، رزرو بلیط ،هتل،خدمات ویزا ،بهترین قیمت | اقساطی" />
+    <meta name="twitter:description" content="آژانس مسافرتی سامان پرواز، همراه مطمئن شما در سفر خدمات اخذ ویزا، رزرو تورهای داخلی و خارجی و برنامه ریزی سفرهای خاص.
+تجربه ای متفاوت از سفر را با ما تجربه کنید. برای اطلاعات بیشتر و مشاوره رایگان، به وبسایت ما مراجعه کنید." />
+    <meta property="seo:robots" content="index, follow" />
 
+
+
+
+    <basis core="call" file="pwa.inc" pageindex="[##cms.cms.pageindex##]" />
+    <basis core="call" file="style.inc" pageindex="[##cms.cms.pageindex##]" />
     <link rel="stylesheet" href="[##cms.cms.cdn##]/_css/swiper-bundle.min.css" />
-    <basis core="call" file="style.inc" />
 
 </head>
 
 <body class="font-danaregular transparent-header">
 
 
-    <basis core="call" file="header.inc" />
+    <basis core="call" file="header.inc" pageindex="[##cms.cms.pageindex##]" />
 
 
 
     <main class="-mt-20 dir-rtl">
 
-
+        <!-- search engine -->
         <div class="w-full">
-            <!-- یک سلول گرید، هر دو آیتم روی همان سلول قرار می‌گیرند -->
             <div class="grid">
-
-                <!-- تصویر زمینه (زیرِ محتوا) -->
-                <figure class="relative [grid-area:1/1] w-full h-full -z-10">
-                    <img src="./images/hero-banner-default.jpg" alt="saman parvaz banner"
-                        class="w-full h-full object-cover" />
-                    <span class="absolute inset-0 bg-gradient-to-t from-[#081230] to-[#020a21]/85"></span>
-                </figure>
-
-                <!-- محتوای روی تصویر (سرچ‌باکس) -->
-                <div class="[grid-area:1/1] text-white  mt-64 mb-10">
-                    <!-- همین ارتفاع، ارتفاع کل سلول گرید را تعیین می‌کند -->
-                    <div class="max-w-7xl search-box-container max-xl:w-[98%] mx-auto h-[500px] bg-red-500">
-                        <div id="search-box" class="dir-rtl">
-                            <span class="loader"></span>
-                        </div>
-
+                <figure class="relative [grid-area:1/1] w-full h-full -z-10"><img src="./images/hero-banner-default.jpg"
+                        alt="saman parvaz banner" class="w-full h-full object-cover" /><span
+                        class="absolute inset-0 bg-gradient-to-t from-[#081230] to-[#020a21]/85"></span></figure>
+                <div class="[grid-area:1/1] text-white mt-64 mb-10">
+                    <div class="max-w-7xl search-box-container max-xl:w-[98%] mx-auto">
+                        <div id="search-box" class="dir-rtl"><span class="loader mx-auto block"></span></div>
                     </div>
                 </div>
             </div>
         </div>
-
-
         <div class="clear-both"></div>
-
-
-        <section class="h-[85px] bg-zinc-200 w-full mt-[14px]">
-            <h2 class="sr-only">ایرلاین ها</h2>
-            <div class="max-w-7xl max-xl:w-[98%] mx-auto">
-                <div class="swiper swiper-airline">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide h-[85px] w-[210px] ">
-                            <img src="./images/hero-banner-default.jpg" width="210" height="85" alt="@title"
-                                class="h-[85px] w-[210px]  object-contain" />
-                        </div>
-                        <div class="swiper-slide h-[85px] w-[210px] ">
-                            <img src="./images/hero-banner-default.jpg" width="210" height="85" alt="@title"
-                                class="h-[85px] w-[210px]  object-contain" />
-                        </div>
-                        <div class="swiper-slide h-[85px] w-[210px] ">
-                            <img src="./images/hero-banner-default.jpg" width="210" height="85" alt="@title"
-                                class="h-[85px] w-[210px]  object-contain" />
-                        </div>
-                        <div class="swiper-slide h-[85px] w-[210px] ">
-                            <img src="./images/hero-banner-default.jpg" width="210" height="85" alt="@title"
-                                class="h-[85px] w-[210px]  object-contain" />
-                        </div>
-                        <div class="swiper-slide h-[85px] w-[210px] ">
-                            <img src="./images/hero-banner-default.jpg" width="210" height="85" alt="@title"
-                                class="h-[85px] w-[210px]  object-contain" />
-                        </div>
-                        <div class="swiper-slide h-[85px] w-[210px] ">
-                            <img src="./images/hero-banner-default.jpg" width="210" height="85" alt="@title"
-                                class="h-[85px] w-[210px]  object-contain" />
-                        </div>
-                        <div class="swiper-slide h-[85px] w-[210px] ">
-                            <img src="./images/hero-banner-default.jpg" width="210" height="85" alt="@title"
-                                class="h-[85px] w-[210px]  object-contain" />
+        <!-- airlines -->
+        <basis core="list" datamembername="db.airlines">
+            <layout>
+                <section class="h-[85px] bg-zinc-200 w-full mt-[14px]">
+                    <h2 class="sr-only">ایرلاین ها</h2>
+                    <div class="max-w-7xl max-xl:w-[98%] mx-auto">
+                        <div class="swiper swiper-airline">
+                            <div class="swiper-wrapper">
+                                @child
+                            </div>
                         </div>
                     </div>
+                </section>
+            </layout>
+            <face>
+                <div class="swiper-slide h-[85px] w-[210px] ">
+                    <img src="[##cms.cms.cdn##]/@largeIMG" width="210" height="85" alt="@name"
+                        class="h-[85px] w-[210px]  object-contain" />
                 </div>
-            </div>
-        </section>
-
+            </face>
+        </basis>
         <div class="clear-both"></div>
-
+        <!-- slogan -->
         <section class="bg-[#F8F8F8] h-[245px]">
             <div class="max-w-7xl max-xl:w-[98%] mx-auto">
-                <h2 class="sr-only">مزایای خرید و همکاری با سامان تیکت</h2>
-
-
                 <div class="flex justify-between flex-wrap gap-5 py-6">
-
                     <div
                         class="flex items-center justify-between gap-3 gradient-border from-secondary-1-700 bg-transparent rounded-xl p-4 max-w-[410px] w-[410px] h-[68px]">
-
-                        <svg width="31" height="31">
+                        <svg width="31" height="31" class="min-w-8 min-h-8">
                             <use href="./images/sprite-icons.svg#ticket-icon"></use>
-                        </svg>
-
-                        <span class="w-[1px] bg-secondary-1-200 inline-block h-full"></span>
-                        <div>
+                        </svg><span class="w-[1px] bg-secondary-1-200 inline-block h-full"></span>
+                        <div class="w-full ">
                             <h2 class="text-zinc-900 text-sm leading-5 font-danabold">بهترین قیمت تضمینی</h2>
-                            <h2 class="line-clamp-1 text-zinc-500 text-xs leading-5 font-danaregular">لورم ایپسوم متن
-                                ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با </h2>
+                            <h2 class="line-clamp-1 text-zinc-500 text-xs leading-5 font-danaregular">بهترین قیمت، بدون
+                                حرف اضافه — همین حالا رزرو کن! </h2>
                         </div>
-
-
                     </div>
                     <div
                         class="flex items-center justify-between gap-3 gradient-border from-secondary-1-700 bg-transparent rounded-xl p-4 max-w-[410px] w-[410px] h-[68px]">
-
-                        <svg width="31" height="31">
+                        <svg width="31" height="31" class="min-w-8 min-h-8">
                             <use href="./images/sprite-icons.svg#ticket-icon"></use>
-                        </svg>
-
-                        <span class="w-[1px] bg-secondary-1-200 inline-block h-full"></span>
-                        <div>
-                            <h2 class="text-zinc-900 text-sm leading-5 font-danabold">نماینده رسمی Air Som</h2>
-                            <h2 class="line-clamp-1 text-zinc-500 text-xs leading-5 font-danaregular">لورم ایپسوم متن
-                                ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با </h2>
-                        </div>
-
-
-                    </div>
-                    <div
-                        class="flex items-center justify-between gap-3 gradient-border from-secondary-1-700 bg-transparent rounded-xl p-4 max-w-[410px] w-[410px] h-[68px]">
-
-                        <svg width="31" height="31">
-                            <use href="./images/sprite-icons.svg#ticket-icon"></use>
-                        </svg>
-
-                        <span class="w-[1px] bg-secondary-1-200 inline-block h-full"></span>
-                        <div>
+                        </svg><span class="w-[1px] bg-secondary-1-200 inline-block h-full"></span>
+                        <div class="w-full ">
                             <h2 class="text-zinc-900 text-sm leading-5 font-danabold">پشتیبانی ۲۴ ساعته</h2>
-                            <h2 class="line-clamp-1 text-zinc-500 text-xs leading-5 font-danaregular">لورم ایپسوم متن
-                                ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با </h2>
+                            <h2 class="line-clamp-1 text-zinc-500 text-xs leading-5 font-danaregular">پشتیبانی ۲۴ ساعته،
+                                همیشه در کنار شما — هر زمان، هر جا، بی‌وقفه </h2>
                         </div>
-
-
                     </div>
                     <div
                         class="flex items-center justify-between gap-3 gradient-border from-secondary-1-700 bg-transparent rounded-xl p-4 max-w-[410px] w-[410px] h-[68px]">
-
-                        <svg width="31" height="31">
+                        <svg width="31" height="31" class="min-w-8 min-h-8">
                             <use href="./images/sprite-icons.svg#ticket-icon"></use>
-                        </svg>
-
-                        <span class="w-[1px] bg-secondary-1-200 inline-block h-full"></span>
-                        <div>
-                            <h2 class="text-zinc-900 text-sm leading-5 font-danabold">همیشه و ساعت کنارتیم</h2>
-                            <h2 class="line-clamp-1 text-zinc-500 text-xs leading-5 font-danaregular">لورم ایپسوم متن
-                                ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با </h2>
-                        </div>
-
-
-                    </div>
-                    <div
-                        class="flex items-center justify-between gap-3 gradient-border from-secondary-1-700 bg-transparent rounded-xl p-4 max-w-[410px] w-[410px] h-[68px]">
-
-                        <svg width="31" height="31">
-                            <use href="./images/sprite-icons.svg#ticket-icon"></use>
-                        </svg>
-
-                        <span class="w-[1px] bg-secondary-1-200 inline-block h-full"></span>
-                        <div>
+                        </svg><span class="w-[1px] bg-secondary-1-200 inline-block h-full"></span>
+                        <div class="w-full ">
                             <h2 class="text-zinc-900 text-sm leading-5 font-danabold">پرداخت امن و آسان</h2>
-                            <h2 class="line-clamp-1 text-zinc-500 text-xs leading-5 font-danaregular">لورم ایپسوم متن
-                                ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با </h2>
+                            <h2 class="line-clamp-1 text-zinc-500 text-xs leading-5 font-danaregular">پرداخت امن و آسان،
+                                با خیال راحت تا مقصد بعدی‌ات </h2>
                         </div>
-
-
                     </div>
                     <div
                         class="flex items-center justify-between gap-3 gradient-border from-secondary-1-700 bg-transparent rounded-xl p-4 max-w-[410px] w-[410px] h-[68px]">
-
-                        <svg width="31" height="31">
+                        <svg width="31" height="31" class="min-w-8 min-h-8">
                             <use href="./images/sprite-icons.svg#ticket-icon"></use>
-                        </svg>
-
-                        <span class="w-[1px] bg-secondary-1-200 inline-block h-full"></span>
-                        <div>
-                            <h2 class="text-zinc-900 text-sm leading-5 font-danabold">رزرو آسان و سریع</h2>
-                            <h2 class="line-clamp-1 text-zinc-500 text-xs leading-5 font-danaregular">لورم ایپسوم متن
-                                ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با </h2>
+                        </svg><span class="w-[1px] bg-secondary-1-200 inline-block h-full"></span>
+                        <div class="w-full ">
+                            <h2 class="text-zinc-900 text-sm leading-5 font-danabold">نماینده رسمی Air Som</h2>
+                            <h2 class="line-clamp-1 text-zinc-500 text-xs leading-5 font-danaregular">سامان پرواز
+                                ایرانیان می‌تواند با افتخار عنوان کند: نماینده رسمی ایرلاین Somon Air در ایران </h2>
                         </div>
-
-
                     </div>
-
+                    <div
+                        class="flex items-center justify-between gap-3 gradient-border from-secondary-1-700 bg-transparent rounded-xl p-4 max-w-[410px] w-[410px] h-[68px]">
+                        <svg width="31" height="31" class="min-w-8 min-h-8">
+                            <use href="./images/sprite-icons.svg#ticket-icon"></use>
+                        </svg><span class="w-[1px] bg-secondary-1-200 inline-block h-full"></span>
+                        <div class="w-full ">
+                            <h2 class="text-zinc-900 text-sm leading-5 font-danabold">همیشه و ساعت کنارتیم</h2>
+                            <h2 class="line-clamp-1 text-zinc-500 text-xs leading-5 font-danaregular">۲۴/۷ کنارتم — هر
+                                لحظه، هر مسیر، با سامان پرواز </h2>
+                        </div>
+                    </div>
+                    <div
+                        class="flex items-center justify-between gap-3 gradient-border from-secondary-1-700 bg-transparent rounded-xl p-4 max-w-[410px] w-[410px] h-[68px]">
+                        <svg width="31" height="31" class="min-w-8 min-h-8">
+                            <use href="./images/sprite-icons.svg#ticket-icon"></use>
+                        </svg><span class="w-[1px] bg-secondary-1-200 inline-block h-full"></span>
+                        <div class="w-full ">
+                            <h2 class="text-zinc-900 text-sm leading-5 font-danabold">رزرو آسان و سریع</h2>
+                            <h2 class="line-clamp-1 text-zinc-500 text-xs leading-5 font-danaregular">رزرو آسان و سریع —
+                                چند کلیک تا سفر بعدی‌ات </h2>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-
         <div class="clear-both"></div>
-
+        <!-- destination -->
         <section>
-            <div class="max-w-7xl max-xl:w-[98%] mx-auto my-5">
+            <div class="max-w-7xl max-xl:w-[98%] mx-auto my-5 load-content-box-container">
                 <h2 class="text-zinc-900 text-2xl leading-8 font-danabold">مقاصد گردشگری</h2>
 
-                <div class="w-full">
-                    <ul class="flex gap-3 my-4">
-                        <li
-                            class="cursor-pointer h-12 rounded-xl border border-secondary-2-400 bg-secondary-2-400 leading-[48px] text-center text-black px-3 text-base font-danaregular active">
-                            آسیا
-                        </li>
-                        <li
-                            class="cursor-pointer h-12 rounded-xl border border-zinc-300 bg-zinc-100 hover:bg-zinc-200 leading-[48px] text-center px-3 text-zinc-600 text-base font-danaregular">
-                            آفریقا
-                        </li>
-                        <li
-                            class="cursor-pointer h-12 rounded-xl border border-zinc-300 bg-zinc-100 hover:bg-zinc-200 leading-[48px] text-center px-3 text-zinc-600 text-base font-danaregular">
-                            آمریکا
-                        </li>
-                        <li
-                            class="cursor-pointer h-12 rounded-xl border border-zinc-300 bg-zinc-100 hover:bg-zinc-200 leading-[48px] text-center px-3 text-zinc-600 text-base font-danaregular">
-                            اروپا
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="w-full flex items-center justify-between">
-                    <!-- <span class="loader"></span> -->
-
-                    <article class="w-[176px] h-[171px] rounded-xl overflow-hidden relative group">
-                        <a href="#">
-                            <figure>
-                                <img class="object-cover w-[176px] h-[171px]"
-                                    src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                    alt="@title" width="176" height="171">
-                                <figcaption class="text-white text-base font-danabold leading-[24px] absolute top-0 left-0 bottom-0 right-0
-                                bg-gradient-to-t from-[#040c24]/80 group-hover:from-[#040c24]/100 to-transparent transition-all duration-100 ease-in-out
-                                ">
-                                    <div
-                                        class="absolute top-3 left-3 text-xs font-danaregular bg-white text-zinc-900 py-1 px-2 rounded-[20px] ">
-                                        2 تور
-                                    </div>
-                                    <div class="absolute bottom-0 left-0 right-0 mx-auto w-[148px] pb-3">
-                                        <h2 class="line-clamp-1">استانبول</h2>
-                                        <svg width="148" height="11">
-                                            <use href="./images/sprite-icons.svg#arrow-left-icon"></use>
-                                        </svg>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </article>
-                    <article class="w-[176px] h-[171px] rounded-xl overflow-hidden relative group">
-                        <a href="#">
-                            <figure>
-                                <img class="object-cover w-[176px] h-[171px]"
-                                    src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                    alt="@title" width="176" height="171">
-                                <figcaption class="text-white text-base font-danabold leading-[24px] absolute top-0 left-0 bottom-0 right-0
-                                bg-gradient-to-t from-[#040c24]/80 group-hover:from-[#040c24]/100 to-transparent transition-all duration-100 ease-in-out
-                                ">
-                                    <div
-                                        class="absolute top-3 left-3 text-xs font-danaregular bg-white text-zinc-900 py-1 px-2 rounded-[20px] ">
-                                        2 تور
-                                    </div>
-                                    <div class="absolute bottom-0 left-0 right-0 mx-auto w-[148px] pb-3">
-                                        <h2 class="line-clamp-1">استانبول</h2>
-                                        <svg width="148" height="11">
-                                            <use href="./images/sprite-icons.svg#arrow-left-icon"></use>
-                                        </svg>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </article>
-                    <article class="w-[176px] h-[171px] rounded-xl overflow-hidden relative group">
-                        <a href="#">
-                            <figure>
-                                <img class="object-cover w-[176px] h-[171px]"
-                                    src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                    alt="@title" width="176" height="171">
-                                <figcaption class="text-white text-base font-danabold leading-[24px] absolute top-0 left-0 bottom-0 right-0
-                                bg-gradient-to-t from-[#040c24]/80 group-hover:from-[#040c24]/100 to-transparent transition-all duration-100 ease-in-out
-                                ">
-                                    <div
-                                        class="absolute top-3 left-3 text-xs font-danaregular bg-white text-zinc-900 py-1 px-2 rounded-[20px] ">
-                                        2 تور
-                                    </div>
-                                    <div class="absolute bottom-0 left-0 right-0 mx-auto w-[148px] pb-3">
-                                        <h2 class="line-clamp-1">استانبول</h2>
-                                        <svg width="148" height="11">
-                                            <use href="./images/sprite-icons.svg#arrow-left-icon"></use>
-                                        </svg>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </article>
-                    <article class="w-[176px] h-[171px] rounded-xl overflow-hidden relative group">
-                        <a href="#">
-                            <figure>
-                                <img class="object-cover w-[176px] h-[171px]"
-                                    src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                    alt="@title" width="176" height="171">
-                                <figcaption class="text-white text-base font-danabold leading-[24px] absolute top-0 left-0 bottom-0 right-0
-                                bg-gradient-to-t from-[#040c24]/80 group-hover:from-[#040c24]/100 to-transparent transition-all duration-100 ease-in-out
-                                ">
-                                    <div
-                                        class="absolute top-3 left-3 text-xs font-danaregular bg-white text-zinc-900 py-1 px-2 rounded-[20px] ">
-                                        2 تور
-                                    </div>
-                                    <div class="absolute bottom-0 left-0 right-0 mx-auto w-[148px] pb-3">
-                                        <h2 class="line-clamp-1">استانبول</h2>
-                                        <svg width="148" height="11">
-                                            <use href="./images/sprite-icons.svg#arrow-left-icon"></use>
-                                        </svg>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </article>
-                    <article class="w-[176px] h-[171px] rounded-xl overflow-hidden relative group">
-                        <a href="#">
-                            <figure>
-                                <img class="object-cover w-[176px] h-[171px]"
-                                    src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                    alt="@title" width="176" height="171">
-                                <figcaption class="text-white text-base font-danabold leading-[24px] absolute top-0 left-0 bottom-0 right-0
-                                bg-gradient-to-t from-[#040c24]/80 group-hover:from-[#040c24]/100 to-transparent transition-all duration-100 ease-in-out
-                                ">
-                                    <div
-                                        class="absolute top-3 left-3 text-xs font-danaregular bg-white text-zinc-900 py-1 px-2 rounded-[20px] ">
-                                        2 تور
-                                    </div>
-                                    <div class="absolute bottom-0 left-0 right-0 mx-auto w-[148px] pb-3">
-                                        <h2 class="line-clamp-1">استانبول</h2>
-                                        <svg width="148" height="11">
-                                            <use href="./images/sprite-icons.svg#arrow-left-icon"></use>
-                                        </svg>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </article>
-                    <article class="w-[176px] h-[171px] rounded-xl overflow-hidden relative group">
-                        <a href="#">
-                            <figure>
-                                <img class="object-cover w-[176px] h-[171px]"
-                                    src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                    alt="@title" width="176" height="171">
-                                <figcaption class="text-white text-base font-danabold leading-[24px] absolute top-0 left-0 bottom-0 right-0
-                                bg-gradient-to-t from-[#040c24]/80 group-hover:from-[#040c24]/100 to-transparent transition-all duration-100 ease-in-out
-                                ">
-                                    <div
-                                        class="absolute top-3 left-3 text-xs font-danaregular bg-white text-zinc-900 py-1 px-2 rounded-[20px] ">
-                                        2 تور
-                                    </div>
-                                    <div class="absolute bottom-0 left-0 right-0 mx-auto w-[148px] pb-3">
-                                        <h2 class="line-clamp-1">استانبول</h2>
-                                        <svg width="148" height="11">
-                                            <use href="./images/sprite-icons.svg#arrow-left-icon"></use>
-                                        </svg>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </article>
-                    <article class="w-[176px] h-[171px] rounded-xl overflow-hidden relative group">
-                        <a href="#">
-                            <figure>
-                                <img class="object-cover w-[176px] h-[171px]"
-                                    src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                    alt="@title" width="176" height="171">
-                                <figcaption class="text-white text-base font-danabold leading-[24px] absolute top-0 left-0 bottom-0 right-0
-                                bg-gradient-to-t from-[#040c24]/80 group-hover:from-[#040c24]/100 to-transparent transition-all duration-100 ease-in-out
-                                ">
-                                    <div
-                                        class="absolute top-3 left-3 text-xs font-danaregular bg-white text-zinc-900 py-1 px-2 rounded-[20px] ">
-                                        2 تور
-                                    </div>
-                                    <div class="absolute bottom-0 left-0 right-0 mx-auto w-[148px] pb-3">
-                                        <h2 class="line-clamp-1">استانبول</h2>
-                                        <svg width="148" height="11">
-                                            <use href="./images/sprite-icons.svg#arrow-left-icon"></use>
-                                        </svg>
-                                    </div>
-                                </figcaption>
-                            </figure>
-                        </a>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-
-        <section class="bg-[#F8F8F8] min-h-[600px] -mt-[100px] pt-[120px]">
-            <div class="max-w-7xl max-xl:w-[98%] mx-auto my-5">
-
-                <div class="w-full flex items-center gap-x-4">
-                    <h2 class="text-zinc-900 text-2xl leading-8 font-danabold">تور های ویژه</h2>
-
-                    <ul class="flex gap-3">
-                        <li
-                            class="cursor-pointer h-12 rounded-xl border border-secondary-2-400 bg-secondary-2-400 leading-[48px] text-center text-black px-3 text-base font-danaregular active">
-                            آسیا
-                        </li>
-                        <li
-                            class="cursor-pointer h-12 rounded-xl border border-zinc-300 bg-zinc-100 hover:bg-zinc-200 leading-[48px] text-center px-3 text-zinc-600 text-base font-danaregular">
-                            آفریقا
-                        </li>
-                        <li
-                            class="cursor-pointer h-12 rounded-xl border border-zinc-300 bg-zinc-100 hover:bg-zinc-200 leading-[48px] text-center px-3 text-zinc-600 text-base font-danaregular">
-                            آمریکا
-                        </li>
-                        <li
-                            class="cursor-pointer h-12 rounded-xl border border-zinc-300 bg-zinc-100 hover:bg-zinc-200 leading-[48px] text-center px-3 text-zinc-600 text-base font-danaregular">
-                            اروپا
-                        </li>
-                    </ul>
-
-                    <div class="h-0 flex-grow border border-dashed border-[#a1a1aa] mx-4"></div>
-
-                    <a href="#" class="text-sm text-zinc-900 font-danaregular hover:text-secondary-1-700">مشاهده
-                        بیشتر</a>
-                </div>
-
-
-                <div class=" my-4">
-                    <!-- <span class="loader"></span> -->
-
-
-
-
-
-
-                    <div class="swiper destination-swiper">
-                        <div class="swiper-wrapper mb-12">
-                            <div class="swiper-slide w-[311px]">
-                                <article
-                                    class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-
-                                    <figure class="w-[311px] h-[151px] relative">
-                                        <img class="w-[311px] h-[151px] object-cover"
-                                            src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                            width="311" height="151" alt="@title">
-
-                                        <figcaption class="absolute top-2 left-3">
-                                            <span class="sr-only">@title</span>
-                                            <img src="./images/airline.png" width="60" height="24" alt="@title">
-                                        </figcaption>
-                                    </figure>
-                                    <div class="px-3">
-                                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                            تور 10 روزه
-                                            استانبول</h2>
-                                        <div class="flex justify-between">
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#date-icon"></use>
-                                                </svg>
-                                                <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-
-                                            </div>
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#time-icon"></use>
-                                                </svg>
-
-                                                <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mt-2 flex justify-between items-center">
-                                            <div>
-                                                <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                                    ریال + 1200
-                                                    دلار</h2>
-                                            </div>
-                                            <svg width="48" height="48"
-                                                class="transition-all duration-200 ease-in-out group-hover:-translate-x-5">
-                                                <use href="./images/sprite-icons.svg#go-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="swiper-slide w-[311px]">
-                                <article
-                                    class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-
-                                    <figure class="w-[311px] h-[151px] relative">
-                                        <img class="w-[311px] h-[151px] object-cover"
-                                            src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                            width="311" height="151" alt="@title">
-
-                                        <figcaption class="absolute top-2 left-3">
-                                            <span class="sr-only">@title</span>
-                                            <img src="./images/airline.png" width="60" height="24" alt="@title">
-                                        </figcaption>
-                                    </figure>
-                                    <div class="px-3">
-                                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                            تور 10 روزه
-                                            استانبول</h2>
-                                        <div class="flex justify-between">
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#date-icon"></use>
-                                                </svg>
-                                                <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-
-                                            </div>
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#time-icon"></use>
-                                                </svg>
-
-                                                <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mt-2 flex justify-between items-center">
-                                            <div>
-                                                <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                                    ریال + 1200
-                                                    دلار</h2>
-                                            </div>
-                                            <svg width="48" height="48"
-                                                class="group-hover:stroke-secondary-1-700 group-hover:fill-secondary-1-700">
-                                                <use href="./images/sprite-icons.svg#go-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="swiper-slide w-[311px]">
-                                <article
-                                    class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-
-                                    <figure class="w-[311px] h-[151px] relative">
-                                        <img class="w-[311px] h-[151px] object-cover"
-                                            src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                            width="311" height="151" alt="@title">
-
-                                        <figcaption class="absolute top-2 left-3">
-                                            <span class="sr-only">@title</span>
-                                            <img src="./images/airline.png" width="60" height="24" alt="@title">
-                                        </figcaption>
-                                    </figure>
-                                    <div class="px-3">
-                                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                            تور 10 روزه
-                                            استانبول</h2>
-                                        <div class="flex justify-between">
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#date-icon"></use>
-                                                </svg>
-                                                <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-
-                                            </div>
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#time-icon"></use>
-                                                </svg>
-
-                                                <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mt-2 flex justify-between items-center">
-                                            <div>
-                                                <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                                    ریال + 1200
-                                                    دلار</h2>
-                                            </div>
-                                            <svg width="48" height="48"
-                                                class="group-hover:stroke-secondary-1-700 group-hover:fill-secondary-1-700">
-                                                <use href="./images/sprite-icons.svg#go-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="swiper-slide w-[311px]">
-                                <article
-                                    class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-
-                                    <figure class="w-[311px] h-[151px] relative">
-                                        <img class="w-[311px] h-[151px] object-cover"
-                                            src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                            width="311" height="151" alt="@title">
-
-                                        <figcaption class="absolute top-2 left-3">
-                                            <span class="sr-only">@title</span>
-                                            <img src="./images/airline.png" width="60" height="24" alt="@title">
-                                        </figcaption>
-                                    </figure>
-                                    <div class="px-3">
-                                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                            تور 10 روزه
-                                            استانبول</h2>
-                                        <div class="flex justify-between">
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#date-icon"></use>
-                                                </svg>
-                                                <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-
-                                            </div>
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#time-icon"></use>
-                                                </svg>
-
-                                                <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mt-2 flex justify-between items-center">
-                                            <div>
-                                                <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                                    ریال + 1200
-                                                    دلار</h2>
-                                            </div>
-                                            <svg width="48" height="48"
-                                                class="group-hover:stroke-secondary-1-700 group-hover:fill-secondary-1-700">
-                                                <use href="./images/sprite-icons.svg#go-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="swiper-slide w-[311px]">
-                                <article
-                                    class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-
-                                    <figure class="w-[311px] h-[151px] relative">
-                                        <img class="w-[311px] h-[151px] object-cover"
-                                            src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                            width="311" height="151" alt="@title">
-
-                                        <figcaption class="absolute top-2 left-3">
-                                            <span class="sr-only">@title</span>
-                                            <img src="./images/airline.png" width="60" height="24" alt="@title">
-                                        </figcaption>
-                                    </figure>
-                                    <div class="px-3">
-                                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                            تور 10 روزه
-                                            استانبول</h2>
-                                        <div class="flex justify-between">
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#date-icon"></use>
-                                                </svg>
-                                                <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-
-                                            </div>
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#time-icon"></use>
-                                                </svg>
-
-                                                <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mt-2 flex justify-between items-center">
-                                            <div>
-                                                <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                                    ریال + 1200
-                                                    دلار</h2>
-                                            </div>
-                                            <svg width="48" height="48"
-                                                class="group-hover:stroke-secondary-1-700 group-hover:fill-secondary-1-700">
-                                                <use href="./images/sprite-icons.svg#go-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="swiper-slide w-[311px]">
-                                <article
-                                    class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-
-                                    <figure class="w-[311px] h-[151px] relative">
-                                        <img class="w-[311px] h-[151px] object-cover"
-                                            src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                            width="311" height="151" alt="@title">
-
-                                        <figcaption class="absolute top-2 left-3">
-                                            <span class="sr-only">@title</span>
-                                            <img src="./images/airline.png" width="60" height="24" alt="@title">
-                                        </figcaption>
-                                    </figure>
-                                    <div class="px-3">
-                                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                            تور 10 روزه
-                                            استانبول</h2>
-                                        <div class="flex justify-between">
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#date-icon"></use>
-                                                </svg>
-                                                <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-
-                                            </div>
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#time-icon"></use>
-                                                </svg>
-
-                                                <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mt-2 flex justify-between items-center">
-                                            <div>
-                                                <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                                    ریال + 1200
-                                                    دلار</h2>
-                                            </div>
-                                            <svg width="48" height="48"
-                                                class="group-hover:stroke-secondary-1-700 group-hover:fill-secondary-1-700">
-                                                <use href="./images/sprite-icons.svg#go-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="swiper-slide w-[311px]">
-                                <article
-                                    class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-
-                                    <figure class="w-[311px] h-[151px] relative">
-                                        <img class="w-[311px] h-[151px] object-cover"
-                                            src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                            width="311" height="151" alt="@title">
-
-                                        <figcaption class="absolute top-2 left-3">
-                                            <span class="sr-only">@title</span>
-                                            <img src="./images/airline.png" width="60" height="24" alt="@title">
-                                        </figcaption>
-                                    </figure>
-                                    <div class="px-3">
-                                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                            تور 10 روزه
-                                            استانبول</h2>
-                                        <div class="flex justify-between">
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#date-icon"></use>
-                                                </svg>
-                                                <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-
-                                            </div>
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#time-icon"></use>
-                                                </svg>
-
-                                                <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mt-2 flex justify-between items-center">
-                                            <div>
-                                                <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                                    ریال + 1200
-                                                    دلار</h2>
-                                            </div>
-                                            <svg width="48" height="48"
-                                                class="group-hover:stroke-secondary-1-700 group-hover:fill-secondary-1-700">
-                                                <use href="./images/sprite-icons.svg#go-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="swiper-slide w-[311px]">
-                                <article
-                                    class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-
-                                    <figure class="w-[311px] h-[151px] relative">
-                                        <img class="w-[311px] h-[151px] object-cover"
-                                            src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                            width="311" height="151" alt="@title">
-
-                                        <figcaption class="absolute top-2 left-3">
-                                            <span class="sr-only">@title</span>
-                                            <img src="./images/airline.png" width="60" height="24" alt="@title">
-                                        </figcaption>
-                                    </figure>
-                                    <div class="px-3">
-                                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                            تور 10 روزه
-                                            استانبول</h2>
-                                        <div class="flex justify-between">
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#date-icon"></use>
-                                                </svg>
-                                                <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-
-                                            </div>
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#time-icon"></use>
-                                                </svg>
-
-                                                <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mt-2 flex justify-between items-center">
-                                            <div>
-                                                <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                                    ریال + 1200
-                                                    دلار</h2>
-                                            </div>
-                                            <svg width="48" height="48"
-                                                class="group-hover:stroke-secondary-1-700 group-hover:fill-secondary-1-700">
-                                                <use href="./images/sprite-icons.svg#go-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="swiper-slide w-[311px]">
-                                <article
-                                    class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-
-                                    <figure class="w-[311px] h-[151px] relative">
-                                        <img class="w-[311px] h-[151px] object-cover"
-                                            src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                            width="311" height="151" alt="@title">
-
-                                        <figcaption class="absolute top-2 left-3">
-                                            <span class="sr-only">@title</span>
-                                            <img src="./images/airline.png" width="60" height="24" alt="@title">
-                                        </figcaption>
-                                    </figure>
-                                    <div class="px-3">
-                                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                            تور 10 روزه
-                                            استانبول</h2>
-                                        <div class="flex justify-between">
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#date-icon"></use>
-                                                </svg>
-                                                <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-
-                                            </div>
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#time-icon"></use>
-                                                </svg>
-
-                                                <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mt-2 flex justify-between items-center">
-                                            <div>
-                                                <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                                    ریال + 1200
-                                                    دلار</h2>
-                                            </div>
-                                            <svg width="48" height="48"
-                                                class="group-hover:stroke-secondary-1-700 group-hover:fill-secondary-1-700">
-                                                <use href="./images/sprite-icons.svg#go-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="swiper-slide w-[311px]">
-                                <article
-                                    class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-
-                                    <figure class="w-[311px] h-[151px] relative">
-                                        <img class="w-[311px] h-[151px] object-cover"
-                                            src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                            width="311" height="151" alt="@title">
-
-                                        <figcaption class="absolute top-2 left-3">
-                                            <span class="sr-only">@title</span>
-                                            <img src="./images/airline.png" width="60" height="24" alt="@title">
-                                        </figcaption>
-                                    </figure>
-                                    <div class="px-3">
-                                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                            تور 10 روزه
-                                            استانبول</h2>
-                                        <div class="flex justify-between">
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#date-icon"></use>
-                                                </svg>
-                                                <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-
-                                            </div>
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#time-icon"></use>
-                                                </svg>
-
-                                                <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mt-2 flex justify-between items-center">
-                                            <div>
-                                                <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                                    ریال + 1200
-                                                    دلار</h2>
-                                            </div>
-                                            <svg width="48" height="48"
-                                                class="group-hover:stroke-secondary-1-700 group-hover:fill-secondary-1-700">
-                                                <use href="./images/sprite-icons.svg#go-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="swiper-slide w-[311px]">
-                                <article
-                                    class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-
-                                    <figure class="w-[311px] h-[151px] relative">
-                                        <img class="w-[311px] h-[151px] object-cover"
-                                            src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                            width="311" height="151" alt="@title">
-
-                                        <figcaption class="absolute top-2 left-3">
-                                            <span class="sr-only">@title</span>
-                                            <img src="./images/airline.png" width="60" height="24" alt="@title">
-                                        </figcaption>
-                                    </figure>
-                                    <div class="px-3">
-                                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                            تور 10 روزه
-                                            استانبول</h2>
-                                        <div class="flex justify-between">
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#date-icon"></use>
-                                                </svg>
-                                                <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-
-                                            </div>
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#time-icon"></use>
-                                                </svg>
-
-                                                <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mt-2 flex justify-between items-center">
-                                            <div>
-                                                <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                                    ریال + 1200
-                                                    دلار</h2>
-                                            </div>
-                                            <svg width="48" height="48"
-                                                class="group-hover:stroke-secondary-1-700 group-hover:fill-secondary-1-700">
-                                                <use href="./images/sprite-icons.svg#go-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                </article>
-                            </div>
+                <basis core="list" datamembername="tour.destinationcategory">
+                    <layout>
+                        <div class="w-full ">
+                            <ul class="flex gap-3 my-4">
+                                @child
+                            </ul>
                         </div>
 
-                        <div class="swiper-pagination "></div>
-                    </div>
+                    </layout>
+                    <face>
+                        <li data-id="@catid" data-type="destination"
+                            class="category-item-load cursor-pointer h-12 rounded-xl border border-zinc-300 bg-zinc-100 hover:bg-zinc-200 leading-[48px] text-center px-3 text-zinc-600 text-base font-danaregular">
+                            @title </li>
+
+                    </face>
+                </basis>
+
+
+                <div class="load-content-box w-full flex items-center justify-between">
+                    <span class="loader block mx-auto"></span>
+
 
 
                 </div>
             </div>
         </section>
-
+        <!-- special tour -->
+        <section class="bg-[#F8F8F8] min-h-[600px] -mt-[100px] pt-[120px]">
+            <div class="max-w-7xl max-xl:w-[98%] mx-auto my-5 load-content-box-container">
+                <basis core="list" datamembername="tour.specialtour">
+                    <layout>
+                        <div class="w-full flex items-center gap-x-4">
+                            <h2 class="text-zinc-900 text-2xl leading-8 font-danabold">تور های ویژه</h2>
+                            <ul class="flex gap-3 my-4">@child </ul>
+                            <div class="h-0 flex-grow border border-dashed border-[#a1a1aa] mx-4"></div><a
+                                href="/Special-tours"
+                                class="text-sm text-zinc-900 font-danaregular hover:text-secondary-1-700">مشاهده
+                                بیشتر</a>
+                        </div>
+                    </layout>
+                    <face>
+                        <li data-id="@catid" data-type="specialtour"
+                            class="category-item-load cursor-pointer h-12 rounded-xl border border-zinc-300 bg-zinc-100 hover:bg-zinc-200 leading-[48px] text-center px-3 text-zinc-600 text-base font-danaregular">
+                            @title </li>
+                    </face>
+                </basis>
+                <div class=" my-4 ">
+                    <div class="swiper specialtour-swiper">
+                        <div class="swiper-wrapper mb-12 load-content-box"><span class="loader block mx-auto"></span>
+                        </div>
+                        <div class="swiper-pagination "></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- support form -->
         <section class="bg-secondary-2-400 w-full min-h-[163px]">
             <div class="max-w-7xl max-xl:w-[98%] mx-auto py-4 flex gap-x-2 justify-between items-center min-h-[163px]">
                 <div class="w-1/2 flex flex-col">
                     <h2 class="text-2xl font-danabold">همیشه و هر ساعت کنارتیم</h2>
-                    <p class="text-sm font-danaregular">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
-                        استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در ستون</p>
+                    <p class="text-sm font-danaregular">فقط اطلاعات رو وارد کن تا در هر لحظه، مثل یه دوست مطمئن کنارت
+                        باشیم؛ آماده برای کمک، راهنمایی و همراهی بی‌وقفه.</p>
                 </div>
-                <div class="w-1/2">
-                    فرم
+                <div class="w-1/2" id="supportform">
+
+                    <div
+                        class="free-form-container form-container ">
+
+                        <basis core="schema" run="atclient"
+                            schemaurl="/schema/domainform/B22881E0-4961-4D04-8553-58C3008E04EF/47012E62-61C2-45D5-B475-3C640B83EC0A/fa/پشتیبانی-24-ساعته"
+                            displaymode="new" button="[data-btn-upload]" resultsourceid="upload.data"
+                            onrendered="RenderForm">
+                        </basis>
+                        <basis core="api" if="{##cms.upload.run|(false)##}" run="atclient"
+                            url="/schema/domainform/B22881E0-4961-4D04-8553-58C3008E04EF/fa/editobject" method="post"
+                            body="object_edit={##cms.upload.value##}&captcha={##cms.upload.captcha##}&captchaid={##cms.upload.captchaid##}"
+                            content-type="application/x-www-form-urlencoded" triggers="cms.upload"
+                            onprocessed="OnProcessedEditObject"></basis>
+                        <div class="free-form-content">
+                            <div class="flex justify-between">
+                                <div id="captchaContainer" class="captchaContainerclass captcha-sefaresh"
+                                    data-bc-answer-container data-bc-schema-info-multi="0" data-bc-schema-info-word="58"
+                                    data-bc-schema-info-part="1" data-bc-schema-info-part-0-type="text">
+                                    <basis core="dbsource" source="trust_login" name="captcha" run="atclient"
+                                        triggers="captcha.refresh">
+                                        <member name="code" type="scalar" request="captcha"></member>
+                                    </basis>
+                                    <basis datamembername="captcha.code" core="print" run="atclient"
+                                        onrendered="captchaRendered">
+                                        <face>
+                                            <script
+                                                type="text/template"><div class="flex justify-start gap-x-2"><div><input type="text" class="contactUsInput codeinputm" placeholder="کد امنیتی" name="captcha" maxlength="4" /><input type="hidden" name="captchaid" value="@captcha@" /></div><div class="flex flex-row-reverse items-center">
+                                                    
+    
+    
+                                                     <svg class="cursor-pointer min-w-12 min-h-12" onclick="refreshCaptcha()" width="48" height="49" viewBox="0 0 48 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M25.7857 18.5L26.5807 20.5021C25.8273 20.0776 24.9442 19.8333 24 19.8333C21.2386 19.8333 19 21.9227 19 24.5C19 24.9149 19.058 25.3171 19.1669 25.7M22.2143 30.5L21.4193 28.4978C22.1727 28.9224 23.0558 29.1667 24 29.1667C26.7614 29.1667 29 27.0773 29 24.5C29 24.0851 28.942 23.6829 28.8331 23.3" stroke="#020121" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="24" cy="24.5" r="10" stroke="#020121" stroke-width="1.5"/>
+    </svg>
+                                                     
+                                                     
+                                                     <img class="inline-block rounded-xl" src="/@captcha@" width="120" height="56" alt="captcha code" /></div></div></script>
+                                        </face>
+    
+                                    </basis>
+                                </div>
+                                <basis core="callback" run="atclient" method="uploadDocument" triggers="upload.data">
+                                </basis>
+                                <div
+                                    class="text-center bg-primary-950 rounded-xl text-white sendform-btn hover:bg-primary-600 mt-1 cursor-pointer h-[50px] w-[138px] leading-[50px]">
+                                    <button class="data-body-btn" type="button" data-btn-upload><span>ارسال</span></button>
+                                </div>
+                                
+                            </div>
+                            <div class="message-api text-center mt-2"></div>
+                            <div class="clear-both"></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
-
-
-        <section class="bg-[#F8F8F8] min-h-[500px] pt-10">
-            <div class="max-w-7xl max-xl:w-[98%] mx-auto ">
-
-                <div class="w-full flex items-center gap-x-4">
-                    <h2 class="text-zinc-900 text-2xl leading-8 font-danabold">تور های ویژه</h2>
-
-                    <ul class="flex gap-3">
-                        <li
-                            class="cursor-pointer h-12 rounded-xl border border-secondary-2-400 bg-secondary-2-400 leading-[48px] text-center text-black px-3 text-base font-danaregular active">
-                            آسیا
-                        </li>
-                        <li
-                            class="cursor-pointer h-12 rounded-xl border border-zinc-300 bg-zinc-100 hover:bg-zinc-200 leading-[48px] text-center px-3 text-zinc-600 text-base font-danaregular">
-                            آفریقا
-                        </li>
-                        <li
-                            class="cursor-pointer h-12 rounded-xl border border-zinc-300 bg-zinc-100 hover:bg-zinc-200 leading-[48px] text-center px-3 text-zinc-600 text-base font-danaregular">
-                            آمریکا
-                        </li>
-                        <li
-                            class="cursor-pointer h-12 rounded-xl border border-zinc-300 bg-zinc-100 hover:bg-zinc-200 leading-[48px] text-center px-3 text-zinc-600 text-base font-danaregular">
-                            اروپا
-                        </li>
-                    </ul>
-
-                    <div class="h-0 flex-grow border border-dashed border-[#a1a1aa] mx-4"></div>
-
-                    <a href="#" class="text-sm text-zinc-900 font-danaregular hover:text-secondary-1-700">مشاهده
-                        بیشتر</a>
-                </div>
-
-
-                <div class=" my-4">
-                    <!-- <span class="loader"></span> -->
-
-
-
-
-
-
-                    <div class="swiper destination-swiper">
-                        <div class="swiper-wrapper mb-12">
-
-                            <div class="swiper-slide w-[311px]">
-                                <article
-                                    class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-
-                                    <figure class="w-[311px] h-[151px] relative">
-                                        <img class="w-[311px] h-[151px] object-cover"
-                                            src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                            width="311" height="151" alt="@title">
-
-                                        <figcaption>
-                                            <span
-                                                class="bg-red-600/80 text-white p-2 rounded-[50px] absolute top-2 right-3">تخفیف
-                                                تابستان</span>
-                                            <img class="absolute top-2 left-3" src="./images/airline.png"
-                                                width="60" height="24" alt="@title">
-                                        </figcaption>
-                                    </figure>
-                                    <div class="px-3">
-                                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                            تور 10 روزه
-                                            استانبول</h2>
-                                        <div class="flex justify-between">
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#date-icon"></use>
-                                                </svg>
-                                                <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-
-                                            </div>
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#time-icon"></use>
-                                                </svg>
-
-                                                <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mt-2 flex justify-between items-center">
-                                            <div>
-                                                <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                                    ریال + 1200
-                                                    دلار</h2>
-                                            </div>
-                                            <svg width="48" height="48"
-                                                class="transition-all duration-200 ease-in-out group-hover:-translate-x-5">
-                                                <use href="./images/sprite-icons.svg#go-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="swiper-slide w-[311px]">
-                                <article
-                                    class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-
-                                    <figure class="w-[311px] h-[151px] relative">
-                                        <img class="w-[311px] h-[151px] object-cover"
-                                            src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                            width="311" height="151" alt="@title">
-
-                                        <figcaption>
-                                            <span
-                                                class="bg-red-600/80 text-white p-2 rounded-[50px] absolute top-2 right-3">تخفیف
-                                                تابستان</span>
-                                            <img class="absolute top-2 left-3" src="./images/airline.png"
-                                                width="60" height="24" alt="@title">
-                                        </figcaption>
-                                    </figure>
-                                    <div class="px-3">
-                                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                            تور 10 روزه
-                                            استانبول</h2>
-                                        <div class="flex justify-between">
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#date-icon"></use>
-                                                </svg>
-                                                <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-
-                                            </div>
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#time-icon"></use>
-                                                </svg>
-
-                                                <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mt-2 flex justify-between items-center">
-                                            <div>
-                                                <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                                    ریال + 1200
-                                                    دلار</h2>
-                                            </div>
-                                            <svg width="48" height="48"
-                                                class="transition-all duration-200 ease-in-out group-hover:-translate-x-5">
-                                                <use href="./images/sprite-icons.svg#go-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="swiper-slide w-[311px]">
-                                <article
-                                    class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-
-                                    <figure class="w-[311px] h-[151px] relative">
-                                        <img class="w-[311px] h-[151px] object-cover"
-                                            src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                            width="311" height="151" alt="@title">
-
-                                        <figcaption>
-                                            <span
-                                                class="bg-red-600/80 text-white p-2 rounded-[50px] absolute top-2 right-3">تخفیف
-                                                تابستان</span>
-                                            <img class="absolute top-2 left-3" src="./images/airline.png"
-                                                width="60" height="24" alt="@title">
-                                        </figcaption>
-                                    </figure>
-                                    <div class="px-3">
-                                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                            تور 10 روزه
-                                            استانبول</h2>
-                                        <div class="flex justify-between">
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#date-icon"></use>
-                                                </svg>
-                                                <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-
-                                            </div>
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#time-icon"></use>
-                                                </svg>
-
-                                                <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mt-2 flex justify-between items-center">
-                                            <div>
-                                                <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                                    ریال + 1200
-                                                    دلار</h2>
-                                            </div>
-                                            <svg width="48" height="48"
-                                                class="transition-all duration-200 ease-in-out group-hover:-translate-x-5">
-                                                <use href="./images/sprite-icons.svg#go-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="swiper-slide w-[311px]">
-                                <article
-                                    class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-
-                                    <figure class="w-[311px] h-[151px] relative">
-                                        <img class="w-[311px] h-[151px] object-cover"
-                                            src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                            width="311" height="151" alt="@title">
-
-                                        <figcaption>
-                                            <span
-                                                class="bg-red-600/80 text-white p-2 rounded-[50px] absolute top-2 right-3">تخفیف
-                                                تابستان</span>
-                                            <img class="absolute top-2 left-3" src="./images/airline.png"
-                                                width="60" height="24" alt="@title">
-                                        </figcaption>
-                                    </figure>
-                                    <div class="px-3">
-                                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                            تور 10 روزه
-                                            استانبول</h2>
-                                        <div class="flex justify-between">
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#date-icon"></use>
-                                                </svg>
-                                                <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-
-                                            </div>
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#time-icon"></use>
-                                                </svg>
-
-                                                <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mt-2 flex justify-between items-center">
-                                            <div>
-                                                <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                                    ریال + 1200
-                                                    دلار</h2>
-                                            </div>
-                                            <svg width="48" height="48"
-                                                class="transition-all duration-200 ease-in-out group-hover:-translate-x-5">
-                                                <use href="./images/sprite-icons.svg#go-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="swiper-slide w-[311px]">
-                                <article
-                                    class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-
-                                    <figure class="w-[311px] h-[151px] relative">
-                                        <img class="w-[311px] h-[151px] object-cover"
-                                            src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                            width="311" height="151" alt="@title">
-
-                                        <figcaption>
-                                            <span
-                                                class="bg-red-600/80 text-white p-2 rounded-[50px] absolute top-2 right-3">تخفیف
-                                                تابستان</span>
-                                            <img class="absolute top-2 left-3" src="./images/airline.png"
-                                                width="60" height="24" alt="@title">
-                                        </figcaption>
-                                    </figure>
-                                    <div class="px-3">
-                                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                            تور 10 روزه
-                                            استانبول</h2>
-                                        <div class="flex justify-between">
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#date-icon"></use>
-                                                </svg>
-                                                <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-
-                                            </div>
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#time-icon"></use>
-                                                </svg>
-
-                                                <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mt-2 flex justify-between items-center">
-                                            <div>
-                                                <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                                    ریال + 1200
-                                                    دلار</h2>
-                                            </div>
-                                            <svg width="48" height="48"
-                                                class="transition-all duration-200 ease-in-out group-hover:-translate-x-5">
-                                                <use href="./images/sprite-icons.svg#go-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="swiper-slide w-[311px]">
-                                <article
-                                    class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-
-                                    <figure class="w-[311px] h-[151px] relative">
-                                        <img class="w-[311px] h-[151px] object-cover"
-                                            src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                            width="311" height="151" alt="@title">
-
-                                        <figcaption>
-                                            <span
-                                                class="bg-red-600/80 text-white p-2 rounded-[50px] absolute top-2 right-3">تخفیف
-                                                تابستان</span>
-                                            <img class="absolute top-2 left-3" src="./images/airline.png"
-                                                width="60" height="24" alt="@title">
-                                        </figcaption>
-                                    </figure>
-                                    <div class="px-3">
-                                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                            تور 10 روزه
-                                            استانبول</h2>
-                                        <div class="flex justify-between">
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#date-icon"></use>
-                                                </svg>
-                                                <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-
-                                            </div>
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#time-icon"></use>
-                                                </svg>
-
-                                                <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mt-2 flex justify-between items-center">
-                                            <div>
-                                                <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                                    ریال + 1200
-                                                    دلار</h2>
-                                            </div>
-                                            <svg width="48" height="48"
-                                                class="transition-all duration-200 ease-in-out group-hover:-translate-x-5">
-                                                <use href="./images/sprite-icons.svg#go-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="swiper-slide w-[311px]">
-                                <article
-                                    class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-
-                                    <figure class="w-[311px] h-[151px] relative">
-                                        <img class="w-[311px] h-[151px] object-cover"
-                                            src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                            width="311" height="151" alt="@title">
-
-                                        <figcaption>
-                                            <span
-                                                class="bg-red-600/80 text-white p-2 rounded-[50px] absolute top-2 right-3">تخفیف
-                                                تابستان</span>
-                                            <img class="absolute top-2 left-3" src="./images/airline.png"
-                                                width="60" height="24" alt="@title">
-                                        </figcaption>
-                                    </figure>
-                                    <div class="px-3">
-                                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                            تور 10 روزه
-                                            استانبول</h2>
-                                        <div class="flex justify-between">
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#date-icon"></use>
-                                                </svg>
-                                                <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-
-                                            </div>
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#time-icon"></use>
-                                                </svg>
-
-                                                <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mt-2 flex justify-between items-center">
-                                            <div>
-                                                <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                                    ریال + 1200
-                                                    دلار</h2>
-                                            </div>
-                                            <svg width="48" height="48"
-                                                class="transition-all duration-200 ease-in-out group-hover:-translate-x-5">
-                                                <use href="./images/sprite-icons.svg#go-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                </article>
-                            </div>
-                            <div class="swiper-slide w-[311px]">
-                                <article
-                                    class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-
-                                    <figure class="w-[311px] h-[151px] relative">
-                                        <img class="w-[311px] h-[151px] object-cover"
-                                            src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                            width="311" height="151" alt="@title">
-
-                                        <figcaption>
-                                            <span
-                                                class="bg-red-600/80 text-white p-2 rounded-[50px] absolute top-2 right-3">تخفیف
-                                                تابستان</span>
-                                            <img class="absolute top-2 left-3" src="./images/airline.png"
-                                                width="60" height="24" alt="@title">
-                                        </figcaption>
-                                    </figure>
-                                    <div class="px-3">
-                                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                            تور 10 روزه
-                                            استانبول</h2>
-                                        <div class="flex justify-between">
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#date-icon"></use>
-                                                </svg>
-                                                <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-
-                                            </div>
-                                            <div class="w-1/2 flex  items-center gap-x-2">
-                                                <svg width="36" height="36">
-                                                    <use href="./images/sprite-icons.svg#time-icon"></use>
-                                                </svg>
-
-                                                <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-
-                                            </div>
-                                        </div>
-
-
-                                        <div class="mt-2 flex justify-between items-center">
-                                            <div>
-                                                <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                                    ریال + 1200
-                                                    دلار</h2>
-                                            </div>
-                                            <svg width="48" height="48"
-                                                class="transition-all duration-200 ease-in-out group-hover:-translate-x-5">
-                                                <use href="./images/sprite-icons.svg#go-icon"></use>
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                </article>
-                            </div>
-
+        <!-- offered tours -->
+        <section class="bg-[#F8F8F8] min-h-[600px]">
+            <div class="max-w-7xl max-xl:w-[98%] mx-auto mb-5 pt-14 load-content-box-container">
+                <basis core="list" datamembername="tour.offeredtour">
+                    <layout>
+                        <div class="w-full flex items-center gap-x-4">
+                            <h2 class="text-zinc-900 text-2xl leading-8 font-danabold">تورهای آفری</h2>
+                            <ul class="flex gap-3 my-4">@child </ul>
+                            <div class="h-0 flex-grow border border-dashed border-[#a1a1aa] mx-4"></div><a
+                                href="/Offered-tours"
+                                class="text-sm text-zinc-900 font-danaregular hover:text-secondary-1-700">مشاهده
+                                بیشتر</a>
                         </div>
-
+                    </layout>
+                    <face>
+                        <li data-id="@catid" data-type="offeredtour"
+                            class="category-item-load cursor-pointer h-12 rounded-xl border border-zinc-300 bg-zinc-100 hover:bg-zinc-200 leading-[48px] text-center px-3 text-zinc-600 text-base font-danaregular">
+                            @title </li>
+                    </face>
+                </basis>
+                <div class=" my-4 ">
+                    <div class="swiper offeredtour-swiper">
+                        <div class="swiper-wrapper mb-12 load-content-box"><span class="loader block mx-auto"></span>
+                        </div>
                         <div class="swiper-pagination "></div>
                     </div>
-
-
                 </div>
             </div>
         </section>
-
-
+        <!-- visa-request -->
         <section class="bg-[#F8F8F8] min-h-[250px]">
-            <div class="max-w-7xl max-xl:w-[98%] mx-auto ">
-
+            <div class="max-w-7xl max-xl:w-[98%] mx-auto load-content-box-container">
                 <div class="w-full flex items-center gap-x-4">
-                    <h2 class="text-zinc-900 text-2xl leading-8 font-danabold">درخواست ویزا</h2>
-
-
-                    <div class="h-0 flex-grow border border-dashed border-[#a1a1aa] mx-4"></div>
-
-                    <a href="#" class="text-sm text-zinc-900 font-danaregular hover:text-secondary-1-700">مشاهده
-                        بیشتر</a>
+                    <h2 class="text-zinc-900 text-2xl leading-8 font-danabold category-item-load " data-id="217518"
+                        data-type="visareq">درخواست ویزا</h2>
+                    <div class="h-0 flex-grow border border-dashed border-[#a1a1aa] mx-4"></div><a
+                        href="/Visa-application"
+                        class="text-sm text-zinc-900 font-danaregular hover:text-secondary-1-700">مشاهده بیشتر</a>
                 </div>
-
-
-                <div class=" my-4">
-                    <!-- <span class="loader"></span> -->
-
-
-
-
-
-
+                <div class="my-4 ">
                     <div class="swiper visa-swiper bg-white rounded-xl h-[132px]">
-                        <div class="swiper-wrapper ">
-
-                            <div class="swiper-slide w-[200px]">
-                                <article>
-                                    <a class="w-[200px] h-[132px] rounded-xl 
-                                flex items-center mx-5  gap-x-3
-                                overflow-hidden cursor-pointer group bg-white " href="#">
-                                        <figure>
-                                            <img class="object-cover w-[84px] h-[84px] rounded-full"
-                                                src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                                alt="@title" width="84" height="84">
-                                        </figure>
-
-
-                                        <div>
-                                            <h2
-                                                class="text-base leading-6 font-danabold text-zinc-900 mt-2 line-clamp-1">
-                                                ویزای چین</h2>
-                                            <div class="flex items-center ">
-                                                <span
-                                                    class="text-sm leading-5 text-secondary-1-700 font-danaregular">مشاهده</span>
-                                                <svg width="49" height="48">
-                                                    <use href="./images/sprite-icons.svg#arrow-left-small-icon">
-                                                    </use>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </article>
-                            </div>
-                            <div class="swiper-slide w-[200px]">
-                                <article>
-                                    <a class="w-[200px] h-[132px] rounded-xl 
-                                flex items-center mx-5  gap-x-3
-                                overflow-hidden cursor-pointer group bg-white " href="#">
-                                        <figure>
-                                            <img class="object-cover w-[84px] h-[84px] rounded-full"
-                                                src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                                alt="@title" width="84" height="84">
-                                        </figure>
-
-
-                                        <div>
-                                            <h2
-                                                class="text-base leading-6 font-danabold text-zinc-900 mt-2 line-clamp-1">
-                                                ویزای چین</h2>
-                                            <div class="flex items-center ">
-                                                <span
-                                                    class="text-sm leading-5 text-secondary-1-700 font-danaregular">مشاهده</span>
-                                                <svg width="49" height="48">
-                                                    <use href="./images/sprite-icons.svg#arrow-left-small-icon">
-                                                    </use>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </article>
-                            </div>
-                            <div class="swiper-slide w-[200px]">
-                                <article>
-                                    <a class="w-[200px] h-[132px] rounded-xl 
-                                flex items-center mx-5  gap-x-3
-                                overflow-hidden cursor-pointer group bg-white " href="#">
-                                        <figure>
-                                            <img class="object-cover w-[84px] h-[84px] rounded-full"
-                                                src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                                alt="@title" width="84" height="84">
-                                        </figure>
-
-
-                                        <div>
-                                            <h2
-                                                class="text-base leading-6 font-danabold text-zinc-900 mt-2 line-clamp-1">
-                                                ویزای چین</h2>
-                                            <div class="flex items-center ">
-                                                <span
-                                                    class="text-sm leading-5 text-secondary-1-700 font-danaregular">مشاهده</span>
-                                                <svg width="49" height="48">
-                                                    <use href="./images/sprite-icons.svg#arrow-left-small-icon">
-                                                    </use>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </article>
-                            </div>
-                            <div class="swiper-slide w-[200px]">
-                                <article>
-                                    <a class="w-[200px] h-[132px] rounded-xl 
-                                flex items-center mx-5  gap-x-3
-                                overflow-hidden cursor-pointer group bg-white " href="#">
-                                        <figure>
-                                            <img class="object-cover w-[84px] h-[84px] rounded-full"
-                                                src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                                alt="@title" width="84" height="84">
-                                        </figure>
-
-
-                                        <div>
-                                            <h2
-                                                class="text-base leading-6 font-danabold text-zinc-900 mt-2 line-clamp-1">
-                                                ویزای چین</h2>
-                                            <div class="flex items-center ">
-                                                <span
-                                                    class="text-sm leading-5 text-secondary-1-700 font-danaregular">مشاهده</span>
-                                                <svg width="49" height="48">
-                                                    <use href="./images/sprite-icons.svg#arrow-left-small-icon">
-                                                    </use>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </article>
-                            </div>
-                            <div class="swiper-slide w-[200px]">
-                                <article>
-                                    <a class="w-[200px] h-[132px] rounded-xl 
-                                flex items-center mx-5  gap-x-3
-                                overflow-hidden cursor-pointer group bg-white " href="#">
-                                        <figure>
-                                            <img class="object-cover w-[84px] h-[84px] rounded-full"
-                                                src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                                alt="@title" width="84" height="84">
-                                        </figure>
-
-
-                                        <div>
-                                            <h2
-                                                class="text-base leading-6 font-danabold text-zinc-900 mt-2 line-clamp-1">
-                                                ویزای چین</h2>
-                                            <div class="flex items-center ">
-                                                <span
-                                                    class="text-sm leading-5 text-secondary-1-700 font-danaregular">مشاهده</span>
-                                                <svg width="49" height="48">
-                                                    <use href="./images/sprite-icons.svg#arrow-left-small-icon">
-                                                    </use>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </article>
-                            </div>
-
-                        </div>
-
-                        <div class="swiper-pagination "></div>
+                        <div class="swiper-wrapper load-content-box"><span class="loader block mx-auto"></span></div>
                     </div>
-
-
                 </div>
             </div>
         </section>
-
-
+        <!-- latest articles -->
 
         <section class="bg-[#F8F8F8] min-h-[450px]">
             <div class="max-w-7xl max-xl:w-[98%] mx-auto ">
@@ -1733,141 +378,86 @@
 
                     <div class="h-0 flex-grow border border-dashed border-[#a1a1aa] mx-4"></div>
 
-                    <a href="#" class="text-sm text-zinc-900 font-danaregular hover:text-secondary-1-700">مشاهده
+                    <a href="latest-articles"
+                        class="text-sm text-zinc-900 font-danaregular hover:text-secondary-1-700">مشاهده
                         بیشتر</a>
                 </div>
 
 
                 <div class=" my-4 flex gap-x-2">
-                    <!-- <span class="loader"></span> -->
 
-                    <div class="w-[496px] flex flex-col gap-y-2">
-                        <article class="w-[496px] h-[171px] rounded-xl overflow-hidden group">
-                            <a href="">
-                                <figure class="relative w-[496px] h-[171px]">
-                                    <img class="w-[496px] h-[171px] object-cover"
-                                        src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" alt="">
-                                    <figcaption
-                                        class="absolute top-0 left-0 bottom-0 transition-all ease-in-out duration-100 group-hover:bg-black/80 bg-black/45 w-full text-white p-4 flex flex-col justify-end">
-                                        <h2 class="font-danabold text-base leading-6 mb-2">سفر به روم برای تفریح</h2>
-                                        <div class="text-xs leading-5 font-danaregular">
-                                            رم هزاران سال مرکز قدرت، فرهنگ و مذهب بود و در طول تاریخ ۲۸۰۰ ساله خود تاثیر
-                                            بسیار عمیقی بر جهان گذاشته است. از این رو
+
+                    <basis core="list" datamembername="articles.latest">
+                        <layout>
+                            <div class="w-[496px] flex flex-col gap-y-2">
+                                @child
+                            </div>
+                        </layout>
+                        <face filter="rownumber in(1,2)">
+                            <article class="w-[496px] h-[171px] rounded-xl overflow-hidden group">
+                                <a href="@link">
+                                    <figure class="relative w-[496px] h-[171px]">
+                                        <img class="w-[496px] h-[171px] object-cover"
+                                            src="[##cms.cms.cdn##]/@00380X00180prp" alt="@title">
+                                        <figcaption
+                                            class="absolute top-0 left-0 bottom-0 transition-all ease-in-out duration-100 group-hover:bg-black/80 bg-black/45 w-full text-white p-4 flex flex-col justify-end">
+                                            <h2 class="font-danabold text-base leading-6 mb-2">@title</h2>
+                                            <div class="text-xs leading-5 font-danaregular line-clamp-2">@prp_7244</div>
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                            </article>
+                        </face>
+                    </basis>
+
+
+                    <basis core="list" datamembername="articles.latest">
+                        <layout>
+                            <div class="w-[calc(100%_-_510px)] flex justify-between">
+                                @child
+                            </div>
+                        </layout>
+                        <face filter="rownumber in(3,4)">
+                            <article
+                                class="w-[380px] h-[355px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
+                                <a href="@link">
+                                    <figure class="w-[380px] h-[180px] relative">
+                                        <img class="w-[380px] h-[180px] object-cover"
+                                            src="[##cms.cms.cdn##]/@00380X00180prp" width="380" height="180"
+                                            alt="@title">
+
+                                        <span
+                                            class="absolute top-0 left-0 right-0 bottom-0 bg-black/20 group-hover:bg-black/60 transition-all duration-100 ease-in-out"></span>
+                                    </figure>
+                                    <div class="px-3 flex flex-col justify-between">
+                                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
+                                            @title</h2>
+                                        <div
+                                            class="text-xs font-danaregular line-clamp-4 text-justify text-zinc-700 leading-5">
+                                            @prp_7244</div>
+
+
+                                        <div class="flex justify-between items-center ">
+                                            <div class="flex items-center">
+                                                <h2 class="text-secondary-1-700 text-sm leading-6 font-danamedium ">
+                                                    بیشتر
+                                                    بخوانید</h2>
+                                                <svg width="48" height="48"
+                                                    class="transition-all duration-200 ease-in-out group-hover:-translate-x-5">
+                                                    <use href="./images/sprite-icons.svg#arrow-left-small-icon">
+                                                    </use>
+                                                </svg>
+                                            </div>
+                                            <span class="text-zinc-600 text-xs font-danaregular">@prp_7249</span>
+
                                         </div>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </article>
-                        <article class="w-[496px] h-[171px] rounded-xl overflow-hidden group">
-                            <a href="">
-                                <figure class="relative w-[496px] h-[171px]">
-                                    <img class="w-[496px] h-[171px] object-cover"
-                                        src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" alt="">
-                                    <figcaption
-                                        class="absolute top-0 left-0 bottom-0 transition-all ease-in-out duration-100 group-hover:bg-black/80 bg-black/45 w-full text-white p-4 flex flex-col justify-end">
-                                        <h2 class="font-danabold text-base leading-6 mb-2">سفر به روم برای تفریح</h2>
-                                        <div class="text-xs leading-5 font-danaregular">
-                                            رم هزاران سال مرکز قدرت، فرهنگ و مذهب بود و در طول تاریخ ۲۸۰۰ ساله خود تاثیر
-                                            بسیار عمیقی بر جهان گذاشته است. از این رو
-                                        </div>
-                                    </figcaption>
-                                </figure>
-                            </a>
-                        </article>
-                    </div>
-
-                    <div class="w-[calc(100%_-_510px)] flex justify-between">
-
-                        <article
-                            class="w-[380px] h-[355px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-                            <a href="#">
-                                <figure class="w-[380px] h-[180px] relative">
-                                    <img class="w-[380px] h-[180px] object-cover"
-                                        src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                        width="380" height="180" alt="@title">
-
-                                    <span
-                                        class="absolute top-0 left-0 right-0 bottom-0 bg-black/20 group-hover:bg-black/60 transition-all duration-100 ease-in-out"></span>
-                                </figure>
-                                <div class="px-3 flex flex-col justify-between">
-                                    <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                        تور 10 روزه
-                                        استانبول</h2>
-                                    <div
-                                        class="text-xs font-danaregular line-clamp-4 text-justify text-zinc-700 leading-5">
-                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از
-                                        طراحان گرافیک لورم ایپسوم لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                                        چاپ، و با استفاده از طراحان گرافیک لورم ایپسوم
-                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از
-                                        طراحان گرافیک لورم ایپسوم لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                                        چاپ، و با استفاده از طراحان گرافیک لورم ایپسوم
                                     </div>
 
+                                </a>
 
-                                    <div class="flex justify-between items-center ">
-                                        <div class="flex items-center">
-                                            <h2 class="text-secondary-1-700 text-sm leading-6 font-danamedium ">بیشتر
-                                                بخوانید</h2>
-                                            <svg width="48" height="48"
-                                                class="transition-all duration-200 ease-in-out group-hover:-translate-x-5">
-                                                <use href="./images/sprite-icons.svg#arrow-left-small-icon">
-                                                </use>
-                                            </svg>
-                                        </div>
-                                        <span class="text-zinc-600 text-xs font-danaregular">14043/02/02</span>
-
-                                    </div>
-                                </div>
-
-                            </a>
-
-                        </article>
-                        <article
-                            class="w-[380px] h-[355px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-                            <a href="#">
-                                <figure class="w-[380px] h-[180px] relative">
-                                    <img class="w-[380px] h-[180px] object-cover"
-                                        src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp"
-                                        width="380" height="180" alt="@title">
-
-                                    <span
-                                        class="absolute top-0 left-0 right-0 bottom-0 bg-black/20 group-hover:bg-black/60 transition-all duration-100 ease-in-out"></span>
-                                </figure>
-                                <div class="px-3 flex flex-col justify-between">
-                                    <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                        تور 10 روزه
-                                        استانبول</h2>
-                                    <div
-                                        class="text-xs font-danaregular line-clamp-4 text-justify text-zinc-700 leading-5">
-                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از
-                                        طراحان گرافیک لورم ایپسوم لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                                        چاپ، و با استفاده از طراحان گرافیک لورم ایپسوم
-                                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از
-                                        طراحان گرافیک لورم ایپسوم لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
-                                        چاپ، و با استفاده از طراحان گرافیک لورم ایپسوم
-                                    </div>
-
-
-                                    <div class="flex justify-between items-center ">
-                                        <div class="flex items-center">
-                                            <h2 class="text-secondary-1-700 text-sm leading-6 font-danamedium ">بیشتر
-                                                بخوانید</h2>
-                                            <svg width="48" height="48"
-                                                class="transition-all duration-200 ease-in-out group-hover:-translate-x-5">
-                                                <use href="./images/sprite-icons.svg#arrow-left-small-icon">
-                                                </use>
-                                            </svg>
-                                        </div>
-                                        <span class="text-zinc-600 text-xs font-danaregular">14043/02/02</span>
-
-                                    </div>
-                                </div>
-
-                            </a>
-
-                        </article>
-
-                    </div>
+                            </article>
+                        </face>
+                    </basis>
 
 
                 </div>
@@ -1876,164 +466,60 @@
         </section>
 
 
-
+        <!-- faq box -->
         <section class="bg-[#F8F8F8] min-h-[500px] pt-8">
             <div class="max-w-7xl max-xl:w-[98%] mx-auto flex justify-between gap-x-4 ">
-
                 <div class="w-[457px]">
-
-                    <figure class="w-[457px] h-[455px] bg-secondary-1-700 rounded-3xl relative">
-
-                        <img class="mx-auto -mt-[58px] absolute left-0 right-0"
+                    <figure class="w-[457px] h-[455px] bg-secondary-1-700 rounded-3xl relative"><img
+                            class="mx-auto -mt-[58px] absolute left-0 right-0"
                             src="./images/young-man-with-headset 1.png" alt="" srcset="">
                         <figcaption
                             class="absolute bottom-0 left-0 right-0 bg-primary-500 h-[75px] rounded-b-3xl leading-[75px] text-center text-white">
-                            ارتباط با پشتیبانی
-                        </figcaption>
+                            ارتباط با پشتیبانی </figcaption>
                     </figure>
                 </div>
-
-                <div class="w-[calc(100%_-_500px)]">
-
-                    <ul class="flex gap-x-3">
-                        <li
-                            class="bg-zinc-200 rounded-[50px] text-zinc-900 font-danaregular text-base py-3 px-5 cursor-pointer hover:text-white hover:bg-primary-500">
-                            پرواز</li>
-                        <li
-                            class="bg-zinc-200 rounded-[50px] text-zinc-900 font-danaregular text-base py-3 px-5 cursor-pointer hover:text-white hover:bg-primary-500">
-                            پرواز</li>
-                        <li
-                            class="bg-zinc-200 rounded-[50px] text-zinc-900 font-danaregular text-base py-3 px-5 cursor-pointer hover:text-white hover:bg-primary-500">
-                            پرواز</li>
-                        <li
-                            class="bg-zinc-200 rounded-[50px] text-zinc-900 font-danaregular text-base py-3 px-5 cursor-pointer hover:text-white hover:bg-primary-500">
-                            پرواز</li>
-                    </ul>
-
-
-
-                    <div class="load-answer">
-                        <ul class="flex flex-col gap-3 my-8">
-                            <li class="relative bg-white rounded-xl pr-14 pl-4 py-4">
-                                <span
-                                    class=" w-[58px] h-[58px] flex justify-center items-center  bg-primary-500 rounded-full absolute -right-6 top-0 bottom-0 my-auto">
-                                    <svg width="24" height="24">
-                                        <use href="./images/sprite-icons.svg#user-faq-icon">
-                                        </use>
-                                    </svg>
-                                </span>
-
-                                <h2 class="text-base leading-6 font-danabold text-zinc-900 my-2">چگونه تور رزرو کنیم؟
-                                </h2>
-
-                                <div class="text-xs text-zinc-500 text-justify leading-5">
-                                    متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح
-                                    گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل
-                                    ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید
-                                </div>
-                            </li>
-                            <li class="relative bg-white rounded-xl pr-14 pl-4 py-4">
-                                <span
-                                    class=" w-[58px] h-[58px] flex justify-center items-center  bg-primary-500 rounded-full absolute -right-6 top-0 bottom-0 my-auto">
-                                    <svg width="24" height="24">
-                                        <use href="./images/sprite-icons.svg#user-faq-icon">
-                                        </use>
-                                    </svg>
-                                </span>
-
-                                <h2 class="text-base leading-6 font-danabold text-zinc-900 my-2">چگونه تور رزرو کنیم؟
-                                </h2>
-
-                                <div class="text-xs text-zinc-500 text-justify leading-5 hidden">
-                                    متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح
-                                    گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل
-                                    ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید
-                                </div>
-                            </li>
-                            <li class="relative bg-white rounded-xl pr-14 pl-4 py-4">
-                                <span
-                                    class=" w-[58px] h-[58px] flex justify-center items-center  bg-primary-500 rounded-full absolute -right-6 top-0 bottom-0 my-auto">
-                                    <svg width="24" height="24">
-                                        <use href="./images/sprite-icons.svg#user-faq-icon">
-                                        </use>
-                                    </svg>
-                                </span>
-
-                                <h2 class="text-base leading-6 font-danabold text-zinc-900 my-2">چگونه تور رزرو کنیم؟
-                                </h2>
-
-                                <div class="text-xs text-zinc-500 text-justify leading-5 hidden">
-                                    متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح
-                                    گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل
-                                    ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید
-                                </div>
-                            </li>
-                            <li class="relative bg-white rounded-xl pr-14 pl-4 py-4">
-                                <span
-                                    class=" w-[58px] h-[58px] flex justify-center items-center  bg-primary-500 rounded-full absolute -right-6 top-0 bottom-0 my-auto">
-                                    <svg width="24" height="24">
-                                        <use href="./images/sprite-icons.svg#user-faq-icon">
-                                        </use>
-                                    </svg>
-                                </span>
-
-                                <h2 class="text-base leading-6 font-danabold text-zinc-900 my-2">چگونه تور رزرو کنیم؟
-                                </h2>
-
-                                <div class="text-xs text-zinc-500 text-justify leading-5 hidden">
-                                    متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح
-                                    گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل
-                                    ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید
-                                </div>
-                            </li>
-                        </ul>
+                <div class="w-[calc(100%_-_500px)] load-content-box-container">
+                    <basis core="list" datamembername="info.faq">
+                        <layout>
+                            <ul class="flex gap-x-3">@child </ul>
+                        </layout>
+                        <face>
+                            <li data-id="@id" data-type="faq"
+                                class="category-item-load faq bg-zinc-200 rounded-[50px] text-zinc-900 font-danaregular text-base py-3 px-5 cursor-pointer hover:text-white hover:bg-primary-500">
+                                @title </li>
+                        </face>
+                    </basis>
+                    <div class="load-answer load-content-box"><span class="loader block mx-auto"></span></div>
+                </div>
+            </div>
+        </section>
+        <!-- about us -->
+        <basis core="print" datamembername="about.text">
+            <layout>
+                <section class="bg-[#F8F8F8] min-h-[300px] pt-8">
+                    <div class="max-w-7xl max-xl:w-[98%] mx-auto">
+                        <div class="flex gap-x-2 items-center"><img src="./images/logo-colored.png" width="48"
+                                height="48" alt="logo ">
+                            <h2 class="font-danabold text-2xl ">درباره ما</h2>
+                        </div>
+                        <div class="text-sm leading-5 font-danaregular text-zinc-900 my-4 line-clamp-4">@child </div>
+                        <div class="inline-block"><a href="/about-us" class="flex items-center group">
+                                <h2 class="text-secondary-1-700 text-sm leading-6 font-danamedium ">بیشتر بخوانید</h2>
+                                <svg width="48" height="48"
+                                    class="transition-all duration-200 ease-in-out group-hover:-translate-x-5 ">
+                                    <use href="./images/sprite-icons.svg#arrow-left-small-icon"></use>
+                                </svg>
+                            </a></div>
                     </div>
-
-                </div>
-
-            </div>
-        </section>
-
-        <section class="bg-[#F8F8F8] min-h-[300px] pt-8">
-            <div class="max-w-7xl max-xl:w-[98%] mx-auto">
-                <div class="flex gap-x-2 items-center">
-                    <img src="./images/logo-colored.png" width="48" height="48" alt="logo ">
-                    <h2 class="font-danabold text-2xl ">درباره ما</h2>
-                </div>
-
-                <div class="text-sm leading-5 font-danaregular text-zinc-900 my-4">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                    چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
-                    نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته
-                    حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان
-                    رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید
-                    داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل
-                    حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار
-                    گیرد.
-                </div>
-                <div class="inline-block">
-                    <a href="#" class="flex items-center group">
-                        <h2 class="text-secondary-1-700 text-sm leading-6 font-danamedium ">بیشتر
-                            بخوانید</h2>
-                        <svg width="48" height="48"
-                            class="transition-all duration-200 ease-in-out group-hover:-translate-x-5  ">
-                            <use href="./images/sprite-icons.svg#arrow-left-small-icon">
-                            </use>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-
-
+                </section>
+            </layout>
+            <face filter="TypeID in(129)">@largetext </face>
+        </basis>
     </main>
 
 
     <script src="[##cms.cms.cdn##]/_js/swiper-bundle.11.2.5.min.js"></script>
-    <basis core="call" file="footer.inc" />
-
-    <!-- <script src="./js/samanticket.core.js"></script> -->
+    <basis core="call" file="footer.inc" pageindex="[##cms.cms.pageindex##]" />
 </body>
 
 </html>

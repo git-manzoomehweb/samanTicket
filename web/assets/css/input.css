@@ -68,6 +68,10 @@ body{
 
 
   --bg: #EFF3FB;
+
+
+  --textColor: #18181b;
+
 }
 
 html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
@@ -75,7 +79,7 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
 ::-webkit-scrollbar-thumb{background:var(--primary-400);border-radius:10px;}
 ::-webkit-scrollbar-thumb:hover{background:var(--primary-500);}
 
-@font-face{font-display:swap;font-family:'Dana_black';font-style:normal;src:url('../_fonts/dana-fanum-black.eot') format('embedded-opentype'),url(../_fonts/dana-fanum-black.woff) format('woff'),url(../_fonts/dana-fanum-black.woff2) format('woff2')}
+/* @font-face{font-display:swap;font-family:'Dana_black';font-style:normal;src:url('../_fonts/dana-fanum-black.eot') format('embedded-opentype'),url(../_fonts/dana-fanum-black.woff) format('woff'),url(../_fonts/dana-fanum-black.woff2) format('woff2')}
 @font-face{font-display:swap;font-family:'Dana_bold';font-style:normal;src:url('../_fonts/dana-fanum-bold.eot') format('embedded-opentype'),url(../_fonts/dana-fanum-bold.woff) format('woff'),url(../_fonts/dana-fanum-bold.woff2) format('woff2')}
 @font-face{font-display:swap;font-family:'Dana_demibold';font-style:normal;src:url('../_fonts/dana-fanum-demibold.eot') format('embedded-opentype'),url(../_fonts/dana-fanum-demibold.woff) format('woff'),url(../_fonts/dana-fanum-demibold.woff2) format('woff2')}
 @font-face{font-display:swap;font-family:'Dana_extrabold';font-style:normal;src:url('../_fonts/dana-fanum-extrabold.eot') format('embedded-opentype'),url(../_fonts/dana-fanum-extrabold.woff) format('woff'),url(../_fonts/dana-fanum-extrabold.woff2) format('woff2')}
@@ -85,11 +89,11 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
 @font-face{font-display:swap;font-family:'Dana_regular';font-style:normal;src:url('../_fonts/dana-fanum-regular.eot') format('embedded-opentype'),url(../_fonts/dana-fanum-regular.woff) format('woff'),url(../_fonts/dana-fanum-regular.woff2) format('woff2')}
 @font-face{font-display:swap;font-family:'Dana_thin';font-style:normal;src:url('../_fonts/dana-fanum-thin.eot') format('embedded-opentype'),url(../_fonts/dana-fanum-thin.woff) format('woff'),url(../_fonts/dana-fanum-thin.woff2) format('woff2')}
 @font-face{font-display:swap;font-family:'Dana_ultrabold';font-style:normal;src:url('../_fonts/dana-fanum-ultrabold.eot') format('embedded-opentype'),url(../_fonts/dana-fanum-ultrabold.woff) format('woff'),url(../_fonts/dana-fanum-ultrabold.woff2) format('woff2')}
-@font-face{font-display:swap;font-family:'Dana_heavy';font-style:normal;src:url('../_fonts/Dana-Heavy.ttf') format('truetype'),url(../_fonts/Dana-Heavy.woff) format('woff'),url(../_fonts/Dana-Heavy.woff2) format('woff2')}
+@font-face{font-display:swap;font-family:'Dana_heavy';font-style:normal;src:url('../_fonts/Dana-Heavy.ttf') format('truetype'),url(../_fonts/Dana-Heavy.woff) format('woff'),url(../_fonts/Dana-Heavy.woff2) format('woff2')} */
 
 
 /* final */
-/* @font-face{font-display:swap;font-family:'Dana_black';font-style:normal;src:url(../_fonts/DanaFaNum-black.woff) format('woff'),url(../_fonts/DanaFaNum-black.woff2) format('woff2'),url(../_fonts/dana-fanum-black.eot) format('embedded-opentype')}
+@font-face{font-display:swap;font-family:'Dana_black';font-style:normal;src:url(../_fonts/DanaFaNum-black.woff) format('woff'),url(../_fonts/DanaFaNum-black.woff2) format('woff2'),url(../_fonts/dana-fanum-black.eot) format('embedded-opentype')}
   @font-face{font-display:swap;font-family:'Dana_bold';font-style:normal;src:url(../_fonts/DanaFaNum-bold.woff) format('woff'),url(../_fonts/DanaFaNum-bold.woff2) format('woff2')}
   @font-face{font-display:swap;font-family:'Dana_demibold';font-style:normal;src:url(../_fonts/DanaFaNum-demibold.woff) format('woff'),url(../_fonts/DanaFaNum-demibold.woff2) format('woff2')}
   @font-face{font-display:swap;font-family:'Dana_extrabold';font-style:normal;src:url(../_fonts/DanaFaNum-extrabold.woff) format('woff'),url(../_fonts/DanaFaNum-extrabold.woff2) format('woff2')}
@@ -99,7 +103,7 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
   @font-face{font-display:swap;font-family:'Dana_regular';font-style:normal;src:url(../_fonts/DanaFaNum-regular.woff) format('woff'),url(../_fonts/DanaFaNum-regular.woff2) format('woff2')}
   @font-face{font-display:swap;font-family:'Dana_thin';font-style:normal;src:url(../_fonts/DanaFaNum-thin.woff) format('woff'),url(../_fonts/DanaFaNum-thin.woff2) format('woff2')}
   @font-face{font-display:swap;font-family:'Dana_ultrabold';font-style:normal;src:url(../_fonts/DanaFaNum-ultrabold.woff) format('woff'),url(../_fonts/DanaFaNum-ultrabold.woff2) format('woff2')}
-  @font-face{font-display:swap;font-family:'FontAwesome';font-style:normal;src:url(../_fonts/fontawesome-webfont.woff) format('woff'),url(../_fonts/fontawesome-webfont.woff2) format('woff2'),url(../_fonts/fontawesome-webfont.otf) format('opentype'),url(../_fonts/fontawesome-webfont.ttf) format('typetrue')} */
+  @font-face{font-display:swap;font-family:'FontAwesome';font-style:normal;src:url(../_fonts/fontawesome-webfont.woff) format('woff'),url(../_fonts/fontawesome-webfont.woff2) format('woff2'),url(../_fonts/fontawesome-webfont.otf) format('opentype'),url(../_fonts/fontawesome-webfont.ttf) format('typetrue')}
 
 
 
@@ -134,9 +138,7 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
 .loader {
   width: 48px;
   height: 48px;
-  border-radius: 50%;
-  display: inline-block;
-  border-top: 4px solid var(--primary-600);
+  border-radius: 50%;  border-top: 4px solid var(--primary-600);
   border-right: 4px solid transparent;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
@@ -183,3 +185,652 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
 }
 
 
+/* searchbox design */
+#search-box ,.date-info-destination,.date-info-departure ,.date-info-destination::placeholder,.date-info-departure::placeholder, .module-name , #search-box input , #search-box button , #search-box label , #search-box span , #search-box div , #search-box * {
+  font-family: "Dana_regular" !important;
+}
+.fa-calendar, .fa-calendar input, .fa-calendar button, .date-info-departure, .date-info-destination, 
+.date-info-departure::placeholder, .date-info-destination::placeholder , .calendar-footer input, .calendar-footer::placeholder{
+    font-family: "Dana_regular" !important;
+  }
+  .calendar-footer input , .reserve-location.form-search-input{
+   color: #18181b;
+
+ }
+
+/* , input , input::placeholder , input::-moz-placeholder */
+#search-box .down-icon , #search-box .module-icon{display: none !important;}
+
+#search-box{
+  width: 870px !important ;
+  margin: 0 auto !important;
+}
+.text-textColor{
+color: #292929;
+}
+
+
+.search-box-container .bg-bgColor-100 {
+    background-color: var(--primary-300)
+}
+
+.search-box-container .bg-bgColor-200 {
+    background-color: var(--primary-400)
+}
+
+.search-box-container .bg-bgColor-500 {
+    background-color: var(--primary-500)
+}
+
+.search-box-container .text-textColor , .createChildDropdown select , .textlocation {
+    color: var(--textColor) !important;
+}
+
+ul.flighttype-items span ,
+ul.flighttype-items span.cursor-pointer.text-sm.text-textColor.px-2.group-hover\:text-primary.group-hover\:text-flighttype-hover-color 
+{
+  color: white !important;
+}
+.multi-route-tlt , .multi-route-tlt.mb-2.text-textColor.text-base.w-auto{color: white !important;}
+span.count-icon-simple {
+    width: 24px !important;
+    height: 24px !important;
+    line-height: 32px !important;
+}
+
+.selectLocation svg{
+  display: none !important;
+}
+
+.searchList > .flex.relative.mb-2.float-right.w-full.clear-both > .h-9.leading-9 > svg{display: none !important;}
+
+.selectLocation.cursor-pointer.hover\:text-primary {
+    line-height: 31px;
+}
+
+
+.rounded-type-1{border-radius: 12px !important;}
+
+
+#oneway,
+#backtoback,
+#multi {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  -moz-column-gap: 0.25em;
+  column-gap: 0.25em;
+}
+#oneway::before,
+#backtoback::before,
+#multi::before {
+  content: "";
+  width: 16px;
+  height: 16px;
+  border-radius: 100%;
+  border: 2px solid white ;
+  display: inline-block;
+}
+.active-r-btn#oneway::before,
+.active-r-btn#backtoback::before,
+.active-r-btn#multi::before {
+  border: 8px solid var(--secondary);
+}
+.active-r-btn#oneway,
+.active-r-btn#backtoback,
+.active-r-btn#multi {
+  background-color: transparent !important;
+}
+
+ul.reservation-item{
+  display: flex !important;
+  justify-items: center !important;
+  align-items: center !important;
+  height: 55px !important;
+  gap: 15px !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  font-family: "Dana_regular" !important; 
+  margin:  0 auto !important;
+}
+ul.reservation-item > li{
+  padding: 12px 30px 15px 30px !important;
+  height: 55px !important;
+  border-radius: 50px !important;
+  border: 1px solid var(--primary-50) !important;
+  
+}
+ul.reservation-item > li:hover , ul.reservation-item > li.active-module{
+  background-color: var(--primary-500) !important;
+  border: 1px solid var(--primary-500) !important;
+}
+
+
+.flighttype-field , .search-nav{
+    display: flex !important;
+  justify-items: center !important;
+  align-items: center !important;
+}
+ul.flighttype-items.flighttype-items-ul{
+font-size: 12px !important;
+  display: flex !important;
+  justify-items: center !important;
+  align-items: center !important;
+  height: 55px !important;
+  gap: 15px !important;
+  color: white !important;
+  margin: 1em auto !important;
+}
+
+
+
+
+.Basis_Date_Box , .Flightclass-Passenger {
+  width: 49.5% !important;
+}
+
+.reserve-field.passengers-field.passengers-field-f{
+  width: 59.5% !important;
+}
+.reserve-field.flightclass-field.flightclass-outof-passengerbox{
+  width: 40% !important;
+
+}
+.reserve-search{
+  width: 122px !important;
+  height: 64px !important;
+  line-height: 64px !important;
+  border-radius: 8px !important;
+  margin: 0 auto !important;
+}
+.reserve-search > button{
+  width: 122px !important;
+  height: 64px !important;
+  line-height: 64px !important;
+  border-radius: 8px !important;
+  margin: 0 auto !important;
+  background-color: var(--secondary-1-600) !important;
+  display: flex !important;
+  justify-content: space-between !important;
+  flex-direction: row-reverse !important;
+}
+.reserve-search > button:hover{
+  background-color: var(--secondary-1-800) !important;
+}
+
+.reserve-search svg {
+    width: 48px !important;
+    height: 48px !important;
+}
+
+.reserve-field{
+  background-color: white !important;
+  border-radius: 12px !important;
+  height: 64px !important;
+  position: relative !important;
+
+}
+
+.Add-Remove.reserve-field{background-color: transparent !important;}
+.remove-routs , .add-routs{display: flex !important; gap:0.5em ;align-items: center !important;}
+.remove-routs > span{color: crimson !important;}
+.add-routs > span{color: greenyellow !important;}
+.Basis_Date_Box .no-activedate {
+    background-color: #ccc !important;
+}
+
+button.add-routs.w-1\/2.h-full.text-xl.cursor-pointer.text-primary.hover\:text-secondary.bg-inherit.hover\:text-add-route-hover-color{
+    height: 64px;
+      line-height: 64px !important;
+
+    font-size: 14px;
+    width: 140px;
+    border: 2px solid greenyellow;
+    border-radius: 12px;
+    text-align: center;
+    display: flex
+;
+    justify-content: center;
+}
+button.remove-routs.w-1\/2.h-full.text-xl.cursor-pointer.text-primary.hover\:text-secondary.bg-inherit.hover\:text-remove-route-hover-color{
+    height: 64px;
+      line-height: 64px !important;
+
+    font-size: 14px;
+    width: 140px;
+    border: 2px solid crimson;
+    border-radius: 12px;
+    text-align: center;
+    display: flex
+;
+    justify-content: center;
+}
+.multiroute-fields .reserve-search.h-20.max-xl\:w-full.w-1\/4{width: 100% !important;}
+.multiroute-fields{
+  display: flex;
+  justify-content: space-between !important;
+}
+
+.ul-list ul li:first-of-type
+ {
+    background-color: var(--primary-400);
+    color: white !important;
+}
+.ul-list ul li:not(:last-child) {
+    border-bottom: 1px solid #ffebee;
+}
+
+.route-minus-btn.text-xl.pr-4.text-red-600.w-1\/4.h-20.leading-\[80px\].max-xl\:absolute.max-xl\:top-0.max-xl\:left-0.max-xl\:h-auto.max-xl\:leading-normal.max-xl\:text-base.max-xl\:text-left.hover\:text-primary.hover\:text-remove-route-hover-color.cursor-pointer{
+      height: 64px;
+        line-height: 64px !important;
+
+    font-size: 14px;
+    width: 140px;
+    border: 2px solid crimson;
+    border-radius: 12px;
+    text-align: center;
+    display: flex
+;
+    justify-content: center;
+}
+.Add-Remove > .h-full{
+  display: flex
+;
+    gap: 1em;
+}
+.addroute-icon  , .removeall-icon , .removeroute-icon{display: none !important;}
+
+.exchangeRoute{
+  width: 48px !important;
+  height: 48px !important;
+  border-radius: 999px ;
+  background: var(--secondary-1-600) !important;
+  display: flex !important;
+  justify-items: center !important;
+  justify-content: center !important;
+}
+.exchangeRoute:hover{
+  background: var(--primary-600) !important;
+}
+
+
+form.form-search ,
+form.form-search .flex.gap-2.max-xl\:block.max-xl\:gap-0
+
+{flex-wrap: wrap !important;
+    justify-content: space-between !important;
+}
+
+
+.flight-routes , .flight-routes.w-2\/5.flex.gap-2.max-xl\:w-full.max-xl\:block.max-xl\:gap-0{
+  width: 100% !important;
+  flex-wrap: nowrap !important;
+  
+}
+
+.Flightclass-Passenger.w-2\/5.flex.gap-2.max-xl\:w-full.max-xl\:block.max-xl\:gap-0 {
+  flex-wrap: nowrap !important;
+  
+}
+
+
+.form-search label > svg {
+    width: 48px !important;
+    height: 48px !important;
+}
+.exchangeRoute > svg {
+  width: 48px !important;
+  height: 48px !important;
+}
+
+
+.Basis_Calendar .selected_date {
+  background: var(--secondary) !important;
+}
+.confirm-date-content button:hover {
+  background: var(--secondary);
+}
+.confirm-date-content button {
+  background: var(--primary);
+  color: #fff;
+}
+.calendar-apply-date:hover {
+  background: var(--secondary);
+}
+.calendar-apply-date {
+  background: var(--primary);
+  color: #fff;
+}
+.Basis_Calendar .selected_day {
+  background: var(--secondary);
+}
+.day.days_available {
+  background: var(--primary);
+}
+.calendar-switch {
+  color: var(--primary);
+}
+.Basis_Calendar .section_next_month,
+.Basis_Calendar .section_prev_month {
+  color: var(--primary);
+}
+.Basis_Calendar .current_day::after {
+  border-color: var(--secondary) transparent transparent;
+}
+.Basis_Calendar .month_day_list table td:not(.disable_day, .empty_day, .expire_day):hover {
+  border-color: var(--primary);
+}
+.Basis_Calendar .current_day {
+  background: var(--primary) !important;
+  color: #fff !important;
+}
+.Basis_Calendar_Box {
+  font-family: 'Dana_regular' !important;
+}
+.calendar-apply-date,
+.calendar-switch,
+.calendar-today,
+.calendar-footer input::placeholder {
+  font-family: 'Dana_regular' !important;
+}
+.calendar-footer input,
+.calendar-footer::placeholder {
+  font-family: 'Dana_regular';
+}
+.search-box-container svg {
+  width: 62px;
+  height: 62px;
+}
+.section_prev_month svg,
+.section_next_month svg {
+  width: 28px !important;
+  height: 28px !important;
+}
+
+
+label.label-routes, label.label-dates, label.label-flightclass, label.label-passengers {
+    /* background: aqua; */
+    display: flex !important;
+color: #71717a !important;
+    z-index: 1 !important;
+    padding-top: 9px !important;
+}
+
+.line-clamp--1{
+overflow: hidden;
+display: -webkit-box;
+-webkit-box-orient: vertical;
+-webkit-line-clamp: 1 !important;
+}
+
+input.departure  , input.destination , input.Basis_Date , .FlightClass-text 
+, .passengers-field > .show-passengers-dropdown > div , .Basis_Date_ExteraHoteldate {
+  /* background-color: rgba(44, 167, 2, 0.459) !important; */
+  z-index: 5 !important;
+  position: absolute !important;
+  padding-right: 56px !important;
+    height: 64px !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    padding-top: 28px !important;
+    color: #27272a !important;
+}
+
+.search-box-container .left-1 {
+    left: -1.75rem !important;
+}
+.search-box-container .top-\[25\%\] {
+    top: 12% !important;
+}
+
+.search-box-container .Basis_Date.pt-12 {
+    padding-top: 28px !important;
+}
+.FlightClass-text {
+  font-size: 14px !important;
+      padding-top: 35px !important;
+}
+.passenger-counts{
+  font-size: 14px !important;
+      padding-top: 5px !important;
+}
+
+
+
+.reserve-field.w-1\/3.h-20.departure-route.relative.max-xl\:w-full.max-xl\:mb-4 {
+    width: 100% !important;
+}
+.Basis_Date_Box.w-1\/3.flex.gap-2.max-xl\:w-full.max-xl\:mb-4{
+  width: 49.5% !important;
+}
+.reserve-field.passengers-field.cursor-pointer.w-1\/3.h-20.relative.max-xl\:w-full.max-xl\:mb-4{
+  width: 49.5% !important;
+}
+p.auto-fit.clear-both.text-base.text-textColor {
+    display: none !important;
+}
+.reserve-field.CheckHotelDate.mb-4.mt-5.clear-both.float-right.w-full{
+  background-color: transparent !important;color: white !important;
+}
+/* .reserve-field.flightclass-field.flightclass-outof-passengerbox.cursor-pointer.w-1\/3.h-20.relative.max-xl\:w-full.max-xl\:mb-4
+{width: 49.5% !important;} */
+
+.Wrapper-ExteraHoteldate.w-1\/3.max-xl\:w-full.max-xl\:mb-4{
+  width: 100% !important;
+}
+.hidden-box{padding: 0.5 rem !important;}
+
+span.text-grays-400.mr-2 {
+    font-size: 10px !important;
+}
+
+
+.alert-passengers,
+.alert-adults {
+
+  color: rgb(255, 133, 133) !important;
+  display: block !important;
+  font-size: 12px !important;  border-radius: 4px;
+}
+
+
+.passenger-item.child-passenger-item ul,
+.passenger-item.adult-passenger-item ul,
+.passenger-item.infant-passenger-item ul,
+.passenger-item.room-passenger-item ul,
+.passengerbox.hidden-box .passenger-item ul {
+  height: auto !important;
+  line-height: normal !important;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: space-between;
+}
+.passenger-item.adult-passenger-item,
+.passenger-item.child-passenger-item,
+.passenger-item.infant-passenger-item,
+.passenger-item.room-passenger-item,
+.passengerbox.hidden-box .passenger-item {
+  display: flex;
+  justify-content: space-between;
+}
+.createChildDropdown .select-age {
+  border: 1px solid var(--primary-300);
+  border-radius: 8px;
+  outline: none;
+  height: 48px !important;
+}
+.minus-count,
+.plus-count {
+  width: auto !important;
+  height: auto !important;
+  line-height: normal !important;
+}
+.minus-count div,
+.plus-count div {
+  width: 24px !important;
+  height: 24px !important;
+  background: var(--primary-600) !important;
+  color: white !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 4px;
+}
+.minus-count div span,
+.plus-count div span {
+  color: white !important;
+}
+
+.minus-count div:hover,
+.plus-count div:hover{
+  transition: all;
+  animation-duration: 1s ;
+  background: var(--secondary-1-600) !important;
+  color: white !important;
+}
+.roomcount,
+.adultcount,
+.childcount,
+.infantcount {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  background-color: transparent !important;
+  color: black !important;
+}
+
+
+.search-box-container li.inline-block.w-8.h-8.leading-8.text-center.hover\:text-primary {
+    height: unset !important;
+}
+
+
+
+
+.plus-count span {
+  color: #1e2128;
+  font-size: 24px !important;
+}
+.minus-count span {
+  color: #1e2128;
+  font-size: 24px !important;
+}
+.confirm-passenger {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24px;
+  background-color: var(--secondary-1-600);
+  border-radius: 8px;
+  font-weight: 800;
+  height: 40px !important;
+  transition: all 300ms ease;
+}
+.confirm-passenger:hover {
+
+  background-color: var(--secondary-1-700);
+
+}
+.confirm-passenger span {
+  font-weight: 800 !important;
+}
+.passengerbox.hidden-box {
+  /* width: 310px !important; */
+  position: absolute !important;
+  right: 0;
+  left: 0;
+  margin: 0 auto;
+  padding: 24px 16px !important;
+  top: 100%;
+  border: 1px solid #d7dbe1;
+  border-radius: 8px;
+  overflow-x: hidden !important;
+}
+.passengerbox.hidden-box span {
+  color: #1e2128;
+  font-size: 14px;
+  font-weight: 600;
+}
+.passengerbox.hidden-box .clr {
+  position: absolute;
+}
+.passengerbox.hidden-box ul {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.close-passenger-box{display: none !important;}
+
+.search-box-container .hover\:text-primary:hover {
+    color: var(--primary-400) !important;
+}
+
+.searchHistory-content form {
+  background-color: transparent !important;
+}
+/* searchbox design */
+
+/* categories */
+li.active{
+  background-color: var(--secondary-2-400);
+  color: #000 ;
+}
+li.faq.active{
+  background-color: var(--primary-500);
+  color: white ;
+}
+/* categories */
+
+
+
+/* forms edit */
+#supportform legend{display: none !important;}
+#supportform div[data-bc-title-container]{display: none !important;}
+#supportform div[data-bc-question]{width: 100% !important;}
+#supportform [data-bc-answer-container] input[type="text"] {
+    width: 100% !important;
+    height: 55px !important;
+    border-radius: 12px;
+    padding: 0 16px;
+    outline: none !important;
+}
+#supportform [data-bc-answer-container] {
+
+    width: 100% !important;
+}
+#supportform fieldset > [data-bc-schema-column] {
+    box-sizing: border-box;
+    display: flex;
+    column-gap: 6px !important;
+    justify-content: space-between;
+    /* width: 579px; */
+}
+#supportform  [data-bc-schema-direction="rtl"] [data-bc-part-container], #supportform  [data-bc-schema-direction="rtl"] [data-bc-btn-container] {
+    float: unset !important;
+}
+
+#supportform  [data-bc-part-container], #supportform  [data-bc-btn-container] {
+  width: 100% !important;
+}
+
+#supportform [data-bc-section] {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+
+#supportform [data-bc-schema-main-container] * {
+    height: 83px !important;
+} 
+#supportform [data-bc-schema-info-part="1"] [data-bc-part-related-cell] {
+    width: 100% !important;
+}
+
+/* forms edit */

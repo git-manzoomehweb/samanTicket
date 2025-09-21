@@ -1,63 +1,136 @@
-    <footer class="bg-back w-full min-h-[525px] py-6">
+<basis core="dbsource" source="basiscore" name="footer" mid="5" lid="1" usedforid="[##cms.cms.ownerid##]">
+    <member name="companyinfo" type="view" />
+</basis>
 
-        <div class="max-w-7xl max-xl:w-[98%] mx-auto">
-            <div class=" bg-primary-50 p-4 rounded-3xl min-h-[68px] flex flex-col justify-center">
-                <ul class="flex justify-between text-sm">
+<footer class="bg-back w-full min-h-[525px] py-6">
+
+    <div class="max-w-7xl max-xl:w-[98%] mx-auto">
+        <div class=" bg-primary-50 p-4 rounded-3xl min-h-[68px] flex flex-col justify-center">
+            <basis core="list" datamembername="footer.companyinfo">
+                <layout>
+                    <ul class="flex justify-between text-sm">
+                        @child
+                    </ul>
+                </layout>
+                <face filter="TypeID in(244)">
                     <li class="group flex items-center justify-center leading-[30px] gap-x-2">
                         <svg width="30" height="30" class=" group-hover:animate-ping  ">
                             <use href="./images/sprite-icons.svg#journey-icon">
                             </use>
                         </svg>
-                        <h2>تهران خیابان ولیعصر بالاتر از پارک ساعی خیاباو ورزنده پلاک12</h2>
+                        <h2>@largetext</h2>
                     </li>
+                </face>
+                <face filter="TypeID in(240)">
                     <li class="group flex items-center justify-center leading-[30px] gap-x-2">
-                        <a class="leading-[30px] align-bottom" href="tel:">021-22222222</a>
+                        <a class="leading-[30px] align-bottom" href="tel:@text">@text</a>
                         <svg width="30" height="30" class=" group-hover:animate-ping  ">
                             <use href="./images/sprite-icons.svg#phone-icon">
                             </use>
                         </svg>
                     </li>
+                </face>
+                <face filter="TypeID in(242)">
                     <li class="group flex items-center justify-center leading-[30px] gap-x-2">
-                        <a class="leading-[30px] align-bottom" href="tel:">021-22222222</a>
-                        <svg width="30" height="30" class=" group-hover:animate-ping  ">
-                            <use href="./images/sprite-icons.svg#phone-icon">
-                            </use>
-                        </svg>
-
-                    </li>
-                    <li class="group flex items-center justify-center leading-[30px] gap-x-2">
-                        <a class="leading-[30px] align-bottom" href="mailto:">info@samanflight.com</a>
+                        <a class="leading-[30px] align-bottom" href="mailto:@text">@text</a>
                         <svg width="30" height="30" class=" group-hover:animate-ping  ">
                             <use href="./images/sprite-icons.svg#email-icon">
                             </use>
                         </svg>
                     </li>
-                </ul>
-            </div>
+                </face>
+            </basis>
+        </div>
 
 
-            <div class="flex min-h-[240px] mt-8 gap-x-6">
-                <div class="w-1/2 ">
-                    <img src="./images/large-colored-logo.png" width="77" height="74" alt="samanticket">
-                    <div class="text-zinc-900 text-base leading-6 text-justify my-2">
-                        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی
-                        مورد نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه
-                        درصد گذشته حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری
+        <div class="flex min-h-[240px] mt-8 gap-x-6">
+            <basis core="print" datamembername="footer.companyinfo">
+                <layout>
+                    <div class="w-1/2 ">
+                        <img src="./images/large-colored-logo.png" width="77" height="74" alt="samanticket">
+                        <div class="text-zinc-900 text-base leading-6 text-justify my-2">
+                            @child
+                        </div>
+                    </div>
+                </layout>
+                <face filter="TypeID in(144)">
+                    @largetext
+                </face>
+            </basis>
+
+
+
+
+
+            <div class="w-1/2" id="Counselingform">
+
+                <div
+                    class="free-form-container form-container w-full">
+
+                    <basis core="schema" run="atclient"
+                        schemaurl="/schema/domainform/B22881E0-4961-4D04-8553-58C3008E04EF/3FC9EB9A-3268-4076-8ED1-06DF3584B3E3/fa/ارتباط-با-مشاورین"
+                        displaymode="new" button="[data-btn-uploadCounselingform]" resultsourceid="uploadCounselingform.dataCounselingform"
+                        onrendered="RenderFormCounselingform">
+                    </basis>
+                    <basis core="api" if="{##cms.uploadCounselingform.run|(false)##}" run="atclient"
+                        url="/schema/domainform/B22881E0-4961-4D04-8553-58C3008E04EF/fa/editobject" method="post"
+                        body="object_edit={##cms.uploadCounselingform.value##}&captcha={##cms.uploadCounselingform.captcha##}&captchaid={##cms.uploadCounselingform.captchaid##}"
+                        content-type="application/x-www-form-urlencoded" triggers="cms.uploadCounselingform"
+                        onprocessed="OnProcessedEditObjectCounselingform"></basis>
+                    <div class="free-form-content">
+                        <div class="flex justify-between">
+                            <div id="captchaContainer" class="captchaContainerclass captcha-sefaresh"
+                                data-bc-answer-container data-bc-schema-info-multi="0" data-bc-schema-info-word="58"
+                                data-bc-schema-info-part="1" data-bc-schema-info-part-0-type="text">
+                                <basis core="dbsource" source="trust_login" name="captchaCounselingform" run="atclient"
+                                    triggers="captchaCounselingform.refresh">
+                                    <member name="codeCounselingform" type="scalar" request="captcha"></member>
+                                </basis>
+                                <basis datamembername="captchaCounselingform.codeCounselingform" core="print" run="atclient"
+                                    onrendered="captchaRenderedCounselingform">
+                                    <face>
+                                        <script
+                                            type="text/template"><div class="flex justify-start gap-x-2"><div>
+                                                <input type="text" class="contactUsInput codeinputm" placeholder="کد امنیتی" name="captcha" maxlength="4" />
+                                                <input type="hidden" name="captchaid" value="@captcha@" />
+                                            </div><div class="flex flex-row-reverse items-center">
+    
+                                                <svg class="cursor-pointer min-w-12 min-h-12"  onclick="refreshCaptchaCounselingform()"  width="48" height="49" viewBox="0 0 48 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M25.7857 18.5L26.5807 20.5021C25.8273 20.0776 24.9442 19.8333 24 19.8333C21.2386 19.8333 19 21.9227 19 24.5C19 24.9149 19.058 25.3171 19.1669 25.7M22.2143 30.5L21.4193 28.4978C22.1727 28.9224 23.0558 29.1667 24 29.1667C26.7614 29.1667 29 27.0773 29 24.5C29 24.0851 28.942 23.6829 28.8331 23.3" stroke="#020121" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="24" cy="24.5" r="10" stroke="#020121" stroke-width="1.5"/>
+    </svg>
+    
+                                                <img class="inline-block" src="/@captcha@" width="120" height="55" alt="captcha code" />
+                                            </div></div></script>
+                                    </face>
+                                </basis>
+                            </div>
+                            <basis core="callback" run="atclient" method="uploadDocumentCounselingform" triggers="uploadCounselingform.dataCounselingform">
+                            </basis>
+                            <div
+                                class="text-center bg-secondary-1-700 rounded-xl text-white sendform-btn hover:bg-primary-600 mt-1 cursor-pointer h-[50px] w-[138px] leading-[50px]">
+                                <button class="data-body-btn-Counselingform" type="button" data-btn-uploadCounselingform ><span>ارسال</span></button>
+                            </div>
+                        </div>
+                        <div class="message-api text-center mt-2"></div>
+                        <div class="clear-both"></div>
                     </div>
                 </div>
-                <div class="w-1/2 ">
-                    <h2 class="text-2xl text-zinc-900 font-danabold">
-                        ارتباط با مشاورین ما
-                    </h2>
-                </div>
             </div>
 
-            <div class="flex justify-between items-center mt-8">
-                <div class="w-1/2 ">
-                    <ul class="flex gap-x-3">
+        </div>
+
+        <div class="flex justify-between items-center mt-8">
+            <div class="w-1/2 ">
+                <basis core="list" datamembername="footer.companyinfo">
+                    <layout>
+                        <ul class="flex gap-x-3">
+                            @child
+                        </ul>
+                    </layout>
+                    <face filter="TypeID in(245) and text in('تلگرام')">
                         <li>
-                            <a href="#"
+                            <a href="/@largetext"
                                 class="w-12 h-12 rounded-full group hover:bg-secondary-1-700 bg-primary-600 flex justify-center items-center">
                                 <svg width="24" height="26" class=" group-hover:animate-  ">
                                     <use href="./images/sprite-icons.svg#telegram-icon">
@@ -65,8 +138,10 @@
                                 </svg>
                             </a>
                         </li>
+                    </face>
+                    <face filter="TypeID in(245) and text in('توییتر')">
                         <li>
-                            <a href="#"
+                            <a href="/@largetext"
                                 class="w-12 h-12 rounded-full group hover:bg-secondary-1-700 bg-primary-600 flex justify-center items-center">
                                 <svg width="24" height="26" class=" group-hover:animate-  ">
                                     <use href="./images/sprite-icons.svg#twitter-icon">
@@ -74,8 +149,10 @@
                                 </svg>
                             </a>
                         </li>
+                    </face>
+                    <face filter="TypeID in(245) and text in('اینستاگرام')">
                         <li>
-                            <a href="#"
+                            <a href="/@largetext"
                                 class="w-12 h-12 rounded-full group hover:bg-secondary-1-700 bg-primary-600 flex justify-center items-center">
                                 <svg width="24" height="26" class=" group-hover:animate-  ">
                                     <use href="./images/sprite-icons.svg#instagram-icon">
@@ -83,8 +160,10 @@
                                 </svg>
                             </a>
                         </li>
+                    </face>
+                    <face filter="TypeID in(245) and text in('واتس اپ')">
                         <li>
-                            <a href="#"
+                            <a href="/@largetext"
                                 class="w-12 h-12 rounded-full group hover:bg-secondary-1-700 bg-primary-600 flex justify-center items-center">
                                 <svg width="24" height="26" class=" group-hover:animate-  ">
                                     <use href="./images/sprite-icons.svg#whatsapp-icon">
@@ -92,63 +171,68 @@
                                 </svg>
                             </a>
                         </li>
-                    </ul>
-                </div>
-                <div class="w-1/2 ">
-                    <ul class="flex gap-x-5 justify-end">
-                        <li>
-                            <a href="#"
-                                class="w-[58px] h-[55px] rounded-[4px] flex justify-center items-center bg-white border border-solid border-[#6D6A68]">
-                                <img src="./images/airline.png" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="w-[58px] h-[55px] rounded-[4px] flex justify-center items-center bg-white border-[0.3px] border-solid border-[#6D6A68]">
-                                <img src="./images/airline.png" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="w-[58px] h-[55px] rounded-[4px] flex justify-center items-center bg-white border-[0.3px] border-solid border-[#6D6A68]">
-                                <img src="./images/airline.png" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="w-[58px] h-[55px] rounded-[4px] flex justify-center items-center bg-white border-[0.3px] border-solid border-[#6D6A68]">
-                                <img src="./images/airline.png" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="w-[58px] h-[55px] rounded-[4px] flex justify-center items-center bg-white border-[0.3px] border-solid border-[#6D6A68]">
-                                <img src="./images/airline.png" alt="">
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+                    </face>
+                </basis>
 
-            <div class="flex items-center mt-5 pt-3 gap-2 w-full lg:!flex-row flex-col">
-                <div class="lg:!w-[27%] w-full flex lg:!justify-start justify-center">
-                    <a class="text-zinc-500 hover:text-secondary-950 lg:!whitespace-nowrap text-xs text-center lg:!text-start"
-                        href="https://www.basisfly.com/" target="_blank">طراحی سایت آژانس مسافرتی و رزرواسیون آنلاین
-                        توسط
-                        بیسیس فلای</a>
-                </div>
-                <div class="flex items-center w-full lg:!w-[80%] justify-center gap-4 lg:!justify-between">
-                    <a href="https://www.basisfly.com/" target="_blank">
-                        <img loading="lazy" width="102" height="26" class="w-[68px] h-[17px]"
-                            src="[##cms.cms.cdn##]/_images/basisfly-logo.png" alt="basisfly-logo"
-                            aria-label="basisfly-logo" />
-                    </a>
-                    <img loading="lazy" width="135" height="23" src="[##cms.cms.cdn##]/images/trust-logo.png"
-                        alt="Trust_logo" class="w-[68px] h-[14px]" />
-                </div>
+            </div>
+            <div class="w-1/2 ">
+                <ul class="flex gap-x-5 justify-end">
+                    <li>
+                        <a href="https://www.cao.ir"
+                            class="w-[58px] h-[55px] rounded-[4px] flex justify-center items-center bg-white border border-solid border-[#6D6A68]">
+                            <img class="object-contain" loading="lazy" decoding="async" width="58" height="58"
+                                src="[##cms.cms.cdn##]/images/img_sign_1.png" alt="cao">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.cao.ir/web/suggestions/airline"
+                            class="w-[58px] h-[55px] rounded-[4px] flex justify-center items-center bg-white border border-solid border-[#6D6A68]">
+                            <img class="object-contain" loading="lazy" decoding="async" width="58" height="58"
+                                src="[##cms.cms.cdn##]/images/img_sign_2.png" alt="airline">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://www.mcth.ir/"
+                            class="w-[58px] h-[55px] rounded-[4px] flex justify-center items-center bg-white border border-solid border-[#6D6A68]">
+                            <img class="object-contain" loading="lazy" decoding="async" width="58" height="58"
+                                src="[##cms.cms.cdn##]/images/img_sign_3.png" alt="airline">
+                        </a>
+                    </li>
+                    <li>
+                        <a class="w-[58px] h-[55px] rounded-[4px] flex justify-center items-center bg-white border border-solid border-[#6D6A68]"
+                            referrerpolicy='origin' target='_blank'
+                            href='https://trustseal.enamad.ir/?id=595535&Code=QGVrd8AyYRyfNOnh4WJCsLf0918PPLi6'><img
+                                referrerpolicy='origin'
+                                src='https://trustseal.enamad.ir/logo.aspx?id=595535&Code=QGVrd8AyYRyfNOnh4WJCsLf0918PPLi6'
+                                alt='' style='cursor:pointer' code='QGVrd8AyYRyfNOnh4WJCsLf0918PPLi6'
+                                class="object-contain" loading="lazy" decoding="async" width="58" height="58"></a>
+
+
+                    </li>
+
+                </ul>
             </div>
         </div>
 
+        <div class="flex items-center mt-5 pt-3 gap-2 w-full lg:!flex-row flex-col">
+            <div class="lg:!w-[27%] w-full flex lg:!justify-start justify-center">
+                <a class="text-zinc-500 hover:text-secondary-950 lg:!whitespace-nowrap text-xs text-center lg:!text-start"
+                    href="https://www.basisfly.com/" target="_blank">طراحی سایت آژانس مسافرتی و رزرواسیون آنلاین
+                    توسط
+                    بیسیس فلای</a>
+            </div>
+            <div class="flex items-center w-full lg:!w-[80%] justify-center gap-4 lg:!justify-between">
+                <a href="https://www.basisfly.com/" target="_blank">
+                    <img loading="lazy" width="102" height="26" class="w-[68px] h-[17px]"
+                        src="[##cms.cms.cdn##]/_images/basisfly-logo.png" alt="basisfly-logo"
+                        aria-label="basisfly-logo" />
+                </a>
+                <img loading="lazy" width="135" height="23" src="[##cms.cms.cdn##]/images/trust-logo.png"
+                    alt="Trust_logo" class="w-[68px] h-[14px]" />
+            </div>
         </div>
-    </footer>
-    <basis core="call" file="script.inc" />
+    </div>
+
+    </div>
+</footer>
+<basis core="call" file="script.inc" />
