@@ -130,7 +130,7 @@ span.sub-title {
 /* forms edit */
 #Counselingform legend{font-size: 24px !important;color: #1f1f1f; font-family: 'Dana_bold' !important ;}
 #Counselingform div[data-bc-title-container]{display: none !important;}
-#Counselingform div[data-bc-question]{width: 100% !important;}
+#Counselingform div[data-bc-question]{width: 100% !important;height: 76px !important;}
 #Counselingform [data-bc-answer-container] input[type="text"] {
     width: 100% !important;
     height: 55px !important;

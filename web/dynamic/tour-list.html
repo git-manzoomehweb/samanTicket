@@ -1,3 +1,47 @@
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="info" catid="[##cms.query.qid|(0)##]">
+    <member name="faq" type="list" link="article.bc" typeid="159" perpage="10" order="ord">
+    </member>
+</basis>
+
+<basis core="dbsource" source="basiscore" mid="18" name="db" lid="2" usedforid="[##cms.query.catid|(0)##]">
+    <member name="scalarEN" type="scalar" typeid="150" />
+</basis>
+
+<basis core="dbsource" source="basiscore" mid="18" name="db" lid="1" usedforid="[##cms.query.catid|(0)##]">
+    <member name="scalar" type="scalar" typeid="150" />
+</basis>
+
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid|(0)##]">
+    <member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid|(0)##]" />
+</basis>
+
+<basis core="dbsource" source="basiscore" lid="1" mid="20" name="offered" catid="[##cms.query.tid|(0)##]">
+    <member name="tour" type="list" link="tour.bc" propertyid="8181,10000504,8076,8077,3088062" typeid="159" size="410x151"
+        order="ord" perpage="3" />
+</basis>
+
+<basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.aid|(0)##]">
+    <member name="landingtext" type="view" />
+</basis>
+
+<basis core="dbsource" source="basiscore" name="about" mid="1" lid="1" usedforid="2376925">
+    <member name="text" type="view" />
+</basis>
+
+
+<basis core="dbsource" source="basiscore" mid="1" name="list" lid="1" schemaid="987" term="[##cms.query.term##]">
+    <member name="airline1" type="list" request="spelist"></member>
+</basis>
+<basis core="inlinesource" name="joining">
+    <member name="offeredtourlist" lefttblcol="offered.tour.prp_10000504" righttblcol="list.airline1.name"
+        format="join" jointype="leftjoin"></member>
+</basis>
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="fa">
 
@@ -6,8 +50,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
     <title>[##cms.seo.title|(سامان پرواز)##]</title>
     <meta name="description" content="[##cms.seo.description|(سامان پرواز)##]">
-    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]"><member type="list" name="list" request="taglist" preview=""></member></basis>
-    <basis core="print" datamembername="tag.list"><face filter="key='canonical'"><link rel="canonical" href="@value" /></face><face><meta property="@key" content="@value" /></face></basis>
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+        <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+        <face filter="key='canonical'">
+            <link rel="canonical" href="@value" />
+        </face>
+        <face>
+            <meta property="@key" content="@value" />
+        </face>
+    </basis>
     <basis core="call" file="pwa.inc" />
     <basis core="call" file="style.inc" />
 </head>
@@ -24,11 +77,9 @@
 
 
         <div class="w-full relative h-[439px]">
-            <!-- یک سلول گرید، هر دو آیتم روی همان سلول قرار می‌گیرند -->
 
-            <!-- تصویر زمینه (زیرِ محتوا) -->
             <figure class="w-full min-h-[439px] h-[439px] -z-10">
-                <img src="../assets/images/hero-banner-default.jpg" alt="saman parvaz banner"
+                <img src="./images/hero-banner-default.jpg" alt="saman parvaz banner"
                     class="w-full min-h-[439px] h-full object-cover" />
             </figure>
 
@@ -48,9 +99,14 @@
 
                 <div
                     class="absolute left-0 right-0 m-auto flex flex-col justify-center items-center top-0 bottom-0 text-center z-50">
-                    <h1 class="text-2xl text-white text-center font-danabold ">تور های استانبول</h1>
+                    <basis core="print" datamembername="db.scalar">
+                        <face>
+                            <h1 class="text-2xl text-white text-center font-danabold ">@column1</h1>
+                        </face>
+                    </basis>
+
                     <div class="my-4 text-white">
-                        <ul class="breadcrumbs-list flex my-4 h-[56px] items-end gap-x-3 justify-center font-danaregular text-base "
+                        <ul class="breadcrumbs-list flex items-end justify-center font-danaregular text-base "
                             itemscope="" itemtype="https://schema.org/BreadcrumbList">
                             <li class="" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
                                 <a itemprop="item" href="/" aria-label="home"><span itemprop="name">صفحه اصلی</span>
@@ -58,14 +114,14 @@
                                 </a>
                             </li>
                             <basis core="print" datamembername="db.navigation">
-                                <face filter="RowNumber=max(RowNumber) and parentcatid<>110382">
+                                <face filter="RowNumber=max(RowNumber) and parentcatid<>214380">
                                     <li class="text-secondary-1-700" itemprop="itemListElement" itemscope=""
                                         itemtype="https://schema.org/ListItem"><span class="mx-2">/</span><span
                                             itemprop="name">@title</span>
                                         <meta itemprop="position" content="@rownumber" />
                                     </li>
                                 </face>
-                                <face filter="link is null and parentcatid<>110382">
+                                <face filter="link is null and parentcatid<>214380">
                                     <li class="" itemprop="itemListElement" itemscope=""
                                         itemtype="https://schema.org/ListItem">
                                         <a itemprop="item" href="/tour-list.bc?catid=@parentcatid"
@@ -75,7 +131,7 @@
                                         </a>
                                     </li>
                                 </face>
-                                <face filter="parentcatid<>110382">
+                                <face filter="parentcatid<>214380">
                                     <li class="" itemprop="itemListElement" itemscope=""
                                         itemtype="https://schema.org/ListItem">
                                         <a itemprop="item" href="@link" aria-label="@title"><span
@@ -91,7 +147,12 @@
 
 
 
-                <h2 class="opacity-5 text-[270px] pt-12 text-center text-white">Istanbul</h2>
+                <basis core="print" datamembername="db.scalarEN">
+                    <face>
+                        <h2 class="opacity-5 text-[270px] pt-12 text-center text-white line-clamp-1">@column1</h2>
+                    </face>
+                </basis>
+
 
 
             </div>
@@ -100,171 +161,120 @@
         <div class="clear-both"></div>
 
 
-        <section
-            class="bg-zinc-50 rounded-xl max-w-7xl mx-auto p-3 min-h-[329px] -mt-[165px] relative z-50 flex justify-between flex-wrap">
-            <article
-                class="w-[410px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
 
-                <figure class="w-[410px] h-[151px] relative">
-                    <img class="w-[410px] h-[151px] object-cover"
-                        src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="410"
-                        height="151" alt="@title">
+        <basis core="list" datamembername="joining.offeredtourlist">
+            <layout>
+                <section
+                    class="bg-zinc-50 rounded-xl max-w-7xl mx-auto p-3 min-h-[329px] -mt-[165px] relative z-50 flex justify-between flex-wrap">
+                    @child
+                </section>
+            </layout>
+            <face filter="[offered.tour.prp_3088062] is null">
+                <article>
+                    <a href="@offered.tour.link"
+                        class="w-[410px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200 block">
+                        <figure class="w-[410px] h-[151px] relative">
+                            <img class="w-[410px] h-[151px] object-cover"
+                                src="[##cms.cms.cdn##]/@offered.tour.00410X00151prp" width="410"
+                                height="151" alt="@list.airline1.name">
 
-                    <figcaption>
-                        <span
-                            class="bg-red-600/80 font-danaregular text-white p-2 rounded-[50px] absolute top-2 right-3">تخفیف
-                            تابستان</span>
-                        <img class="absolute top-2 left-3" src="../assets/images/airline.png" width="60" height="24"
-                            alt="@title">
-                    </figcaption>
-                </figure>
-                <div class="px-3">
-                    <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                        تور 10 روزه
-                        استانبول</h2>
-                    <div class="flex justify-between">
-                        <div class="w-1/2 flex  items-center gap-x-2">
-                            <svg width="36" height="36">
-                                <use href="../assets/images/sprite-icons.svg#date-icon"></use>
-                            </svg>
-                            <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
+                            <figcaption>
+                                <img class="absolute top-2 left-3" src="/@list.airline1.pic" width="60"
+                                    height="24" alt="@list.airline1.name">
+                            </figcaption>
+                        </figure>
+                        <div class="px-3">
+                            <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
+                                تور 10 روزه
+                                استانبول</h2>
+                            <div class="flex justify-between">
+                                <div class="w-1/2 flex  items-center gap-x-2">
+                                    <svg width="36" height="36">
+                                        <use href="./images/sprite-icons.svg#date-icon"></use>
+                                    </svg>
+                                    <h2 class="text-xs leading-5 font-danaregular">@offered.tour.prp_8077</h2>
 
+                                </div>
+                                <div class="w-1/2 flex  items-center gap-x-2">
+                                    <svg width="36" height="36">
+                                        <use href="./images/sprite-icons.svg#time-icon"></use>
+                                    </svg>
+
+                                    <h2 class="text-xs leading-5 font-danaregular">@offered.tour.prp_8076</h2>
+
+                                </div>
+                            </div>
+
+
+                            <div class="mt-2 flex justify-between items-center">
+                                <div>
+                                    <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
+                                    <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">@offered.tour.prp_8181</h2>
+                                </div>
+                                <svg width="48" height="48"
+                                    class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
+                                    <use href="./images/sprite-icons.svg#go-fill-icon"></use>
+                                </svg>
+                            </div>
                         </div>
-                        <div class="w-1/2 flex  items-center gap-x-2">
-                            <svg width="36" height="36">
-                                <use href="../assets/images/sprite-icons.svg#time-icon"></use>
-                            </svg>
+                    </a>
+                </article>
+            </face>
+            <face>
+                <article>
+                    <a href="@offered.tour.link"
+                        class="w-[410px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200 block">
+                        <figure class="w-[410px] h-[151px] relative">
+                            <img class="w-[410px] h-[151px] object-cover"
+                                src="[##cms.cms.cdn##]/@offered.tour.00410X00151prp" width="410"
+                                height="151" alt="@list.airline1.name">
 
-                            <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
+                            <figcaption>
+                                <span
+                                    class="bg-red-600/80 font-danaregular text-white p-2 rounded-[50px] absolute top-2 right-3">@offered.tour.prp_3088062</span>
+                                <img class="absolute top-2 left-3" src="/@list.airline1.pic" width="60"
+                                    height="24" alt="@list.airline1.name">
+                            </figcaption>
+                        </figure>
+                        <div class="px-3">
+                            <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
+                                تور 10 روزه
+                                استانبول</h2>
+                            <div class="flex justify-between">
+                                <div class="w-1/2 flex  items-center gap-x-2">
+                                    <svg width="36" height="36">
+                                        <use href="./images/sprite-icons.svg#date-icon"></use>
+                                    </svg>
+                                    <h2 class="text-xs leading-5 font-danaregular">@offered.tour.prp_8077</h2>
 
+                                </div>
+                                <div class="w-1/2 flex  items-center gap-x-2">
+                                    <svg width="36" height="36">
+                                        <use href="./images/sprite-icons.svg#time-icon"></use>
+                                    </svg>
+
+                                    <h2 class="text-xs leading-5 font-danaregular">@offered.tour.prp_8076</h2>
+
+                                </div>
+                            </div>
+
+
+                            <div class="mt-2 flex justify-between items-center">
+                                <div>
+                                    <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
+                                    <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">@offered.tour.prp_8181</h2>
+                                </div>
+                                <svg width="48" height="48"
+                                    class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
+                                    <use href="./images/sprite-icons.svg#go-fill-icon"></use>
+                                </svg>
+                            </div>
                         </div>
-                    </div>
+                    </a>
+                </article>
+            </face>
+        </basis>
 
-
-                    <div class="mt-2 flex justify-between items-center">
-                        <div>
-                            <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                            <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                ریال + 1200
-                                دلار</h2>
-                        </div>
-                        <svg width="48" height="48"
-                            class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                            <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
-                        </svg>
-                    </div>
-                </div>
-
-            </article>
-            <article
-                class="w-[410px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-
-                <figure class="w-[410px] h-[151px] relative">
-                    <img class="w-[410px] h-[151px] object-cover"
-                        src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="410"
-                        height="151" alt="@title">
-
-                    <figcaption>
-                        <span
-                            class="bg-red-600/80 font-danaregular text-white p-2 rounded-[50px] absolute top-2 right-3">تخفیف
-                            تابستان</span>
-                        <img class="absolute top-2 left-3" src="../assets/images/airline.png" width="60" height="24"
-                            alt="@title">
-                    </figcaption>
-                </figure>
-                <div class="px-3">
-                    <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                        تور 10 روزه
-                        استانبول</h2>
-                    <div class="flex justify-between">
-                        <div class="w-1/2 flex  items-center gap-x-2">
-                            <svg width="36" height="36">
-                                <use href="../assets/images/sprite-icons.svg#date-icon"></use>
-                            </svg>
-                            <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-
-                        </div>
-                        <div class="w-1/2 flex  items-center gap-x-2">
-                            <svg width="36" height="36">
-                                <use href="../assets/images/sprite-icons.svg#time-icon"></use>
-                            </svg>
-
-                            <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-
-                        </div>
-                    </div>
-
-
-                    <div class="mt-2 flex justify-between items-center">
-                        <div>
-                            <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                            <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                ریال + 1200
-                                دلار</h2>
-                        </div>
-                        <svg width="48" height="48"
-                            class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                            <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
-                        </svg>
-                    </div>
-                </div>
-
-            </article>
-            <article
-                class="w-[410px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-
-                <figure class="w-[410px] h-[151px] relative">
-                    <img class="w-[410px] h-[151px] object-cover"
-                        src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="410"
-                        height="151" alt="@title">
-
-                    <figcaption>
-                        <span
-                            class="bg-red-600/80 font-danaregular text-white p-2 rounded-[50px] absolute top-2 right-3">تخفیف
-                            تابستان</span>
-                        <img class="absolute top-2 left-3" src="../assets/images/airline.png" width="60" height="24"
-                            alt="@title">
-                    </figcaption>
-                </figure>
-                <div class="px-3">
-                    <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                        تور 10 روزه
-                        استانبول</h2>
-                    <div class="flex justify-between">
-                        <div class="w-1/2 flex  items-center gap-x-2">
-                            <svg width="36" height="36">
-                                <use href="../assets/images/sprite-icons.svg#date-icon"></use>
-                            </svg>
-                            <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-
-                        </div>
-                        <div class="w-1/2 flex  items-center gap-x-2">
-                            <svg width="36" height="36">
-                                <use href="../assets/images/sprite-icons.svg#time-icon"></use>
-                            </svg>
-
-                            <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-
-                        </div>
-                    </div>
-
-
-                    <div class="mt-2 flex justify-between items-center">
-                        <div>
-                            <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                            <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                ریال + 1200
-                                دلار</h2>
-                        </div>
-                        <svg width="48" height="48"
-                            class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                            <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
-                        </svg>
-                    </div>
-                </div>
-
-            </article>
-        </section>
 
 
         <div class="clear-both"></div>
@@ -279,10 +289,18 @@
 
 
             <section class=" pt-[60px]">
-                <div class="max-w-7xl max-xl:w-[98%] mx-auto my-5">
+                <div class="max-w-7xl max-xl:w-[98%] mx-auto my-5 load-content-box-container">
 
                     <div class="w-full flex items-center gap-x-4">
-                        <h2 class="text-zinc-900 text-2xl leading-8 font-danabold">تور های استانبول</h2>
+
+                        <basis core="print" datamembername="db.scalar">
+                            <face>
+                                <h2 data-id="[##cms.query.catid##]" data-type="tourlistItems"
+                                    class="category-item-load text-zinc-900 text-2xl leading-8 font-danabold ">
+                                    @column1
+                                </h2>
+                            </face>
+                        </basis>
 
                         <div class="h-0 flex-grow border border-dashed border-[#a1a1aa] mx-4"></div>
 
@@ -290,8 +308,8 @@
                     </div>
 
 
-                    <div class=" my-4 flex flex-wrap justify-start gap-3 max-xl:justify-between ">
-                        <!-- <span class="loader"></span> -->
+                    <div class="load-content-box my-4 flex flex-wrap justify-start gap-3 max-xl:justify-between ">
+                        <span class="loader block mx-auto"></span>
 
 
 
@@ -303,12 +321,12 @@
 
                             <figure class="w-[311px] h-[151px] relative">
                                 <img class="w-[311px] h-[151px] object-cover"
-                                    src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
+                                    src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
                                     height="151" alt="@title">
 
                                 <figcaption class="absolute top-2 left-3">
                                     <span class="sr-only">@title</span>
-                                    <img src="../assets/images/airline.png" width="60" height="24" alt="@title">
+                                    <img src="./images/airline.png" width="60" height="24" alt="@title">
                                 </figcaption>
                             </figure>
                             <div class="px-3">
@@ -318,14 +336,14 @@
                                 <div class="flex justify-between">
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#date-icon"></use>
+                                            <use href="./images/sprite-icons.svg#date-icon"></use>
                                         </svg>
                                         <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
 
                                     </div>
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#time-icon"></use>
+                                            <use href="./images/sprite-icons.svg#time-icon"></use>
                                         </svg>
 
                                         <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
@@ -344,7 +362,7 @@
                                     </div>
                                     <svg width="48" height="48"
                                         class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                        <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
+                                        <use href="./images/sprite-icons.svg#go-fill-icon"></use>
                                     </svg>
                                 </div>
                             </div>
@@ -355,12 +373,12 @@
 
                             <figure class="w-[311px] h-[151px] relative">
                                 <img class="w-[311px] h-[151px] object-cover"
-                                    src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
+                                    src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
                                     height="151" alt="@title">
 
                                 <figcaption class="absolute top-2 left-3">
                                     <span class="sr-only">@title</span>
-                                    <img src="../assets/images/airline.png" width="60" height="24" alt="@title">
+                                    <img src="./images/airline.png" width="60" height="24" alt="@title">
                                 </figcaption>
                             </figure>
                             <div class="px-3">
@@ -370,14 +388,14 @@
                                 <div class="flex justify-between">
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#date-icon"></use>
+                                            <use href="./images/sprite-icons.svg#date-icon"></use>
                                         </svg>
                                         <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
 
                                     </div>
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#time-icon"></use>
+                                            <use href="./images/sprite-icons.svg#time-icon"></use>
                                         </svg>
 
                                         <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
@@ -396,7 +414,7 @@
                                     </div>
                                     <svg width="48" height="48"
                                         class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                        <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
+                                        <use href="./images/sprite-icons.svg#go-fill-icon"></use>
                                     </svg>
                                 </div>
                             </div>
@@ -407,12 +425,12 @@
 
                             <figure class="w-[311px] h-[151px] relative">
                                 <img class="w-[311px] h-[151px] object-cover"
-                                    src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
+                                    src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
                                     height="151" alt="@title">
 
                                 <figcaption class="absolute top-2 left-3">
                                     <span class="sr-only">@title</span>
-                                    <img src="../assets/images/airline.png" width="60" height="24" alt="@title">
+                                    <img src="./images/airline.png" width="60" height="24" alt="@title">
                                 </figcaption>
                             </figure>
                             <div class="px-3">
@@ -422,14 +440,14 @@
                                 <div class="flex justify-between">
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#date-icon"></use>
+                                            <use href="./images/sprite-icons.svg#date-icon"></use>
                                         </svg>
                                         <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
 
                                     </div>
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#time-icon"></use>
+                                            <use href="./images/sprite-icons.svg#time-icon"></use>
                                         </svg>
 
                                         <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
@@ -448,7 +466,7 @@
                                     </div>
                                     <svg width="48" height="48"
                                         class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                        <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
+                                        <use href="./images/sprite-icons.svg#go-fill-icon"></use>
                                     </svg>
                                 </div>
                             </div>
@@ -459,12 +477,12 @@
 
                             <figure class="w-[311px] h-[151px] relative">
                                 <img class="w-[311px] h-[151px] object-cover"
-                                    src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
+                                    src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
                                     height="151" alt="@title">
 
                                 <figcaption class="absolute top-2 left-3">
                                     <span class="sr-only">@title</span>
-                                    <img src="../assets/images/airline.png" width="60" height="24" alt="@title">
+                                    <img src="./images/airline.png" width="60" height="24" alt="@title">
                                 </figcaption>
                             </figure>
                             <div class="px-3">
@@ -474,14 +492,14 @@
                                 <div class="flex justify-between">
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#date-icon"></use>
+                                            <use href="./images/sprite-icons.svg#date-icon"></use>
                                         </svg>
                                         <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
 
                                     </div>
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#time-icon"></use>
+                                            <use href="./images/sprite-icons.svg#time-icon"></use>
                                         </svg>
 
                                         <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
@@ -500,7 +518,7 @@
                                     </div>
                                     <svg width="48" height="48"
                                         class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                        <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
+                                        <use href="./images/sprite-icons.svg#go-fill-icon"></use>
                                     </svg>
                                 </div>
                             </div>
@@ -511,12 +529,12 @@
 
                             <figure class="w-[311px] h-[151px] relative">
                                 <img class="w-[311px] h-[151px] object-cover"
-                                    src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
+                                    src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
                                     height="151" alt="@title">
 
                                 <figcaption class="absolute top-2 left-3">
                                     <span class="sr-only">@title</span>
-                                    <img src="../assets/images/airline.png" width="60" height="24" alt="@title">
+                                    <img src="./images/airline.png" width="60" height="24" alt="@title">
                                 </figcaption>
                             </figure>
                             <div class="px-3">
@@ -526,14 +544,14 @@
                                 <div class="flex justify-between">
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#date-icon"></use>
+                                            <use href="./images/sprite-icons.svg#date-icon"></use>
                                         </svg>
                                         <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
 
                                     </div>
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#time-icon"></use>
+                                            <use href="./images/sprite-icons.svg#time-icon"></use>
                                         </svg>
 
                                         <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
@@ -552,7 +570,7 @@
                                     </div>
                                     <svg width="48" height="48"
                                         class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                        <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
+                                        <use href="./images/sprite-icons.svg#go-fill-icon"></use>
                                     </svg>
                                 </div>
                             </div>
@@ -563,12 +581,12 @@
 
                             <figure class="w-[311px] h-[151px] relative">
                                 <img class="w-[311px] h-[151px] object-cover"
-                                    src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
+                                    src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
                                     height="151" alt="@title">
 
                                 <figcaption class="absolute top-2 left-3">
                                     <span class="sr-only">@title</span>
-                                    <img src="../assets/images/airline.png" width="60" height="24" alt="@title">
+                                    <img src="./images/airline.png" width="60" height="24" alt="@title">
                                 </figcaption>
                             </figure>
                             <div class="px-3">
@@ -578,14 +596,14 @@
                                 <div class="flex justify-between">
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#date-icon"></use>
+                                            <use href="./images/sprite-icons.svg#date-icon"></use>
                                         </svg>
                                         <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
 
                                     </div>
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#time-icon"></use>
+                                            <use href="./images/sprite-icons.svg#time-icon"></use>
                                         </svg>
 
                                         <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
@@ -604,7 +622,7 @@
                                     </div>
                                     <svg width="48" height="48"
                                         class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                        <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
+                                        <use href="./images/sprite-icons.svg#go-fill-icon"></use>
                                     </svg>
                                 </div>
                             </div>
@@ -615,12 +633,12 @@
 
                             <figure class="w-[311px] h-[151px] relative">
                                 <img class="w-[311px] h-[151px] object-cover"
-                                    src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
+                                    src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
                                     height="151" alt="@title">
 
                                 <figcaption class="absolute top-2 left-3">
                                     <span class="sr-only">@title</span>
-                                    <img src="../assets/images/airline.png" width="60" height="24" alt="@title">
+                                    <img src="./images/airline.png" width="60" height="24" alt="@title">
                                 </figcaption>
                             </figure>
                             <div class="px-3">
@@ -630,14 +648,14 @@
                                 <div class="flex justify-between">
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#date-icon"></use>
+                                            <use href="./images/sprite-icons.svg#date-icon"></use>
                                         </svg>
                                         <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
 
                                     </div>
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#time-icon"></use>
+                                            <use href="./images/sprite-icons.svg#time-icon"></use>
                                         </svg>
 
                                         <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
@@ -656,7 +674,7 @@
                                     </div>
                                     <svg width="48" height="48"
                                         class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                        <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
+                                        <use href="./images/sprite-icons.svg#go-fill-icon"></use>
                                     </svg>
                                 </div>
                             </div>
@@ -667,12 +685,12 @@
 
                             <figure class="w-[311px] h-[151px] relative">
                                 <img class="w-[311px] h-[151px] object-cover"
-                                    src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
+                                    src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
                                     height="151" alt="@title">
 
                                 <figcaption class="absolute top-2 left-3">
                                     <span class="sr-only">@title</span>
-                                    <img src="../assets/images/airline.png" width="60" height="24" alt="@title">
+                                    <img src="./images/airline.png" width="60" height="24" alt="@title">
                                 </figcaption>
                             </figure>
                             <div class="px-3">
@@ -682,14 +700,14 @@
                                 <div class="flex justify-between">
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#date-icon"></use>
+                                            <use href="./images/sprite-icons.svg#date-icon"></use>
                                         </svg>
                                         <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
 
                                     </div>
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#time-icon"></use>
+                                            <use href="./images/sprite-icons.svg#time-icon"></use>
                                         </svg>
 
                                         <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
@@ -708,7 +726,7 @@
                                     </div>
                                     <svg width="48" height="48"
                                         class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                        <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
+                                        <use href="./images/sprite-icons.svg#go-fill-icon"></use>
                                     </svg>
                                 </div>
                             </div>
@@ -719,12 +737,12 @@
 
                             <figure class="w-[311px] h-[151px] relative">
                                 <img class="w-[311px] h-[151px] object-cover"
-                                    src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
+                                    src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
                                     height="151" alt="@title">
 
                                 <figcaption class="absolute top-2 left-3">
                                     <span class="sr-only">@title</span>
-                                    <img src="../assets/images/airline.png" width="60" height="24" alt="@title">
+                                    <img src="./images/airline.png" width="60" height="24" alt="@title">
                                 </figcaption>
                             </figure>
                             <div class="px-3">
@@ -734,14 +752,14 @@
                                 <div class="flex justify-between">
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#date-icon"></use>
+                                            <use href="./images/sprite-icons.svg#date-icon"></use>
                                         </svg>
                                         <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
 
                                     </div>
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#time-icon"></use>
+                                            <use href="./images/sprite-icons.svg#time-icon"></use>
                                         </svg>
 
                                         <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
@@ -760,7 +778,7 @@
                                     </div>
                                     <svg width="48" height="48"
                                         class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                        <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
+                                        <use href="./images/sprite-icons.svg#go-fill-icon"></use>
                                     </svg>
                                 </div>
                             </div>
@@ -771,12 +789,12 @@
 
                             <figure class="w-[311px] h-[151px] relative">
                                 <img class="w-[311px] h-[151px] object-cover"
-                                    src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
+                                    src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
                                     height="151" alt="@title">
 
                                 <figcaption class="absolute top-2 left-3">
                                     <span class="sr-only">@title</span>
-                                    <img src="../assets/images/airline.png" width="60" height="24" alt="@title">
+                                    <img src="./images/airline.png" width="60" height="24" alt="@title">
                                 </figcaption>
                             </figure>
                             <div class="px-3">
@@ -786,14 +804,14 @@
                                 <div class="flex justify-between">
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#date-icon"></use>
+                                            <use href="./images/sprite-icons.svg#date-icon"></use>
                                         </svg>
                                         <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
 
                                     </div>
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#time-icon"></use>
+                                            <use href="./images/sprite-icons.svg#time-icon"></use>
                                         </svg>
 
                                         <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
@@ -812,7 +830,7 @@
                                     </div>
                                     <svg width="48" height="48"
                                         class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                        <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
+                                        <use href="./images/sprite-icons.svg#go-fill-icon"></use>
                                     </svg>
                                 </div>
                             </div>
@@ -823,12 +841,12 @@
 
                             <figure class="w-[311px] h-[151px] relative">
                                 <img class="w-[311px] h-[151px] object-cover"
-                                    src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
+                                    src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
                                     height="151" alt="@title">
 
                                 <figcaption class="absolute top-2 left-3">
                                     <span class="sr-only">@title</span>
-                                    <img src="../assets/images/airline.png" width="60" height="24" alt="@title">
+                                    <img src="./images/airline.png" width="60" height="24" alt="@title">
                                 </figcaption>
                             </figure>
                             <div class="px-3">
@@ -838,14 +856,14 @@
                                 <div class="flex justify-between">
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#date-icon"></use>
+                                            <use href="./images/sprite-icons.svg#date-icon"></use>
                                         </svg>
                                         <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
 
                                     </div>
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#time-icon"></use>
+                                            <use href="./images/sprite-icons.svg#time-icon"></use>
                                         </svg>
 
                                         <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
@@ -864,7 +882,7 @@
                                     </div>
                                     <svg width="48" height="48"
                                         class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                        <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
+                                        <use href="./images/sprite-icons.svg#go-fill-icon"></use>
                                     </svg>
                                 </div>
                             </div>
@@ -875,12 +893,12 @@
 
                             <figure class="w-[311px] h-[151px] relative">
                                 <img class="w-[311px] h-[151px] object-cover"
-                                    src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
+                                    src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
                                     height="151" alt="@title">
 
                                 <figcaption class="absolute top-2 left-3">
                                     <span class="sr-only">@title</span>
-                                    <img src="../assets/images/airline.png" width="60" height="24" alt="@title">
+                                    <img src="./images/airline.png" width="60" height="24" alt="@title">
                                 </figcaption>
                             </figure>
                             <div class="px-3">
@@ -890,14 +908,14 @@
                                 <div class="flex justify-between">
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#date-icon"></use>
+                                            <use href="./images/sprite-icons.svg#date-icon"></use>
                                         </svg>
                                         <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
 
                                     </div>
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#time-icon"></use>
+                                            <use href="./images/sprite-icons.svg#time-icon"></use>
                                         </svg>
 
                                         <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
@@ -916,7 +934,7 @@
                                     </div>
                                     <svg width="48" height="48"
                                         class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                        <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
+                                        <use href="./images/sprite-icons.svg#go-fill-icon"></use>
                                     </svg>
                                 </div>
                             </div>
@@ -927,12 +945,12 @@
 
                             <figure class="w-[311px] h-[151px] relative">
                                 <img class="w-[311px] h-[151px] object-cover"
-                                    src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
+                                    src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
                                     height="151" alt="@title">
 
                                 <figcaption class="absolute top-2 left-3">
                                     <span class="sr-only">@title</span>
-                                    <img src="../assets/images/airline.png" width="60" height="24" alt="@title">
+                                    <img src="./images/airline.png" width="60" height="24" alt="@title">
                                 </figcaption>
                             </figure>
                             <div class="px-3">
@@ -942,14 +960,14 @@
                                 <div class="flex justify-between">
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#date-icon"></use>
+                                            <use href="./images/sprite-icons.svg#date-icon"></use>
                                         </svg>
                                         <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
 
                                     </div>
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#time-icon"></use>
+                                            <use href="./images/sprite-icons.svg#time-icon"></use>
                                         </svg>
 
                                         <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
@@ -968,7 +986,7 @@
                                     </div>
                                     <svg width="48" height="48"
                                         class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                        <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
+                                        <use href="./images/sprite-icons.svg#go-fill-icon"></use>
                                     </svg>
                                 </div>
                             </div>
@@ -979,12 +997,12 @@
 
                             <figure class="w-[311px] h-[151px] relative">
                                 <img class="w-[311px] h-[151px] object-cover"
-                                    src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
+                                    src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
                                     height="151" alt="@title">
 
                                 <figcaption class="absolute top-2 left-3">
                                     <span class="sr-only">@title</span>
-                                    <img src="../assets/images/airline.png" width="60" height="24" alt="@title">
+                                    <img src="./images/airline.png" width="60" height="24" alt="@title">
                                 </figcaption>
                             </figure>
                             <div class="px-3">
@@ -994,14 +1012,14 @@
                                 <div class="flex justify-between">
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#date-icon"></use>
+                                            <use href="./images/sprite-icons.svg#date-icon"></use>
                                         </svg>
                                         <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
 
                                     </div>
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#time-icon"></use>
+                                            <use href="./images/sprite-icons.svg#time-icon"></use>
                                         </svg>
 
                                         <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
@@ -1020,7 +1038,7 @@
                                     </div>
                                     <svg width="48" height="48"
                                         class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                        <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
+                                        <use href="./images/sprite-icons.svg#go-fill-icon"></use>
                                     </svg>
                                 </div>
                             </div>
@@ -1031,12 +1049,12 @@
 
                             <figure class="w-[311px] h-[151px] relative">
                                 <img class="w-[311px] h-[151px] object-cover"
-                                    src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
+                                    src="./images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
                                     height="151" alt="@title">
 
                                 <figcaption class="absolute top-2 left-3">
                                     <span class="sr-only">@title</span>
-                                    <img src="../assets/images/airline.png" width="60" height="24" alt="@title">
+                                    <img src="./images/airline.png" width="60" height="24" alt="@title">
                                 </figcaption>
                             </figure>
                             <div class="px-3">
@@ -1046,14 +1064,14 @@
                                 <div class="flex justify-between">
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#date-icon"></use>
+                                            <use href="./images/sprite-icons.svg#date-icon"></use>
                                         </svg>
                                         <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
 
                                     </div>
                                     <div class="w-1/2 flex  items-center gap-x-2">
                                         <svg width="36" height="36">
-                                            <use href="../assets/images/sprite-icons.svg#time-icon"></use>
+                                            <use href="./images/sprite-icons.svg#time-icon"></use>
                                         </svg>
 
                                         <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
@@ -1072,7 +1090,7 @@
                                     </div>
                                     <svg width="48" height="48"
                                         class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                        <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
+                                        <use href="./images/sprite-icons.svg#go-fill-icon"></use>
                                     </svg>
                                 </div>
                             </div>
@@ -1086,186 +1104,95 @@
 
         </div>
 
+        <!-- landing box -->
+        <basis core="print" datamembername="db.landingtext">
+            <layout>
+                <section class="bg-[#F8F8F8] min-h-[300px] pt-8">
+                    <div class="max-w-7xl max-xl:w-[98%] mx-auto">
 
-        <section class="bg-[#F8F8F8] min-h-[300px] pt-8">
-            <div class="max-w-7xl max-xl:w-[98%] mx-auto">
-                    <h2 class="font-danabold text-2xl ">تور استانبول</h2>
-                <div class="text-sm leading-5 font-danaregular text-zinc-900 my-4">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                    چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
-                    نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته
-                    حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان
-                    رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید
-                    داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل
-                    حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار
-                    گیرد.
-                </div>
-                <div class="inline-block">
-                    <a href="#" class="flex items-center group">
-                        <h2 class="text-secondary-1-700 text-sm leading-6 font-danamedium ">بیشتر
-                            بخوانید</h2>
-                        <svg width="48" height="48"
-                            class="transition-all duration-200 ease-in-out group-hover:-translate-x-5  ">
-                            <use href="../assets/images/sprite-icons.svg#arrow-left-small-icon">
-                            </use>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section class="bg-[#F8F8F8] min-h-[500px] pt-8">
-            <div class="max-w-7xl max-xl:w-[98%] mx-auto flex justify-between gap-x-4 ">
-
-                <div class="w-[457px]">
-
-                    <figure class="w-[457px] h-[455px] bg-secondary-1-700 rounded-3xl relative">
-
-                        <img class="mx-auto -mt-[58px] absolute left-0 right-0"
-                            src="../assets/images/young-man-with-headset 1.png" alt="" srcset="">
-                        <figcaption
-                            class="absolute bottom-0 left-0 right-0 bg-primary-500 h-[75px] rounded-b-3xl leading-[75px] text-center text-white">
-                            ارتباط با پشتیبانی
-                        </figcaption>
-                    </figure>
-                </div>
-
-                <div class="w-[calc(100%_-_500px)]">
-
-                    <ul class="flex gap-x-3">
-                        <li
-                            class="bg-zinc-200 rounded-[50px] text-zinc-900 font-danaregular text-base py-3 px-5 cursor-pointer hover:text-white hover:bg-primary-500">
-                            پرواز</li>
-                        <li
-                            class="bg-zinc-200 rounded-[50px] text-zinc-900 font-danaregular text-base py-3 px-5 cursor-pointer hover:text-white hover:bg-primary-500">
-                            پرواز</li>
-                        <li
-                            class="bg-zinc-200 rounded-[50px] text-zinc-900 font-danaregular text-base py-3 px-5 cursor-pointer hover:text-white hover:bg-primary-500">
-                            پرواز</li>
-                        <li
-                            class="bg-zinc-200 rounded-[50px] text-zinc-900 font-danaregular text-base py-3 px-5 cursor-pointer hover:text-white hover:bg-primary-500">
-                            پرواز</li>
-                    </ul>
-
-
-
-                    <div class="load-answer">
-                        <ul class="flex flex-col gap-3 my-8">
-                            <li class="relative bg-white rounded-xl pr-14 pl-4 py-4">
-                                <span
-                                    class=" w-[58px] h-[58px] flex justify-center items-center  bg-primary-500 rounded-full absolute -right-6 top-0 bottom-0 my-auto">
-                                    <svg width="24" height="24">
-                                        <use href="../assets/images/sprite-icons.svg#user-faq-icon">
-                                        </use>
-                                    </svg>
-                                </span>
-
-                                <h2 class="text-base leading-6 font-danabold text-zinc-900 my-2">چگونه تور رزرو کنیم؟
-                                </h2>
-
-                                <div class="text-xs text-zinc-500 text-justify leading-5">
-                                    متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح
-                                    گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل
-                                    ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید
-                                </div>
-                            </li>
-                            <li class="relative bg-white rounded-xl pr-14 pl-4 py-4">
-                                <span
-                                    class=" w-[58px] h-[58px] flex justify-center items-center  bg-primary-500 rounded-full absolute -right-6 top-0 bottom-0 my-auto">
-                                    <svg width="24" height="24">
-                                        <use href="../assets/images/sprite-icons.svg#user-faq-icon">
-                                        </use>
-                                    </svg>
-                                </span>
-
-                                <h2 class="text-base leading-6 font-danabold text-zinc-900 my-2">چگونه تور رزرو کنیم؟
-                                </h2>
-
-                                <div class="text-xs text-zinc-500 text-justify leading-5 hidden">
-                                    متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح
-                                    گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل
-                                    ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید
-                                </div>
-                            </li>
-                            <li class="relative bg-white rounded-xl pr-14 pl-4 py-4">
-                                <span
-                                    class=" w-[58px] h-[58px] flex justify-center items-center  bg-primary-500 rounded-full absolute -right-6 top-0 bottom-0 my-auto">
-                                    <svg width="24" height="24">
-                                        <use href="../assets/images/sprite-icons.svg#user-faq-icon">
-                                        </use>
-                                    </svg>
-                                </span>
-
-                                <h2 class="text-base leading-6 font-danabold text-zinc-900 my-2">چگونه تور رزرو کنیم؟
-                                </h2>
-
-                                <div class="text-xs text-zinc-500 text-justify leading-5 hidden">
-                                    متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح
-                                    گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل
-                                    ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید
-                                </div>
-                            </li>
-                            <li class="relative bg-white rounded-xl pr-14 pl-4 py-4">
-                                <span
-                                    class=" w-[58px] h-[58px] flex justify-center items-center  bg-primary-500 rounded-full absolute -right-6 top-0 bottom-0 my-auto">
-                                    <svg width="24" height="24">
-                                        <use href="../assets/images/sprite-icons.svg#user-faq-icon">
-                                        </use>
-                                    </svg>
-                                </span>
-
-                                <h2 class="text-base leading-6 font-danabold text-zinc-900 my-2">چگونه تور رزرو کنیم؟
-                                </h2>
-
-                                <div class="text-xs text-zinc-500 text-justify leading-5 hidden">
-                                    متنی آزمایشی و بی‌معنی در صنعت چاپ، صفحه‌آرایی و طراحی گرافیک گفته می‌شود. طراح
-                                    گرافیک از این متن به عنوان عنصری از ترکیب بندی برای پر کردن صفحه و ارایه اولیه شکل
-                                    ظاهری و کلی طرح سفارش گرفته شده استفاده می نماید
-                                </div>
-                            </li>
-                        </ul>
+                        @child
+                        <div class="inline-block"><a href="/article.bc?id=[##cms.query.aid##]"
+                                class="flex items-center group">
+                                <h2 class="text-secondary-1-700 text-sm leading-6 font-danamedium ">بیشتر
+                                    بخوانید</h2>
+                                <svg width="48" height="48"
+                                    class="transition-all duration-200 ease-in-out group-hover:-translate-x-5 ">
+                                    <use href="./images/sprite-icons.svg#arrow-left-small-icon"></use>
+                                </svg>
+                            </a></div>
                     </div>
-
-                </div>
-
-            </div>
-        </section>
-
-        <section class="bg-[#F8F8F8] min-h-[300px] pt-8">
-            <div class="max-w-7xl max-xl:w-[98%] mx-auto">
+                </section>
+            </layout>
+            <face filter="TypeID in(150)">
                 <div class="flex gap-x-2 items-center">
-                    <img src="../assets/images/logo-colored.png" width="48" height="48" alt="logo ">
-                    <h2 class="font-danabold text-2xl ">درباره ما</h2>
+                    <h2 class="font-danabold text-2xl ">@text</h2>
                 </div>
 
-                <div class="text-sm leading-5 font-danaregular text-zinc-900 my-4">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است،
-                    چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد
-                    نیاز، و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد، کتابهای زیادی در شصت و سه درصد گذشته
-                    حال و آینده، شناخت فراوان جامعه و متخصصان را می طلبد، تا با نرم افزارها شناخت بیشتری را برای طراحان
-                    رایانه ای علی الخصوص طراحان خلاقی، و فرهنگ پیشرو در زبان فارسی ایجاد کرد، در این صورت می توان امید
-                    داشت که تمام و دشواری موجود در ارائه راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل
-                    حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود طراحی اساسا مورد استفاده قرار
-                    گیرد.
+            </face>
+            <face filter="TypeID in(129)">
+                <div class="text-sm leading-5 font-danaregular text-zinc-900 my-4 line-clamp-4">@largetext
                 </div>
-                <div class="inline-block">
-                    <a href="#" class="flex items-center group">
-                        <h2 class="text-secondary-1-700 text-sm leading-6 font-danamedium ">بیشتر
-                            بخوانید</h2>
-                        <svg width="48" height="48"
-                            class="transition-all duration-200 ease-in-out group-hover:-translate-x-5  ">
-                            <use href="../assets/images/sprite-icons.svg#arrow-left-small-icon">
-                            </use>
-                        </svg>
-                    </a>
-                </div>
-            </div>
-        </section>
+            </face>
+        </basis>
+
+        <!-- faq box -->
+        <basis core="list" datamembername="info.faq">
+            <layout>
+                <section class="bg-[#F8F8F8] min-h-[500px] pt-8">
+                    <div class="max-w-7xl max-xl:w-[98%] mx-auto flex justify-between gap-x-4 ">
+                        <div class="w-[457px]">
+                            <figure class="w-[457px] h-[455px] bg-secondary-1-700 rounded-3xl relative"><img
+                                    class="mx-auto -mt-[58px] absolute left-0 right-0"
+                                    src="./images/young-man-with-headset 1.png" alt="" srcset="">
+                                <figcaption
+                                    class="absolute bottom-0 left-0 right-0 bg-primary-500 h-[75px] rounded-b-3xl leading-[75px] text-center text-white">
+                                    ارتباط با پشتیبانی </figcaption>
+                            </figure>
+                        </div>
+                        <div class="w-[calc(100%_-_500px)] load-content-box-container">
+                            <ul class="flex gap-x-3">@child </ul>
+                            <div class="load-answer load-content-box"><span class="loader block mx-auto"></span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </layout>
+            <face>
+                <li data-id="@id" data-type="faq"
+                    class="category-item-load faq bg-zinc-200 rounded-[50px] text-zinc-900 font-danaregular text-base py-3 px-5 cursor-pointer hover:text-white hover:bg-primary-500">
+                    @title </li>
+            </face>
+        </basis>
+        <!-- about us -->
+        <basis core="print" datamembername="about.text">
+            <layout>
+                <section class="bg-[#F8F8F8] min-h-[300px] pt-8">
+                    <div class="max-w-7xl max-xl:w-[98%] mx-auto">
+                        <div class="flex gap-x-2 items-center"><img src="[##cms.cms.cdn##]/images/logo-colored.png"
+                                width="48" height="48" alt="logo ">
+                            <h2 class="font-danabold text-2xl ">درباره ما</h2>
+                        </div>
+                        <div class="text-sm leading-5 font-danaregular text-zinc-900 my-4 line-clamp-4">@child
+                        </div>
+                        <div class="inline-block"><a href="/about-us" class="flex items-center group">
+                                <h2 class="text-secondary-1-700 text-sm leading-6 font-danamedium ">بیشتر
+                                    بخوانید</h2>
+                                <svg width="48" height="48"
+                                    class="transition-all duration-200 ease-in-out group-hover:-translate-x-5 ">
+                                    <use href="./images/sprite-icons.svg#arrow-left-small-icon"></use>
+                                </svg>
+                            </a></div>
+                    </div>
+                </section>
+            </layout>
+            <face filter="TypeID in(129)">@largetext </face>
+        </basis>
 
 
     </main>
 
     <basis core="call" file="footer.inc" pageindex="[##cms.cms.pageindex##]" />
+
 </body>
 
 </html>
