@@ -1,0 +1,1029 @@
+<basis core="group" if="'[##cms.query.typecat##]'='tour'">
+    <basis core="dbsource" source="basiscore" mid="20" name="tour" lid="1">
+        <member name="category" type="tree" request="cat" parentid="[##cms.query.catid##]"></member>
+    </basis>
+    <div class="sub-item-megamenu pr-8 border-r border-primary-300">
+        <basis core="print" datamembername="tour.category">
+            <face filter="catid in('[##cms.query.catid##]') and link is null"><a
+                    href="/tour-list.bc?catid=[##cms.query.catid##]"
+                    class="font-danademibold text-lg text-black hover:text-primary-900">@title</a>
+                <h2 class="line-clamp-3 leading-5 text-sm text-black ">@urldescription</h2>
+            </face>
+            <face filter="catid in('[##cms.query.catid##]')"><a href="/@link"
+                    class="font-danademibold text-lg text-black hover:text-primary-900">@title</a>
+                <h2 class="line-clamp-3 leading-5 text-sm text-black ">@urldescription</h2>
+            </face>
+        </basis>
+        <basis core="tree" datamembername="tour.category" idcol="catid" parentidcol="parentid"
+            nullvalue="[##cms.query.catid##]">
+            <layout>
+                <div>
+                    <ul
+                        class="text-sm text-primary-500 font-danaregular leading-8 mt-14 columns-3 w-[373px] max-lg:columns-1 max-lg:w-full">
+                        @child </ul>
+                </div>
+            </layout><else-layout><a href="/tour-list.bc?catid=[##cms.query.catid##]"
+                    class="font-danademibold text-lg text-black hover:text-primary-900">[##cms.query.catname##]</a>
+                <div class="text-sm text-primary-500 font-danaregular leading-8 mt-14 w-[373px]">در حال حاضر دسته ای
+                    یافت نشد. </div>
+            </else-layout>
+            <face filter="parentid=[##cms.query.catid##] and link is null">
+                <li class="hover:text-primary-500"><a href="/tour-list.bc?catid=@catid">@title</a></li>
+            </face>
+            <face filter="parentid=[##cms.query.catid##] ">
+                <li class="hover:text-primary-500"><a href="/@link">@title</a></li>
+            </face>
+        </basis>
+    </div>
+    <basis core="print" datamembername="tour.category">
+        <layout>@child </layout><else-layout>
+            <figure
+                class="image-category-magamenu max-lg:hidden w-[308px] h-[402px] min-w-[308px] min-h-[402px] max-w-[308px] max-h-[402px] rounded-[10px] overflow-hidden">
+                <img loading="lazy" class="w-[308px] h-[402px] min-w-[308px] min-h-[402px] max-w-[308px] max-h-[402px]"
+                    src="[##cms.cms.cdn##]/images/tour-banner-default.jpg" width="308" height="402" alt="تور" />
+            </figure>
+        </else-layout>
+        <face filter="catid in('[##cms.query.catid##]')">
+            <figure
+                class="image-category-magamenu max-lg:hidden w-[308px] h-[402px] min-w-[308px] min-h-[402px] max-w-[308px] max-h-[402px] rounded-[10px] overflow-hidden">
+                <img loading="lazy" class="w-[308px] h-[402px] min-w-[308px] min-h-[402px] max-w-[308px] max-h-[402px]"
+                    src="[##cms.cms.cdn##]/@image" width="308" height="402" alt="@title" />
+            </figure>
+        </face>
+    </basis>
+</basis>
+<basis core="group" if="'[##cms.query.typecat##]'='article'">
+    <basis core="dbsource" source="basiscore" mid="1" name="article" lid="1">
+        <member name="category" type="tree" request="cat" parentid="[##cms.query.catid##]"></member>
+    </basis>
+    <div class="sub-item-megamenu pr-8 border-r border-primary-300">
+        <basis core="print" datamembername="article.category">
+            <face filter="catid in('[##cms.query.catid##]') and link is null"><a
+                    href="/article-list.bc?catid=[##cms.query.catid##]"
+                    class="font-danademibold text-lg text-black hover:text-primary-900">@title</a>
+                <h2 class="line-clamp-3 leading-5 text-sm text-black">@urldescription</h2>
+            </face>
+            <face filter="catid in('[##cms.query.catid##]')"><a href="/@link"
+                    class="font-danademibold text-lg text-black hover:text-primary-900">@title</a>
+                <h2 class="line-clamp-3 leading-5 text-sm text-black">@urldescription</h2>
+            </face>
+        </basis>
+        <basis core="tree" datamembername="article.category" idcol="catid" parentidcol="parentid"
+            nullvalue="[##cms.query.catid##]">
+            <layout>
+                <div>
+                    <ul
+                        class="text-sm text-primary-500 font-danaregular leading-8 mt-14 columns-3 w-[373px] max-lg:columns-1 max-lg:w-full">
+                        @child </ul>
+                </div>
+            </layout><else-layout><a href="/article-list.bc?catid=[##cms.query.catid##]"
+                    class="font-danademibold text-lg text-black hover:text-primary-900">[##cms.query.catname##]</a>
+                <div class="text-sm text-primary-500 font-danaregular leading-8 mt-14 w-[373px]">در حال حاضر دسته ای
+                    یافت نشد. </div>
+            </else-layout>
+            <face filter="parentid=[##cms.query.catid##] and link is null">
+                <li class="hover:text-primary-500"><a href="/article-list.bc?catid=@catid">@title</a></li>
+            </face>
+            <face filter="parentid=[##cms.query.catid##] ">
+                <li class="hover:text-primary-500"><a href="/@link">@title</a></li>
+            </face>
+        </basis>
+    </div>
+    <basis core="print" datamembername="article.category">
+        <layout>@child </layout><else-layout>
+            <figure
+                class="image-category-magamenu max-lg:hidden w-[308px] h-[402px] min-w-[308px] min-h-[402px] max-w-[308px] max-h-[402px] rounded-[10px] overflow-hidden">
+                <img loading="lazy" class="w-[308px] h-[402px] min-w-[308px] min-h-[402px] max-w-[308px] max-h-[402px]"
+                    src="[##cms.cms.cdn##]/images/article-banner-default.jpg" width="308" height="402" alt="مقاله" />
+            </figure>
+        </else-layout>
+        <face filter="catid in('[##cms.query.catid##]')">
+            <figure
+                class="image-category-magamenu max-lg:hidden w-[308px] h-[402px] min-w-[308px] min-h-[402px] max-w-[308px] max-h-[402px] rounded-[10px] overflow-hidden">
+                <img loading="lazy" class="w-[308px] h-[402px] min-w-[308px] min-h-[402px] max-w-[308px] max-h-[402px]"
+                    src="[##cms.cms.cdn##]/@image" width="308" height="402" alt="@title" />
+            </figure>
+        </face>
+    </basis>
+</basis>
+<basis core="group" if="'[##cms.query.typecat##]'='destination'">
+    <basis core="dbsource" source="basiscore" mid="20" name="tour" lid="1">
+        <member name="categoryitem" type="tree" request="cat" parentid="[##cms.query.catid##]"
+            postsql="select * from [tour.categoryitem] limit 7"></member>
+    </basis>
+    <basis core="list" datamembername="tour.categoryitem">
+        <face filter="link is null">
+            <article class="w-[176px] h-[171px] rounded-xl overflow-hidden relative group"><a
+                    href="/tour-list.bc?catid=@catid">
+                    <figure><img class="object-cover w-[176px] h-[171px]" src="[##cms.cms.cdn##]/@image" alt="@title"
+                            width="176" height="171">
+                        <figcaption
+                            class="text-white text-base font-danabold leading-[24px] absolute top-0 left-0 bottom-0 right-0 bg-gradient-to-t from-[#040c24]/80 group-hover:from-[#040c24]/100 to-transparent transition-all duration-100 ease-in-out ">
+                            <div
+                                class="absolute top-3 left-3 text-xs font-danaregular bg-white text-zinc-900 py-1 px-2 rounded-[20px] ">
+                                @countid تور </div>
+                            <div class="absolute bottom-0 left-0 right-0 mx-auto w-[148px] pb-3">
+                                <h2 class="line-clamp-1">@title</h2><svg width="148" height="11">
+                                    <use href="./images/sprite-icons.svg#arrow-left-icon"></use>
+                                </svg>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </a></article>
+        </face>
+        <face>
+            <article class="w-[176px] h-[171px] rounded-xl overflow-hidden relative group"><a href="/@link">
+                    <figure><img class="object-cover w-[176px] h-[171px]" src="[##cms.cms.cdn##]/@image" alt="@title"
+                            width="176" height="171">
+                        <figcaption
+                            class="text-white text-base font-danabold leading-[24px] absolute top-0 left-0 bottom-0 right-0 bg-gradient-to-t from-[#040c24]/80 group-hover:from-[#040c24]/100 to-transparent transition-all duration-100 ease-in-out ">
+                            <div
+                                class="absolute top-3 left-3 text-xs font-danaregular bg-white text-zinc-900 py-1 px-2 rounded-[20px] ">
+                                @countid تور </div>
+                            <div class="absolute bottom-0 left-0 right-0 mx-auto w-[148px] pb-3">
+                                <h2 class="line-clamp-1">@title</h2><svg width="148" height="11">
+                                    <use href="./images/sprite-icons.svg#arrow-left-icon"></use>
+                                </svg>
+                            </div>
+                        </figcaption>
+                    </figure>
+                </a></article>
+        </face>
+    </basis>
+</basis>
+<basis core="group" if="'[##cms.query.typecat##]'='specialtour'">
+    <basis core="dbsource" source="basiscore" lid="1" mid="20" name="tour" catid="[##cms.query.catid##]">
+        <member name="specialtour" type="list" link="tour.bc" propertyid="7244,7248" perpage="20" order="ord"
+            size="311x151" />
+    </basis>
+    <basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid|(0)##]">
+        <member name="specialtour" type="list" link="tour.bc" size="311x151"
+            propertyid=" 8181,8076,8077,3088062,10000504" typeid="159" perpage="20" order="ord"></member>
+    </basis>
+    <basis core="dbsource" source="basiscore" mid="1" name="list" lid="1" schemaid="987" term="[##cms.query.term##]">
+        <member name="airline" type="list" request="spelist"></member>
+    </basis>
+    <basis core="inlinesource" name="joining">
+        <member name="specialtourlist" lefttblcol="db.specialtour.prp_10000504" righttblcol="list.airline.name"
+            format="join" jointype="leftjoin"></member>
+    </basis>
+    <basis core="list" datamembername="joining.specialtourlist">
+        <layout>@child </layout>
+        <face>
+            <div class="swiper-slide w-[311px]">
+                <article><a href="/@db.specialtour.link"
+                        class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200 block">
+                        <figure class="w-[311px] h-[151px] relative"><img class="w-[311px] h-[151px] object-cover"
+                                src="[##cms.cms.cdn##]/@db.specialtour.00311X00151prp" width="311" height="151"
+                                alt="@db.specialtour.title">
+                            <figcaption class="absolute top-2 left-3"><span
+                                    class="sr-only">@db.specialtour.title</span><img src="@list.airline.pic" width="60"
+                                    height="24" alt="@list.airline.name"></figcaption>
+                        </figure>
+                        <div class="px-3">
+                            <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
+                                @db.specialtour.title</h2>
+                            <div class="flex justify-between">
+                                <div class="w-1/2 flex items-center gap-x-2"><svg width="36" height="36">
+                                        <use href="./images/sprite-icons.svg#date-icon"></use>
+                                    </svg>
+                                    <h2 class="text-xs leading-5 font-danaregular">@db.specialtour.prp_8077</h2>
+                                </div>
+                                <div class="w-1/2 flex items-center gap-x-2"><svg width="36" height="36">
+                                        <use href="./images/sprite-icons.svg#time-icon"></use>
+                                    </svg>
+                                    <h2 class="text-xs leading-5 font-danaregular">@db.specialtour.prp_8076</h2>
+                                </div>
+                            </div>
+                            <div class="mt-2 flex justify-between items-center">
+                                <div><span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
+                                    <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">@db.specialtour.prp_8181
+                                    </h2>
+                                </div><svg width="48" height="48"
+                                    class="transition-all duration-200 ease-in-out group-hover:-translate-x-2">
+                                    <use href="./images/sprite-icons.svg#go-icon"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </a></article>
+            </div>
+        </face>
+    </basis>
+</basis>
+<basis core="group" if="'[##cms.query.typecat##]'='offeredtour'">
+    <basis core="dbsource" source="basiscore" lid="1" mid="20" name="tour" catid="[##cms.query.catid##]">
+        <member name="offeredtour" type="list" link="tour.bc" propertyid="7244,7248" perpage="20" order="ord"
+            size="311x151" />
+    </basis>
+    <basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid|(0)##]">
+        <member name="offeredtour" type="list" link="tour.bc" size="311x151"
+            propertyid=" 8181,8076,8077,3088062,10000504" typeid="159" perpage="20" order="ord"></member>
+    </basis>
+    <basis core="dbsource" source="basiscore" mid="1" name="list" lid="1" schemaid="987" term="[##cms.query.term##]">
+        <member name="airline" type="list" request="spelist"></member>
+    </basis>
+    <basis core="inlinesource" name="joining">
+        <member name="offeredtourlist" lefttblcol="db.offeredtour.prp_10000504" righttblcol="list.airline.name"
+            format="join" jointype="leftjoin"></member>
+    </basis>
+    <basis core="list" datamembername="joining.offeredtourlist">
+        <layout>@child </layout>
+        <face>
+            <div class="swiper-slide w-[311px]">
+                <article><a href="/@db.offeredtour.link"
+                        class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200 block">
+                        <figure class="w-[311px] h-[151px] relative"><img class="w-[311px] h-[151px] object-cover"
+                                src="[##cms.cms.cdn##]/@db.offeredtour.00311X00151prp" width="311" height="151"
+                                alt="@db.offeredtour.title">
+                            <figcaption class="absolute top-2 left-3"><span
+                                    class="bg-red-600/80 text-white p-2 rounded-[50px] absolute top-2 right-3">@db.specialtour.prp_3088062</span><img
+                                    class="absolute top-2 left-3" src="@list.airline.pic" width="60" height="24"
+                                    alt="@list.airline.name"></figcaption>
+                        </figure>
+                        <div class="px-3">
+                            <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
+                                @db.offeredtour.title</h2>
+                            <div class="flex justify-between">
+                                <div class="w-1/2 flex items-center gap-x-2"><svg width="36" height="36">
+                                        <use href="./images/sprite-icons.svg#date-icon"></use>
+                                    </svg>
+                                    <h2 class="text-xs leading-5 font-danaregular">@db.offeredtour.prp_8077</h2>
+                                </div>
+                                <div class="w-1/2 flex items-center gap-x-2"><svg width="36" height="36">
+                                        <use href="./images/sprite-icons.svg#time-icon"></use>
+                                    </svg>
+                                    <h2 class="text-xs leading-5 font-danaregular">@db.offeredtour.prp_8076</h2>
+                                </div>
+                            </div>
+                            <div class="mt-2 flex justify-between items-center">
+                                <div><span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
+                                    <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">@db.offeredtour.prp_8181
+                                    </h2>
+                                </div><svg width="48" height="48"
+                                    class="transition-all duration-200 ease-in-out group-hover:-translate-x-2">
+                                    <use href="./images/sprite-icons.svg#go-icon"></use>
+                                </svg>
+                            </div>
+                        </div>
+                    </a></article>
+            </div>
+        </face>
+    </basis>
+</basis>
+<basis core="group" if="'[##cms.query.typecat##]'='visareq'">
+    <basis core="dbsource" source="basiscore" lid="1" mid="20" name="list" catid="[##cms.query.catid##]">
+        <member name="visa" type="list" link="visa.bc" size="84X84" typeid="159" perpage="20" order="ord"></member>
+    </basis>
+    <basis core="list" datamembername="list.visa">
+        <layout>@child </layout>
+        <face>
+            <div class="swiper-slide w-[200px]">
+                <article><a
+                        class="w-[200px] h-[132px] rounded-xl flex items-center mx-5 gap-x-3 overflow-hidden cursor-pointer group bg-white "
+                        href="/@link">
+                        <figure><img class="object-cover w-[84px] h-[84px] rounded-full"
+                                src="[##cms.cms.cdn##]/@00084X00084prp" alt="@title" width="84" height="84"></figure>
+                        <div>
+                            <h2 class="text-base leading-6 font-danabold text-zinc-900 mt-2 line-clamp-1">@title</h2>
+                            <div class="flex items-center "><span
+                                    class="text-sm leading-5 text-secondary-1-700 font-danaregular">مشاهده</span><svg
+                                    width="49" height="48">
+                                    <use href="./images/sprite-icons.svg#arrow-left-small-icon"></use>
+                                </svg></div>
+                        </div>
+                    </a></article>
+            </div>
+        </face>
+    </basis>
+</basis>
+<basis core="group" if="'[##cms.query.typecat##]'='faq'">
+    <basis core="dbsource" source="basiscore" name="db" mid="1" lid="1" usedforid="[##cms.query.catid##]">
+        <member name="faqContent" type="view" />
+    </basis>
+    <basis core="list" datamembername="db.faqContent">
+        <layout>
+            <ul class="flex flex-col gap-3 my-8">@child </ul>
+        </layout>
+        <face filter="TypeID in(250)">
+            <li class="relative bg-white rounded-xl pr-14 pl-4 py-4"><span
+                    class=" w-[58px]  h-[58px] flex justify-center items-center bg-primary-500 rounded-full absolute -right-6 top-0 bottom-0 my-auto"><svg
+                        width="24" height="24">
+                        <use href="./images/sprite-icons.svg#user-faq-icon"></use>
+                    </svg></span>
+                <h2 class="text-base leading-6 font-danabold text-zinc-900 my-2">@text</h2>
+                <div class="text-xs text-zinc-500 text-justify leading-5 hidden">@largetext </div>
+            </li>
+        </face>
+    </basis>
+</basis>
+
+
+<basis core="group" if="'[##cms.query.typecat##]'='tourlistItems'">
+
+    <basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]">
+        <member name="tourlistItems" type="list" link="tour.bc" propertyid="8181,10000504,8076,8077" typeid="159"
+            size="311x151" order="ord" perpage="20" pageno="[##cms.query.pagenum|(1)##]" />
+        <member name="paging" type="list" request="paging" count="3" parentname="tourlistItems" />
+    </basis>
+
+    <basis core="dbsource" source="basiscore" mid="1" name="list" lid="1" schemaid="987" term="[##cms.query.term##]">
+        <member name="airline" type="list" request="spelist"></member>
+    </basis>
+    <basis core="inlinesource" name="joining">
+        <member name="tourlistItems" lefttblcol="db.tourlistItems.prp_10000504" righttblcol="list.airline.name"
+            format="join" jointype="leftjoin"></member>
+    </basis>
+
+    <basis core="print" datamembername="joining.tourlistItems">
+        <else-layout>
+            <div class="no-cards-found">موردی یافت نشد !</div>
+        </else-layout>
+        <layout>
+            @child
+        </layout>
+        <face>
+
+
+            <article>
+                <a href="@db.tourlistItems.link"
+                    class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200 block">
+                    <figure class="w-[311px] h-[151px] relative">
+                        <img class="w-[311px] h-[151px] object-cover"
+                            src="[##cms.cms.cdn##]/@db.tourlistItems.00311X00151prp" width="311" height="151"
+                            alt="@db.tourlistItems.title">
+
+                        <figcaption class="absolute top-2 left-3">
+                            <span class="sr-only">@db.tourlistItems.title</span>
+                            <img src="/@list.airline.pic" width="60" height="24" alt="@list.airline.name">
+                        </figcaption>
+                    </figure>
+                    <div class="px-3">
+                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
+                            @db.tourlistItems.title</h2>
+                        <div class="flex justify-between">
+                            <div class="w-1/2 flex  items-center gap-x-2">
+                                <svg width="36" height="36">
+                                    <use href="./images/sprite-icons.svg#date-icon"></use>
+                                </svg>
+                                <h2 class="text-xs leading-5 font-danaregular">@db.tourlistItems.prp_8077</h2>
+
+                            </div>
+                            <div class="w-1/2 flex  items-center gap-x-2">
+                                <svg width="36" height="36">
+                                    <use href="./images/sprite-icons.svg#time-icon"></use>
+                                </svg>
+
+                                <h2 class="text-xs leading-5 font-danaregular">@db.tourlistItems.prp_8076</h2>
+
+                            </div>
+                        </div>
+
+
+                        <div class="mt-2 flex justify-between items-center">
+                            <div>
+                                <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
+                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">
+                                    @db.tourlistItems.prp_8181</h2>
+                            </div>
+                            <svg width="48" height="48"
+                                class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
+                                <use href="./images/sprite-icons.svg#go-fill-icon"></use>
+                            </svg>
+                        </div>
+                    </div>
+
+                </a>
+
+            </article>
+
+
+
+        </face>
+    </basis>
+
+    <div id="paging" class="flex cats-paging-load items-center justify-center gap-2 mt-20 w-full">
+        <ul class="flex w-full justify-center items-center gap-3 cd-pagination no-space dir-ltr" id="wibpaging">
+            <basis core="print" datamembername="db.paging">
+                <face filter="(@sta='pre')and('[##cms.cms.pageurl##]'='')">
+                    <li
+                        class="w-12 h-12  hover:bg-secondary-800  cursor-pointer flex justify-center items-center bg-white rounded-xl page-no prev-page">
+                        <span class="w-full h-full flex justify-center items-center " aria-label="angle-left"
+                            onclick="FetchPageNumPrev('@page')">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M21.1191 24C21.1191 23.9062 21.1379 23.8125 21.1754 23.7188C21.2129 23.625 21.2616 23.5547 21.3216 23.5078L24.6741 19.9922C24.8091 19.8516 24.9816 19.7813 25.1916 19.7813C25.4016 19.7813 25.5816 19.8516 25.7316 19.9922C25.8666 20.1484 25.9341 20.3359 25.9341 20.5547C25.9341 20.7734 25.8666 20.9531 25.7316 21.0938L22.8516 24.0938L25.7316 27.0938C25.8666 27.25 25.9341 27.4375 25.9341 27.6563C25.9341 27.875 25.8666 28.0547 25.7316 28.1953C25.5816 28.3516 25.4016 28.4297 25.1916 28.4297C24.9816 28.4297 24.8091 28.3516 24.6741 28.1953L21.3216 24.7031C21.2616 24.5469 21.2129 24.4141 21.1754 24.3047C21.1379 24.1953 21.1191 24.0938 21.1191 24Z"
+                                    fill="#71717A" />
+                            </svg>
+
+                        </span>
+                    </li>
+                </face>
+                <face filter="(@sta='pre')and('[##cms.cms.pageurl##]'<>'')">
+                    <li
+                        class="page-no prev-page w-12 h-12  hover:bg-secondary-800  cursor-pointer flex justify-center items-center bg-white rounded-xl">
+                        <span class="w-full h-full flex justify-center items-center " aria-label="angle-left"
+                            onclick="FetchPageNumPrev('@page')">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M21.1191 24C21.1191 23.9062 21.1379 23.8125 21.1754 23.7188C21.2129 23.625 21.2616 23.5547 21.3216 23.5078L24.6741 19.9922C24.8091 19.8516 24.9816 19.7813 25.1916 19.7813C25.4016 19.7813 25.5816 19.8516 25.7316 19.9922C25.8666 20.1484 25.9341 20.3359 25.9341 20.5547C25.9341 20.7734 25.8666 20.9531 25.7316 21.0938L22.8516 24.0938L25.7316 27.0938C25.8666 27.25 25.9341 27.4375 25.9341 27.6563C25.9341 27.875 25.8666 28.0547 25.7316 28.1953C25.5816 28.3516 25.4016 28.4297 25.1916 28.4297C24.9816 28.4297 24.8091 28.3516 24.6741 28.1953L21.3216 24.7031C21.2616 24.5469 21.2129 24.4141 21.1754 24.3047C21.1379 24.1953 21.1191 24.0938 21.1191 24Z"
+                                    fill="#71717A" />
+                            </svg>
+                        </span>
+                    </li>
+                </face>
+            </basis>
+            <basis core="print" datamembername="db.paging">
+                <face filter="(@page=[##cms.query.pagenum|(1)##])and('[##cms.cms.pageurl##]'='')">
+                    <li
+                        class="page-no w-12 h-12 cursor-pointer flex justify-center items-center rounded-lg bg-primary-800 text-white">
+                        <span class="page-number w-full h-full flex justify-center items-center " data-pagenum="@page"
+                            onclick="FetchWithPageNum('@page')" aria-current="page">@page</span>
+                    </li>
+                </face>
+                <face filter="(@page=[##cms.query.pagenum|(1)##])and('[##cms.cms.pageurl##]'<>'')">
+                    <li
+                        class="page-no w-12 h-12 hover:bg-primary-100   cursor-pointer flex justify-center items-center  text-zinc-600 rounded-lg">
+                        <span class="page-number w-full h-full flex justify-center items-center " data-pagenum="@page"
+                            onclick="FetchWithPageNum('@page')">@page</span>
+                    </li>
+                </face>
+                <face
+                    filter="(@page<>[##cms.query.pagenum|(1)##]) and (@page>0) and (@sta='no') and ('[##cms.cms.pageurl##]'='') ">
+                    <li
+                        class="page-no w-12 h-12 hover:bg-primary-100   cursor-pointer flex justify-center items-center  text-zinc-600 rounded-lg">
+                        <span class=" page-number w-full h-full flex justify-center items-center" data-pagenum="@page"
+                            onclick="FetchWithPageNum('@page')">@page</span>
+                    </li>
+                </face>
+                <face
+                    filter="(@page<>[##cms.query.pagenum|(1)##]) and (@page>0) and (@sta='no') and ('[##cms.cms.pageurl##]'<>'') ">
+                    <li
+                        class="page-no w-12 h-12 hover:bg-primary-100   cursor-pointer flex justify-center items-center  text-zinc-600 rounded-lg">
+                        <span class=" page-number w-full h-full flex justify-center items-center" data-pagenum="@page"
+                            onclick="FetchWithPageNum('@page')">@page</span>
+                    </li>
+                </face>
+            </basis>
+            <basis core="print" datamembername="db.paging">
+                <face filter="(@sta='nex') and ('[##cms.cms.pageurl##]'='')">
+                    <li
+                        class="page-no next-page w-12 h-12  hover:bg-secondary-800  cursor-pointer flex justify-center items-center bg-white rounded-xl">
+                        <span class="w-full h-full flex justify-center items-center " aria-label="angle-right"
+                            onclick="FetchPageNumNext('@page')"><svg width="48" height="48" viewBox="0 0 48 48"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M26.8809 24C26.8809 24.0938 26.8621 24.1875 26.8246 24.2813C26.7871 24.375 26.7384 24.4453 26.6784 24.4922L23.3259 28.0078C23.1909 28.1484 23.0184 28.2188 22.8084 28.2188C22.5984 28.2188 22.4184 28.1484 22.2684 28.0078C22.1334 27.8516 22.0659 27.6641 22.0659 27.4453C22.0659 27.2266 22.1334 27.0469 22.2684 26.9063L25.1484 23.9063L22.2684 20.9063C22.1334 20.75 22.0659 20.5625 22.0659 20.3438C22.0659 20.125 22.1334 19.9453 22.2684 19.8047C22.4184 19.6484 22.5984 19.5703 22.8084 19.5703C23.0184 19.5703 23.1909 19.6484 23.3259 19.8047L26.6784 23.2969C26.7384 23.4531 26.7871 23.5859 26.8246 23.6953C26.8621 23.8047 26.8809 23.9062 26.8809 24Z"
+                                    fill="#71717A" />
+                            </svg></span>
+                    </li>
+                </face>
+                <face filter="(@sta='nex') and ('[##cms.cms.pageurl##]'<>'')">
+                    <li
+                        class="page-no next-page w-12 h-12  hover:bg-secondary-800  cursor-pointer flex justify-center items-center bg-white rounded-xl">
+                        <span class="w-full h-full flex justify-center items-center " aria-label="angle-right"
+                            onclick="FetchPageNumNext('@page')"><svg width="48" height="48" viewBox="0 0 48 48"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M26.8809 24C26.8809 24.0938 26.8621 24.1875 26.8246 24.2813C26.7871 24.375 26.7384 24.4453 26.6784 24.4922L23.3259 28.0078C23.1909 28.1484 23.0184 28.2188 22.8084 28.2188C22.5984 28.2188 22.4184 28.1484 22.2684 28.0078C22.1334 27.8516 22.0659 27.6641 22.0659 27.4453C22.0659 27.2266 22.1334 27.0469 22.2684 26.9063L25.1484 23.9063L22.2684 20.9063C22.1334 20.75 22.0659 20.5625 22.0659 20.3438C22.0659 20.125 22.1334 19.9453 22.2684 19.8047C22.4184 19.6484 22.5984 19.5703 22.8084 19.5703C23.0184 19.5703 23.1909 19.6484 23.3259 19.8047L26.6784 23.2969C26.7384 23.4531 26.7871 23.5859 26.8246 23.6953C26.8621 23.8047 26.8809 23.9062 26.8809 24Z"
+                                    fill="#71717A" />
+                            </svg></span>
+                    </li>
+                </face>
+            </basis>
+        </ul>
+    </div>
+    <script>
+        // --- فقط شماره‌ها را هایلایت می‌کنیم (prev/next کاری نداریم)
+        function setActivePage(pageNum) {
+            const pageSpans = document.querySelectorAll('#wibpaging .page-number');
+            const wanted = String(pageNum);
+
+            pageSpans.forEach((span) => {
+                if (!span) return;
+                const li = span.closest('.page-no');
+                const isActive = span.dataset.pagenum === wanted;
+
+                if (!li) return;
+
+                if (isActive) {
+                    li.classList.add('bg-primary-800', 'text-white');
+                    li.classList.remove('text-zinc-600', 'hover:bg-primary-100');
+                    span.setAttribute('aria-current', 'page');
+                } else {
+                    li.classList.remove('bg-primary-800', 'text-white');
+                    li.classList.add('text-zinc-600');
+                    if (span.hasAttribute('aria-current')) span.removeAttribute('aria-current');
+                }
+            });
+        }
+
+        // کمکی: وقتی پیجینگ ساخته شد، یکبار هایلایت کن
+        function initPagingHighlight(defaultPage = 1) {
+            const tryInit = () => {
+                // اگر پیجینگ هنوز توی DOM نیست، false برگردان
+                const anyPage = document.querySelector('#wibpaging .page-number[data-pagenum]');
+                if (!anyPage) return false;
+
+                // اگر سرور خودش یکی را aria-current داده، از همان استفاده می‌کنیم
+                const current = document.querySelector('#wibpaging .page-number[aria-current="page"]');
+                const page = current ? current.dataset.pagenum : String(defaultPage);
+                setActivePage(page);
+                return true;
+            };
+
+            // اگر الان حاضر بود، همین الان هایلایت کن
+            if (tryInit()) return;
+
+            // وگرنه صبر کن تا DOM تغییر کند (مثلاً بعد از fetch)
+            const mo = new MutationObserver(() => {
+                if (tryInit()) mo.disconnect();
+            });
+            mo.observe(document.body, { childList: true, subtree: true });
+
+            // حداکثر 3 ثانیه منتظر بمان، بعد هم قطع کن (برای جلوگیری از لوپ بی‌نهایت)
+            setTimeout(() => mo.disconnect(), 3000);
+        }
+
+        // اسکریپت ممکن است قبل از پیجینگ اجرا شود، پس از آماده شدن داکیومنت init کن
+        document.addEventListener('DOMContentLoaded', () => {
+            initPagingHighlight(1);
+        });
+
+
+        // 2) بعد از فچ، علاوه بر جایگزینی HTML، شمارهٔ فعال را ست کن
+        var fetchAndUpdatePage = async (pageNum) => {
+            let t = document.querySelector(".tours-container"),
+                n = t.getAttribute("data-catid"),
+                o = await fetch(`/load-items.bc?catid=${n}&typecat=tourlistItems&pagenum=${pageNum}`),
+                r = await o.text();
+
+            t.innerHTML = r;
+
+            // بروزرسانی متغیرها (مثل قبل)
+            var filterItems = document.querySelectorAll(".filters-ul li");
+            var cards = document.querySelectorAll(".tour-card");
+            var toursContainer = document.querySelector(".tours-container");
+            var paging = document.getElementById("paging");
+
+            filterItems.forEach((filter) => filter.classList.remove("active"));
+            if (filterItems.length > 0) filterItems[0].classList.add("active");
+
+            filterItems.forEach((item) => {
+                item.addEventListener("click", () => {
+                    if (item.classList.contains("all")) {
+                        cards.forEach((card) => (card.style.display = "flex"));
+                        const noResultsMessage = document.querySelector(".no-results-message");
+                        if (noResultsMessage) noResultsMessage.remove();
+                        paging.style.display = "flex";
+                        return;
+                    }
+
+                    const filterClass = item.classList[0];
+                    let anyCardVisible = false;
+
+                    cards.forEach((card) => {
+                        const filterElement = card.querySelector(`.${filterClass}`);
+                        if (filterElement && filterElement.textContent.trim() !== "") {
+                            card.style.display = "flex";
+                            anyCardVisible = true;
+                        } else {
+                            card.style.display = "none";
+                        }
+                    });
+
+                    if (!anyCardVisible) {
+                        if (!document.querySelector(".no-results-message")) {
+                            const noResultsMessage = document.createElement("p");
+                            noResultsMessage.classList.add("no-results-message");
+                            noResultsMessage.textContent = "موردی یافت نشد !";
+                            toursContainer.appendChild(noResultsMessage);
+                            paging.style.display = "none";
+                        }
+                    } else {
+                        const noResultsMessage = document.querySelector(".no-results-message");
+                        if (noResultsMessage) noResultsMessage.remove();
+                        paging.style.display = "flex";
+                    }
+                });
+            });
+
+            // داخل fetchAndUpdatePage در انتها:
+            setActivePage(pageNum);
+
+        };
+
+        // 3) توابعی که از HTML فراخوانی می‌شن (global)
+        function FetchPageNumPrev(e) { fetchAndUpdatePage(e); }
+        function FetchPageNumNext(e) { fetchAndUpdatePage(e); }
+        function FetchWithPageNum(e) { fetchAndUpdatePage(e); }
+
+
+
+    </script>
+</basis>
+
+<basis core="group" if="'[##cms.query.typecat##]'='topnewslist'">
+
+    <basis core="dbsource" source="basiscore" lid="1" mid="1" name="list" catid="[##cms.query.catid##]">
+        <member name="article" type="list" link="article.bc" propertyid="7244" typeid="159" perpage="3" order="ord">
+        </member>
+    </basis>
+
+
+    <basis core="list" datamembername="list.article">
+        <layout>@child </layout>
+        <face>
+            <article class="w-[418px] h-[228px] rounded-xl overflow-hidden group">
+                <a href="/@link">
+                    <figure class="relative w-[418px] h-[228px]">
+                        <img class="w-[418px] h-[228px] object-cover" src="[##cms.cms.cdn##]/@type_159" alt="@title">
+                        <figcaption
+                            class="absolute top-0 left-0 bottom-0 transition-all ease-in-out duration-100 group-hover:bg-black/80 bg-black/45 w-full text-white p-4 flex flex-col justify-end">
+                            <h2 class="font-danabold text-base leading-6 mb-2">@title</h2>
+                            <div class="text-xs leading-5 font-danaregular line-clamp-2">
+                                @prp_7244
+                            </div>
+                        </figcaption>
+                    </figure>
+                </a>
+            </article>
+        </face>
+    </basis>
+</basis>
+
+
+
+<basis core="group" if="'[##cms.query.typecat##]'='articlelistItems'">
+
+    <basis core="dbsource" source="basiscore" lid="1" mid="1" name="list" catid="[##cms.query.catid##]">
+        <member name="articlelistItems" type="list" link="article.bc" propertyid="7244,7249" size="311x151" typeid="159"
+            perpage="3" order="ord" perpage="20" pageno="[##cms.query.pagenum|(1)##]">
+        </member>
+        <member name="paging" type="list" request="paging" count="3" parentname="articlelistItems" />
+
+
+    </basis>
+
+
+
+
+    <basis core="print" datamembername="list.articlelistItems">
+        <else-layout>
+            <div class="no-cards-found">موردی یافت نشد !</div>
+        </else-layout>
+        <layout>
+            @child
+        </layout>
+        <face>
+
+
+            <article
+                class="w-[420px] h-[355px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
+                <a href="@link">
+                    <figure class="w-[420px] h-[180px] relative">
+                        <img class="w-[420px] h-[180px] object-cover" src="[##cms.cms.cdn##]/@type_159" width="420"
+                            height="180" alt="@title">
+
+                        <span
+                            class="absolute top-0 left-0 right-0 bottom-0 bg-black/20 group-hover:bg-black/60 transition-all duration-100 ease-in-out"></span>
+                    </figure>
+                    <div class="px-3 flex flex-col justify-between">
+                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">@title</h2>
+                        <div class="text-xs font-danaregular line-clamp-4 text-justify text-zinc-700 leading-5">
+                            @prp_7244</div>
+
+
+                        <div class="flex justify-between items-center ">
+                            <div class="flex items-center">
+                                <h2 class="text-secondary-1-700 text-sm leading-6 font-danamedium ">
+                                    بیشتر
+                                    بخوانید</h2>
+                                <svg width="48" height="48"
+                                    class="transition-all duration-200 ease-in-out group-hover:-translate-x-5">
+                                    <use href="./images/sprite-icons.svg#arrow-left-small-icon">
+                                    </use>
+                                </svg>
+                            </div>
+                            <span class="text-zinc-600 text-xs font-danaregular">@prp_7249</span>
+
+                        </div>
+                    </div>
+
+                </a>
+
+            </article>
+
+
+
+        </face>
+    </basis>
+
+    <div id="paging" class="flex cats-paging-load items-center justify-center gap-2 mt-20 w-full">
+        <ul class="flex w-full justify-center items-center gap-3 cd-pagination no-space dir-ltr" id="wibpaging">
+            <basis core="print" datamembername="list.paging">
+                <face filter="(@sta='pre')and('[##cms.cms.pageurl##]'='')">
+                    <li
+                        class="w-12 h-12  hover:bg-secondary-800  cursor-pointer flex justify-center items-center bg-white rounded-xl page-no prev-page">
+                        <span class="w-full h-full flex justify-center items-center " aria-label="angle-left"
+                            onclick="FetchPageNumPrev('@page')">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M21.1191 24C21.1191 23.9062 21.1379 23.8125 21.1754 23.7188C21.2129 23.625 21.2616 23.5547 21.3216 23.5078L24.6741 19.9922C24.8091 19.8516 24.9816 19.7813 25.1916 19.7813C25.4016 19.7813 25.5816 19.8516 25.7316 19.9922C25.8666 20.1484 25.9341 20.3359 25.9341 20.5547C25.9341 20.7734 25.8666 20.9531 25.7316 21.0938L22.8516 24.0938L25.7316 27.0938C25.8666 27.25 25.9341 27.4375 25.9341 27.6563C25.9341 27.875 25.8666 28.0547 25.7316 28.1953C25.5816 28.3516 25.4016 28.4297 25.1916 28.4297C24.9816 28.4297 24.8091 28.3516 24.6741 28.1953L21.3216 24.7031C21.2616 24.5469 21.2129 24.4141 21.1754 24.3047C21.1379 24.1953 21.1191 24.0938 21.1191 24Z"
+                                    fill="#71717A" />
+                            </svg>
+
+                        </span>
+                    </li>
+                </face>
+                <face filter="(@sta='pre')and('[##cms.cms.pageurl##]'<>'')">
+                    <li
+                        class="page-no prev-page w-12 h-12  hover:bg-secondary-800  cursor-pointer flex justify-center items-center bg-white rounded-xl">
+                        <span class="w-full h-full flex justify-center items-center " aria-label="angle-left"
+                            onclick="FetchPageNumPrev('@page')">
+                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M21.1191 24C21.1191 23.9062 21.1379 23.8125 21.1754 23.7188C21.2129 23.625 21.2616 23.5547 21.3216 23.5078L24.6741 19.9922C24.8091 19.8516 24.9816 19.7813 25.1916 19.7813C25.4016 19.7813 25.5816 19.8516 25.7316 19.9922C25.8666 20.1484 25.9341 20.3359 25.9341 20.5547C25.9341 20.7734 25.8666 20.9531 25.7316 21.0938L22.8516 24.0938L25.7316 27.0938C25.8666 27.25 25.9341 27.4375 25.9341 27.6563C25.9341 27.875 25.8666 28.0547 25.7316 28.1953C25.5816 28.3516 25.4016 28.4297 25.1916 28.4297C24.9816 28.4297 24.8091 28.3516 24.6741 28.1953L21.3216 24.7031C21.2616 24.5469 21.2129 24.4141 21.1754 24.3047C21.1379 24.1953 21.1191 24.0938 21.1191 24Z"
+                                    fill="#71717A" />
+                            </svg>
+                        </span>
+                    </li>
+                </face>
+            </basis>
+            <basis core="print" datamembername="list.paging">
+                <face filter="(@page=[##cms.query.pagenum|(1)##])and('[##cms.cms.pageurl##]'='')">
+                    <li
+                        class="page-no w-12 h-12 cursor-pointer flex justify-center items-center rounded-lg bg-primary-800 text-white">
+                        <span class="page-number w-full h-full flex justify-center items-center " data-pagenum="@page"
+                            onclick="FetchWithPageNum('@page')" aria-current="page">@page</span>
+                    </li>
+                </face>
+                <face filter="(@page=[##cms.query.pagenum|(1)##])and('[##cms.cms.pageurl##]'<>'')">
+                    <li
+                        class="page-no w-12 h-12 hover:bg-primary-100   cursor-pointer flex justify-center items-center  text-zinc-600 rounded-lg">
+                        <span class="page-number w-full h-full flex justify-center items-center " data-pagenum="@page"
+                            onclick="FetchWithPageNum('@page')">@page</span>
+                    </li>
+                </face>
+                <face
+                    filter="(@page<>[##cms.query.pagenum|(1)##]) and (@page>0) and (@sta='no') and ('[##cms.cms.pageurl##]'='') ">
+                    <li
+                        class="page-no w-12 h-12 hover:bg-primary-100   cursor-pointer flex justify-center items-center  text-zinc-600 rounded-lg">
+                        <span class=" page-number w-full h-full flex justify-center items-center" data-pagenum="@page"
+                            onclick="FetchWithPageNum('@page')">@page</span>
+                    </li>
+                </face>
+                <face
+                    filter="(@page<>[##cms.query.pagenum|(1)##]) and (@page>0) and (@sta='no') and ('[##cms.cms.pageurl##]'<>'') ">
+                    <li
+                        class="page-no w-12 h-12 hover:bg-primary-100   cursor-pointer flex justify-center items-center  text-zinc-600 rounded-lg">
+                        <span class=" page-number w-full h-full flex justify-center items-center" data-pagenum="@page"
+                            onclick="FetchWithPageNum('@page')">@page</span>
+                    </li>
+                </face>
+            </basis>
+            <basis core="print" datamembername="list.paging">
+                <face filter="(@sta='nex') and ('[##cms.cms.pageurl##]'='')">
+                    <li
+                        class="page-no next-page w-12 h-12  hover:bg-secondary-800  cursor-pointer flex justify-center items-center bg-white rounded-xl">
+                        <span class="w-full h-full flex justify-center items-center " aria-label="angle-right"
+                            onclick="FetchPageNumNext('@page')"><svg width="48" height="48" viewBox="0 0 48 48"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M26.8809 24C26.8809 24.0938 26.8621 24.1875 26.8246 24.2813C26.7871 24.375 26.7384 24.4453 26.6784 24.4922L23.3259 28.0078C23.1909 28.1484 23.0184 28.2188 22.8084 28.2188C22.5984 28.2188 22.4184 28.1484 22.2684 28.0078C22.1334 27.8516 22.0659 27.6641 22.0659 27.4453C22.0659 27.2266 22.1334 27.0469 22.2684 26.9063L25.1484 23.9063L22.2684 20.9063C22.1334 20.75 22.0659 20.5625 22.0659 20.3438C22.0659 20.125 22.1334 19.9453 22.2684 19.8047C22.4184 19.6484 22.5984 19.5703 22.8084 19.5703C23.0184 19.5703 23.1909 19.6484 23.3259 19.8047L26.6784 23.2969C26.7384 23.4531 26.7871 23.5859 26.8246 23.6953C26.8621 23.8047 26.8809 23.9062 26.8809 24Z"
+                                    fill="#71717A" />
+                            </svg></span>
+                    </li>
+                </face>
+                <face filter="(@sta='nex') and ('[##cms.cms.pageurl##]'<>'')">
+                    <li
+                        class="page-no next-page w-12 h-12  hover:bg-secondary-800  cursor-pointer flex justify-center items-center bg-white rounded-xl">
+                        <span class="w-full h-full flex justify-center items-center " aria-label="angle-right"
+                            onclick="FetchPageNumNext('@page')"><svg width="48" height="48" viewBox="0 0 48 48"
+                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M26.8809 24C26.8809 24.0938 26.8621 24.1875 26.8246 24.2813C26.7871 24.375 26.7384 24.4453 26.6784 24.4922L23.3259 28.0078C23.1909 28.1484 23.0184 28.2188 22.8084 28.2188C22.5984 28.2188 22.4184 28.1484 22.2684 28.0078C22.1334 27.8516 22.0659 27.6641 22.0659 27.4453C22.0659 27.2266 22.1334 27.0469 22.2684 26.9063L25.1484 23.9063L22.2684 20.9063C22.1334 20.75 22.0659 20.5625 22.0659 20.3438C22.0659 20.125 22.1334 19.9453 22.2684 19.8047C22.4184 19.6484 22.5984 19.5703 22.8084 19.5703C23.0184 19.5703 23.1909 19.6484 23.3259 19.8047L26.6784 23.2969C26.7384 23.4531 26.7871 23.5859 26.8246 23.6953C26.8621 23.8047 26.8809 23.9062 26.8809 24Z"
+                                    fill="#71717A" />
+                            </svg></span>
+                    </li>
+                </face>
+            </basis>
+        </ul>
+    </div>
+    <script>
+        // --- فقط شماره‌ها را هایلایت می‌کنیم (prev/next کاری نداریم)
+        function setActivePage(pageNum) {
+            const pageSpans = document.querySelectorAll('#wibpaging .page-number');
+            const wanted = String(pageNum);
+
+            pageSpans.forEach((span) => {
+                if (!span) return;
+                const li = span.closest('.page-no');
+                const isActive = span.dataset.pagenum === wanted;
+
+                if (!li) return;
+
+                if (isActive) {
+                    li.classList.add('bg-primary-800', 'text-white');
+                    li.classList.remove('text-zinc-600', 'hover:bg-primary-100');
+                    span.setAttribute('aria-current', 'page');
+                } else {
+                    li.classList.remove('bg-primary-800', 'text-white');
+                    li.classList.add('text-zinc-600');
+                    if (span.hasAttribute('aria-current')) span.removeAttribute('aria-current');
+                }
+            });
+        }
+
+        // کمکی: وقتی پیجینگ ساخته شد، یکبار هایلایت کن
+        function initPagingHighlight(defaultPage = 1) {
+            const tryInit = () => {
+                // اگر پیجینگ هنوز توی DOM نیست، false برگردان
+                const anyPage = document.querySelector('#wibpaging .page-number[data-pagenum]');
+                if (!anyPage) return false;
+
+                // اگر سرور خودش یکی را aria-current داده، از همان استفاده می‌کنیم
+                const current = document.querySelector('#wibpaging .page-number[aria-current="page"]');
+                const page = current ? current.dataset.pagenum : String(defaultPage);
+                setActivePage(page);
+                return true;
+            };
+
+            // اگر الان حاضر بود، همین الان هایلایت کن
+            if (tryInit()) return;
+
+            // وگرنه صبر کن تا DOM تغییر کند (مثلاً بعد از fetch)
+            const mo = new MutationObserver(() => {
+                if (tryInit()) mo.disconnect();
+            });
+            mo.observe(document.body, { childList: true, subtree: true });
+
+            // حداکثر 3 ثانیه منتظر بمان، بعد هم قطع کن (برای جلوگیری از لوپ بی‌نهایت)
+            setTimeout(() => mo.disconnect(), 3000);
+        }
+
+        // اسکریپت ممکن است قبل از پیجینگ اجرا شود، پس از آماده شدن داکیومنت init کن
+        document.addEventListener('DOMContentLoaded', () => {
+            initPagingHighlight(1);
+        });
+
+
+        // 2) بعد از فچ، علاوه بر جایگزینی HTML، شمارهٔ فعال را ست کن
+        var fetchAndUpdatePage = async (pageNum) => {
+            let t = document.querySelector(".tours-container"),
+                n = t.getAttribute("data-catid"),
+                o = await fetch(`/load-items.bc?catid=${n}&typecat=tourlistItems&pagenum=${pageNum}`),
+                r = await o.text();
+
+            t.innerHTML = r;
+
+            // بروزرسانی متغیرها (مثل قبل)
+            var filterItems = document.querySelectorAll(".filters-ul li");
+            var cards = document.querySelectorAll(".tour-card");
+            var toursContainer = document.querySelector(".tours-container");
+            var paging = document.getElementById("paging");
+
+            filterItems.forEach((filter) => filter.classList.remove("active"));
+            if (filterItems.length > 0) filterItems[0].classList.add("active");
+
+            filterItems.forEach((item) => {
+                item.addEventListener("click", () => {
+                    if (item.classList.contains("all")) {
+                        cards.forEach((card) => (card.style.display = "flex"));
+                        const noResultsMessage = document.querySelector(".no-results-message");
+                        if (noResultsMessage) noResultsMessage.remove();
+                        paging.style.display = "flex";
+                        return;
+                    }
+
+                    const filterClass = item.classList[0];
+                    let anyCardVisible = false;
+
+                    cards.forEach((card) => {
+                        const filterElement = card.querySelector(`.${filterClass}`);
+                        if (filterElement && filterElement.textContent.trim() !== "") {
+                            card.style.display = "flex";
+                            anyCardVisible = true;
+                        } else {
+                            card.style.display = "none";
+                        }
+                    });
+
+                    if (!anyCardVisible) {
+                        if (!document.querySelector(".no-results-message")) {
+                            const noResultsMessage = document.createElement("p");
+                            noResultsMessage.classList.add("no-results-message");
+                            noResultsMessage.textContent = "موردی یافت نشد !";
+                            toursContainer.appendChild(noResultsMessage);
+                            paging.style.display = "none";
+                        }
+                    } else {
+                        const noResultsMessage = document.querySelector(".no-results-message");
+                        if (noResultsMessage) noResultsMessage.remove();
+                        paging.style.display = "flex";
+                    }
+                });
+            });
+
+            // داخل fetchAndUpdatePage در انتها:
+            setActivePage(pageNum);
+
+        };
+
+        // 3) توابعی که از HTML فراخوانی می‌شن (global)
+        function FetchPageNumPrev(e) { fetchAndUpdatePage(e); }
+        function FetchPageNumNext(e) { fetchAndUpdatePage(e); }
+        function FetchWithPageNum(e) { fetchAndUpdatePage(e); }
+
+
+
+    </script>
+</basis>
+
+
+<basis core="group" if="'[##cms.query.typecat##]'='populartour'">
+
+    <basis core="dbsource" source="basiscore" lid="1" mid="20" name="db" catid="[##cms.query.catid##]">
+        <member name="tourlistItems" type="list" link="tour.bc" propertyid="8181,10000504,8076,8077" typeid="159"
+            size="311x151" order="ord" perpage="4" />
+    </basis>
+
+    <basis core="dbsource" source="basiscore" mid="1" name="list" lid="1" schemaid="987" term="[##cms.query.term##]">
+        <member name="airline" type="list" request="spelist"></member>
+    </basis>
+    <basis core="inlinesource" name="joining">
+        <member name="tourlistItems" lefttblcol="db.tourlistItems.prp_10000504" righttblcol="list.airline.name"
+            format="join" jointype="leftjoin"></member>
+    </basis>
+
+    <basis core="print" datamembername="joining.tourlistItems">
+        <else-layout>
+            <div class="no-cards-found">موردی یافت نشد !</div>
+        </else-layout>
+        <layout>
+            @child
+        </layout>
+        <face>
+
+
+            <article>
+                <a href="@db.tourlistItems.link"
+                    class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200 block">
+                    <figure class="w-[311px] h-[151px] relative">
+                        <img class="w-[311px] h-[151px] object-cover"
+                            src="[##cms.cms.cdn##]/@db.tourlistItems.00311X00151prp" width="311" height="151"
+                            alt="@db.tourlistItems.title">
+
+                        <figcaption class="absolute top-2 left-3">
+                            <span class="sr-only">@db.tourlistItems.title</span>
+                            <img src="/@list.airline.pic" width="60" height="24" alt="@list.airline.name">
+                        </figcaption>
+                    </figure>
+                    <div class="px-3">
+                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
+                            @db.tourlistItems.title</h2>
+                        <div class="flex justify-between">
+                            <div class="w-1/2 flex  items-center gap-x-2">
+                                <svg width="36" height="36">
+                                    <use href="./images/sprite-icons.svg#date-icon"></use>
+                                </svg>
+                                <h2 class="text-xs leading-5 font-danaregular">@db.tourlistItems.prp_8077</h2>
+
+                            </div>
+                            <div class="w-1/2 flex  items-center gap-x-2">
+                                <svg width="36" height="36">
+                                    <use href="./images/sprite-icons.svg#time-icon"></use>
+                                </svg>
+
+                                <h2 class="text-xs leading-5 font-danaregular">@db.tourlistItems.prp_8076</h2>
+
+                            </div>
+                        </div>
+
+
+                        <div class="mt-2 flex justify-between items-center">
+                            <div>
+                                <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
+                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">
+                                    @db.tourlistItems.prp_8181</h2>
+                            </div>
+                            <svg width="48" height="48"
+                                class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
+                                <use href="./images/sprite-icons.svg#go-fill-icon"></use>
+                            </svg>
+                        </div>
+                    </div>
+
+                </a>
+
+            </article>
+
+
+
+        </face>
+    </basis>
+
+</basis>

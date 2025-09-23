@@ -156,6 +156,7 @@ async function LoadCatHeader(catid, typecat, element) {
     }
 
     const content = await response.text();
+
     if (window.innerWidth >= 1024) {
       element
         .closest(".megamenu-container")
@@ -172,6 +173,18 @@ async function LoadCatHeader(catid, typecat, element) {
       } else {
         subItem.classList.add("hidden");
       }
+    }
+
+    var scripts = container.getElementsByTagName("script");
+    for (var i = 0; i < scripts.length; i++) {
+      var scriptTag = document.createElement("script");
+      if (scripts[i].src) {
+        scriptTag.src = scripts[i].src;
+        scriptTag.async = false;
+      } else {
+        scriptTag.text = scripts[i].textContent;
+      }
+      document.head.appendChild(scriptTag).parentNode.removeChild(scriptTag);
     }
   } catch (error) {}
 }
@@ -230,6 +243,21 @@ function initCategoryLoader(containerSelector) {
         .then((response) => response.text())
         .then((html) => {
           contentBox.innerHTML = html;
+
+          var scripts = container.getElementsByTagName("script");
+          for (var i = 0; i < scripts.length; i++) {
+            var scriptTag = document.createElement("script");
+            if (scripts[i].src) {
+              scriptTag.src = scripts[i].src;
+              scriptTag.async = false;
+            } else {
+              scriptTag.text = scripts[i].textContent;
+            }
+            document.head
+              .appendChild(scriptTag)
+              .parentNode.removeChild(scriptTag);
+          }
+
           setSwiperSlides(type);
         })
         .catch((error) => {
@@ -390,47 +418,45 @@ if (document.querySelector(".swiper-airline")) {
 }
 
 function setSwiperSlides(type) {
-
   if (swiper && typeof swiper.destroy === "function") {
     swiper.destroy(true, true);
   }
 
-  console.log(type)
+  console.log(type);
 
-
-  if(type === 'specialtour'){
-  if (document.querySelector(".specialtour-swiper")) {
-    var swiper = new Swiper(".specialtour-swiper", {
-      slidesPerView: "4",
-      centeredSlides: false,
-      loop: true,
-      autoplay: {
-        delay: 2500,
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-    });
+  if (type === "specialtour") {
+    if (document.querySelector(".specialtour-swiper")) {
+      var swiper = new Swiper(".specialtour-swiper", {
+        slidesPerView: "4",
+        centeredSlides: false,
+        loop: true,
+        autoplay: {
+          delay: 2500,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+    }
   }
+  if (type === "offeredtour") {
+    if (document.querySelector(".offeredtour-swiper")) {
+      var swiper = new Swiper(".offeredtour-swiper", {
+        slidesPerView: "4",
+        centeredSlides: false,
+        loop: true,
+        autoplay: {
+          delay: 2500,
+        },
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+      });
+    }
   }
-  if(type === 'offeredtour'){
-  if (document.querySelector(".offeredtour-swiper")) {
-    var swiper = new Swiper(".offeredtour-swiper", {
-      slidesPerView: "4",
-      centeredSlides: false,
-      loop: true,
-      autoplay: {
-        delay: 2500,
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-    });
-  }
-  }
-  if(type === 'visareq'){
+  if (type === "visareq") {
     if (document.querySelector(".visa-swiper")) {
       var swiper = new Swiper(".visa-swiper", {
         slidesPerView: "5", // تعیین slidesPerView به 'auto'
@@ -446,104 +472,203 @@ function setSwiperSlides(type) {
       });
     }
   }
-
-
 }
 
 // swiper
-
-
-
 
 // js form support
 
 // support form
 function uploadDocument(args) {
-    const captcha = document.getElementById("supportform").querySelector("#captchaContainer input[name='captcha']").value;
-    const captchaid = document.getElementById("supportform").querySelector("#captchaContainer input[name='captchaid']").value;
-    const stringJson = JSON.stringify(args.source?.rows[0]);
-    $bc.setSource("cms.upload", {
-        value: stringJson,
-        captcha: captcha,
-        captchaid: captchaid,
-        run: true
-    });
-};
+  const captcha = document
+    .getElementById("supportform")
+    .querySelector("#captchaContainer input[name='captcha']").value;
+  const captchaid = document
+    .getElementById("supportform")
+    .querySelector("#captchaContainer input[name='captchaid']").value;
+  const stringJson = JSON.stringify(args.source?.rows[0]);
+  $bc.setSource("cms.upload", {
+    value: stringJson,
+    captcha: captcha,
+    captchaid: captchaid,
+    run: true,
+  });
+}
 function refreshCaptcha(e) {
-    $bc.setSource("captcha.refresh", true);
+  $bc.setSource("captcha.refresh", true);
 }
 function captchaRendered() {
-    document.querySelector(".contactUsInput").placeholder = "کد امنیتی";
+  document.querySelector(".contactUsInput").placeholder = "کد امنیتی";
 }
 async function OnProcessedEditObject(args) {
-    var response = args.response;
-    var json = await response.json();
-    var errorid = json.errorid;
-    if (errorid == "6") {
-        document.getElementById("supportform").querySelector(".message-api").innerHTML = "درخواست شما با موفقیت ثبت شد";
+  var response = args.response;
+  var json = await response.json();
+  var errorid = json.errorid;
+  if (errorid == "6") {
+    document
+      .getElementById("supportform")
+      .querySelector(".message-api").innerHTML = "درخواست شما با موفقیت ثبت شد";
 
-        document.getElementById("supportform").querySelector(".f-l-name").querySelector("input").value = "";
-        document.getElementById("supportform").querySelector(".phone-num").querySelector("input").value = "";
+    document
+      .getElementById("supportform")
+      .querySelector(".f-l-name")
+      .querySelector("input").value = "";
+    document
+      .getElementById("supportform")
+      .querySelector(".phone-num")
+      .querySelector("input").value = "";
 
-        refreshCaptcha();
-    } else {
-        refreshCaptcha()
-        document.getElementById("supportform").querySelector(".f-l-name").querySelector("input").value = "";
-        document.getElementById("supportform").querySelector(".phone-num").querySelector("input").value = "";
+    refreshCaptcha();
+  } else {
+    refreshCaptcha();
+    document
+      .getElementById("supportform")
+      .querySelector(".f-l-name")
+      .querySelector("input").value = "";
+    document
+      .getElementById("supportform")
+      .querySelector(".phone-num")
+      .querySelector("input").value = "";
 
-        setTimeout(() => {
-            document.getElementById("supportform").querySelector(".message-api").innerHTML = "خطایی رخ داده, لطفا مجدد اقدام کنید";
-        }, 2000);
-    }
-
+    setTimeout(() => {
+      document
+        .getElementById("supportform")
+        .querySelector(".message-api").innerHTML =
+        "خطایی رخ داده, لطفا مجدد اقدام کنید";
+    }, 2000);
+  }
 }
 async function RenderForm() {
-    document.getElementById("supportform").querySelector(".f-l-name").querySelector("input").placeholder = "نام و نام خانوادگی";
-    document.getElementById("supportform").querySelector(".phone-num").querySelector("input").placeholder = "شماره تماس";
+  document
+    .getElementById("supportform")
+    .querySelector(".f-l-name")
+    .querySelector("input").placeholder = "نام و نام خانوادگی";
+  document
+    .getElementById("supportform")
+    .querySelector(".phone-num")
+    .querySelector("input").placeholder = "شماره تماس";
 }
 
 // Counselingform
 function uploadDocumentCounselingform(args) {
-    const captcha = document.getElementById("Counselingform").querySelector("#captchaContainer input[name='captcha']").value;
-    const captchaid = document.getElementById("Counselingform").querySelector("#captchaContainer input[name='captchaid']").value;
-    const stringJson = JSON.stringify(args.source?.rows[0]);
-    $bc.setSource("cms.uploadCounselingform", {
-        value: stringJson,
-        captcha: captcha,
-        captchaid: captchaid,
-        run: true
-    });
-};
+  const captcha = document
+    .getElementById("Counselingform")
+    .querySelector("#captchaContainer input[name='captcha']").value;
+  const captchaid = document
+    .getElementById("Counselingform")
+    .querySelector("#captchaContainer input[name='captchaid']").value;
+  const stringJson = JSON.stringify(args.source?.rows[0]);
+  $bc.setSource("cms.uploadCounselingform", {
+    value: stringJson,
+    captcha: captcha,
+    captchaid: captchaid,
+    run: true,
+  });
+}
 function refreshCaptchaCounselingform(e) {
-    $bc.setSource("captchaCounselingform.refresh", true);
+  $bc.setSource("captchaCounselingform.refresh", true);
 }
 function captchaRenderedCounselingform() {
-    document.querySelector(".contactUsInput").placeholder = "کد امنیتی";
+  document.querySelector(".contactUsInput").placeholder = "کد امنیتی";
 }
 async function OnProcessedEditObjectCounselingform(args) {
-    var response = args.response;
-    var json = await response.json();
-    var errorid = json.errorid;
-    if (errorid == "6") {
-        document.getElementById("Counselingform").querySelector(".message-api").innerHTML = "درخواست شما با موفقیت ثبت شد";
+  var response = args.response;
+  var json = await response.json();
+  var errorid = json.errorid;
+  if (errorid == "6") {
+    document
+      .getElementById("Counselingform")
+      .querySelector(".message-api").innerHTML = "درخواست شما با موفقیت ثبت شد";
 
-        document.getElementById("Counselingform").querySelector(".f-l-name").querySelector("input").value = "";
-        document.getElementById("Counselingform").querySelector(".phone-num").querySelector("input").value = "";
+    document
+      .getElementById("Counselingform")
+      .querySelector(".f-l-name")
+      .querySelector("input").value = "";
+    document
+      .getElementById("Counselingform")
+      .querySelector(".phone-num")
+      .querySelector("input").value = "";
 
-        refreshCaptchaCounselingform();
-    } else {
-        refreshCaptchaCounselingform()
-        document.getElementById("Counselingform").querySelector(".f-l-name").querySelector("input").value = "";
-        document.getElementById("Counselingform").querySelector(".phone-num").querySelector("input").value = "";
+    refreshCaptchaCounselingform();
+  } else {
+    refreshCaptchaCounselingform();
+    document
+      .getElementById("Counselingform")
+      .querySelector(".f-l-name")
+      .querySelector("input").value = "";
+    document
+      .getElementById("Counselingform")
+      .querySelector(".phone-num")
+      .querySelector("input").value = "";
 
-        setTimeout(() => {
-            document.getElementById("Counselingform").querySelector(".message-api").innerHTML = "خطایی رخ داده, لطفا مجدد اقدام کنید";
-        }, 2000);
-    }
-
+    setTimeout(() => {
+      document
+        .getElementById("Counselingform")
+        .querySelector(".message-api").innerHTML =
+        "خطایی رخ داده, لطفا مجدد اقدام کنید";
+    }, 2000);
+  }
 }
 async function RenderFormCounselingform() {
-    document.getElementById("Counselingform").querySelector(".f-l-name").querySelector("input").placeholder = "نام و نام خانوادگی";
-    document.getElementById("Counselingform").querySelector(".phone-num").querySelector("input").placeholder = "شماره تماس";
+  document
+    .getElementById("Counselingform")
+    .querySelector(".f-l-name")
+    .querySelector("input").placeholder = "نام و نام خانوادگی";
+  document
+    .getElementById("Counselingform")
+    .querySelector(".phone-num")
+    .querySelector("input").placeholder = "شماره تماس";
 }
 // js form support
+
+
+// article search
+var input = document.getElementById('input');
+var isItemSelected = false; // برای بررسی اینکه آیا چیزی انتخاب شده است یا خیر
+
+if (input) {
+    input.onkeyup = function () {
+        if (this.value.length !== 0) {
+            document.querySelector('ul.searchlistcategory').classList.remove('hidden'); // لیست را نمایش دهید
+            var filter = input.value.toUpperCase();
+            var lis = document.querySelectorAll('li');
+            isItemSelected = false; // ریست کردن وقتی که کاربر چیزی در ورودی می‌نویسد
+
+            for (var i = 0; i < lis.length; i++) {
+                var name = lis[i].innerHTML;
+                if (name.toUpperCase().indexOf(filter) == 0) {
+                    lis[i].style.display = 'list-item';
+                } else {
+                    lis[i].style.display = 'none';
+                }
+            }
+        } else {
+            var lis = document.querySelectorAll('li');
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].style.display = 'list-item';
+            }
+            document.querySelector('ul.searchlistcategory').classList.remove('hidden');
+        }
+    };
+
+    document.getElementById('search-content-article').addEventListener('submit', function (e) {
+        if (!isItemSelected) {
+            e.preventDefault();
+            document.getElementById('catidsearched').value = 0; // اگر هیچ چیزی انتخاب نشده باشد catid را 0 قرار دهید
+            var lis = document.querySelectorAll('li');
+            for (var i = 0; i < lis.length; i++) {
+                lis[i].style.display = 'list-item';
+            }
+            document.querySelector('ul.searchlistcategory').classList.remove('hidden');
+        }
+    });
+}
+
+function contentSearched(datatitle, datacatid) {
+    input.value = datatitle;
+    document.getElementById('catidsearched').value = datacatid;
+    document.querySelector('ul.searchlistcategory').classList.add('hidden');
+    isItemSelected = true; // وقتی آیتمی انتخاب می‌شود، این متغیر true شود
+}
+
+// article search

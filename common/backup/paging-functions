@@ -1,0 +1,95 @@
+    <script>
+        // بروزرسانی فیلترینگ و متغیرها پس از فچ شدن صفحه جدید
+        var fetchAndUpdatePage = async (pageNum) => {
+            let t = document.querySelector(".tours-container"),
+                n = t.getAttribute("data-catid"),
+                o = await fetch(
+                    `/load-items.bc?catid=${n}&typecat=tourlistItems&pagenum=${pageNum}`
+                ),
+                r = await o.text();
+
+            t.innerHTML = r;
+
+            // بروزرسانی متغیرها
+            var filterItems = document.querySelectorAll(".filters-ul li");
+            var cards = document.querySelectorAll(".tour-card");
+            var toursContainer = document.querySelector(".tours-container");
+            var paging = document.getElementById("paging");
+
+            filterItems.forEach((filter) => {
+                filter.classList.remove("active");
+            });
+            if (filterItems.length > 0) {
+                filterItems[0].classList.add("active");
+            }
+            filterItems.forEach((item) => {
+                item.addEventListener("click", () => {
+                    if (item.classList.contains("all")) {
+                        cards.forEach((card) => {
+                            card.style.display = "flex";
+                        });
+
+                        const noResultsMessage = document.querySelector(
+                            ".no-results-message"
+                        );
+                        if (noResultsMessage) {
+                            noResultsMessage.remove();
+                        }
+
+                        paging.style.display = "flex";
+                        return;
+                    }
+
+                    const filterClass = item.classList[0];
+                    let anyCardVisible = false;
+
+                    cards.forEach((card) => {
+                        const filterElement = card.querySelector(`.${filterClass}`);
+
+                        if (filterElement && filterElement.textContent.trim() !== "") {
+                            card.style.display = "flex";
+                            anyCardVisible = true;
+                        } else {
+                            card.style.display = "none";
+                        }
+                    });
+
+                    if (!anyCardVisible) {
+                        if (!document.querySelector(".no-results-message")) {
+                            const noResultsMessage = document.createElement("p");
+                            noResultsMessage.classList.add("no-results-message");
+                            noResultsMessage.textContent = "موردی یافت نشد !";
+                            toursContainer.appendChild(noResultsMessage);
+                            paging.style.display = "none";
+                        }
+                    } else {
+                        const noResultsMessage = document.querySelector(
+                            ".no-results-message"
+                        );
+                        if (noResultsMessage) {
+                            noResultsMessage.remove();
+                        }
+
+                        paging.style.display = "flex";
+                    }
+                });
+            });
+        };
+
+        // تابع برای تغییر صفحه
+        function FetchPageNumPrev(e) {
+            fetchAndUpdatePage(e);
+        }
+
+        function FetchPageNumNext(e) {
+            fetchAndUpdatePage(e);
+        }
+
+        function FetchWithPageNum(e) {
+            fetchAndUpdatePage(e);
+        }
+    
+    
+    
+    
+    </script>
