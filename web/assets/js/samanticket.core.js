@@ -1,55 +1,57 @@
 // searchbox
 document.addEventListener("DOMContentLoaded", function () {
-  function checkAllResourcesLoaded() {
-    const resources = performance.getEntriesByType("resource");
-    const requiredFiles = ["/css/customized.ui.min.css"];
-    const loadedFiles = resources
-      .filter((res) => requiredFiles.includes(res.name) && res.responseEnd > 0)
-      .map((res) => res.name);
-
-    return requiredFiles.every((file) => loadedFiles.includes(file));
-  }
-
-  function fetchEngine() {
-    try {
-      var xhrobj = new XMLHttpRequest();
-      xhrobj.open("GET", "search-engine.bc");
-      xhrobj.send();
-
-      xhrobj.onreadystatechange = function () {
-        if (this.readyState == 4 && this.status == 200) {
-          var container = document.getElementById("search-box");
-          container.innerHTML = xhrobj.responseText;
-
-          var scripts = container.getElementsByTagName("script");
-          for (var i = 0; i < scripts.length; i++) {
-            var scriptTag = document.createElement("script");
-            if (scripts[i].src) {
-              scriptTag.src = scripts[i].src;
-              scriptTag.async = false;
-            } else {
-              scriptTag.text = scripts[i].textContent;
-            }
-            document.head
-              .appendChild(scriptTag)
-              .parentNode.removeChild(scriptTag);
-          }
-        }
-      };
-    } catch (error) {
-      console.error("مشکلی رخ داده است لطفا صبور باشید.", error);
+  if(document.getElementById("search-box")){
+    function checkAllResourcesLoaded() {
+      const resources = performance.getEntriesByType("resource");
+      const requiredFiles = ["/css/customized.ui.min.css"];
+      const loadedFiles = resources
+        .filter((res) => requiredFiles.includes(res.name) && res.responseEnd > 0)
+        .map((res) => res.name);
+  
+      return requiredFiles.every((file) => loadedFiles.includes(file));
     }
+  
+    function fetchEngine() {
+      try {
+        var xhrobj = new XMLHttpRequest();
+        xhrobj.open("GET", "search-engine.bc");
+        xhrobj.send();
+  
+        xhrobj.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            var container = document.getElementById("search-box");
+            container.innerHTML = xhrobj.responseText;
+  
+            var scripts = container.getElementsByTagName("script");
+            for (var i = 0; i < scripts.length; i++) {
+              var scriptTag = document.createElement("script");
+              if (scripts[i].src) {
+                scriptTag.src = scripts[i].src;
+                scriptTag.async = false;
+              } else {
+                scriptTag.text = scripts[i].textContent;
+              }
+              document.head
+                .appendChild(scriptTag)
+                .parentNode.removeChild(scriptTag);
+            }
+          }
+        };
+      } catch (error) {
+        console.error("مشکلی رخ داده است لطفا صبور باشید.", error);
+      }
+    }
+    fetchEngine();
+    // function waitForFiles() {
+    //   if (checkAllResourcesLoaded()) {
+    //     fetchEngine();
+    //   } else {
+    //     setTimeout(waitForFiles, 500);
+    //   }
+    // }
+  
+    // waitForFiles();
   }
-  fetchEngine();
-  // function waitForFiles() {
-  //   if (checkAllResourcesLoaded()) {
-  //     fetchEngine();
-  //   } else {
-  //     setTimeout(waitForFiles, 500);
-  //   }
-  // }
-
-  // waitForFiles();
 });
 // searchbox
 
@@ -672,3 +674,164 @@ function contentSearched(datatitle, datacatid) {
 }
 
 // article search
+
+
+// filter hotel 
+/* ===== Hotel Filters (name + stars) ===== */
+(function initHotelFilters(){
+  const state = {
+    stars: new Set(),     // e.g., {1,3,5}
+    name: "",             // lowercased query
+    loadedAll: false,     // once we fetched hotellistItemsFilter
+    catid: null
+  };
+
+  // تبدیل اعداد فارسی به انگلیسی
+  const fa2en = (s) => (s||"").replace(/[۰-۹]/g, d => "۰۱۲۳۴۵۶۷۸۹".indexOf(d));
+
+  // پیدا کردن ورودی جستجو (بدون نیاز به id)
+  function getSearchInput(){
+    // ترجیح: id مشخص اگر داشتی
+    let el = document.getElementById('hotelNameSearch');
+    if (el) return el;
+    // fallback: ورودی با placeholder "جستجوی هتل"
+    el = document.querySelector('input[placeholder="جستجوی هتل"]');
+    return el;
+  }
+
+  // استخراج تعداد ستاره از کارت (متن prp_3088066)
+  function extractStarsFromCard(card){
+    // دومین سطر آیکون‌ها ستاره است (بر اساس مارک‌آپ فایل) 
+    // <use href="./images/sprite-icons.svg#star-hotel-icon"></use> -> h2 کناری‌اش مقدار ستاره
+    const starsEl = card.querySelector('svg use[href*="star-hotel-icon"]')?.closest('div')?.querySelector('h2');
+    if (!starsEl) return null;
+    const num = parseInt(fa2en(starsEl.textContent.match(/\d+/)?.[0] || ""), 10);
+    return isNaN(num) ? null : num;
+  }
+
+  // نام هتل از عنوان کارت
+  function extractName(card){
+    const h2 = card.querySelector('h2');
+    return (h2?.textContent || "").trim().toLowerCase();
+  }
+
+  // اعمال فیلترها روی کارت‌ها
+  function applyFilters(){
+    const container = document.querySelector('.hotels-container');
+    if (!container) return;
+
+    const cards = container.querySelectorAll('article');
+    let visibleCount = 0;
+
+    cards.forEach(card => {
+      const name = extractName(card);
+      const stars = extractStarsFromCard(card);
+
+      // شرط نام
+      const nameOk = !state.name || (name.includes(state.name));
+      // شرط ستاره‌ها (اگر هیچ ستاره‌ای انتخاب نشده، همه اوکی)
+      const starOk = (state.stars.size === 0) || (stars != null && state.stars.has(stars));
+
+      const show = nameOk && starOk;
+      card.style.display = show ? 'block' : 'none';
+      if (show) visibleCount++;
+    });
+
+    // پیام «موردی یافت نشد»
+    const noMsgSel = '.no-results-message';
+    let noMsg = document.querySelector(noMsgSel);
+    if (visibleCount === 0) {
+      if (!noMsg) {
+        noMsg = document.createElement('p');
+        noMsg.className = 'no-results-message text-center w-full my-6';
+        noMsg.textContent = 'موردی یافت نشد !';
+        container.appendChild(noMsg);
+      }
+      const paging = document.getElementById('paging');
+      if (paging) paging.style.display = 'none';
+    } else {
+      if (noMsg) noMsg.remove();
+      const paging = document.getElementById('paging');
+      if (paging) paging.style.display = 'flex';
+    }
+  }
+
+  // بعد از هر بار لود HTML (صفحه‌بندی/فچ)، دوباره ایونت‌ها را وصل و فیلتر اعمال کن
+  function rebind(){
+    wireSearch();
+    applyFilters();
+  }
+
+  // اتصال ورودی جستجو
+  function wireSearch(){
+    const input = getSearchInput();
+    if (!input) return;
+    if (input._hotelSearchBound) return; // جلوگیری از دوباره‌بستن
+    input._hotelSearchBound = true;
+    input.addEventListener('input', (e)=>{
+      state.name = (e.target.value || '').trim().toLowerCase();
+      applyFilters();
+    });
+  }
+
+  // بارگیری «لیست کامل‌تر» وقتی اولین‌بار فیلتر زده می‌شود
+  async function ensureLoadedAll(){
+    if (state.loadedAll) return;
+
+    const container = document.querySelector('.hotels-container');
+    if (!container) return;
+    if (!state.catid) {
+      state.catid = container.getAttribute('data-catid');
+    }
+    try {
+      const url = `/load-items.bc?catid=${encodeURIComponent(state.catid||0)}&typecat=hotellistItemsFilter&pagenum=1`;
+      const res = await fetch(url);
+      const html = await res.text();
+      container.innerHTML = html;
+      state.loadedAll = true;
+      rebind();
+    } catch(e){
+      console.error('Hotel filter fetch failed:', e);
+    }
+  }
+
+  // اکسپورت سراسری برای onclick های چک‌باکس‌ها
+  window.filterHotelResult = async function(value, typecat, catid, mode){
+    // ستاره‌ها را toggle کن
+    const v = parseInt(value, 10);
+    if (state.stars.has(v)) state.stars.delete(v); else state.stars.add(v);
+
+    // catid را نگه داریم
+    if (!state.catid) state.catid = catid;
+
+    // اول مطمئن شو نسخهٔ کامل لیست لود شده
+    await ensureLoadedAll();
+
+    // بعد، فیلتر را اعمال کن
+    applyFilters();
+  };
+
+  // وقتی صفحه‌بندی AJAX انجام می‌شود، DOM عوض می‌شود؛
+  // MutationObserver بگذار تا به‌محض تغییر، دوباره فیلتر اعمال شود.
+  const mo = new MutationObserver((muts)=>{
+    let touched = false;
+    muts.forEach(m => {
+      if (m.type === 'childList') touched = true;
+    });
+    if (touched) {
+      // اگر قبلاً لیست کامل را لود کرده‌ایم، دوباره به همان ساختار جدید اعمال کن
+      rebind();
+    }
+  });
+
+  document.addEventListener('DOMContentLoaded', ()=>{
+    const container = document.querySelector('.hotels-container');
+    if (container) {
+      if (!state.catid) state.catid = container.getAttribute('data-catid');
+      mo.observe(container, { childList: true, subtree: true });
+    }
+    wireSearch();
+  });
+})();
+
+// filter hotel 

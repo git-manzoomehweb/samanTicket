@@ -11,6 +11,14 @@
     <member name="text" type="view" />
 </basis>
 
+<basis core="dbsource" source="basiscore" mid="18" name="db" lid="2" usedforid="[##cms.query.catid|(0)##]">
+    <member name="scalarEN" type="scalar" typeid="150" />
+</basis>
+
+<basis core="dbsource" source="basiscore" mid="18" name="db" lid="1" usedforid="[##cms.query.catid|(0)##]">
+    <member name="scalar" type="scalar" typeid="150" />
+</basis>
+
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="db" catid="[##cms.query.catid|(0)##]">
     <member name="navigation" type="tree" request="navcatid" parentid="[##cms.query.catid|(0)##]" />
     <member name="bannerimage" type="tree" request="cat" parentid="[##cms.query.catid|(0)##]"
@@ -18,6 +26,10 @@
 
 </basis>
 
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="offered" catid="[##cms.query.hid|(0)##]">
+    <member name="hotel" type="list" link="hotel.bc" propertyid="3088063,3088064,3088065,3088066,3088067" typeid="159"
+        size="410x151" order="ord" perpage="3" />
+</basis>
 
 
 <!DOCTYPE html>
@@ -28,8 +40,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
     <title>[##cms.seo.title|(سامان پرواز)##]</title>
     <meta name="description" content="[##cms.seo.description|(سامان پرواز)##]">
-    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]"><member type="list" name="list" request="taglist" preview=""></member></basis>
-    <basis core="print" datamembername="tag.list"><face filter="key='canonical'"><link rel="canonical" href="@value" /></face><face><meta property="@key" content="@value" /></face></basis>
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+        <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+        <face filter="key='canonical'">
+            <link rel="canonical" href="@value" />
+        </face>
+        <face>
+            <meta property="@key" content="@value" />
+        </face>
+    </basis>
     <basis core="call" file="pwa.inc" />
     <basis core="call" file="style.inc" />
 </head>
@@ -67,12 +88,19 @@
 
 
 
-            <div class="max-w-7xl mx-auto w-[95%] absolute z-40 top-0 left-0 right-0 ">
+            <div class="max-w-7xl mx-auto w-[95%] absolute z-40 top-0 left-0 right-0 bottom-0">
 
 
                 <div
                     class="absolute left-0 right-0 m-auto flex flex-col justify-center items-center top-0 bottom-0 text-center z-50">
-                    <h1 class="text-2xl text-white text-center font-danabold ">هتل های استانبول</h1>
+
+                    <basis core="print" datamembername="db.scalar">
+                        <layout>@child</layout>
+                        <face>
+                            <h1 class="text-2xl text-white text-center font-danabold ">@column1</h1>
+                        </face>
+                    </basis>
+
                     <div class="my-4 text-white">
                         <ul class="breadcrumbs-list flex items-end justify-center font-danaregular text-base "
                             itemscope="" itemtype="https://schema.org/BreadcrumbList">
@@ -92,7 +120,7 @@
                                 <face filter="link is null and parentcatid<>214381">
                                     <li class="" itemprop="itemListElement" itemscope=""
                                         itemtype="https://schema.org/ListItem">
-                                        <a itemprop="item" href="/tour-list.bc?catid=@parentcatid"
+                                        <a itemprop="item" href="/hotel-list.bc?catid=@parentcatid"
                                             aria-label="@title"><span class="mx-2">/</span><span
                                                 itemprop="name">@title</span>
                                             <meta itemprop="position" content="@rownumber" />
@@ -115,7 +143,12 @@
 
 
 
-                <h2 class="opacity-5 text-[270px] pt-12 text-center text-white">Istanbul</h2>
+                <basis core="print" datamembername="db.scalarEN">
+                    <layout>@child</layout>
+                    <face filter="column1 <> ''">
+                        <h2 class="opacity-5 text-[270px] pt-12 text-center text-white line-clamp-1">@column1</h2>
+                    </face>
+                </basis>
 
 
             </div>
@@ -124,214 +157,106 @@
         <div class="clear-both"></div>
 
 
-        <section
-            class="bg-zinc-50 rounded-xl max-w-7xl mx-auto p-3 min-h-[329px] -mt-[165px] relative z-50 flex justify-between flex-wrap">
-            <article>
-
-                <a href=""
-                    class="block w-[410px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-                    <figure class="w-[410px] h-[151px] relative">
-                        <img class="w-[410px] h-[151px] object-cover"
-                            src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="410"
-                            height="151" alt="@title">
-
-                        <figcaption>
-                            <span
-                                class="bg-red-600/80 font-danaregular  text-xs text-white p-2 rounded-[50px] absolute top-2 right-3">تخفیف
-                                تابستان</span>
-                            <span
-                                class="bg-white/50 font-danaregular text-xs text-primary-500 p-2 rounded-lg flex  justify-center items-center absolute top-2 left-3">
-                                <svg width="20" height="20">
-                                    <use href="../assets/images/sprite-icons.svg#location-hotel-icon"></use>
-                                </svg>
-                                مشاهده نقشه
-                            </span>
-                        </figcaption>
+        <basis core="list" datamembername="offered.hotel">
+            <layout>
+                <section
+                    class="bg-zinc-50 rounded-xl max-w-7xl mx-auto p-3 min-h-[329px] -mt-[165px] relative z-50 flex justify-between flex-wrap">
+                    @child </section>
+            </layout>
+            <face filter="[prp_3088063] is null">
+                <article
+                    class="block w-[410px] h-[305px] rounded-xl overflow-hidden group bg-white border border-zinc-200">
+                    <figure class="w-[410px] h-[151px] relative"><img class="w-[410px] h-[151px] object-cover"
+                            src="[##cms.cms.cdn##]/@00410X00151prp" width="410" height="151" alt="@title">
+                        <figcaption><a href="@prp_3088064"
+                                class="bg-white/50 font-danaregular text-xs text-primary-500 p-2 rounded-lg flex justify-center items-center absolute top-2 left-3"><svg
+                                    width="20" height="20">
+                                    <use href="./images/sprite-icons.svg#location-hotel-icon"></use>
+                                </svg>مشاهده نقشه </a></figcaption>
                     </figure>
                     <div class="px-3">
-                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                            هتل 10 روزه
-                            استانبول</h2>
+                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">@title</h2>
                         <div class="flex justify-between">
-                            <div class="w-1/2 flex  items-center gap-x-2">
-                                <svg width="36" height="36">
-                                    <use href="../assets/images/sprite-icons.svg#rate-hotel-icon"></use>
+                            <div class="w-1/2 flex items-center gap-x-2"><svg width="36" height="36">
+                                    <use href="./images/sprite-icons.svg#rate-hotel-icon"></use>
                                 </svg>
-                                <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-
+                                <h2 class="text-xs leading-5 font-danaregular">@prp_3088065</h2>
                             </div>
-                            <div class="w-1/2 flex  items-center gap-x-2">
-                                <svg width="36" height="36">
-                                    <use href="../assets/images/sprite-icons.svg#star-hotel-icon"></use>
+                            <div class="w-1/2 flex items-center gap-x-2"><svg width="36" height="36">
+                                    <use href="./images/sprite-icons.svg#star-hotel-icon"></use>
                                 </svg>
-
-                                <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-
+                                <h2 class="text-xs leading-5 font-danaregular">@prp_3088066</h2>
                             </div>
                         </div>
-
-
                         <div class="mt-2 flex justify-between items-center">
-                            <div>
-                                <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                    ریال + 1200
-                                    دلار</h2>
-                            </div>
-                            <svg width="48" height="48"
-                                class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
-                            </svg>
+                            <div><span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
+                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">@prp_3088067</h2>
+                            </div><a href="/@link"><svg width="48" height="48"
+                                    class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
+                                    <use href="./images/sprite-icons.svg#go-fill-icon"></use>
+                                </svg></a>
                         </div>
                     </div>
-
-                </a>
-
-            </article>
-            <article>
-
-                <a href=""
-                    class="block w-[410px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-                    <figure class="w-[410px] h-[151px] relative">
-                        <img class="w-[410px] h-[151px] object-cover"
-                            src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="410"
-                            height="151" alt="@title">
-
-                        <figcaption>
-                            <span
-                                class="bg-red-600/80 font-danaregular  text-xs text-white p-2 rounded-[50px] absolute top-2 right-3">تخفیف
-                                تابستان</span>
-                            <span
-                                class="bg-white/50 font-danaregular text-xs text-primary-500 p-2 rounded-lg flex  justify-center items-center absolute top-2 left-3">
-                                <svg width="20" height="20">
-                                    <use href="../assets/images/sprite-icons.svg#location-hotel-icon"></use>
-                                </svg>
-                                مشاهده نقشه
-                            </span>
-                        </figcaption>
+                </article>
+            </face>
+            <face>
+                <article
+                    class="block w-[410px] h-[305px] rounded-xl overflow-hidden group bg-white border border-zinc-200">
+                    <figure class="w-[410px] h-[151px] relative"><img class="w-[410px] h-[151px] object-cover"
+                            src="[##cms.cms.cdn##]/@00410X00151prp" width="410" height="151" alt="@title">
+                        <figcaption><span
+                                class="bg-red-600/80 font-danaregular text-xs text-white p-2 rounded-[50px] absolute top-2 right-3">@prp_3088063</span><a
+                                href="@prp_3088064"
+                                class="bg-white/50 font-danaregular text-xs text-primary-500 p-2 rounded-lg flex justify-center items-center absolute top-2 left-3"><svg
+                                    width="20" height="20">
+                                    <use href="./images/sprite-icons.svg#location-hotel-icon"></use>
+                                </svg>مشاهده نقشه </a></figcaption>
                     </figure>
                     <div class="px-3">
-                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                            هتل 10 روزه
-                            استانبول</h2>
+                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">@title</h2>
                         <div class="flex justify-between">
-                            <div class="w-1/2 flex  items-center gap-x-2">
-                                <svg width="36" height="36">
-                                    <use href="../assets/images/sprite-icons.svg#rate-hotel-icon"></use>
+                            <div class="w-1/2 flex items-center gap-x-2"><svg width="36" height="36">
+                                    <use href="./images/sprite-icons.svg#rate-hotel-icon"></use>
                                 </svg>
-                                <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-
+                                <h2 class="text-xs leading-5 font-danaregular">@prp_3088065</h2>
                             </div>
-                            <div class="w-1/2 flex  items-center gap-x-2">
-                                <svg width="36" height="36">
-                                    <use href="../assets/images/sprite-icons.svg#star-hotel-icon"></use>
+                            <div class="w-1/2 flex items-center gap-x-2"><svg width="36" height="36">
+                                    <use href="./images/sprite-icons.svg#star-hotel-icon"></use>
                                 </svg>
-
-                                <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-
+                                <h2 class="text-xs leading-5 font-danaregular">@prp_3088066</h2>
                             </div>
                         </div>
-
-
                         <div class="mt-2 flex justify-between items-center">
-                            <div>
-                                <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                    ریال + 1200
-                                    دلار</h2>
-                            </div>
-                            <svg width="48" height="48"
-                                class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
-                            </svg>
+                            <div><span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
+                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">@prp_3088067</h2>
+                            </div><a href="/@link" class="inline-block"><svg width="48" height="48"
+                                    class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
+                                    <use href="./images/sprite-icons.svg#go-fill-icon"></use>
+                                </svg></a>
                         </div>
                     </div>
-
-                </a>
-
-            </article>
-            <article>
-
-                <a href=""
-                    class="block w-[410px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-                    <figure class="w-[410px] h-[151px] relative">
-                        <img class="w-[410px] h-[151px] object-cover"
-                            src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="410"
-                            height="151" alt="@title">
-
-                        <figcaption>
-                            <span
-                                class="bg-red-600/80 font-danaregular  text-xs text-white p-2 rounded-[50px] absolute top-2 right-3">تخفیف
-                                تابستان</span>
-                            <span
-                                class="bg-white/50 font-danaregular text-xs text-primary-500 p-2 rounded-lg flex  justify-center items-center absolute top-2 left-3">
-                                <svg width="20" height="20">
-                                    <use href="../assets/images/sprite-icons.svg#location-hotel-icon"></use>
-                                </svg>
-                                مشاهده نقشه
-                            </span>
-                        </figcaption>
-                    </figure>
-                    <div class="px-3">
-                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                            هتل 10 روزه
-                            استانبول</h2>
-                        <div class="flex justify-between">
-                            <div class="w-1/2 flex  items-center gap-x-2">
-                                <svg width="36" height="36">
-                                    <use href="../assets/images/sprite-icons.svg#rate-hotel-icon"></use>
-                                </svg>
-                                <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-
-                            </div>
-                            <div class="w-1/2 flex  items-center gap-x-2">
-                                <svg width="36" height="36">
-                                    <use href="../assets/images/sprite-icons.svg#star-hotel-icon"></use>
-                                </svg>
-
-                                <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-
-                            </div>
-                        </div>
-
-
-                        <div class="mt-2 flex justify-between items-center">
-                            <div>
-                                <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">160/000/000
-                                    ریال + 1200
-                                    دلار</h2>
-                            </div>
-                            <svg width="48" height="48"
-                                class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
-                            </svg>
-                        </div>
-                    </div>
-
-                </a>
-
-            </article>
-
-        </section>
-
+                </article>
+            </face>
+        </basis>
 
         <div class="clear-both"></div>
-
-
-
-
-
-
 
         <div class="w-full relative">
 
 
             <section class=" pt-[60px]">
-                <div class="max-w-7xl max-xl:w-[98%] mx-auto my-5">
+                <div class="max-w-7xl max-xl:w-[98%] mx-auto my-5 load-content-box-container">
 
                     <div class="w-full flex items-center gap-x-4">
-                        <h2 class="text-zinc-900 text-2xl leading-8 font-danabold">هتل های استانبول</h2>
+
+                        <basis core="print" datamembername="db.scalar">
+                            <layout>@child</layout>
+                            <face>
+                                <h2 class="category-item-load text-zinc-900 text-2xl leading-8 font-danabold"
+                                    data-id="[##cms.query.catid##]" data-type="hotellistItems">@column1</h2>
+                            </face>
+                        </basis>
+
 
                         <div class="h-0 flex-grow border border-dashed border-[#a1a1aa] mx-4"></div>
 
@@ -343,883 +268,64 @@
                     <div class=" my-4">
                         <div class="w-[270px] bg-white rounded-2xl p-3 h-auto float-right">
 
-                        <h2 class="text-sm leading-5 font-danabold">فیلتر هتل بر اساس :</h2>
+                            <h2 class="text-sm leading-5 font-danabold">فیلتر هتل بر اساس :</h2>
 
-                        <div class="h-0 flex-grow border border-dashed border-[#ececec] my-3"></div>
+                            <div class="h-0 flex-grow border border-dashed border-[#ececec] my-3"></div>
 
-                        <h2 class="text-base font-danabold mt-2 mb-2">نام هتل</h2>
-                                                <div class="h-0 flex-grow border border-dashed border-[#ececec] my-3"></div>
+                            <h2 class="text-base font-danabold mt-2 mb-2">نام هتل</h2>
+                            <div class="h-0 flex-grow border border-dashed border-[#ececec] my-3"></div>
 
-                        <input type="text" class="rounded-xl bg-zinc-100 outline-none border-none w-full h-[55px] leading-[55px] px-2" placeholder="جستجوی هتل">
-                        
-                        <div class="h-0 flex-grow border border-dashed border-[#ececec] my-3"></div>
-                                                <h2 class="text-base font-danabold mt-2 mb-2">چند ستاره</h2>
+                            <input type="text"
+                                class="rounded-xl bg-zinc-100 outline-none border-none w-full h-[55px] leading-[55px] px-2"
+                                placeholder="جستجوی هتل">
 
-                        <div class="h-0 flex-grow border border-dashed border-[#ececec] my-3"></div>
-                        <ul class="flex flex-col gap-y-3">
-                            <li class="flex  items-center gap-x-2 text-sm text-zinc-700">
-                                <input id="1" type="checkbox" class="w-6 h-6 rounded-lg accent-primary-400">
-                                <label for="1" class="font-danaregular ">1 ستاره</label>
-                            </li>
-                            <li class="flex  items-center gap-x-2 text-sm text-zinc-700">
-                                <input id="2" type="checkbox" class="w-6 h-6 rounded-lg accent-primary-400">
-                                <label for="2" class="font-danaregular ">2 ستاره</label>
-                            </li>
-                            <li class="flex  items-center gap-x-2 text-sm text-zinc-700">
-                                <input id="3" type="checkbox" class="w-6 h-6 rounded-lg accent-primary-400">
-                                <label for="3" class="font-danaregular ">3 ستاره</label>
-                            </li>
-                            <li class="flex  items-center gap-x-2 text-sm text-zinc-700">
-                                <input id="4" type="checkbox" class="w-6 h-6 rounded-lg accent-primary-400">
-                                <label for="4" class="font-danaregular ">4 ستاره</label>
-                            </li>
-                            <li class="flex  items-center gap-x-2 text-sm text-zinc-700">
-                                <input id="5" type="checkbox" class="w-6 h-6 rounded-lg accent-primary-400">
-                                <label for="5" class="font-danaregular ">5 ستاره</label>
-                            </li>
-                        </ul>
-                        <div class="h-0 flex-grow border border-dashed border-[#ececec] my-3"></div>
+                            <div class="h-0 flex-grow border border-dashed border-[#ececec] my-3"></div>
+                            <h2 class="text-base font-danabold mt-2 mb-2">چند ستاره</h2>
 
-                    
-                    </div>
+                            <div class="h-0 flex-grow border border-dashed border-[#ececec] my-3"></div>
+                            <ul class="flex flex-col gap-y-3">
+                                <li class="flex  items-center gap-x-2 text-sm text-zinc-700">
+                                    <input id="1" type="checkbox"
+                                        onclick="filterHotelResult(1 , 'hotellistItems' , [##cms.query.catid##] , 'star')"
+                                        class="w-6 h-6 rounded-lg accent-primary-400">
+                                    <label for="1" class="font-danaregular ">1 ستاره</label>
+                                </li>
+                                <li class="flex  items-center gap-x-2 text-sm text-zinc-700">
+                                    <input id="2" type="checkbox"
+                                        onclick="filterHotelResult(2 , 'hotellistItems' , [##cms.query.catid##] , 'star')"
+                                        class="w-6 h-6 rounded-lg accent-primary-400">
+                                    <label for="2" class="font-danaregular ">2 ستاره</label>
+                                </li>
+                                <li class="flex  items-center gap-x-2 text-sm text-zinc-700">
+                                    <input id="3" type="checkbox"
+                                        onclick="filterHotelResult(3 , 'hotellistItems' , [##cms.query.catid##] , 'star')"
+                                        class="w-6 h-6 rounded-lg accent-primary-400">
+                                    <label for="3" class="font-danaregular ">3 ستاره</label>
+                                </li>
+                                <li class="flex  items-center gap-x-2 text-sm text-zinc-700">
+                                    <input id="4" type="checkbox"
+                                        onclick="filterHotelResult(4 , 'hotellistItems' , [##cms.query.catid##] , 'star')"
+                                        class="w-6 h-6 rounded-lg accent-primary-400">
+                                    <label for="4" class="font-danaregular ">4 ستاره</label>
+                                </li>
+                                <li class="flex  items-center gap-x-2 text-sm text-zinc-700">
+                                    <input id="5" type="checkbox"
+                                        onclick="filterHotelResult(5 , 'hotellistItems' , [##cms.query.catid##] , 'star')"
+                                        class="w-6 h-6 rounded-lg accent-primary-400">
+                                    <label for="5" class="font-danaregular ">5 ستاره</label>
+                                </li>
+                            </ul>
+                            <div class="h-0 flex-grow border border-dashed border-[#ececec] my-3"></div>
 
-                        <div class="w-[calc(100%_-_270px)] max-w-[992px] flex flex-wrap justify-start gap-7 max-xl:justify-between float-left">
-                            <!-- <span class="loader"></span> -->
-    
-    
-    
-    
-    
-    
-                            <article
-                                class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-    
-                                <figure class="w-[311px] h-[151px] relative">
-                                    <img class="w-[311px] h-[151px] object-cover"
-                                        src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
-                                        height="151" alt="@title">
-    
-                                    <figcaption class="absolute top-2 left-3">
-                                                                    <span
-                                    class="bg-white/50 font-danaregular text-xs text-primary-500 p-2 rounded-lg flex  justify-center items-center  top-2 left-3">
-                                    <svg width="20" height="20">
-                                        <use href="../assets/images/sprite-icons.svg#location-hotel-icon"></use>
-                                    </svg>
-                                    مشاهده نقشه
-                                </span>
-    
-                                    </figcaption>
-                                </figure>
-                                <div class="px-3">
-                                    <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                        هتل 10 روزه
-                                        استانبول</h2>
-                                    <div class="flex justify-between">
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#rate-hotel-icon"></use>
-                                            </svg>
-                                            <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-    
-                                        </div>
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#star-hotel-icon"></use>
-                                            </svg>
-    
-                                            <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-    
-                                        </div>
-                                    </div>
-    
-    
-                                    <div class="mt-2 flex justify-between items-center">
-                                        <div>
-                                            <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                            <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">
-                                                160/000/000
-                                                ریال + 1200
-                                                دلار</h2>
-                                        </div>
-                                        <svg width="48" height="48"
-                                            class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                            <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-    
-                            </article>
-    
-                            <article
-                                class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-    
-                                <figure class="w-[311px] h-[151px] relative">
-                                    <img class="w-[311px] h-[151px] object-cover"
-                                        src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
-                                        height="151" alt="@title">
-    
-                                    <figcaption class="absolute top-2 left-3">
-                                                                    <span
-                                    class="bg-white/50 font-danaregular text-xs text-primary-500 p-2 rounded-lg flex  justify-center items-center  top-2 left-3">
-                                    <svg width="20" height="20">
-                                        <use href="../assets/images/sprite-icons.svg#location-hotel-icon"></use>
-                                    </svg>
-                                    مشاهده نقشه
-                                </span>
-    
-                                    </figcaption>
-                                </figure>
-                                <div class="px-3">
-                                    <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                        هتل 10 روزه
-                                        استانبول</h2>
-                                    <div class="flex justify-between">
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#rate-hotel-icon"></use>
-                                            </svg>
-                                            <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-    
-                                        </div>
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#star-hotel-icon"></use>
-                                            </svg>
-    
-                                            <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-    
-                                        </div>
-                                    </div>
-    
-    
-                                    <div class="mt-2 flex justify-between items-center">
-                                        <div>
-                                            <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                            <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">
-                                                160/000/000
-                                                ریال + 1200
-                                                دلار</h2>
-                                        </div>
-                                        <svg width="48" height="48"
-                                            class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                            <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-    
-                            </article>
-    
-                            <article
-                                class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-    
-                                <figure class="w-[311px] h-[151px] relative">
-                                    <img class="w-[311px] h-[151px] object-cover"
-                                        src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
-                                        height="151" alt="@title">
-    
-                                    <figcaption class="absolute top-2 left-3">
-                                                                    <span
-                                    class="bg-white/50 font-danaregular text-xs text-primary-500 p-2 rounded-lg flex  justify-center items-center  top-2 left-3">
-                                    <svg width="20" height="20">
-                                        <use href="../assets/images/sprite-icons.svg#location-hotel-icon"></use>
-                                    </svg>
-                                    مشاهده نقشه
-                                </span>
-    
-                                    </figcaption>
-                                </figure>
-                                <div class="px-3">
-                                    <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                        هتل 10 روزه
-                                        استانبول</h2>
-                                    <div class="flex justify-between">
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#rate-hotel-icon"></use>
-                                            </svg>
-                                            <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-    
-                                        </div>
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#star-hotel-icon"></use>
-                                            </svg>
-    
-                                            <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-    
-                                        </div>
-                                    </div>
-    
-    
-                                    <div class="mt-2 flex justify-between items-center">
-                                        <div>
-                                            <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                            <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">
-                                                160/000/000
-                                                ریال + 1200
-                                                دلار</h2>
-                                        </div>
-                                        <svg width="48" height="48"
-                                            class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                            <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-    
-                            </article>
-    
-                            <article
-                                class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-    
-                                <figure class="w-[311px] h-[151px] relative">
-                                    <img class="w-[311px] h-[151px] object-cover"
-                                        src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
-                                        height="151" alt="@title">
-    
-                                    <figcaption class="absolute top-2 left-3">
-                                                                    <span
-                                    class="bg-white/50 font-danaregular text-xs text-primary-500 p-2 rounded-lg flex  justify-center items-center  top-2 left-3">
-                                    <svg width="20" height="20">
-                                        <use href="../assets/images/sprite-icons.svg#location-hotel-icon"></use>
-                                    </svg>
-                                    مشاهده نقشه
-                                </span>
-    
-                                    </figcaption>
-                                </figure>
-                                <div class="px-3">
-                                    <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                        هتل 10 روزه
-                                        استانبول</h2>
-                                    <div class="flex justify-between">
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#rate-hotel-icon"></use>
-                                            </svg>
-                                            <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-    
-                                        </div>
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#star-hotel-icon"></use>
-                                            </svg>
-    
-                                            <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-    
-                                        </div>
-                                    </div>
-    
-    
-                                    <div class="mt-2 flex justify-between items-center">
-                                        <div>
-                                            <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                            <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">
-                                                160/000/000
-                                                ریال + 1200
-                                                دلار</h2>
-                                        </div>
-                                        <svg width="48" height="48"
-                                            class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                            <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-    
-                            </article>
-    
-                            <article
-                                class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-    
-                                <figure class="w-[311px] h-[151px] relative">
-                                    <img class="w-[311px] h-[151px] object-cover"
-                                        src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
-                                        height="151" alt="@title">
-    
-                                    <figcaption class="absolute top-2 left-3">
-                                                                    <span
-                                    class="bg-white/50 font-danaregular text-xs text-primary-500 p-2 rounded-lg flex  justify-center items-center  top-2 left-3">
-                                    <svg width="20" height="20">
-                                        <use href="../assets/images/sprite-icons.svg#location-hotel-icon"></use>
-                                    </svg>
-                                    مشاهده نقشه
-                                </span>
-    
-                                    </figcaption>
-                                </figure>
-                                <div class="px-3">
-                                    <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                        هتل 10 روزه
-                                        استانبول</h2>
-                                    <div class="flex justify-between">
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#rate-hotel-icon"></use>
-                                            </svg>
-                                            <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-    
-                                        </div>
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#star-hotel-icon"></use>
-                                            </svg>
-    
-                                            <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-    
-                                        </div>
-                                    </div>
-    
-    
-                                    <div class="mt-2 flex justify-between items-center">
-                                        <div>
-                                            <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                            <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">
-                                                160/000/000
-                                                ریال + 1200
-                                                دلار</h2>
-                                        </div>
-                                        <svg width="48" height="48"
-                                            class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                            <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-    
-                            </article>
-    
-                            <article
-                                class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-    
-                                <figure class="w-[311px] h-[151px] relative">
-                                    <img class="w-[311px] h-[151px] object-cover"
-                                        src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
-                                        height="151" alt="@title">
-    
-                                    <figcaption class="absolute top-2 left-3">
-                                                                    <span
-                                    class="bg-white/50 font-danaregular text-xs text-primary-500 p-2 rounded-lg flex  justify-center items-center  top-2 left-3">
-                                    <svg width="20" height="20">
-                                        <use href="../assets/images/sprite-icons.svg#location-hotel-icon"></use>
-                                    </svg>
-                                    مشاهده نقشه
-                                </span>
-    
-                                    </figcaption>
-                                </figure>
-                                <div class="px-3">
-                                    <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                        هتل 10 روزه
-                                        استانبول</h2>
-                                    <div class="flex justify-between">
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#rate-hotel-icon"></use>
-                                            </svg>
-                                            <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-    
-                                        </div>
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#star-hotel-icon"></use>
-                                            </svg>
-    
-                                            <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-    
-                                        </div>
-                                    </div>
-    
-    
-                                    <div class="mt-2 flex justify-between items-center">
-                                        <div>
-                                            <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                            <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">
-                                                160/000/000
-                                                ریال + 1200
-                                                دلار</h2>
-                                        </div>
-                                        <svg width="48" height="48"
-                                            class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                            <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-    
-                            </article>
-    
-                            <article
-                                class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-    
-                                <figure class="w-[311px] h-[151px] relative">
-                                    <img class="w-[311px] h-[151px] object-cover"
-                                        src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
-                                        height="151" alt="@title">
-    
-                                    <figcaption class="absolute top-2 left-3">
-                                                                    <span
-                                    class="bg-white/50 font-danaregular text-xs text-primary-500 p-2 rounded-lg flex  justify-center items-center  top-2 left-3">
-                                    <svg width="20" height="20">
-                                        <use href="../assets/images/sprite-icons.svg#location-hotel-icon"></use>
-                                    </svg>
-                                    مشاهده نقشه
-                                </span>
-    
-                                    </figcaption>
-                                </figure>
-                                <div class="px-3">
-                                    <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                        هتل 10 روزه
-                                        استانبول</h2>
-                                    <div class="flex justify-between">
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#rate-hotel-icon"></use>
-                                            </svg>
-                                            <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-    
-                                        </div>
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#star-hotel-icon"></use>
-                                            </svg>
-    
-                                            <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-    
-                                        </div>
-                                    </div>
-    
-    
-                                    <div class="mt-2 flex justify-between items-center">
-                                        <div>
-                                            <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                            <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">
-                                                160/000/000
-                                                ریال + 1200
-                                                دلار</h2>
-                                        </div>
-                                        <svg width="48" height="48"
-                                            class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                            <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-    
-                            </article>
-    
-                            <article
-                                class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-    
-                                <figure class="w-[311px] h-[151px] relative">
-                                    <img class="w-[311px] h-[151px] object-cover"
-                                        src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
-                                        height="151" alt="@title">
-    
-                                    <figcaption class="absolute top-2 left-3">
-                                                                    <span
-                                    class="bg-white/50 font-danaregular text-xs text-primary-500 p-2 rounded-lg flex  justify-center items-center  top-2 left-3">
-                                    <svg width="20" height="20">
-                                        <use href="../assets/images/sprite-icons.svg#location-hotel-icon"></use>
-                                    </svg>
-                                    مشاهده نقشه
-                                </span>
-    
-                                    </figcaption>
-                                </figure>
-                                <div class="px-3">
-                                    <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                        هتل 10 روزه
-                                        استانبول</h2>
-                                    <div class="flex justify-between">
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#rate-hotel-icon"></use>
-                                            </svg>
-                                            <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-    
-                                        </div>
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#star-hotel-icon"></use>
-                                            </svg>
-    
-                                            <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-    
-                                        </div>
-                                    </div>
-    
-    
-                                    <div class="mt-2 flex justify-between items-center">
-                                        <div>
-                                            <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                            <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">
-                                                160/000/000
-                                                ریال + 1200
-                                                دلار</h2>
-                                        </div>
-                                        <svg width="48" height="48"
-                                            class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                            <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-    
-                            </article>
-    
-                            <article
-                                class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-    
-                                <figure class="w-[311px] h-[151px] relative">
-                                    <img class="w-[311px] h-[151px] object-cover"
-                                        src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
-                                        height="151" alt="@title">
-    
-                                    <figcaption class="absolute top-2 left-3">
-                                                                    <span
-                                    class="bg-white/50 font-danaregular text-xs text-primary-500 p-2 rounded-lg flex  justify-center items-center  top-2 left-3">
-                                    <svg width="20" height="20">
-                                        <use href="../assets/images/sprite-icons.svg#location-hotel-icon"></use>
-                                    </svg>
-                                    مشاهده نقشه
-                                </span>
-    
-                                    </figcaption>
-                                </figure>
-                                <div class="px-3">
-                                    <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                        هتل 10 روزه
-                                        استانبول</h2>
-                                    <div class="flex justify-between">
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#rate-hotel-icon"></use>
-                                            </svg>
-                                            <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-    
-                                        </div>
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#star-hotel-icon"></use>
-                                            </svg>
-    
-                                            <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-    
-                                        </div>
-                                    </div>
-    
-    
-                                    <div class="mt-2 flex justify-between items-center">
-                                        <div>
-                                            <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                            <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">
-                                                160/000/000
-                                                ریال + 1200
-                                                دلار</h2>
-                                        </div>
-                                        <svg width="48" height="48"
-                                            class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                            <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-    
-                            </article>
-    
-                            <article
-                                class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-    
-                                <figure class="w-[311px] h-[151px] relative">
-                                    <img class="w-[311px] h-[151px] object-cover"
-                                        src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
-                                        height="151" alt="@title">
-    
-                                    <figcaption class="absolute top-2 left-3">
-                                                                    <span
-                                    class="bg-white/50 font-danaregular text-xs text-primary-500 p-2 rounded-lg flex  justify-center items-center  top-2 left-3">
-                                    <svg width="20" height="20">
-                                        <use href="../assets/images/sprite-icons.svg#location-hotel-icon"></use>
-                                    </svg>
-                                    مشاهده نقشه
-                                </span>
-    
-                                    </figcaption>
-                                </figure>
-                                <div class="px-3">
-                                    <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                        هتل 10 روزه
-                                        استانبول</h2>
-                                    <div class="flex justify-between">
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#rate-hotel-icon"></use>
-                                            </svg>
-                                            <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-    
-                                        </div>
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#star-hotel-icon"></use>
-                                            </svg>
-    
-                                            <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-    
-                                        </div>
-                                    </div>
-    
-    
-                                    <div class="mt-2 flex justify-between items-center">
-                                        <div>
-                                            <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                            <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">
-                                                160/000/000
-                                                ریال + 1200
-                                                دلار</h2>
-                                        </div>
-                                        <svg width="48" height="48"
-                                            class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                            <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-    
-                            </article>
-    
-                            <article
-                                class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-    
-                                <figure class="w-[311px] h-[151px] relative">
-                                    <img class="w-[311px] h-[151px] object-cover"
-                                        src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
-                                        height="151" alt="@title">
-    
-                                    <figcaption class="absolute top-2 left-3">
-                                                                    <span
-                                    class="bg-white/50 font-danaregular text-xs text-primary-500 p-2 rounded-lg flex  justify-center items-center  top-2 left-3">
-                                    <svg width="20" height="20">
-                                        <use href="../assets/images/sprite-icons.svg#location-hotel-icon"></use>
-                                    </svg>
-                                    مشاهده نقشه
-                                </span>
-    
-                                    </figcaption>
-                                </figure>
-                                <div class="px-3">
-                                    <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                        هتل 10 روزه
-                                        استانبول</h2>
-                                    <div class="flex justify-between">
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#rate-hotel-icon"></use>
-                                            </svg>
-                                            <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-    
-                                        </div>
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#star-hotel-icon"></use>
-                                            </svg>
-    
-                                            <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-    
-                                        </div>
-                                    </div>
-    
-    
-                                    <div class="mt-2 flex justify-between items-center">
-                                        <div>
-                                            <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                            <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">
-                                                160/000/000
-                                                ریال + 1200
-                                                دلار</h2>
-                                        </div>
-                                        <svg width="48" height="48"
-                                            class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                            <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-    
-                            </article>
-    
-                            <article
-                                class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-    
-                                <figure class="w-[311px] h-[151px] relative">
-                                    <img class="w-[311px] h-[151px] object-cover"
-                                        src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
-                                        height="151" alt="@title">
-    
-                                    <figcaption class="absolute top-2 left-3">
-                                                                    <span
-                                    class="bg-white/50 font-danaregular text-xs text-primary-500 p-2 rounded-lg flex  justify-center items-center  top-2 left-3">
-                                    <svg width="20" height="20">
-                                        <use href="../assets/images/sprite-icons.svg#location-hotel-icon"></use>
-                                    </svg>
-                                    مشاهده نقشه
-                                </span>
-    
-                                    </figcaption>
-                                </figure>
-                                <div class="px-3">
-                                    <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                        هتل 10 روزه
-                                        استانبول</h2>
-                                    <div class="flex justify-between">
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#rate-hotel-icon"></use>
-                                            </svg>
-                                            <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-    
-                                        </div>
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#star-hotel-icon"></use>
-                                            </svg>
-    
-                                            <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-    
-                                        </div>
-                                    </div>
-    
-    
-                                    <div class="mt-2 flex justify-between items-center">
-                                        <div>
-                                            <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                            <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">
-                                                160/000/000
-                                                ریال + 1200
-                                                دلار</h2>
-                                        </div>
-                                        <svg width="48" height="48"
-                                            class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                            <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-    
-                            </article>
-    
-                            <article
-                                class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-    
-                                <figure class="w-[311px] h-[151px] relative">
-                                    <img class="w-[311px] h-[151px] object-cover"
-                                        src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
-                                        height="151" alt="@title">
-    
-                                    <figcaption class="absolute top-2 left-3">
-                                                                    <span
-                                    class="bg-white/50 font-danaregular text-xs text-primary-500 p-2 rounded-lg flex  justify-center items-center  top-2 left-3">
-                                    <svg width="20" height="20">
-                                        <use href="../assets/images/sprite-icons.svg#location-hotel-icon"></use>
-                                    </svg>
-                                    مشاهده نقشه
-                                </span>
-    
-                                    </figcaption>
-                                </figure>
-                                <div class="px-3">
-                                    <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                        هتل 10 روزه
-                                        استانبول</h2>
-                                    <div class="flex justify-between">
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#rate-hotel-icon"></use>
-                                            </svg>
-                                            <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-    
-                                        </div>
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#star-hotel-icon"></use>
-                                            </svg>
-    
-                                            <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-    
-                                        </div>
-                                    </div>
-    
-    
-                                    <div class="mt-2 flex justify-between items-center">
-                                        <div>
-                                            <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                            <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">
-                                                160/000/000
-                                                ریال + 1200
-                                                دلار</h2>
-                                        </div>
-                                        <svg width="48" height="48"
-                                            class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                            <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-    
-                            </article>
-    
-                            <article
-                                class="w-[311px] h-[305px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
-    
-                                <figure class="w-[311px] h-[151px] relative">
-                                    <img class="w-[311px] h-[151px] object-cover"
-                                        src="../assets/images/blue-mosque-Turkey-where-to-stay-in-istanbul.webp" width="311"
-                                        height="151" alt="@title">
-    
-                                    <figcaption class="absolute top-2 left-3">
-                                                                    <span
-                                    class="bg-white/50 font-danaregular text-xs text-primary-500 p-2 rounded-lg flex  justify-center items-center  top-2 left-3">
-                                    <svg width="20" height="20">
-                                        <use href="../assets/images/sprite-icons.svg#location-hotel-icon"></use>
-                                    </svg>
-                                    مشاهده نقشه
-                                </span>
-    
-                                    </figcaption>
-                                </figure>
-                                <div class="px-3">
-                                    <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">
-                                        هتل 10 روزه
-                                        استانبول</h2>
-                                    <div class="flex justify-between">
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#rate-hotel-icon"></use>
-                                            </svg>
-                                            <h2 class="text-xs leading-5 font-danaregular">14 فروردین</h2>
-    
-                                        </div>
-                                        <div class="w-1/2 flex  items-center gap-x-2">
-                                            <svg width="36" height="36">
-                                                <use href="../assets/images/sprite-icons.svg#star-hotel-icon"></use>
-                                            </svg>
-    
-                                            <h2 class="text-xs leading-5 font-danaregular">4 روز 5 شب</h2>
-    
-                                        </div>
-                                    </div>
-    
-    
-                                    <div class="mt-2 flex justify-between items-center">
-                                        <div>
-                                            <span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                            <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">
-                                                160/000/000
-                                                ریال + 1200
-                                                دلار</h2>
-                                        </div>
-                                        <svg width="48" height="48"
-                                            class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                            <use href="../assets/images/sprite-icons.svg#go-fill-icon"></use>
-                                        </svg>
-                                    </div>
-                                </div>
-    
-                            </article>
-    
-    
-    
-    
+
+                        </div>
+
+                        <div data-catid="[##cms.query.catid##]"
+                            class="hotels-container load-content-box w-[calc(100%_-_270px)] max-w-[992px] flex flex-wrap justify-start gap-7 max-xl:justify-between float-left">
+                            <span class="loader block mx-auto"></span>
+
+
+
                         </div>
                     </div>
 
@@ -1233,7 +339,7 @@
         <!-- landing box -->
         <basis core="print" datamembername="db.landingtext">
             <layout>
-                <section class="bg-[#F8F8F8] min-h-[300px] pt-8">
+                <section class=" min-h-[300px] pt-8">
                     <div class="max-w-7xl max-xl:w-[98%] mx-auto">
 
                         @child
@@ -1264,7 +370,7 @@
         <!-- faq box -->
         <basis core="list" datamembername="info.faq">
             <layout>
-                <section class="bg-[#F8F8F8] min-h-[500px] pt-8">
+                <section class=" min-h-[500px] pt-8">
                     <div class="max-w-7xl max-xl:w-[98%] mx-auto flex justify-between gap-x-4 ">
                         <div class="w-[457px]">
                             <figure class="w-[457px] h-[455px] bg-secondary-1-700 rounded-3xl relative"><img
@@ -1292,7 +398,7 @@
         <!-- about us -->
         <basis core="print" datamembername="about.text">
             <layout>
-                <section class="bg-[#F8F8F8] min-h-[300px] pt-8">
+                <section class=" min-h-[300px] pt-8">
                     <div class="max-w-7xl max-xl:w-[98%] mx-auto">
                         <div class="flex gap-x-2 items-center"><img src="[##cms.cms.cdn##]/images/logo-colored.png"
                                 width="48" height="48" alt="logo ">
