@@ -163,19 +163,22 @@ async function LoadCatHeader(catid, typecat, element) {
       element
         .closest(".megamenu-container")
         .querySelector(".load-category-items").innerHTML = content;
-    } else if (window.innerWidth < 1024) {
-      const subItem = element.querySelector(".sub-item-hamburgermenu");
-      const isHidden = subItem.classList.contains("hidden");
-      document.querySelectorAll(".sub-item-hamburgermenu").forEach((ele) => {
-        ele.classList.add("hidden");
-      });
-      if (isHidden) {
-        subItem.classList.remove("hidden");
-        subItem.innerHTML = content;
-      } else {
-        subItem.classList.add("hidden");
-      }
-    }
+    } 
+    
+    // else if (window.innerWidth < 1024) {
+
+    //   const subItem = element.querySelector(".sub-item-hamburgermenu");
+    //   const isHidden = subItem.classList.contains("hidden");
+    //   document.querySelectorAll(".sub-item-hamburgermenu").forEach((ele) => {
+    //     ele.classList.add("hidden");
+    //   });
+    //   if (isHidden) {
+    //     subItem.classList.remove("hidden");
+    //     subItem.innerHTML = content;
+    //   } else {
+    //     subItem.classList.add("hidden");
+    //   }
+    // }
 
     var scripts = container.getElementsByTagName("script");
     for (var i = 0; i < scripts.length; i++) {
@@ -193,33 +196,37 @@ async function LoadCatHeader(catid, typecat, element) {
 function OpenSubMenu() {
   this.querySelector("ul").classList.toggle("hidden");
 }
-document.addEventListener("DOMContentLoaded", function () {
-  let submenuparents = document.querySelectorAll(".has-sub-menu");
-  if (window.innerWidth < 1024) {
-    submenuparents.forEach((e) => {
-      e.addEventListener("click", OpenSubMenu, false);
+// document.addEventListener("DOMContentLoaded", function () {
+//   let submenuparents = document.querySelectorAll(".has-sub-menu");
+//   if (window.innerWidth < 1024) {
+//     submenuparents.forEach((e) => {
+//       e.addEventListener("click", OpenSubMenu, false);
+//     });
+//   }
+// });
+
+if( innerWidth > 1024){
+  if (document.querySelector(".transparent-header")) {
+    window.addEventListener("scroll", function () {
+      const navbar = document.getElementById("navbar-desktop");
+      if (window.scrollY > 10) {
+        navbar.classList.remove("bg-transparent");
+        navbar.classList.add(
+          "bg-gradient-to-b",
+          "from-[#081230]",
+          "to-[#020a21]/85"
+        );
+      } else {
+        navbar.classList.add("bg-transparent");
+        navbar.classList.remove(
+          "bg-gradient-to-b",
+          "from-[#081230]",
+          "to-[#020a21]/85"
+        );
+      }
     });
   }
-});
-if (document.querySelector(".transparent-header")) {
-  window.addEventListener("scroll", function () {
-    const navbar = document.getElementById("navbar-desktop");
-    if (window.scrollY > 10) {
-      navbar.classList.remove("bg-transparent");
-      navbar.classList.add(
-        "bg-gradient-to-b",
-        "from-[#081230]",
-        "to-[#020a21]/85"
-      );
-    } else {
-      navbar.classList.add("bg-transparent");
-      navbar.classList.remove(
-        "bg-gradient-to-b",
-        "from-[#081230]",
-        "to-[#020a21]/85"
-      );
-    }
-  });
+
 }
 // header
 
@@ -409,70 +416,103 @@ document.addEventListener("DOMContentLoaded", () => {
 // faq
 
 // swiper
-if (document.querySelector(".swiper-airline")) {
-  var swiper = new Swiper(".swiper-airline", {
-    slidesPerView: "6",
 
-    centeredSlides: false,
+
+if (document.querySelector(".swiper-airline")) {
+   var swiper = new Swiper(".swiper-airline", {
+    slidesPerView: 'auto' ,
+    // centeredSlides: true,
     loop: true,
-    autoplay: true,
+        autoplay: {
+      delay: 2500,
+      disableOnInteraction: false, // حتی بعد از تعامل کاربر، ادامه بده
+    },
+  });
+}
+
+
+if (document.querySelector(".swiper-bannercard")) {
+   var swiper = new Swiper(".swiper-bannercard", {
+    slidesPerView: 'auto' ,
+    // centeredSlides: true,
+    loop: true,
+        autoplay: {
+      delay: 2500,
+      disableOnInteraction: false, // حتی بعد از تعامل کاربر، ادامه بده
+    },
   });
 }
 
 function setSwiperSlides(type) {
-  if (swiper && typeof swiper.destroy === "function") {
-    swiper.destroy(true, true);
+  let swiperInstance; // برای نگهداری اینستنس سوایپر (اگر چندتا باشه، می‌تونی آرایه کنی)
+
+  // اول destroy اگر وجود داشته باشه (که در کدت داری)
+  if (swiperInstance && typeof swiperInstance.destroy === "function") {
+    swiperInstance.destroy(true, true);
   }
 
-  console.log(type);
+  console.log(type); // برای دیباگ
 
-  if (type === "specialtour") {
-    if (document.querySelector(".specialtour-swiper")) {
-      var swiper = new Swiper(".specialtour-swiper", {
-        slidesPerView: "4",
-        centeredSlides: false,
-        loop: true,
-        autoplay: {
-          delay: 2500,
-        },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-      });
+  let config = {
+    centeredSlides: false,
+    loop: true,
+    autoplay: {
+      delay: 2500,
+      disableOnInteraction: false, // حتی بعد از تعامل کاربر، ادامه بده
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    spaceBetween: 10, // فاصله بین کارت‌ها (پیکسل) - اگر نمی‌خوای، 0 کن
+    breakpoints: {} // اینجا ریسپنسیو می‌شه
+  };
+
+  if (type === "specialtour" || type === "offeredtour") {
+    if (document.querySelector(`.${type}-swiper`)) {
+      config.breakpoints = {
+        320: { slidesPerView: 1.2 }, // موبایل کوچک
+        414: { slidesPerView: 1.5 },
+        640: { slidesPerView: 2 },
+        768: { slidesPerView: 2.8 },
+        1024: { slidesPerView: 3.3 }, // دسکتاپ min
+        1280: { slidesPerView: 3.5 },
+        1440: { slidesPerView: 4 }
+      };
+      swiperInstance = new Swiper(`.${type}-swiper`, config);
     }
-  }
-  if (type === "offeredtour") {
-    if (document.querySelector(".offeredtour-swiper")) {
-      var swiper = new Swiper(".offeredtour-swiper", {
-        slidesPerView: "4",
-        centeredSlides: false,
-        loop: true,
-        autoplay: {
-          delay: 2500,
-        },
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-      });
-    }
-  }
-  if (type === "visareq") {
+  } else if (type === "visareq") {
     if (document.querySelector(".visa-swiper")) {
-      var swiper = new Swiper(".visa-swiper", {
-        slidesPerView: "5", // تعیین slidesPerView به 'auto'
-        centeredSlides: false, // مرکزیت اسلایدها
-        loop: true, // اسلایدها به صورت حلقه می‌چرخند
-        autoplay: {
-          delay: 2500, // تنظیم تایم برای خودکار پخش کردن
-        },
-        pagination: {
-          el: ".swiper-pagination", // افزودن صفحه‌گذاری
-          clickable: true, // قابل کلیک بودن صفحه‌گذاری
-        },
-      });
+      config.breakpoints = {
+        320: { slidesPerView: 1.6 },
+        414: { slidesPerView: 2 },
+        768: { slidesPerView: 3 },
+        1024: { slidesPerView: 4 },
+        1280: { slidesPerView: 5 },
+      };
+      swiperInstance = new Swiper(".visa-swiper", config);
     }
+  } else if (type === "destination") { // جدید: اضافه کردم
+    if (document.querySelector(".destination-swiper")) { // فرض کن کلاس سوایپر اینه - اگر فرق داره، تغییر بده
+      config.breakpoints = {
+        320: { slidesPerView: 1.8 },
+        414: { slidesPerView: 2.2 },
+        640: { slidesPerView: 3.5 },
+        768: { slidesPerView: 4.2 },
+        1024: { slidesPerView: 5.8 },
+        1280: { slidesPerView: 7 },
+      };
+      // برای موبایل: اسلایدر قوی‌تر (autoplay سریع‌تر)
+      if (window.innerWidth < 1024) {
+        config.autoplay.delay = 2000; // سریع‌تر برای حس اسلایدر
+      }
+      swiperInstance = new Swiper(".destination-swiper", config);
+    }
+  }
+
+  // بعد از init، update کن تا اگر ایتم‌ها async لود شدن، سوایپر تنظیم بشه
+  if (swiperInstance) {
+    swiperInstance.update();
   }
 }
 
@@ -835,3 +875,93 @@ function contentSearched(datatitle, datacatid) {
 })();
 
 // filter hotel 
+
+
+// hamburger menu
+document.addEventListener("DOMContentLoaded", function () {
+  const headerMenu = document.querySelector(".header-menu");
+  const headerMenuClose = document.querySelector(".header-menu-close");
+  const bars3 = document.querySelector(".bars3");
+  if (!headerMenu || !headerMenuClose || !bars3) return;
+
+  const isDesktop = () => window.matchMedia("(min-width: 1024px)").matches;
+
+  const openMenu = () => {
+    if (isDesktop()) {
+      headerMenu.style.visibility = "visible";
+      headerMenu.style.opacity = "1";
+      headerMenu.style.transform = ""; // desktop: بدون ترنسفورم
+    } else {
+      headerMenu.style.transform = "translateX(0)";
+      headerMenu.style.visibility = "visible";
+      headerMenu.style.opacity = "1";
+    }
+    document.body.classList.add("overflow-hidden");
+  };
+
+  const closeMenu = () => {
+    if (isDesktop()) {
+      headerMenu.style.visibility = "hidden";
+      headerMenu.style.opacity = "0";
+    } else {
+      headerMenu.style.transform = "translateX(100%)"; // به‌جای 1024px
+    }
+    document.body.classList.remove("overflow-hidden");
+  };
+
+  // فقط روی آیکن منو باز کن؛ مشکل قبلی که روی هر کلیکی overflow می‌خورد از این بود که listener روی document بود
+  bars3.addEventListener("click", openMenu);
+  headerMenuClose.addEventListener("click", closeMenu);
+
+  // ESC برای بستن
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeMenu();
+  });
+
+  // اگر سایز شد دسکتاپ، منو رو به حالت بسته/شفاف برگردون و overflow رو بردار
+  window.addEventListener("resize", () => {
+    if (isDesktop()) {
+      headerMenu.style.transform = "";
+      headerMenu.style.visibility = "hidden";
+      headerMenu.style.opacity = "0";
+      document.body.classList.remove("overflow-hidden");
+    } else {
+      // در موبایل حالت اولیه: خارج از صفحه
+      headerMenu.style.transform = "translateX(100%)";
+      headerMenu.style.visibility = "visible"; // برای انیمیشن ورود لازم می‌شه
+      headerMenu.style.opacity = "1";
+    }
+  });
+
+  // Dropdown ها
+  const toggles = document.querySelectorAll(".toggle-dropdown");
+  toggles.forEach((toggle) => {
+    const submenu = toggle.nextElementSibling;
+    const icon = toggle.querySelector(".dropdown-icon");
+    if (!submenu) return;
+
+    // حالت اولیه بسته
+    submenu.style.maxHeight = null;
+    submenu.style.Height = null;
+    submenu.style.opacity = "0";
+    submenu.style.overflow = "hidden";
+    submenu.style.transition = "max-height 200ms ease, opacity 200ms ease";
+
+    toggle.addEventListener("click", function (e) {
+      e.stopPropagation(); // حتماً از حباب جلوگیری کن که روی والدها چیزی اجرا نشه
+      const isOpen = submenu.style.maxHeight;
+      if (isOpen) {
+        submenu.style.maxHeight = null;
+        submenu.style.Height = null;
+        submenu.style.opacity = "0";
+      } else {
+        // submenu.style.maxHeight = submenu.scrollHeight + "px";
+        submenu.style.maxHeight = "max-content";
+        submenu.style.Height = "auto";
+        submenu.style.opacity = "1";
+      }
+      if (icon) icon.classList.toggle("rotate-180");
+    });
+  });
+});
+// hamburger menu

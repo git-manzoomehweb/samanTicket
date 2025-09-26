@@ -827,10 +827,15 @@ li.faq.active{
 
 
 #supportform [data-bc-schema-main-container] * {
-    height: 83px !important;
+    height: 70px !important;
 } 
 #supportform [data-bc-schema-info-part="1"] [data-bc-part-related-cell] {
     width: 100% !important;
 }
+
+#supportform  [data-bc-part][data-bc-invalid] [data-bc-validation-part] {
+    margin: -1px 0 !important;
+}
+
 
 /* forms edit */

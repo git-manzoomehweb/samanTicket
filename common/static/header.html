@@ -11,219 +11,224 @@
 </basis>
 
 
-<header>
-    <nav id="navbar-desktop"
-        class="w-full h-[132px] text-white fixed top-0 left-0 right-0 z-[999] flex flex-col items-center justify-center bg-gradient-to-b from-[#081230] to-[#020a21]/85">
-        <div class="max-w-7xl max-xl:w-[98%] w-full mx-auto relative">
-            <div class="flex h-12 items-center justify-between">
+<basis core="group" if="'[##cms.cms.page_index##]' = 'نمایه پیش فرض'">
+    <header>
+        <nav id="navbar-desktop"
+            class="w-full h-[132px] text-white fixed top-0 left-0 right-0 z-[999] flex flex-col items-center justify-center bg-gradient-to-b from-[#081230] to-[#020a21]/85">
+            <div class="max-w-7xl max-xl:w-[98%] w-full mx-auto relative">
+                <div class="flex h-12 items-center justify-between">
 
-                <ul
-                    class="flex text-base font-danaregular justify-start gap-x-4 max-xl:!gap-x-2 dir-rtl pr-4 max-xl:!pr-0 w-[calc(100%_-_280px)]">
+                    <ul
+                        class="flex text-base font-danaregular justify-start gap-x-4 max-xl:!gap-x-2 dir-rtl pr-4 max-xl:!pr-0 w-[calc(100%_-_280px)]">
 
-                    <li>
-                        <a href="/" class="text-xl font-danabold text-white w-[49px] h-12 ">
-                            <img class="object-contain" src="./images/logo.png" width="49" height="47"
-                                alt="saman parvaz">
-                        </a>
+                        <li>
+                            <a href="/" class="text-xl font-danabold text-white w-[49px] h-12 ">
+                                <img class="object-contain" src="[##cms.cms.cdn##]/images/logo.png" width="49"
+                                    height="47" alt="saman parvaz">
+                            </a>
 
-                    </li>
-                    <li>
-                        <a href="/" class="block min-w-[120px] h-12 leading-[48px] text-secondary-1-700 text-center px-3 rounded-xl
-                             border border-solid border-secondary-1-700 hover:bg-secondary-1-700 hover:text-white">
-                            صفحه اصلی
-                        </a>
-                    </li>
-
-                    <li class="max-lg:leading-[30px] max-lg:w-[95%] max-lg:mx-auto max-lg:border-b max-lg:text-sm
-                            
-                              max-xl:min-w-[70px] min-w-[120px] h-12 leading-[48px] text-center pr-3 max-xl:!pr-0 rounded-xl border border-solid border-primary-500 text-primary-100 hover:bg-primary-600 hover:text-white cursor-pointer transition
-                            ">
-                        <a href="/flight"
-                            class="has-megamenu max-lg:w-full max-lg:h-full flex justify-center items-center h-12 ">
-                            <span>پرواز</span>
-
-                        </a>
-
-                    </li>
-
-                    <li class="max-lg:leading-[30px] max-lg:w-[95%] max-lg:mx-auto max-lg:border-b max-lg:text-sm
-                            
-                              max-xl:min-w-[70px] min-w-[120px] h-12 leading-[48px] text-center pr-3 max-xl:!pr-0 rounded-xl border border-solid border-primary-500 text-primary-100 hover:bg-primary-600 hover:text-white cursor-pointer transition
-                            ">
-                        <a href="/hotel"
-                            class="has-megamenu max-lg:w-full max-lg:h-full flex justify-center items-center h-12 ">
-                            <span>هتل</span>
-
-                        </a>
-
-                    </li>
-
-
-                    <li class="group/tourcategory max-lg:leading-[30px] max-lg:w-[95%] max-lg:mx-auto max-lg:border-b max-lg:text-sm
-         dropdown min-w-[120px] h-12 leading-[48px] text-center pr-3 rounded-xl border border-solid
-         border-primary-500 text-primary-100 hover:bg-primary-600 hover:text-white cursor-pointer transition">
-
-                        <!-- هدِر آیتم منو -->
-                        <div class="has-megamenu max-lg:w-full max-lg:h-full flex justify-between items-center h-12">
-                            <span>تور</span>
-                            <svg width="48" height="48"
-                                class="fill-current group-hover/tourcategory:rotate-180 transition-all ease-in-out duration-100 group-hover:stroke-secondary-1-700 group-hover:fill-secondary-1-700">
-                                <use href="./images/sprite-icons.svg#chavron-icon"></use>
-                            </svg>
-                        </div>
-
-                        <!-- مگا منو -->
-                        <div
-                            class="megamenu-container hidden w-full absolute top-[50px] rounded-xl bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)]
-           left-0 right-0 mx-auto p-10 max-lg:p-2 lg:group-hover/tourcategory:flex justify-between h-[476px] max-lg:h-auto z-50">
-
-                            <!-- ستون چپ: لیست دسته‌ها (دینامیک با basis) -->
-                            <basis core="tree" datamembername="tour.category" idcol="catid"
-                                parentidcol="parentid" nullvalue="214446">
-                                <layout>
-                                    <ul class="flex flex-col gap-y-2 max-lg:gap-y-0 h-[397px] overflow-y-auto no-scrollbar
-                 w-[383px] max-lg:w-full max-lg:h-full">
-                                        @child
-                                    </ul>
-                                </layout>
-
-                                <face filter="parentid=214446">
-                    <li data-catid="@catid" data-typecat="tour" data-image="@image"
-                        class="magamenu-category relative h-[52px] max-lg:min-h-[52px] max-lg:h-auto leading-[52px] max-lg:leading-[30px]
-                   rounded-xl text-primary-500 bg-white hover:bg-primary-50 w-[383px] max-lg:w-full px-2 cursor-pointer">
-                        <div class="has-submenu flex justify-between items-center h-[52px]">
-                            <span class="truncate">@title</span>
-                            <i class="before:content-angelRightIcon before:align-[-9px] max-lg:rotate-270"></i>
-                        </div>
-
-                        <!-- ساب‌منو (فرزندان همین دسته) -->
-                        <ul class="sub-item-hamburgermenu hidden lg:group-hover:block bg-white rounded-md shadow-md p-2
-                     divide-y divide-gray-50 text-base max-lg:w-full max-lg:mb-2">
-                            @child
-                        </ul>
-                    </li>
-                    </face>
-
-                    <!-- آیتم‌های سطح 1: اگر لینک نداشت → رفتن به لیست تور با catid -->
-                    <face level="1" filter="link is null">
-                        <li
-                            class="hover:bg-primary-50 cursor-pointer rounded-md text-secondary-1-600 hover:text-primary-900 px-1">
-                            <a href="/tour-list.bc?catid=@catid" class="block py-1">@title</a>
                         </li>
-                    </face>
-
-                    <!-- آیتم‌های سطح 1: اگر لینک داشت -->
-                    <face level="1" filter="link is not null">
-                        <li
-                            class="hover:bg-primary-50 cursor-pointer rounded-md text-secondary-1-600 hover:text-primary-900 px-1">
-                            <a href="/@link" class="block py-1">@title</a>
+                        <li>
+                            <a href="/" class="block min-w-[120px] h-12 leading-[48px] text-secondary-1-700 text-center px-3 rounded-xl
+                                 border border-solid border-secondary-1-700 hover:bg-secondary-1-700 hover:text-white">
+                                صفحه اصلی
+                            </a>
                         </li>
-                    </face>
-                    </basis>
-                    <div class="load-category-items flex justify-between"></div>
 
-            </div>
-            </li>
+                        <li class="max-lg:leading-[30px] max-lg:w-[95%] max-lg:mx-auto max-lg:border-b max-lg:text-sm
+                                
+                                  max-xl:min-w-[70px] min-w-[120px] h-12 leading-[48px] text-center pr-3 max-xl:!pr-0 rounded-xl border border-solid border-primary-500 text-primary-100 hover:bg-primary-600 hover:text-white cursor-pointer transition
+                                ">
+                            <a href="/flight"
+                                class="has-megamenu max-lg:w-full max-lg:h-full flex justify-center items-center h-12 ">
+                                <span>پرواز</span>
 
-                    <li class="group/tourcategory max-lg:leading-[30px] max-lg:w-[95%] max-lg:mx-auto max-lg:border-b max-lg:text-sm
-         dropdown min-w-[120px] h-12 leading-[48px] text-center pr-3 rounded-xl border border-solid
-         border-primary-500 text-primary-100 hover:bg-primary-600 hover:text-white cursor-pointer transition">
+                            </a>
 
-                        <!-- هدِر آیتم منو -->
-                        <div class="has-megamenu max-lg:w-full max-lg:h-full flex justify-between items-center h-12">
-                            <span>خدمات مسافرتی</span>
-                            <svg width="48" height="48"
-                                class="fill-current group-hover/tourcategory:rotate-180 transition-all ease-in-out duration-100 group-hover:stroke-secondary-1-700 group-hover:fill-secondary-1-700">
-                                <use href="./images/sprite-icons.svg#chavron-icon"></use>
-                            </svg>
-                        </div>
-
-                        <!-- مگا منو -->
-                        <div
-                            class="megamenu-container hidden w-full absolute top-[50px] rounded-xl bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)]
-           left-0 right-0 mx-auto p-10 max-lg:p-2 lg:group-hover/tourcategory:flex justify-between h-[476px] max-lg:h-auto z-50">
-
-                            <!-- ستون چپ: لیست دسته‌ها (دینامیک با basis) -->
-                            <basis core="tree" datamembername="article.TravelServices" idcol="catid"
-                                parentidcol="parentid" nullvalue="217473">
-                                <layout>
-                                    <ul class="flex flex-col gap-y-2 max-lg:gap-y-0 h-[397px] overflow-y-auto no-scrollbar
-                 w-[383px] max-lg:w-full max-lg:h-full">
-                                        @child
-                                    </ul>
-                                </layout>
-
-                                <face filter="parentid=217473">
-                    <li data-catid="@catid" data-typecat="article" data-image="@image"
-                        class="magamenu-category relative h-[52px] max-lg:min-h-[52px] max-lg:h-auto leading-[52px] max-lg:leading-[30px]
-                   rounded-xl text-primary-500 bg-white hover:bg-primary-50 w-[383px] max-lg:w-full px-2 cursor-pointer">
-                        <div class="has-submenu flex justify-between items-center h-[52px]">
-                            <span class="truncate">@title</span>
-                            <i class="before:content-angelRightIcon before:align-[-9px] max-lg:rotate-270"></i>
-                        </div>
-
-                        <!-- ساب‌منو (فرزندان همین دسته) -->
-                        <ul class="sub-item-hamburgermenu hidden lg:group-hover:block bg-white rounded-md shadow-md p-2
-                     divide-y divide-gray-50 text-base max-lg:w-full max-lg:mb-2">
-                            @child
-                        </ul>
-                    </li>
-                    </face>
-
-                    <!-- آیتم‌های سطح 1: اگر لینک نداشت → رفتن به لیست تور با catid -->
-                    <face level="1" filter="link is null">
-                        <li
-                            class="hover:bg-primary-50 cursor-pointer rounded-md text-secondary-1-600 hover:text-primary-900 px-1">
-                            <a href="/tour-list.bc?catid=@catid" class="block py-1">@title</a>
                         </li>
-                    </face>
 
-                    <!-- آیتم‌های سطح 1: اگر لینک داشت -->
-                    <face level="1" filter="link is not null">
-                        <li
-                            class="hover:bg-primary-50 cursor-pointer rounded-md text-secondary-1-600 hover:text-primary-900 px-1">
-                            <a href="/@link" class="block py-1">@title</a>
+                        <li class="max-lg:leading-[30px] max-lg:w-[95%] max-lg:mx-auto max-lg:border-b max-lg:text-sm
+                                
+                                  max-xl:min-w-[70px] min-w-[120px] h-12 leading-[48px] text-center pr-3 max-xl:!pr-0 rounded-xl border border-solid border-primary-500 text-primary-100 hover:bg-primary-600 hover:text-white cursor-pointer transition
+                                ">
+                            <a href="/hotel"
+                                class="has-megamenu max-lg:w-full max-lg:h-full flex justify-center items-center h-12 ">
+                                <span>هتل</span>
+
+                            </a>
+
                         </li>
-                    </face>
-                    </basis>
-                    <div class="load-category-items flex justify-between"></div>
-
-            </div>
-            </li>
-
-            <li>
-                <a href="/about-us"
-                    class="block min-w-[100px] h-12 leading-[48px] text-center px-3 rounded-xl border border-solid border-primary-500 text-primary-100 hover:bg-primary-600 hover:text-white transition">
-                    ارتباط با ما
-                </a>
-            </li>
-            </ul>
 
 
+                        <li class="group/tourcategory max-lg:leading-[30px] max-lg:w-[95%] max-lg:mx-auto max-lg:border-b max-lg:text-sm
+             dropdown min-w-[120px] h-12 leading-[48px] text-center pr-3 rounded-xl border border-solid
+             border-primary-500 text-primary-100 hover:bg-primary-600 hover:text-white cursor-pointer transition">
 
-            <div class=" min-w-[200px] flex justify-between gap-x-2 text-base font-danaregular">
+                            <!-- هدِر آیتم منو -->
+                            <div
+                                class="has-megamenu max-lg:w-full max-lg:h-full flex justify-between items-center h-12">
+                                <span>تور</span>
+                                <svg width="48" height="48"
+                                    class="fill-current group-hover/tourcategory:rotate-180 transition-all ease-in-out duration-100 group-hover:stroke-secondary-1-700 group-hover:fill-secondary-1-700">
+                                    <use href="./images/sprite-icons.svg#chavron-icon"></use>
+                                </svg>
+                            </div>
 
-                <div
-                    class=" Login_Information h-12 leading-[48px] text-secondary-1-700 hover:bg-secondary-1-700 hover:text-white w-[170px] rounded-xl border border-solid  border-secondary-1-700 px-4 inline-block text-center">
-                    <basis core="call" file="authentication/modal" lid="1"></basis>
+                            <!-- مگا منو -->
+                            <div
+                                class="megamenu-container hidden w-full absolute top-[50px] rounded-xl bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)]
+               left-0 right-0 mx-auto p-10 max-lg:p-2 lg:group-hover/tourcategory:flex justify-between h-[476px] max-lg:h-auto z-50">
 
-                </div>
+                                <!-- ستون چپ: لیست دسته‌ها (دینامیک با basis) -->
+                                <basis core="tree" datamembername="tour.category" idcol="catid" parentidcol="parentid"
+                                    nullvalue="214446">
+                                    <layout>
+                                        <ul class="flex flex-col gap-y-2 max-lg:gap-y-0 h-[397px] overflow-y-auto no-scrollbar
+                     w-[383px] max-lg:w-full max-lg:h-full">
+                                            @child
+                                        </ul>
+                                    </layout>
 
-                <a href="#"
-                    class="h-12 w-12 border-secondary-2-500 rounded-xl border border-solid flex justify-center items-center">
-                    <svg width="24" height="24">
-                        <use href="./images/sprite-icons.svg#chat-icon"></use>
-                    </svg>
-                </a>
-            </div>
+                                    <face filter="parentid=214446">
+                        <li data-catid="@catid" data-typecat="tour" data-image="@image"
+                            class="magamenu-category relative h-[52px] max-lg:min-h-[52px] max-lg:h-auto leading-[52px] max-lg:leading-[30px]
+                       rounded-xl text-primary-500 bg-white hover:bg-primary-50 w-[383px] max-lg:w-full px-2 cursor-pointer">
+                            <div class="has-submenu flex justify-between items-center h-[52px]">
+                                <span class="truncate">@title</span>
+                                <i class="before:content-angelRightIcon before:align-[-9px] max-lg:rotate-270"></i>
+                            </div>
+
+                            <!-- ساب‌منو (فرزندان همین دسته) -->
+                            <ul class="sub-item-hamburgermenu hidden lg:group-hover:block bg-white rounded-md shadow-md p-2
+                         divide-y divide-gray-50 text-base max-lg:w-full max-lg:mb-2">
+                                @child
+                            </ul>
+                        </li>
+                        </face>
+
+                        <!-- آیتم‌های سطح 1: اگر لینک نداشت → رفتن به لیست تور با catid -->
+                        <face level="1" filter="link is null">
+                            <li
+                                class="hover:bg-primary-50 cursor-pointer rounded-md text-secondary-1-600 hover:text-primary-900 px-1">
+                                <a href="/tour-list.bc?catid=@catid" class="block py-1">@title</a>
+                            </li>
+                        </face>
+
+                        <!-- آیتم‌های سطح 1: اگر لینک داشت -->
+                        <face level="1" filter="link is not null">
+                            <li
+                                class="hover:bg-primary-50 cursor-pointer rounded-md text-secondary-1-600 hover:text-primary-900 px-1">
+                                <a href="/@link" class="block py-1">@title</a>
+                            </li>
+                        </face>
+</basis>
+<div class="load-category-items flex justify-between"></div>
+
+</div>
+</li>
+
+<li class="group/tourcategory max-lg:leading-[30px] max-lg:w-[95%] max-lg:mx-auto max-lg:border-b max-lg:text-sm
+             dropdown min-w-[120px] h-12 leading-[48px] text-center pr-3 rounded-xl border border-solid
+             border-primary-500 text-primary-100 hover:bg-primary-600 hover:text-white cursor-pointer transition">
+
+    <!-- هدِر آیتم منو -->
+    <div class="has-megamenu max-lg:w-full max-lg:h-full flex justify-between items-center h-12">
+        <span>خدمات مسافرتی</span>
+        <svg width="48" height="48"
+            class="fill-current group-hover/tourcategory:rotate-180 transition-all ease-in-out duration-100 group-hover:stroke-secondary-1-700 group-hover:fill-secondary-1-700">
+            <use href="./images/sprite-icons.svg#chavron-icon"></use>
+        </svg>
+    </div>
+
+    <!-- مگا منو -->
+    <div
+        class="megamenu-container hidden w-full absolute top-[50px] rounded-xl bg-white shadow-[0_8px_30px_rgb(0,0,0,0.12)]
+               left-0 right-0 mx-auto p-10 max-lg:p-2 lg:group-hover/tourcategory:flex justify-between h-[476px] max-lg:h-auto z-50">
+
+        <!-- ستون چپ: لیست دسته‌ها (دینامیک با basis) -->
+        <basis core="tree" datamembername="article.TravelServices" idcol="catid" parentidcol="parentid"
+            nullvalue="217473">
+            <layout>
+                <ul class="flex flex-col gap-y-2 max-lg:gap-y-0 h-[397px] overflow-y-auto no-scrollbar
+                     w-[383px] max-lg:w-full max-lg:h-full">
+                    @child
+                </ul>
+            </layout>
+
+            <face filter="parentid=217473">
+<li data-catid="@catid" data-typecat="article" data-image="@image"
+    class="magamenu-category relative h-[52px] max-lg:min-h-[52px] max-lg:h-auto leading-[52px] max-lg:leading-[30px]
+                       rounded-xl text-primary-500 bg-white hover:bg-primary-50 w-[383px] max-lg:w-full px-2 cursor-pointer">
+    <div class="has-submenu flex justify-between items-center h-[52px]">
+        <span class="truncate">@title</span>
+        <i class="before:content-angelRightIcon before:align-[-9px] max-lg:rotate-270"></i>
+    </div>
+
+    <!-- ساب‌منو (فرزندان همین دسته) -->
+    <ul class="sub-item-hamburgermenu hidden lg:group-hover:block bg-white rounded-md shadow-md p-2
+                         divide-y divide-gray-50 text-base max-lg:w-full max-lg:mb-2">
+        @child
+    </ul>
+</li>
+</face>
+
+<!-- آیتم‌های سطح 1: اگر لینک نداشت → رفتن به لیست تور با catid -->
+<face level="1" filter="link is null">
+    <li class="hover:bg-primary-50 cursor-pointer rounded-md text-secondary-1-600 hover:text-primary-900 px-1">
+        <a href="/tour-list.bc?catid=@catid" class="block py-1">@title</a>
+    </li>
+</face>
+
+<!-- آیتم‌های سطح 1: اگر لینک داشت -->
+<face level="1" filter="link is not null">
+    <li class="hover:bg-primary-50 cursor-pointer rounded-md text-secondary-1-600 hover:text-primary-900 px-1">
+        <a href="/@link" class="block py-1">@title</a>
+    </li>
+</face>
+</basis>
+<div class="load-category-items flex justify-between"></div>
+
+</div>
+</li>
+
+<li>
+    <a href="/about-us"
+        class="block min-w-[100px] h-12 leading-[48px] text-center px-3 rounded-xl border border-solid border-primary-500 text-primary-100 hover:bg-primary-600 hover:text-white transition">
+        ارتباط با ما
+    </a>
+</li>
+</ul>
 
 
-        </div>
-        </div>
+
+<div class=" min-w-[200px] flex justify-between gap-x-2 text-base font-danaregular">
+
+    <div
+        class=" Login_Information h-12 flex justify-center items-center text-secondary-1-700 hover:bg-secondary-1-700 hover:text-white w-[170px] rounded-xl border border-solid  border-secondary-1-700 px-4 text-center">
+        <basis core="call" file="authentication/modal" lid="1"></basis>
+
+    </div>
+
+    <a href="#"
+        class="h-12 w-12 border-secondary-2-500 rounded-xl border border-solid flex justify-center items-center">
+        <svg width="24" height="24">
+            <use href="./images/sprite-icons.svg#chat-icon"></use>
+        </svg>
+    </a>
+</div>
+
+
+</div>
+</div>
 
 
 
 
-    </nav>
+</nav>
 
 </header>
+</basis>
+
+<basis core="group" if="'[##cms.cms.page_index##]'='موبایل'">
+    <basis core="call" file="header.inc" pageindex="[##cms.cms.pageindex##]"></basis>
+</basis>

@@ -6,22 +6,33 @@
 
 
 table {
-    text-indent: initial;
-    border-color: initial;
-    border-collapse: unset; 
-  }
-
-body{
-    padding-top: 80px;
+  text-indent: initial;
+  border-color: initial;
+  border-collapse: unset;
 }
-.dir-rtl{direction: rtl;}
-.dir-ltr{direction: ltr;}
+
+@media screen and (min-width: 1024px) {
+  body {
+    padding-top: 80px;
+  }
+}
+
+
+.dir-rtl {
+  direction: rtl;
+}
+
+.dir-ltr {
+  direction: ltr;
+}
+
 :root {
   /* ===================== *
    * Primary (indigo/purple)
    * ===================== */
-  --primary: #1C1A72;           /* base */
-  --primary-50:  #E6E6FF;
+  --primary: #1C1A72;
+  /* base */
+  --primary-50: #E6E6FF;
   --primary-100: #BDBDF5;
   --primary-200: #8382D7;
   --primary-300: #6160B8;
@@ -36,8 +47,9 @@ body{
   /* ===================== *
    * Secondary-1 (orange)
    * ===================== */
-  --secondary: #F6931F;         /* base */
-  --secondary-1-50:  #FEF2E1;
+  --secondary: #F6931F;
+  /* base */
+  --secondary-1-50: #FEF2E1;
   --secondary-1-100: #FDDEB4;
   --secondary-1-200: #FBC884;
   --secondary-1-300: #F9B254;
@@ -52,8 +64,9 @@ body{
   /* ===================== *
    * Secondary-2 (azure/cyan)
    * ===================== */
-  --secondary-2: #00A1E6;       /* base */
-  --secondary-2-50:  #DFF4FC;
+  --secondary-2: #00A1E6;
+  /* base */
+  --secondary-2-50: #DFF4FC;
   --secondary-2-100: #AFE2F7;
   --secondary-2-200: #7ACFF1;
   --secondary-2-300: #43BDEB;
@@ -70,10 +83,28 @@ body{
   --bg: #EFF3FB;
 }
 
-html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
-::-webkit-scrollbar{width:10px !important;}::-webkit-scrollbar-track{background:var(--primary-50);}
-::-webkit-scrollbar-thumb{background:var(--primary-400);border-radius:10px;}
-::-webkit-scrollbar-thumb:hover{background:var(--primary-500);}
+html,
+body {
+  font-family: "Yekan_Bakh_Regular_fa";
+  direction: rtl
+}
+
+::-webkit-scrollbar {
+  width: 10px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary-50);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-400);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-500);
+}
 
 /* @font-face{font-display:swap;font-family:'Dana_black';font-style:normal;src:url('../_fonts/dana-fanum-black.eot') format('embedded-opentype'),url(../_fonts/dana-fanum-black.woff) format('woff'),url(../_fonts/dana-fanum-black.woff2) format('woff2')}
 @font-face{font-display:swap;font-family:'Dana_bold';font-style:normal;src:url('../_fonts/dana-fanum-bold.eot') format('embedded-opentype'),url(../_fonts/dana-fanum-bold.woff) format('woff'),url(../_fonts/dana-fanum-bold.woff2) format('woff2')}
@@ -89,28 +120,105 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
 
 
 /* final */
-@font-face{font-display:swap;font-family:'Dana_black';font-style:normal;src:url(../_fonts/DanaFaNum-black.woff) format('woff'),url(../_fonts/DanaFaNum-black.woff2) format('woff2'),url(../_fonts/dana-fanum-black.eot) format('embedded-opentype')}
-  @font-face{font-display:swap;font-family:'Dana_bold';font-style:normal;src:url(../_fonts/DanaFaNum-bold.woff) format('woff'),url(../_fonts/DanaFaNum-bold.woff2) format('woff2')}
-  @font-face{font-display:swap;font-family:'Dana_demibold';font-style:normal;src:url(../_fonts/DanaFaNum-demibold.woff) format('woff'),url(../_fonts/DanaFaNum-demibold.woff2) format('woff2')}
-  @font-face{font-display:swap;font-family:'Dana_extrabold';font-style:normal;src:url(../_fonts/DanaFaNum-extrabold.woff) format('woff'),url(../_fonts/DanaFaNum-extrabold.woff2) format('woff2')}
-  @font-face{font-display:swap;font-family:'Dana_extralight';font-style:normal;src:url(../_fonts/DanaFaNum-extralight.woff) format('woff'),url(../_fonts/DanaFaNum-extralight.woff2) format('woff2')}
-  @font-face{font-display:swap;font-family:'Dana_light';font-style:normal;src:url(../_fonts/DanaFaNum-light.woff) format('woff'),url(../_fonts/DanaFaNum-light.woff2) format('woff2'),url(../_fonts/dana-fanum-light.eot) format('embedded-opentype')}
-  @font-face{font-display:swap;font-family:'Dana_medium';font-style:normal;src:url(../_fonts/DanaFaNum-medium.woff) format('woff'),url(../_fonts/DanaFaNum-medium.woff2) format('woff2'),url(../_fonts/dana-fanum-medium.eot) format('embedded-opentype')}
-  @font-face{font-display:swap;font-family:'Dana_regular';font-style:normal;src:url(../_fonts/DanaFaNum-regular.woff) format('woff'),url(../_fonts/DanaFaNum-regular.woff2) format('woff2')}
-  @font-face{font-display:swap;font-family:'Dana_thin';font-style:normal;src:url(../_fonts/DanaFaNum-thin.woff) format('woff'),url(../_fonts/DanaFaNum-thin.woff2) format('woff2')}
-  @font-face{font-display:swap;font-family:'Dana_ultrabold';font-style:normal;src:url(../_fonts/DanaFaNum-ultrabold.woff) format('woff'),url(../_fonts/DanaFaNum-ultrabold.woff2) format('woff2')}
-  @font-face{font-display:swap;font-family:'FontAwesome';font-style:normal;src:url(../_fonts/fontawesome-webfont.woff) format('woff'),url(../_fonts/fontawesome-webfont.woff2) format('woff2'),url(../_fonts/fontawesome-webfont.otf) format('opentype'),url(../_fonts/fontawesome-webfont.ttf) format('typetrue')}
+@font-face {
+  font-display: swap;
+  font-family: 'Dana_black';
+  font-style: normal;
+  src: url(../_fonts/DanaFaNum-black.woff) format('woff'), url(../_fonts/DanaFaNum-black.woff2) format('woff2'), url(../_fonts/dana-fanum-black.eot) format('embedded-opentype')
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Dana_bold';
+  font-style: normal;
+  src: url(../_fonts/DanaFaNum-bold.woff) format('woff'), url(../_fonts/DanaFaNum-bold.woff2) format('woff2')
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Dana_demibold';
+  font-style: normal;
+  src: url(../_fonts/DanaFaNum-demibold.woff) format('woff'), url(../_fonts/DanaFaNum-demibold.woff2) format('woff2')
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Dana_extrabold';
+  font-style: normal;
+  src: url(../_fonts/DanaFaNum-extrabold.woff) format('woff'), url(../_fonts/DanaFaNum-extrabold.woff2) format('woff2')
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Dana_extralight';
+  font-style: normal;
+  src: url(../_fonts/DanaFaNum-extralight.woff) format('woff'), url(../_fonts/DanaFaNum-extralight.woff2) format('woff2')
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Dana_light';
+  font-style: normal;
+  src: url(../_fonts/DanaFaNum-light.woff) format('woff'), url(../_fonts/DanaFaNum-light.woff2) format('woff2'), url(../_fonts/dana-fanum-light.eot) format('embedded-opentype')
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Dana_medium';
+  font-style: normal;
+  src: url(../_fonts/DanaFaNum-medium.woff) format('woff'), url(../_fonts/DanaFaNum-medium.woff2) format('woff2'), url(../_fonts/dana-fanum-medium.eot) format('embedded-opentype')
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Dana_regular';
+  font-style: normal;
+  src: url(../_fonts/DanaFaNum-regular.woff) format('woff'), url(../_fonts/DanaFaNum-regular.woff2) format('woff2')
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Dana_thin';
+  font-style: normal;
+  src: url(../_fonts/DanaFaNum-thin.woff) format('woff'), url(../_fonts/DanaFaNum-thin.woff2) format('woff2')
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Dana_ultrabold';
+  font-style: normal;
+  src: url(../_fonts/DanaFaNum-ultrabold.woff) format('woff'), url(../_fonts/DanaFaNum-ultrabold.woff2) format('woff2')
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'FontAwesome';
+  font-style: normal;
+  src: url(../_fonts/fontawesome-webfont.woff) format('woff'), url(../_fonts/fontawesome-webfont.woff2) format('woff2'), url(../_fonts/fontawesome-webfont.otf) format('opentype'), url(../_fonts/fontawesome-webfont.ttf) format('typetrue')
+}
 
 
 
 
 
 .Login_Information.h-12.leading-\[48px\].text-secondary-1-700.hover\:bg-secondary-1-700.hover\:text-white.w-\[170px\].rounded-xl.border.border-solid.border-secondary-1-700.px-4.inline-block.text-center {
-    width: 161px;
+  width: 161px;
 }
 
+@media screen and (max-width: 1024px) {
+
+  .user-profile-container svg,
+  .Login_Information svg {
+    vertical-align: middle;
+    display: inline-block;
+    color: white !important;
+  }
+}
+
+
+
 .load-category-items.flex.justify-between {
-    width: calc(100% - 390px) !important;
+  width: calc(100% - 390px) !important;
 }
 
 
@@ -119,8 +227,7 @@ span.sub-title {
   flex-wrap: wrap;
 }
 
-.searchHistory-content .title
- {
+.searchHistory-content .title {
   display: flex;
 
 }
@@ -128,31 +235,58 @@ span.sub-title {
 
 
 /* forms edit */
-#Counselingform legend{font-size: 24px !important;color: #1f1f1f; font-family: 'Dana_bold' !important ;}
-#Counselingform div[data-bc-title-container]{display: none !important;}
-#Counselingform div[data-bc-question]{width: 100% !important;height: 76px !important;}
-#Counselingform [data-bc-answer-container] input[type="text"] {
-    width: 100% !important;
-    height: 55px !important;
-    border-radius: 12px;
-    padding: 0 16px;
-    outline: none !important;
+#Counselingform legend {
+  font-size: 16px !important;
+  color: #1f1f1f;
+  font-family: 'Dana_bold' !important;
+  margin-bottom: 10px;
 }
+
+@media screen and (min-width: 1024px) {
+  #Counselingform legend {
+    font-size: 24px !important;
+    color: #1f1f1f;
+    font-family: 'Dana_bold' !important;
+    margin: unset;
+  }
+
+}
+
+#Counselingform div[data-bc-title-container] {
+  display: none !important;
+}
+
+#Counselingform div[data-bc-question] {
+  width: 100% !important;
+  height: 76px !important;
+}
+
+#Counselingform [data-bc-answer-container] input[type="text"] {
+  width: 100% !important;
+  height: 55px !important;
+  border-radius: 12px;
+  padding: 0 16px;
+  outline: none !important;
+}
+
 #Counselingform [data-bc-answer-container] {
 
-    width: 100% !important;
+  width: 100% !important;
 }
+
 /* #Counselingform fieldset > [data-bc-schema-column] {
     box-sizing: border-box;
     display: flex;
     column-gap: 6px !important;
     justify-content: space-between;
 } */
-#Counselingform  [data-bc-schema-direction="rtl"] [data-bc-part-container], #Counselingform  [data-bc-schema-direction="rtl"] [data-bc-btn-container] {
-    float: unset !important;
+#Counselingform [data-bc-schema-direction="rtl"] [data-bc-part-container],
+#Counselingform [data-bc-schema-direction="rtl"] [data-bc-btn-container] {
+  float: unset !important;
 }
 
-#Counselingform  [data-bc-part-container], #Counselingform  [data-bc-btn-container] {
+#Counselingform [data-bc-part-container],
+#Counselingform [data-bc-btn-container] {
   width: 100% !important;
 }
 
@@ -160,6 +294,42 @@ span.sub-title {
   padding: 0 !important;
   margin: 0 !important;
 }
-#Counselingform [data-bc-schema-info-part="1"] [data-bc-part-related-cell]{width:100%!important;}
-#Counselingform [data-bc-question]{max-height:80px!important;}
+
+#Counselingform [data-bc-schema-info-part="1"] [data-bc-part-related-cell] {
+  width: 100% !important;
+}
+
+#Counselingform [data-bc-question] {
+  max-height: 70px !important;
+}
+
+[data-bc-part][data-bc-invalid] [data-bc-validation-part] {
+  margin: -1px 0 !important;
+}
+
 /* forms edit */
+
+
+/* login */
+.bg-secondary {
+  background-color: var(--secondary);
+}
+
+.bg-primary {
+  background-color: var(--primary);
+}
+
+.itemInput,
+.login-btn,
+input {
+  font-family: 'Dana_regular' !important;
+}
+
+.login-mob-img {
+  margin: 10px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* login */
