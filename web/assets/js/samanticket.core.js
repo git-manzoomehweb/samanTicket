@@ -435,6 +435,8 @@ if (document.querySelector(".swiper-bannercard")) {
    var swiper = new Swiper(".swiper-bannercard", {
     slidesPerView: 'auto' ,
     // centeredSlides: true,
+      spaceBetween: 10,
+
     loop: true,
         autoplay: {
       delay: 2500,

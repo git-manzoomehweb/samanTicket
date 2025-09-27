@@ -28,7 +28,7 @@
 
 <basis core="dbsource" source="basiscore" lid="1" mid="1" name="offered" catid="[##cms.query.hid|(0)##]">
     <member name="hotel" type="list" link="hotel.bc" propertyid="3088063,3088064,3088065,3088066,3088067" typeid="159"
-        size="410x151" order="ord" perpage="3" />
+        size="260x151" order="ord" perpage="3" />
 </basis>
 
 
@@ -52,7 +52,9 @@
         </face>
     </basis>
     <basis core="call" file="pwa.inc" />
-    <basis core="call" file="style.inc" />
+    <basis core="call" file="style.inc" pageindex="[##cms.cms.pageindex##]" />
+    <link rel="stylesheet" href="[##cms.cms.cdn##]/_css/swiper-bundle.min.css" />
+
 </head>
 
 <body class="font-danaregular bg-zinc-100 transparent-header">
@@ -81,28 +83,30 @@
 
             <span
                 class="absolute inset-0 bg-gradient-to-t from-[#081230] to-[#020a21]/85 top-0 left-0 bottom-0 right-0"></span>
-            <svg class="absolute bottom-0 z-50 min-w-full w-full" width="1920" height="75" viewBox="0 0 1920 75"
+
+
+            <svg class="absolute bottom-0 z-50 min-w-full w-full" width="318" height="37" viewBox="0 0 318 37"
                 fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 64L934.5 0.5L1920 64V75H0V64Z" fill="#F2881D" />
+                <path d="M0 31.5369L154.777 0L318 31.5369V37H0V31.5369Z" fill="#F2881D" />
             </svg>
 
 
 
-            <div class="max-w-7xl mx-auto w-[95%] absolute z-40 top-0 left-0 right-0 bottom-0">
+
+
+            <div class=" mx-auto w-[calc(100%_-_16px)] absolute z-40 top-0 left-0 right-0 bottom-0">
 
 
                 <div
                     class="absolute left-0 right-0 m-auto flex flex-col justify-center items-center top-0 bottom-0 text-center z-50">
-
                     <basis core="print" datamembername="db.scalar">
-                        <layout>@child</layout>
                         <face>
                             <h1 class="text-2xl text-white text-center font-danabold ">@column1</h1>
                         </face>
                     </basis>
 
                     <div class="my-4 text-white">
-                        <ul class="breadcrumbs-list flex items-end justify-center font-danaregular text-base "
+                        <ul class="breadcrumbs-list flex items-end justify-center font-danaregular text-base flex-wrap"
                             itemscope="" itemtype="https://schema.org/BreadcrumbList">
                             <li class="" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
                                 <a itemprop="item" href="/" aria-label="home"><span itemprop="name">صفحه اصلی</span>
@@ -146,7 +150,9 @@
                 <basis core="print" datamembername="db.scalarEN">
                     <layout>@child</layout>
                     <face filter="column1 <> ''">
-                        <h2 class="opacity-5 text-[270px] pt-12 text-center text-white line-clamp-1">@column1</h2>
+                        <h2
+                            class="flex justify-center items-center  absolute top-0 right-0 left-0 bottom-0 m-auto opacity-5 text-5xl text-center text-white line-clamp-1">
+                            @column1</h2>
                     </face>
                 </basis>
 
@@ -159,83 +165,92 @@
 
         <basis core="list" datamembername="offered.hotel">
             <layout>
-                <section
-                    class="bg-zinc-50 rounded-xl max-w-7xl mx-auto p-3 min-h-[329px] -mt-[165px] relative z-50 flex justify-between flex-wrap">
-                    @child </section>
+
+                <section class="swiper swiper-bannercard my-4 rounded-xl w-[calc(100%_-_16px)] dir-rtl">
+                    <div class="swiper-wrapper mb-12 load-content-box">
+                        @child
+                    </div>
+                </section>
+
             </layout>
             <face filter="[prp_3088063] is null">
-                <article
-                    class="block w-[410px] h-[305px] rounded-xl overflow-hidden group bg-white border border-zinc-200">
-                    <figure class="w-[410px] h-[151px] relative"><img class="w-[410px] h-[151px] object-cover"
-                            src="[##cms.cms.cdn##]/@00410X00151prp" width="410" height="151" alt="@title">
-                        <figcaption><a href="@prp_3088064"
-                                class="bg-white/50 font-danaregular text-xs text-primary-500 p-2 rounded-lg flex justify-center items-center absolute top-2 left-3"><svg
-                                    width="20" height="20">
-                                    <use href="./images/sprite-icons.svg#location-hotel-icon"></use>
-                                </svg>مشاهده نقشه </a></figcaption>
-                    </figure>
-                    <div class="px-3">
-                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">@title</h2>
-                        <div class="flex justify-between">
-                            <div class="w-1/2 flex items-center gap-x-2"><svg width="36" height="36">
-                                    <use href="./images/sprite-icons.svg#rate-hotel-icon"></use>
-                                </svg>
-                                <h2 class="text-xs leading-5 font-danaregular">@prp_3088065</h2>
+                <div class="swiper-slide !w-[260px]">
+                    <article
+                        class="block w-[260px] h-[305px] rounded-xl overflow-hidden group bg-white border border-zinc-200">
+                        <figure class="w-[260px] h-[151px] relative"><img class="w-[260px] h-[151px] object-cover"
+                                src="[##cms.cms.cdn##]/@00260X00151prp" width="260" height="151" alt="@title">
+                            <figcaption><a href="@prp_3088064"
+                                    class="bg-white/50 font-danaregular text-xs text-primary-500 p-2 rounded-lg flex justify-center items-center absolute top-2 left-3"><svg
+                                        width="20" height="20">
+                                        <use href="./images/sprite-icons.svg#location-hotel-icon"></use>
+                                    </svg>مشاهده نقشه </a></figcaption>
+                        </figure>
+                        <div class="px-3">
+                            <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">@title</h2>
+                            <div class="flex justify-between">
+                                <div class="w-1/2 flex items-center gap-x-2"><svg width="36" height="36">
+                                        <use href="./images/sprite-icons.svg#rate-hotel-icon"></use>
+                                    </svg>
+                                    <h2 class="text-xs leading-5 font-danaregular">@prp_3088065</h2>
+                                </div>
+                                <div class="w-1/2 flex items-center gap-x-2"><svg width="36" height="36">
+                                        <use href="./images/sprite-icons.svg#star-hotel-icon"></use>
+                                    </svg>
+                                    <h2 class="text-xs leading-5 font-danaregular">@prp_3088066</h2>
+                                </div>
                             </div>
-                            <div class="w-1/2 flex items-center gap-x-2"><svg width="36" height="36">
-                                    <use href="./images/sprite-icons.svg#star-hotel-icon"></use>
-                                </svg>
-                                <h2 class="text-xs leading-5 font-danaregular">@prp_3088066</h2>
+                            <div class="mt-2 flex justify-between items-center">
+                                <div><span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
+                                    <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">@prp_3088067</h2>
+                                </div><a href="/@link"><svg width="48" height="48"
+                                        class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
+                                        <use href="./images/sprite-icons.svg#go-fill-icon"></use>
+                                    </svg></a>
                             </div>
                         </div>
-                        <div class="mt-2 flex justify-between items-center">
-                            <div><span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">@prp_3088067</h2>
-                            </div><a href="/@link"><svg width="48" height="48"
-                                    class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                    <use href="./images/sprite-icons.svg#go-fill-icon"></use>
-                                </svg></a>
-                        </div>
-                    </div>
-                </article>
+                    </article>
+                </div>
             </face>
             <face>
-                <article
-                    class="block w-[410px] h-[305px] rounded-xl overflow-hidden group bg-white border border-zinc-200">
-                    <figure class="w-[410px] h-[151px] relative"><img class="w-[410px] h-[151px] object-cover"
-                            src="[##cms.cms.cdn##]/@00410X00151prp" width="410" height="151" alt="@title">
-                        <figcaption><span
-                                class="bg-red-600/80 font-danaregular text-xs text-white p-2 rounded-[50px] absolute top-2 right-3">@prp_3088063</span><a
-                                href="@prp_3088064"
-                                class="bg-white/50 font-danaregular text-xs text-primary-500 p-2 rounded-lg flex justify-center items-center absolute top-2 left-3"><svg
-                                    width="20" height="20">
-                                    <use href="./images/sprite-icons.svg#location-hotel-icon"></use>
-                                </svg>مشاهده نقشه </a></figcaption>
-                    </figure>
-                    <div class="px-3">
-                        <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">@title</h2>
-                        <div class="flex justify-between">
-                            <div class="w-1/2 flex items-center gap-x-2"><svg width="36" height="36">
-                                    <use href="./images/sprite-icons.svg#rate-hotel-icon"></use>
-                                </svg>
-                                <h2 class="text-xs leading-5 font-danaregular">@prp_3088065</h2>
+                <div class="swiper-slide !w-[260px]">
+
+                    <article
+                        class="block w-[260px] h-[305px] rounded-xl overflow-hidden group bg-white border border-zinc-200">
+                        <figure class="w-[260px] h-[151px] relative"><img class="w-[260px] h-[151px] object-cover"
+                                src="[##cms.cms.cdn##]/@00260X00151prp" width="260" height="151" alt="@title">
+                            <figcaption><span
+                                    class="bg-red-600/80 font-danaregular text-xs text-white p-2 rounded-[50px] absolute top-2 right-3">@prp_3088063</span><a
+                                    href="@prp_3088064"
+                                    class="bg-white/50 font-danaregular text-xs text-primary-500 p-2 rounded-lg flex justify-center items-center absolute top-2 left-3"><svg
+                                        width="20" height="20">
+                                        <use href="./images/sprite-icons.svg#location-hotel-icon"></use>
+                                    </svg>مشاهده نقشه </a></figcaption>
+                        </figure>
+                        <div class="px-3">
+                            <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">@title</h2>
+                            <div class="flex justify-between">
+                                <div class="w-1/2 flex items-center gap-x-2"><svg width="36" height="36">
+                                        <use href="./images/sprite-icons.svg#rate-hotel-icon"></use>
+                                    </svg>
+                                    <h2 class="text-xs leading-5 font-danaregular">@prp_3088065</h2>
+                                </div>
+                                <div class="w-1/2 flex items-center gap-x-2"><svg width="36" height="36">
+                                        <use href="./images/sprite-icons.svg#star-hotel-icon"></use>
+                                    </svg>
+                                    <h2 class="text-xs leading-5 font-danaregular">@prp_3088066</h2>
+                                </div>
                             </div>
-                            <div class="w-1/2 flex items-center gap-x-2"><svg width="36" height="36">
-                                    <use href="./images/sprite-icons.svg#star-hotel-icon"></use>
-                                </svg>
-                                <h2 class="text-xs leading-5 font-danaregular">@prp_3088066</h2>
+                            <div class="mt-2 flex justify-between items-center">
+                                <div><span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
+                                    <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">@prp_3088067</h2>
+                                </div><a href="/@link" class="inline-block"><svg width="48" height="48"
+                                        class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
+                                        <use href="./images/sprite-icons.svg#go-fill-icon"></use>
+                                    </svg></a>
                             </div>
                         </div>
-                        <div class="mt-2 flex justify-between items-center">
-                            <div><span class="text-zinc-600 text-xs leading-5">قیمت از :</span>
-                                <h2 class="text-zinc-900 text-sm leading-6 font-danamedium">@prp_3088067</h2>
-                            </div><a href="/@link" class="inline-block"><svg width="48" height="48"
-                                    class="transition-all duration-200 ease-in-out group-hover:-translate-x-1">
-                                    <use href="./images/sprite-icons.svg#go-fill-icon"></use>
-                                </svg></a>
-                        </div>
-                    </div>
-                </article>
+                    </article>
+                </div>
             </face>
         </basis>
 
@@ -244,15 +259,15 @@
         <div class="w-full relative">
 
 
-            <section class=" pt-[60px]">
-                <div class="max-w-7xl max-xl:w-[98%] mx-auto my-5 load-content-box-container">
+            <section>
+                <div class="w-[calc(100%_-_16px)] max-xl:w-[98%] mx-auto my-5 load-content-box-container">
 
                     <div class="w-full flex items-center gap-x-4">
 
                         <basis core="print" datamembername="db.scalar">
                             <layout>@child</layout>
                             <face>
-                                <h2 class="category-item-load text-zinc-900 text-2xl leading-8 font-danabold"
+                                <h2 class="category-item-load text-zinc-900 text-sm leading-8 font-danabold"
                                     data-id="[##cms.query.catid##]" data-type="hotellistItems">@column1</h2>
                             </face>
                         </basis>
@@ -263,70 +278,9 @@
 
                     </div>
 
-
-
-                    <div class=" my-4">
-                        <div class="w-[270px] bg-white rounded-2xl p-3 h-auto float-right">
-
-                            <h2 class="text-sm leading-5 font-danabold">فیلتر هتل بر اساس :</h2>
-
-                            <div class="h-0 flex-grow border border-dashed border-[#ececec] my-3"></div>
-
-                            <h2 class="text-base font-danabold mt-2 mb-2">نام هتل</h2>
-                            <div class="h-0 flex-grow border border-dashed border-[#ececec] my-3"></div>
-
-                            <input type="text"
-                                class="rounded-xl bg-zinc-100 outline-none border-none w-full h-[55px] leading-[55px] px-2"
-                                placeholder="جستجوی هتل">
-
-                            <div class="h-0 flex-grow border border-dashed border-[#ececec] my-3"></div>
-                            <h2 class="text-base font-danabold mt-2 mb-2">چند ستاره</h2>
-
-                            <div class="h-0 flex-grow border border-dashed border-[#ececec] my-3"></div>
-                            <ul class="flex flex-col gap-y-3">
-                                <li class="flex  items-center gap-x-2 text-sm text-zinc-700">
-                                    <input id="1" type="checkbox"
-                                        onclick="filterHotelResult(1 , 'hotellistItems' , [##cms.query.catid##] , 'star')"
-                                        class="w-6 h-6 rounded-lg accent-primary-400">
-                                    <label for="1" class="font-danaregular ">1 ستاره</label>
-                                </li>
-                                <li class="flex  items-center gap-x-2 text-sm text-zinc-700">
-                                    <input id="2" type="checkbox"
-                                        onclick="filterHotelResult(2 , 'hotellistItems' , [##cms.query.catid##] , 'star')"
-                                        class="w-6 h-6 rounded-lg accent-primary-400">
-                                    <label for="2" class="font-danaregular ">2 ستاره</label>
-                                </li>
-                                <li class="flex  items-center gap-x-2 text-sm text-zinc-700">
-                                    <input id="3" type="checkbox"
-                                        onclick="filterHotelResult(3 , 'hotellistItems' , [##cms.query.catid##] , 'star')"
-                                        class="w-6 h-6 rounded-lg accent-primary-400">
-                                    <label for="3" class="font-danaregular ">3 ستاره</label>
-                                </li>
-                                <li class="flex  items-center gap-x-2 text-sm text-zinc-700">
-                                    <input id="4" type="checkbox"
-                                        onclick="filterHotelResult(4 , 'hotellistItems' , [##cms.query.catid##] , 'star')"
-                                        class="w-6 h-6 rounded-lg accent-primary-400">
-                                    <label for="4" class="font-danaregular ">4 ستاره</label>
-                                </li>
-                                <li class="flex  items-center gap-x-2 text-sm text-zinc-700">
-                                    <input id="5" type="checkbox"
-                                        onclick="filterHotelResult(5 , 'hotellistItems' , [##cms.query.catid##] , 'star')"
-                                        class="w-6 h-6 rounded-lg accent-primary-400">
-                                    <label for="5" class="font-danaregular ">5 ستاره</label>
-                                </li>
-                            </ul>
-                            <div class="h-0 flex-grow border border-dashed border-[#ececec] my-3"></div>
-
-
-                        </div>
-
-                        <div data-catid="[##cms.query.catid##]"
-                            class="hotels-container load-content-box w-[calc(100%_-_270px)] max-w-[992px] flex flex-wrap justify-start gap-7 max-xl:justify-between float-left">
-                            <span class="loader block mx-auto"></span>
-
-
-
-                        </div>
+                    <div data-catid="[##cms.query.catid##]"
+                        class=" hotels-container load-content-box my-4 flex flex-wrap justify-start max-sm:justify-center gap-3 max-xl:justify-between ">
+                        <span class="loader block mx-auto"></span>
                     </div>
 
                     <div class="clear-both"></div>
@@ -339,7 +293,7 @@
         <!-- landing box -->
         <basis core="print" datamembername="db.landingtext">
             <layout>
-                <section class=" min-h-[300px] pt-8">
+                <section class="pt-8">
                     <div class="w-[calc(100%_-_16px)] mx-auto">
 
                         @child
@@ -422,7 +376,10 @@
 
     </main>
 
+    <script src="[##cms.cms.cdn##]/_js/swiper-bundle.11.2.5.min.js"></script>
+
     <basis core="call" file="footer.inc" pageindex="[##cms.cms.pageindex##]" />
+
 </body>
 
 </html>

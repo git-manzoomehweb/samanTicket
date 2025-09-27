@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fa">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover" />
+        <title>[##cms.seo.title|(خطای ارتباط با سرور)##]</title>
+        <meta name="description" content="[##cms.seo.description|(خطای ارتباط با سرور)##]">
+        <meta name="robots" content="noindex, nofollow">
+        <link rel="canonical" href="[##cms.request.:scheme##]://[##cms.request.full-url##]" />
+        <basis core="call" file="pwa.inc"/>
+        <basis core="call" file="style.inc"/>
+    </head>
+<body class="font-danaregular bg-zinc-100">
+    <basis core="call" file="header.inc" pageindex="[##cms.cms.pageindex##]" />
+    <main class="mt-[132px] flex flex-col justify-center items-center">
+        <div class="flex flex-col justify-center items-center my-10">
+            <h2 class="text-2xl font-danabold text-center">همیشه و هر ساعت کنارتیم</h2>
+            <p class="text-sm font-danaregular m-2 ">فقط اطلاعات رو وارد کن تا در هر لحظه، مثل یه دوست مطمئن کنارت
+                باشیم؛ آماده برای کمک، راهنمایی و همراهی بی‌وقفه.</p>
+
+        <div class="free-form-container form-container ">
+
+            <basis core="schema" run="atclient"
+                schemaurl="/schema/domainform/B22881E0-4961-4D04-8553-58C3008E04EF/A766C350-A7C3-4741-B984-829917A97C71/fa/درخواست-اجاره-خودرو"
+                displaymode="new" button="[data-btn-upload]" resultsourceid="upload.data"
+                onrendered="RenderForm">
+            </basis>
+            <basis core="api" if="{##cms.upload.run|(false)##}" run="atclient"
+                url="/schema/domainform/B22881E0-4961-4D04-8553-58C3008E04EF/fa/editobject" method="post"
+                body="object_edit={##cms.upload.value##}&captcha={##cms.upload.captcha##}&captchaid={##cms.upload.captchaid##}"
+                content-type="application/x-www-form-urlencoded" triggers="cms.upload"
+                onprocessed="OnProcessedEditObject"></basis>
+            <div class="free-form-content">
+                <div class="flex flex-col items-center ">
+                    <div id="captchaContainer" class="captchaContainerclass captcha-sefaresh"
+                        data-bc-answer-container data-bc-schema-info-multi="0" data-bc-schema-info-word="58"
+                        data-bc-schema-info-part="1" data-bc-schema-info-part-0-type="text">
+                        <basis core="dbsource" source="trust_login" name="captcha" run="atclient"
+                            triggers="captcha.refresh">
+                            <member name="code" type="scalar" request="captcha"></member>
+                        </basis>
+                        <basis datamembername="captcha.code" core="print" run="atclient"
+                            onrendered="captchaRendered">
+                            <face>
+                                <script
+                                    type="text/template"><div class="flex justify-start gap-x-2"><div><input type="text" class="contactUsInput codeinputm" placeholder="کد امنیتی" name="captcha" maxlength="4" /><input type="hidden" name="captchaid" value="@captcha@" /></div><div class="flex flex-row-reverse items-center">
+                                        
+
+
+                                         <svg class="cursor-pointer min-w-12 min-h-12" onclick="refreshCaptcha()" width="48" height="49" viewBox="0 0 48 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M25.7857 18.5L26.5807 20.5021C25.8273 20.0776 24.9442 19.8333 24 19.8333C21.2386 19.8333 19 21.9227 19 24.5C19 24.9149 19.058 25.3171 19.1669 25.7M22.2143 30.5L21.4193 28.4978C22.1727 28.9224 23.0558 29.1667 24 29.1667C26.7614 29.1667 29 27.0773 29 24.5C29 24.0851 28.942 23.6829 28.8331 23.3" stroke="#020121" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="24" cy="24.5" r="10" stroke="#020121" stroke-width="1.5"/>
+</svg>
+                                         
+                                         
+                                         <img class="inline-block rounded-xl" src="/@captcha@" width="90" height="45" alt="captcha code" /></div></div></script>
+                            </face>
+
+                        </basis>
+                    </div>
+                    <basis core="callback" run="atclient" method="uploadDocument" triggers="upload.data">
+                    </basis>
+                    <div
+                        class="text-center bg-primary-950 rounded-xl text-white sendform-btn  mt-1 cursor-pointer h-[50px] w-full leading-[50px]">
+                        <button class="data-body-btn" type="button"
+                            data-btn-upload><span>ارسال</span></button>
+                    </div>
+
+                </div>
+                <div class="message-api text-center mt-2"></div>
+                <div class="clear-both"></div>
+            </div>
+        </div>
+        </div>
+    </main>
+    <basis core="call" file="footer.inc" pageindex="[##cms.cms.pageindex##]" />
+</body>
+</html>

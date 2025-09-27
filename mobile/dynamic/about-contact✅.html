@@ -1,0 +1,184 @@
+<basis core="dbsource" source="basiscore" name="about" mid="1" lid="1" usedforid="2376925">
+    <member name="text" type="view" />
+</basis>
+<basis core="dbsource" source="basiscore" lid="1" mid="1" name="info" catid="217519">
+    <member name="faq" type="list" link="article.bc" typeid="159" perpage="10" order="ord"></member>
+</basis>
+<basis core="dbsource" source="basiscore" name="db" mid="5" lid="1" usedforid="[##cms.cms.ownerid##]">
+    <member name="companyinfo" type="view" />
+</basis>
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
+    <title>[##cms.seo.title|(سامان پرواز)##]</title>
+    <meta name="description" content="[##cms.seo.description|(سامان پرواز)##]">
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+        <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+        <face filter="key='canonical'">
+            <link rel="canonical" href="@value" />
+        </face>
+        <face>
+            <meta property="@key" content="@value" />
+        </face>
+    </basis>
+    <basis core="call" file="pwa.inc" />
+    <basis core="call" file="style.inc" pageindex="[##cms.cms.pageindex##]" />
+</head>
+
+<body class="font-danaregular bg-zinc-100 transparent-header">
+    <basis core="call" file="header.inc" pageindex="[##cms.cms.pageindex##]" />
+    <main class="-mt-20">
+        <div class="  bg-gradient-to-t from-[#081230] pt-24 to-[#020a21]">
+
+            <div class="map-bg w-full relative h-[559px]">
+
+                <div dir="rtl" class="bg-[#0b1533]/60 backdrop-blur-md text-white p-5 w-11/12 mx-auto rounded-3xl z-50">
+                    <div class="flex gap-4 flex-col justify-center items-center">
+                        <div class="flex-1 space-y-2">
+                            <basis core="print" datamembername="db.companyinfo">
+                                <face filter="TypeID in (246)"><iframe class="rounded-3xl min-h-[203px]"
+                                        src="https://maps.google.com/maps?q=@largetext,@text&z=14&output=embed"
+                                        frameborder="0"></iframe></face>
+                            </basis>
+                        </div>
+    
+                        <div class="flex-1 space-y-2">
+                            <h3 class="text-base font-bold ">ارتباط با ما</h3>
+                            <basis core="print" datamembername="db.companyinfo">
+                                <layout>
+                                    <ul class="text-sm text-right flex flex-col gap-y-2">@child </ul>
+                                </layout>
+                                <face filter="TypeID in (244)">
+                                    <li class="group flex items-start leading-[30px] gap-x-2"><svg width="30" height="30" class="min-w-[30px]">
+                                            <use href="./images/sprite-icons.svg#journey-icon"></use>
+                                        </svg>
+                                        <h2 class="text-xs">@largetext</h2>
+                                    </li>
+                                </face>
+                                <face filter="TypeID in (240)">
+                                    <li class="group flex items-start leading-[30px] gap-x-2"><svg width="30" height="30" class="min-w-[30px]">
+                                            <use href="./images/sprite-icons.svg#phone-icon"></use>
+                                        </svg><a class="leading-[30px] align-bottom text-xs" href="tel:@text">@text</a>
+                                    </li>
+                                </face>
+                                <face filter="TypeID in (242)">
+                                    <li class="group flex items-start leading-[30px] gap-x-2"><svg width="30" height="30" class="min-w-[30px]">
+                                            <use href="./images/sprite-icons.svg#email-icon"></use>
+                                        </svg><a class="leading-[30px] align-bottom text-xs" href="mailto:@text">@text</a></li>
+                                </face>
+                            </basis>
+                        </div>
+    
+                    </div>
+    
+    
+                </div>
+    
+    
+    
+    
+    
+                <div class="max-w-7xl mx-auto w-[95%] absolute z-50 top-0 left-0 right-0 ">
+                    <div
+                        class="absolute left-0 right-0 m-auto flex flex-col justify-center items-center top-0 bottom-0 text-center z-50">
+                        <h1 class="sr-only">سامان پرواز</h1>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+        </div>
+        <basis core="print" datamembername="db.companyinfo">
+            <layout>
+                <section class="pt-8">
+                    <div class="w-[calc(100%_-_16px)] mx-auto flex flex-col gap-y-2 ">
+                        <div class="w-full">
+                            <figure class="w-full h-[345px] bg-black rounded-3xl relative overflow-hidden"><img
+                                    class="mx-auto w-full h-[345px] object-cover"
+                                    src="[##cms.cms.cdn##]/images/about-image.jpg" width="493" height="345" alt=""
+                                    srcset=""></figure>
+                        </div>
+
+                        <div class="w-full">
+                            <h2 class="font-danabold text-base mt-5">درباره ما</h2>
+                            <div class="text-base leading-5 font-danaregular text-zinc-900 my-4 text-justify pl-7">
+                                @child </div>
+                        </div>
+
+                    </div>
+                </section>
+            </layout>
+            <face filter="TypeID in(144)">@largetext </face>
+        </basis>
+        <div class="clear-both"></div>
+
+
+
+
+
+        <!-- faq box -->
+        <section class="w-[calc(100%_-_16px)] mx-auto mt-10">
+            <div class="w-full mx-auto flex justify-between gap-x-4 flex-col ">
+                <div class="w-full">
+                    <figure class="w-full h-[418px] bg-secondary-1-700 rounded-3xl relative"><img
+                            class="mx-auto  absolute left-0 right-0" src="./images/young-man-with-headset 1.png" alt=""
+                            srcset="">
+                        <figcaption
+                            class="absolute bottom-0 left-0 right-0 bg-primary-500 h-[75px] rounded-b-3xl leading-[75px] text-center text-white">
+                            ارتباط با پشتیبانی </figcaption>
+                    </figure>
+                </div>
+                <div class="w-full load-content-box-container">
+                    <basis core="list" datamembername="info.faq">
+                        <layout>
+                            <ul
+                                class="flex flex-nowrap gap-x-3 mt-5 w-full overflow-x-auto overflow-y-hidden  scrollbar-none scroll-momentum">
+                                @child </ul>
+                        </layout>
+                        <face>
+                            <li data-id="@id" data-type="faq"
+                                class="category-item-load faq shrink-0 whitespace-nowrap bg-zinc-200 rounded-[50px] text-zinc-900 font-danaregular text-base py-3 px-5 cursor-pointer hover:text-white ">
+                                @title </li>
+                        </face>
+                    </basis>
+                    <div class="load-answer load-content-box"><span class="loader block mx-auto"></span></div>
+                </div>
+            </div>
+        </section>
+        <!-- about us -->
+        <basis core="print" datamembername="about.text">
+            <layout>
+                <section class="w-[calc(100%_-_16px)] mx-auto mt-10">
+                    <div class="w-full mx-auto">
+                        <div class="flex gap-x-2 items-center"><img src="./images/logo-colored.png" width="48"
+                                height="48" alt="logo ">
+                            <h2 class="font-danabold text-2xl ">درباره ما</h2>
+                        </div>
+                        <div class="text-sm leading-5 font-danaregular text-zinc-900 my-4 line-clamp-4">@child </div>
+                        <div class="inline-block"><a href="/about-us" class="flex items-center group">
+                                <h2 class="text-secondary-1-700 text-sm leading-6 font-danamedium ">بیشتر بخوانید</h2>
+                                <svg width="48" height="48"
+                                    class="transition-all duration-200 ease-in-out group-hover:-translate-x-5 ">
+                                    <use href="./images/sprite-icons.svg#arrow-left-small-icon"></use>
+                                </svg>
+                            </a></div>
+                    </div>
+                </section>
+            </layout>
+            <face filter="TypeID in(129)">@largetext </face>
+        </basis>
+
+
+    </main>
+    <basis core="call" file="footer.inc" pageindex="[##cms.cms.pageindex##]" />
+</body>
+
+</html>

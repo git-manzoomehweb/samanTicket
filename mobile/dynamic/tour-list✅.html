@@ -118,7 +118,7 @@
                     </basis>
 
                     <div class="my-4 text-white">
-                        <ul class="breadcrumbs-list flex items-end justify-center font-danaregular text-base "
+                        <ul class="breadcrumbs-list flex items-end justify-center font-danaregular text-base flex-wrap"
                             itemscope="" itemtype="https://schema.org/BreadcrumbList">
                             <li class="" itemprop="itemListElement" itemscope="" itemtype="https://schema.org/ListItem">
                                 <a itemprop="item" href="/" aria-label="home"><span itemprop="name">صفحه اصلی</span>
@@ -159,7 +159,12 @@
 
 
 
-
+                <basis core="print" datamembername="db.scalarEN">
+                    <layout>@child</layout>
+                    <face filter="column1 <> ''">
+                        <h2 class="flex justify-center items-center  absolute top-0 right-0 left-0 bottom-0 m-auto opacity-5 text-5xl text-center text-white line-clamp-1">@column1</h2>
+                    </face>
+                </basis>
 
 
             </div>

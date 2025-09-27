@@ -987,3 +987,7 @@ span.label-text
 }
 
 /* forms edit */
+
+/* about */
+.map-bg{background-image: url(../images/iran-bg-map.svg);background-position: center;background-size: cover; }
+/* about */

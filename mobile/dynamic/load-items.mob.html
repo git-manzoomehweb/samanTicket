@@ -136,8 +136,8 @@
         <face>
             <div class="swiper-slide !w-[176px]">
                 <article class="w-[176px] h-[171px] rounded-xl overflow-hidden relative group"><a href="/@link">
-                        <figure><img class="object-cover w-[176px] h-[171px]" src="[##cms.cms.cdn##]/@image" alt="@title"
-                                width="176" height="171">
+                        <figure><img class="object-cover w-[176px] h-[171px]" src="[##cms.cms.cdn##]/@image"
+                                alt="@title" width="176" height="171">
                             <figcaption
                                 class="text-white text-base font-danabold leading-[24px] absolute top-0 left-0 bottom-0 right-0 bg-gradient-to-t from-[#040c24]/80 group-hover:from-[#040c24]/100 to-transparent transition-all duration-100 ease-in-out ">
                                 <div
@@ -640,20 +640,23 @@
     <basis core="list" datamembername="list.article">
         <layout>@child </layout>
         <face>
-            <article class="w-[418px] h-[228px] rounded-xl overflow-hidden group">
-                <a href="/@link">
-                    <figure class="relative w-[418px] h-[228px]">
-                        <img class="w-[418px] h-[228px] object-cover" src="[##cms.cms.cdn##]/@type_159" alt="@title">
-                        <figcaption
-                            class="absolute top-0 left-0 bottom-0 transition-all ease-in-out duration-100 group-hover:bg-black/80 bg-black/45 w-full text-white p-4 flex flex-col justify-end">
-                            <h2 class="font-danabold text-base leading-6 mb-2">@title</h2>
-                            <div class="text-xs leading-5 font-danaregular line-clamp-2">
-                                @prp_7244
-                            </div>
-                        </figcaption>
-                    </figure>
-                </a>
-            </article>
+            <div class="swiper-slide !w-[260px]">
+                <article class="!w-[260px] h-[228px] rounded-xl overflow-hidden group">
+                    <a href="/@link">
+                        <figure class="relative !w-[260px] h-[228px]">
+                            <img class="!w-[260px] h-[228px] object-cover" src="[##cms.cms.cdn##]/@type_159"
+                                alt="@title">
+                            <figcaption
+                                class="absolute top-0 left-0 bottom-0 transition-all ease-in-out duration-100 group-hover:bg-black/80 bg-black/45 w-full text-white p-4 flex flex-col justify-end">
+                                <h2 class="font-danabold text-base leading-6 mb-2">@title</h2>
+                                <div class="text-xs leading-5 font-danaregular line-clamp-2">
+                                    @prp_7244
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </article>
+            </div>
         </face>
     </basis>
 </basis>
@@ -685,10 +688,10 @@
 
 
             <article
-                class="w-[420px] h-[355px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
+                class="w-[288px] h-[395px] rounded-xl overflow-hidden cursor-pointer group bg-white border border-zinc-200">
                 <a href="@link">
-                    <figure class="w-[420px] h-[180px] relative">
-                        <img class="w-[420px] h-[180px] object-cover" src="[##cms.cms.cdn##]/@type_159" width="420"
+                    <figure class="w-[288px] h-[180px] relative">
+                        <img class="w-[288px] h-[180px] object-cover" src="[##cms.cms.cdn##]/@type_159" width="288"
                             height="180" alt="@title">
 
                         <span
@@ -696,7 +699,7 @@
                     </figure>
                     <div class="px-3 flex flex-col justify-between">
                         <h2 class="text-base text-zinc-900 leading-6 font-danabold my-3 line-clamp-1">@title</h2>
-                        <div class="text-xs font-danaregular line-clamp-4 text-justify text-zinc-700 leading-5">
+                        <div class="text-xs font-danaregular line-clamp-5 text-justify text-zinc-700 leading-5">
                             @prp_7244</div>
 
 
