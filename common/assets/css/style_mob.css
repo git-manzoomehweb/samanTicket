@@ -1,0 +1,75 @@
+@charset "utf-8";
+@font-face{font-family:'fontawesome';src:url('../_fonts/fontawesome-webfont.eot') format('embedded-opentype'), url('../_fonts/fontawesome-webfont.woff') format('woff'), url('../_fonts/fontawesome-webfont.ttf') format('truetype'), url('../_fonts/fontawesome-webfont.svg') format('svg'), url('../_fonts/fa-brands.eot') format('embedded-opentype');font-weight:normal;font-style:normal;-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+.sr-only-focusable:active, .sr-only-focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto;}
+@font-face{font-family:'fontawesome';font-style:normal;font-weight:400;font-display:block;src:url("../_fonts/fa-brands.eot");src:url("../_fonts/fa-brands.eot") format("embedded-opentype"), url("../_fonts/fa-brands.woff") format("woff"), url("../_fonts/fa-brands.ttf") format("truetype"), url("../_fonts/fa-brands.svg") format("svg");}
+.fab{font-family:'fontawesome';font-weight:400;}
+@font-face{font-family:'fontawesome';font-style:normal;font-weight:400;font-display:block;src:url("../_fonts/fa-regular.eot");src:url("../_fonts/fa-regular.eot") format("embedded-opentype"), url("../_fonts/fa-regular.woff") format("woff"), url("../_fonts/fa-regular.ttf") format("truetype"), url("../_fonts/fa-regular.svg") format("svg");}
+.far{font-family:'fontawesome';font-weight:400;}
+@font-face{font-family:'fontawesome';font-style:normal;font-weight:900;font-display:block;src:url("../_fonts/fa-solid.eot");src:url("../_fonts/fa-solid.eot") format("embedded-opentype"), url("../_fonts/fa-solid.woff") format("woff"), url("../_fonts/fa-solid.ttf") format("truetype"), url("../_fonts/fa-solid.svg") format("svg");}
+.fa,
+.fas{font-family:'fontawesome';font-weight:900;}
+@font-face{font-family:'IRANSansWeb';src:url('../_fonts/IRANSansWeb(FaNum).ttf') format('truetype'), url('../_fonts/IRANSansWeb(FaNum).eot') format('embedded-opentype');font-weight:normal;font-style:normal;}
+@font-face{font-family:'IRANSansWebEnNum';font-style:normal;font-weight:lighter;src:url('../_fonts/IRANSansWeb_Medium.eot');src:url('../_fonts/IRANSansWeb_Medium.eot?#iefix') format('embedded-opentype'),
+url('../_fonts/IRANSansWeb_Medium.woff2') format('woff2'),
+url('../_fonts/IRANSansWeb_Medium.woff') format('woff'),
+url('../_fonts/IRANSansWeb_Medium.ttf') format('truetype');}
+.font-color_1{color:#1C1A72;}
+.background-color_1{background:#1C1A72 !important;}
+.sort-box .sort-items li.active,.reserve-button:hover,.mm-spn li:before,.mm-spn.mm-spn--navbar:before,.fa-times,.section-research-left button:hover ,.after-btn:hover,.before-btn:hover,.section-filter-icon button:hover,.highlight,.selectCountry i,.select-arrow::before,.Link-Forgetpass:hover, .Link-Register:hover, .Link-ResendMail:hover, .Link-Login:hover{color:#1C1A72 !important;}
+.createChildDropdown select ,.section-details button:hover ,.progress-bar ,.section-input_2 input[type="checkbox"]:checked + label span.checkbox::after,.section-input_2 input[type="checkbox"]:checked + label span.checkbox::after,.ui-datepicker-buttonpane .ui-state-default:hover,.ui-datepicker-buttonpane .ui-state-default:focus,.ui-datepicker-buttonpane .ui-datepicker-current:hover,.ui-datepicker-buttonpane .ui-datepicker-current:focus{ background:#1C1A72!important;  }
+.radioButton:checked+label span::after {color:#1C1A72;border: 2px solid#1C1A72;}
+.active_tab_tour{color: #fff !important; background:#1C1A72;}
+.ui-state-active,.ui-widget-content .ui-state-active,.ui-widget-header .ui-state-active{border:1px solid#1C1A72;background:#1C1A72!important;}
+.reserve-button { border: 1px solid#1C1A72; }
+.title-result { border-bottom: 1px solid#1C1A72; }
+.confirm {  background: linear-gradient(-90deg, #1C1A72 0%, #a7e5da 100%);  },
+.confirm:hover { background: linear-gradient(-90deg, #a7e5da 0%, #1C1A72 100%); }
+.details-item-title { border-bottom: 2px solid#1C1A72;  }
+.section-details button{border: 2px solid#1C1A72;}
+.item-search:before{border: 1px dashed#1C1A72;}
+.progress-bar {background-image: -webkit-linear-gradient(top,#1C1A72 0,#38685f 100%);background-image: -o-linear-gradient(top,#1C1A72 0,#38685f 100%);background-image: -webkit-gradient(linear,left top,left bottom,from(#1C1A72),to(#38685f));background-image: linear-gradient(to bottom,#1C1A72 0,#38685f 100%);filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff337ab7', endColorstr='#ff286090', GradientType=0);background-repeat: repeat-x;}
+.link-2:hover:after{border-color:#1C1A72;}
+.section-input_2 span.checkbox::before{border: 2px solid#1C1A72;}
+.top-menu {background: linear-gradient(-135deg,#1C1A72, #3a434a);  }
+.section-input_2 span.checkbox::before{  border: 2px solid#1C1A72;}
+.loader {border-top: 5px solid#1C1A72; }
+.ChangeFlight-header {background: linear-gradient(-135deg,#1C1A72, #a7e5da);}
+/*-----------------------------*/
+.font-color_2{color: #F6931F;}
+.background-color_2{background:#F6931F !important;}
+.second-part-header .col1-second-part-header a:after,.second-part-header .col1-second-part-header a:before,.category-title:hover,.fa-angle-double-left:hover, .fa-angle-double-right:hover ,.controlsPage:hover,
+.second-part-header .col1-second-part-header a:after,.second-part-header .col1-second-part-header a span,.active-item-search img,.row1-footer .fa,.row1-footer .far,.right-border-d::after,.right-border-d::before,.ui-datepicker-today .ui-state-highlight,.ui-datepicker table thead th,.ui-datepicker .ui-datepicker-buttonpane button,.ResendSMSSubmit,#sendSms input[type="submit"],#ConfirmRegister input[type="submit"]{background:#F6931F !important;}
+.CountPassenger.room::before,.highlight,.active-item-search .fa-arrow-down:before,.circle,.details-button:hover,.Others-Button:hover,.row1-footer .fa:hover,.row1-footer .far:hover ,.sort-box .sort-items li.active {color: #ff7e0b !important;}
+.active-item-search .item-search:before { border: 1px dashed#F6931F !important; display: none; }
+.radioButton:checked + label span::after {color:#F6931F;border: 3px solid#F6931F;}
+.add-room { background: linear-gradient(-90deg,#F6931F 0%, #EB781B 100%); }
+.row1-footer .fa,.row1-footer .far {  border: 1px solid#F6931F; }
+.details-button,.Others-Button { border: 1px solid#F6931F;  }
+.right-border-d {  border-left: 2px dashed#F6931F;}
+/*-----------------------------*/
+.total-cost { color: #00a703; }
+.fa.fa-user.is-login { color:  #00a703; }
+.true-result{color:  #00a703;}
+.selected{color: #00a703;}
+.width_100 button{ background: #00a703 ;}
+.error-result{color: red;}
+.submit:hover { color:#34495e; }
+.font-color_3{color:#30d5a0;}
+.background-color_3{background:#30d5a0;}
+.font-color_4{color: #fff;}
+/*-----------------------------*/
+.Basis_Calendar .selected_date{background: #F6931F!important;}
+.Basis_Calendar .month_day_list table td:hover{background:#F6931F }
+.Basis_Calendar .month_detail{background:#F6931F}
+.Basis_Calendar .basis_s_day{color:#1C1A72;}
+.Basis_Calendar .day_of_date{color:#1C1A72;}
+.Basis_Calendar .month_of_date{color:#1C1A72;}
+.Basis_Calendar .date_info_selected{border-bottom: 2px solid rgba(255, 117, 85, 0.49);}
+.Basis_Calendar .month_detail{border-bottom: 2px solid rgba(255, 117, 85, 0.49);}
+.Basis_Calendar .selected_day {background: rgba(255, 117, 85, 0.2);}
+.warning {color: red;}
+.content-research #cipsearch .country{margin-top:0}
+
+
+
+

@@ -307,6 +307,10 @@ span.sub-title {
   margin: -1px 0 !important;
 }
 
+#Counselingform  [data-bc-part][data-bc-invalid] [data-bc-validation-part] , #Counselingform  [data-bc-part][data-bc-invalid] [data-bc-validation-part] li {
+    height: 12px !important;
+}
+
 /* forms edit */
 
 
@@ -330,6 +334,14 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#mobile_add_to_screen .dir-rtl, #mobile_add_to_screen.dir-rtl {
+    direction: rtl;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
 }
 
 /* login */

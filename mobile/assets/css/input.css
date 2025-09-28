@@ -929,6 +929,10 @@ span.label-text
     font-size: 12px !important;
 }
 
+
+p.clear-both.text-base.text-textColor .selected-day ,  p.clear-both.text-base.text-textColor .selected-month{display: none !important;}
+
+
 /* searchbox design */
 
 

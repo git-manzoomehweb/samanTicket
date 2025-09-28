@@ -776,6 +776,9 @@ span.text-grays-400.mr-2 {
 .searchHistory-content form {
   background-color: transparent !important;
 }
+
+
+p.clear-both.text-base.text-textColor .selected-day ,  p.clear-both.text-base.text-textColor .selected-month{display: none !important;}
 /* searchbox design */
 
 /* categories */
@@ -836,6 +839,10 @@ li.faq.active{
 
 #supportform  [data-bc-part][data-bc-invalid] [data-bc-validation-part] {
     margin: -1px 0 !important;
+}
+
+#supportform  [data-bc-part][data-bc-invalid] [data-bc-validation-part] , #supportform  [data-bc-part][data-bc-invalid] [data-bc-validation-part] li {
+    height: 12px !important;
 }
 
 

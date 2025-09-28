@@ -98,12 +98,25 @@ document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 document.querySelectorAll(".has-megamenu").forEach((element) => {
-  element.addEventListener("click", function () {
-    element
-      .closest("li")
+  element.addEventListener("click", function (event) {
+    event.stopPropagation();  // Prevent the click from bubbling up
+    element.closest("li")
       .querySelector(".megamenu-container")
       .classList.toggle("hidden");
-    console.log("test");
+    element.closest("li")
+      .querySelector(".megamenu-container")
+      .classList.toggle("flex");
+  });
+});
+
+// Close mega menu if clicked outside
+document.addEventListener("click", function(event) {
+  // Check if click is outside the mega menu
+  document.querySelectorAll(".megamenu-container").forEach((menu) => {
+    if (!menu.contains(event.target) && !menu.closest("li").contains(event.target)) {
+      menu.classList.add("hidden");
+      menu.classList.remove("flex");
+    }
   });
 });
 document.querySelectorAll(".has-submenu").forEach((element) => {
@@ -130,8 +143,6 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     // id desktop view
     document.querySelectorAll(".megamenu-container").forEach((ele) => {
-      console.log("megaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa menu");
-      console.log(ele);
       const elem = ele.querySelector(".magamenu-category");
       const catid = ele
         .querySelector(".magamenu-category")
@@ -523,6 +534,18 @@ function setSwiperSlides(type) {
 // js form support
 
 // support form
+// Function for displaying success or error messages
+function showMessage(formId, message, isSuccess) {
+  const messageElement = document.getElementById(formId).querySelector(".message-api");
+  messageElement.innerHTML = message;
+  messageElement.style.color = isSuccess ? "green" : "red"; // Green for success, Red for error
+  setTimeout(() => {
+    messageElement.innerHTML = "";
+    messageElement.style.color = ""; // Reset color after 5 seconds
+  }, 5000);
+}
+
+// Support form
 function uploadDocument(args) {
   const captcha = document
     .getElementById("supportform")
@@ -538,49 +561,44 @@ function uploadDocument(args) {
     run: true,
   });
 }
+
+async function OnProcessedEditObject(args) {
+  var response = args.response;
+  var json = await response.json();
+  var errorid = json.errorid;
+
+  if (errorid == "6") {
+    // Success: Show green message and clear input fields
+    showMessage("supportform", "درخواست شما با موفقیت ثبت شد", true);
+    document
+      .getElementById("supportform")
+      .querySelector(".f-l-name")
+      .querySelector("input").value = "";
+    document
+      .getElementById("supportform")
+      .querySelector(".phone-num")
+      .querySelector("input").value = "";
+    refreshCaptcha();
+  } else {
+    // Error: Show red message and clear input fields
+    showMessage("supportform", "خطایی رخ داده, لطفا مجدد اقدام کنید", false);
+    refreshCaptcha();
+    document
+      .getElementById("supportform")
+      .querySelector(".f-l-name")
+      .querySelector("input").value = "";
+    document
+      .getElementById("supportform")
+      .querySelector(".phone-num")
+      .querySelector("input").value = "";
+  }
+}
+
 function refreshCaptcha(e) {
   $bc.setSource("captcha.refresh", true);
 }
 function captchaRendered() {
   document.querySelector(".contactUsInput").placeholder = "کد امنیتی";
-}
-async function OnProcessedEditObject(args) {
-  var response = args.response;
-  var json = await response.json();
-  var errorid = json.errorid;
-  if (errorid == "6") {
-    document
-      .getElementById("supportform")
-      .querySelector(".message-api").innerHTML = "درخواست شما با موفقیت ثبت شد";
-
-    document
-      .getElementById("supportform")
-      .querySelector(".f-l-name")
-      .querySelector("input").value = "";
-    document
-      .getElementById("supportform")
-      .querySelector(".phone-num")
-      .querySelector("input").value = "";
-
-    refreshCaptcha();
-  } else {
-    refreshCaptcha();
-    document
-      .getElementById("supportform")
-      .querySelector(".f-l-name")
-      .querySelector("input").value = "";
-    document
-      .getElementById("supportform")
-      .querySelector(".phone-num")
-      .querySelector("input").value = "";
-
-    setTimeout(() => {
-      document
-        .getElementById("supportform")
-        .querySelector(".message-api").innerHTML =
-        "خطایی رخ داده, لطفا مجدد اقدام کنید";
-    }, 2000);
-  }
 }
 async function RenderForm() {
   document
@@ -594,6 +612,7 @@ async function RenderForm() {
 }
 
 // Counselingform
+// Counseling form
 function uploadDocumentCounselingform(args) {
   const captcha = document
     .getElementById("Counselingform")
@@ -609,49 +628,44 @@ function uploadDocumentCounselingform(args) {
     run: true,
   });
 }
+
+async function OnProcessedEditObjectCounselingform(args) {
+  var response = args.response;
+  var json = await response.json();
+  var errorid = json.errorid;
+
+  if (errorid == "6") {
+    // Success: Show green message and clear input fields
+    showMessage("Counselingform", "درخواست شما با موفقیت ثبت شد", true);
+    document
+      .getElementById("Counselingform")
+      .querySelector(".f-l-name")
+      .querySelector("input").value = "";
+    document
+      .getElementById("Counselingform")
+      .querySelector(".phone-num")
+      .querySelector("input").value = "";
+    refreshCaptchaCounselingform();
+  } else {
+    // Error: Show red message and clear input fields
+    showMessage("Counselingform", "خطایی رخ داده, لطفا مجدد اقدام کنید", false);
+    refreshCaptchaCounselingform();
+    document
+      .getElementById("Counselingform")
+      .querySelector(".f-l-name")
+      .querySelector("input").value = "";
+    document
+      .getElementById("Counselingform")
+      .querySelector(".phone-num")
+      .querySelector("input").value = "";
+  }
+}
+
 function refreshCaptchaCounselingform(e) {
   $bc.setSource("captchaCounselingform.refresh", true);
 }
 function captchaRenderedCounselingform() {
   document.querySelector(".contactUsInput").placeholder = "کد امنیتی";
-}
-async function OnProcessedEditObjectCounselingform(args) {
-  var response = args.response;
-  var json = await response.json();
-  var errorid = json.errorid;
-  if (errorid == "6") {
-    document
-      .getElementById("Counselingform")
-      .querySelector(".message-api").innerHTML = "درخواست شما با موفقیت ثبت شد";
-
-    document
-      .getElementById("Counselingform")
-      .querySelector(".f-l-name")
-      .querySelector("input").value = "";
-    document
-      .getElementById("Counselingform")
-      .querySelector(".phone-num")
-      .querySelector("input").value = "";
-
-    refreshCaptchaCounselingform();
-  } else {
-    refreshCaptchaCounselingform();
-    document
-      .getElementById("Counselingform")
-      .querySelector(".f-l-name")
-      .querySelector("input").value = "";
-    document
-      .getElementById("Counselingform")
-      .querySelector(".phone-num")
-      .querySelector("input").value = "";
-
-    setTimeout(() => {
-      document
-        .getElementById("Counselingform")
-        .querySelector(".message-api").innerHTML =
-        "خطایی رخ داده, لطفا مجدد اقدام کنید";
-    }, 2000);
-  }
 }
 async function RenderFormCounselingform() {
   document
