@@ -1,3 +1,4 @@
+<!-- header -->
 <basis core="group" if="'[##cms.query.typecat##]'='tour'">
     <basis core="dbsource" source="basiscore" mid="20" name="tour" lid="1">
         <member name="category" type="tree" request="cat" parentid="[##cms.query.catid##]"></member>
@@ -106,10 +107,13 @@
         </face>
     </basis>
 </basis>
+
+
+<!-- default -->
 <basis core="group" if="'[##cms.query.typecat##]'='destination'">
     <basis core="dbsource" source="basiscore" mid="20" name="tour" lid="1">
         <member name="categoryitem" type="tree" request="cat" parentid="[##cms.query.catid##]"
-            postsql="select * from [tour.categoryitem] limit 7"></member>
+            postsql="select * from [tour.categoryitem] where catid not in([##cms.query.catid##]) limit 7 "></member>
     </basis>
     <basis core="list" datamembername="tour.categoryitem">
         <face filter="link is null">

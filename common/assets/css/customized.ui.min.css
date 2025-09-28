@@ -827,6 +827,10 @@ video {
   width: 100%;
 }
 
+.\!min-w-\[70px\] {
+  min-width: 70px !important;
+}
+
 .min-w-12 {
   min-width: 3rem;
 }
@@ -849,6 +853,10 @@ video {
 
 .min-w-\[200px\] {
   min-width: 200px;
+}
+
+.min-w-\[230px\] {
+  min-width: 230px;
 }
 
 .min-w-\[308px\] {
@@ -1371,7 +1379,7 @@ table {
 
 @media screen and (min-width: 1024px) {
   body {
-    padding-top: 80px;
+    padding-top: 132px !important;
   }
 }
 
@@ -1437,7 +1445,7 @@ table {
 
 html,
 body {
-  font-family: "Yekan_Bakh_Regular_fa";
+  font-family: "Dana_regular";
   direction: rtl
 }
 
@@ -1788,8 +1796,8 @@ input {
     width: 98%;
   }
 
-  .max-xl\:min-w-\[70px\] {
-    min-width: 70px;
+  .max-xl\:\!min-w-\[70px\] {
+    min-width: 70px !important;
   }
 
   .max-xl\:\!gap-x-2 {

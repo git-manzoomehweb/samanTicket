@@ -74,7 +74,7 @@ body{
 
 }
 
-html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
+html,body{font-family:"Dana_regular";direction:rtl}
 ::-webkit-scrollbar{width:10px !important;}::-webkit-scrollbar-track{background:var(--primary-50);}
 ::-webkit-scrollbar-thumb{background:var(--primary-400);border-radius:10px;}
 ::-webkit-scrollbar-thumb:hover{background:var(--primary-500);}
@@ -204,6 +204,7 @@ html,body{font-family:"Yekan_Bakh_Regular_fa";direction:rtl}
 #search-box{
   width: 870px !important ;
   margin: 0 auto !important;
+      /* margin-top: 181px !important; */
 }
 .text-textColor{
 color: #292929;

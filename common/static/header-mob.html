@@ -1,4 +1,239 @@
-<basis core="dbsource" source="basiscore" name="db" mid="5" lid="1" usedforid="[##cms.cms.ownerid##]"><member name="info" type="view" /></basis>
-<basis core="dbsource" source="basiscore" mid="20" name="tour" lid="1"><member name="category" type="tree" request="cat" parentid="214446"></member></basis>
-<basis core="dbsource" source="basiscore" mid="1" name="article" lid="1"><member name="TravelServices" type="tree" request="cat" parentid="217473"></member></basis>
-<header class="mx-auto max-lg:w-full px-4 xl:max-w-7xl bg-gradient-to-b from-[#081230] to-[#020a21]/85"><section class="relative z-30"><div class="flex items-center justify-between"><div class="flex items-center gap-2 h-16"><div class="flex items-center gap-3"><svg width="48" height="48" class="flex-shrink-0 cursor-pointer bars3"><use href="./images/sprite-icons-mobile.svg#icon-menu-mobile"></use></svg><div class="Login_Information relative group z-40 flex items-center text-sm text-center transition-all cursor-pointer duration-300 hover:bg-primary-600"><basis core="call" file="authentication/modal" lid="1"></basis></div></div></div><a href="/"><img src="[##cms.cms.cdn##]/images/logo.png" alt="logo-header" width="40" height="40" loading="lazy" class="transition-all duration-300 w-10 h-10" /></a></div><div class="header-menu bg-white fixed z-50 translate-x-[1024px] inset-0 w-full transition-all duration-300 overflow-scroll"><div class="mx-auto w-[90%] pb-6"><section><div class="flex items-center justify-between pt-3"><a href="/"><img src="[##cms.cms.cdn##]/images/logo-colored.png" alt="logo-header" width="40" height="40" loading="lazy" class="w-10 h-auto " /></a><svg width="48" height="48" class="cursor-pointer header-menu-close"><use href="./images/sprite-icons-mobile.svg#icon-close-menu-mobile"></use></svg></div></section><section><nav class="mt-6"><ul class="text-sm divide-y divide-zinc-100"><li class="pt-4 pb-5"><a href="/" class="font-medium text-sm text-zinc-900">صفحه اصلی</a></li><li class="pt-4 pb-5"><a href="/flight" class="font-medium text-sm text-zinc-900">پرواز</a></li><li class="pt-4 pb-5"><a href="/hotel" class="font-medium text-sm text-zinc-900">هتل</a></li><basis core="tree" datamembername="tour.category" idcol="catid" parentidcol="parentid" nullvalue="214446"><layout><li><div class="flex items-center justify-between cursor-pointer toggle-dropdown"><a href="" class="text-zinc-900 font-medium text-sm">تور</a><svg width="48" height="48" class="transition-all duration-300 dropdown-icon"><use href="./images/sprite-icons-mobile.svg#icon-chevron-down-zinc"></use></svg></div><ul class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-zinc-100 max-h-0">@child </ul></li></layout><face level="1" filter="link is null"><li class="px-6 py-2 "><div class="flex items-center justify-between cursor-pointer toggle-dropdown"><a href="/tour-list.bc?lid=1&catid=@catid" class="text-zinc-900 font-medium text-sm">@title</a><svg width="48" height="48" class="transition-all duration-300 dropdown-icon"><use href="./images/sprite-icons-mobile.svg#icon-chevron-down-zinc"></use></svg></div><ul class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-zinc-100 max-h-0">@child </ul></li></face><face level="end" filter="link is null"><li class="px-6 py-2"><a href="/tour-list.bc?lid=1&catid=@catid" class="text-zinc-900">@title</a></li></face><face level="end"><li class="px-6 py-2"><a href="/@link" class="text-zinc-900">@title</a></li></face><face level="1"><li class="px-6 py-2 "><div class="flex items-center justify-between cursor-pointer toggle-dropdown"><a href="/@link" class="text-zinc-900 font-medium text-sm">@title</a><svg width="48" height="48" class="transition-all duration-300 dropdown-icon"><use href="./images/sprite-icons-mobile.svg#icon-chevron-down-zinc"></use></svg></div><ul class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-zinc-100 max-h-0">@child </ul></li></face><face level="2" filter="link is null"><li class="px-6 py-2 "><div class="flex items-center justify-between cursor-pointer toggle-dropdown"><a href="/tour-list.bc?lid=1&catid=@catid" class="text-zinc-900 font-medium text-sm">@title</a><svg width="48" height="48" class="transition-all duration-300 dropdown-icon"><use href="./images/sprite-icons-mobile.svg#icon-chevron-down-zinc"></use></svg></div><ul class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-zinc-100 max-h-0">@child </ul></li></face><face level="2"><li class="px-6 py-2 "><div class="flex items-center justify-between cursor-pointer toggle-dropdown"><a href="/@link" class="text-zinc-900 font-medium text-sm">@title</a><svg width="48" height="48" class="transition-all duration-300 dropdown-icon"><use href="./images/sprite-icons-mobile.svg#icon-chevron-down-zinc"></use></svg></div><ul class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-zinc-100 max-h-0">@child </ul></li></face></basis><basis core="tree" datamembername="article.TravelServices" idcol="catid" parentidcol="parentid" nullvalue="217473"><layout><li><div class="flex items-center justify-between cursor-pointer toggle-dropdown"><a href="" class="text-zinc-900 font-medium text-sm">خدمات مسافرتی</a><svg width="48" height="48" class="transition-all duration-300 dropdown-icon"><use href="./images/sprite-icons-mobile.svg#icon-chevron-down-zinc"></use></svg></div><ul class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-zinc-100 max-h-0">@child </ul></li></layout><face level="1" filter="link is null"><li class="px-6 py-2 "><div class="flex items-center justify-between cursor-pointer toggle-dropdown"><a href="/article-list.bc?lid=1&catid=@catid" class="text-zinc-900 font-medium text-sm">@title</a><svg width="48" height="48" class="transition-all duration-300 dropdown-icon"><use href="./images/sprite-icons-mobile.svg#icon-chevron-down-zinc"></use></svg></div><ul class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-zinc-100 max-h-0">@child </ul></li></face><face level="end" filter="link is null"><li class="px-6 py-2"><a href="/article-list.bc?lid=1&catid=@catid" class="text-zinc-900">@title</a></li></face><face level="end"><li class="px-6 py-2"><a href="/@link" class="text-zinc-900">@title</a></li></face><face level="1"><li class="px-6 py-2 "><div class="flex items-center justify-between cursor-pointer toggle-dropdown"><a href="/@link" class="text-zinc-900 font-medium text-sm">@title</a><svg width="48" height="48" class="transition-all duration-300 dropdown-icon"><use href="./images/sprite-icons-mobile.svg#icon-chevron-down-zinc"></use></svg></div><ul class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-zinc-100 max-h-0">@child </ul></li></face><face level="2" filter="link is null"><li class="px-6 py-2 "><div class="flex items-center justify-between cursor-pointer toggle-dropdown"><a href="/article-list.bc?lid=1&catid=@catid" class="text-zinc-900 font-medium text-sm">@title</a><svg width="48" height="48" class="transition-all duration-300 dropdown-icon"><use href="./images/sprite-icons-mobile.svg#icon-chevron-down-zinc"></use></svg></div><ul class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-zinc-100 max-h-0">@child </ul></li></face><face level="2"><li class="px-6 py-2 "><div class="flex items-center justify-between cursor-pointer toggle-dropdown"><a href="/@link" class="text-zinc-900 font-medium text-sm">@title</a><svg width="48" height="48" class="transition-all duration-300 dropdown-icon"><use href="./images/sprite-icons-mobile.svg#icon-chevron-down-zinc"></use></svg></div><ul class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-zinc-100 max-h-0">@child </ul></li></face></basis><li class="pt-4 pb-5"><a href="/about-us" class="font-medium text-sm text-zinc-900">ارتباط با ما</a></li></ul></nav></section></div></div></section></header>
+<basis core="dbsource" source="basiscore" name="db" mid="5" lid="1" usedforid="[##cms.cms.ownerid##]">
+    <member name="info" type="view" />
+</basis>
+<basis core="dbsource" source="basiscore" mid="20" name="tour" lid="1">
+    <member name="category" type="tree" request="cat" parentid="214446"></member>
+</basis>
+<basis core="dbsource" source="basiscore" mid="1" name="article" lid="1">
+    <member name="TravelServices" type="tree" request="cat" parentid="217473"></member>
+</basis>
+<header class="mx-auto max-lg:w-full px-4 xl:max-w-7xl bg-gradient-to-b from-[#081230] to-[#020a21]/85">
+    <section class="relative z-[999]">
+        <div class="flex items-center justify-between">
+            <div class="flex items-center gap-2 h-16">
+                <div class="flex items-center gap-3"><svg width="48" height="48"
+                        class="flex-shrink-0 cursor-pointer bars3">
+                        <use href="./images/sprite-icons-mobile.svg#icon-menu-mobile"></use>
+                    </svg>
+                    <div
+                        class="Login_Information relative group z-40 flex items-center text-sm text-center transition-all cursor-pointer duration-300 hover:bg-primary-600">
+                        <basis core="call" file="authentication/modal" lid="1"></basis>
+                    </div>
+                </div>
+            </div><a href="/"><img src="[##cms.cms.cdn##]/images/logo.png" alt="logo-header" width="40" height="40"
+                    loading="lazy" class="transition-all duration-300 w-10 h-10" /></a>
+        </div>
+        <div
+            class="header-menu bg-white fixed z-50 translate-x-[1024px] inset-0 w-full transition-all duration-300 overflow-scroll">
+            <div class="mx-auto w-[90%] pb-6">
+                <section>
+                    <div class="flex items-center justify-between pt-3"><a href="/"><img
+                                src="[##cms.cms.cdn##]/images/logo-colored.png" alt="logo-header" width="40" height="40"
+                                loading="lazy" class="w-10 h-auto " /></a><svg width="48" height="48"
+                            class="cursor-pointer header-menu-close">
+                            <use href="./images/sprite-icons-mobile.svg#icon-close-menu-mobile"></use>
+                        </svg></div>
+                </section>
+                <section>
+                    <nav class="mt-6">
+                        <ul class="text-sm divide-y divide-zinc-100">
+                            <li class="pt-4 pb-5"><a href="/" class="font-medium text-sm text-zinc-900">صفحه اصلی</a>
+                            </li>
+                            <li class="pt-4 pb-5"><a href="/flight" class="font-medium text-sm text-zinc-900">پرواز</a>
+                            </li>
+                            <li class="pt-4 pb-5"><a href="/hotel" class="font-medium text-sm text-zinc-900">هتل</a>
+                            </li>
+                            <basis core="tree" datamembername="tour.category" idcol="catid" parentidcol="parentid"
+                                nullvalue="214446">
+                                <layout>
+                                    <li>
+                                        <div class="flex items-center justify-between cursor-pointer toggle-dropdown"><a
+                                                href="" class="text-zinc-900 font-medium text-sm">تور</a><svg width="48"
+                                                height="48" class="transition-all duration-300 dropdown-icon">
+                                                <use href="./images/sprite-icons-mobile.svg#icon-chevron-down-zinc">
+                                                </use>
+                                            </svg></div>
+                                        <ul
+                                            class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-zinc-100 max-h-0">
+                                            @child </ul>
+                                    </li>
+                                </layout>
+                                <face level="1" filter="link is null">
+                                    <li class="px-6 py-2 ">
+                                        <div class="flex items-center justify-between cursor-pointer toggle-dropdown"><a
+                                                href="/tour-list.bc?lid=1&catid=@catid"
+                                                class="text-zinc-900 font-medium text-sm">@title</a><svg width="48"
+                                                height="48" class="transition-all duration-300 dropdown-icon">
+                                                <use href="./images/sprite-icons-mobile.svg#icon-chevron-down-zinc">
+                                                </use>
+                                            </svg></div>
+                                        <ul
+                                            class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-zinc-100 max-h-0">
+                                            @child </ul>
+                                    </li>
+                                </face>
+                                <face level="end" filter="link is null">
+                                    <li class="px-6 py-2"><a href="/tour-list.bc?lid=1&catid=@catid"
+                                            class="text-zinc-900">@title</a></li>
+                                </face>
+                                <face level="end">
+                                    <li class="px-6 py-2"><a href="/@link" class="text-zinc-900">@title</a></li>
+                                </face>
+                                <face level="1">
+                                    <li class="px-6 py-2 ">
+                                        <div class="flex items-center justify-between cursor-pointer toggle-dropdown"><a
+                                                href="/@link" class="text-zinc-900 font-medium text-sm">@title</a><svg
+                                                width="48" height="48"
+                                                class="transition-all duration-300 dropdown-icon">
+                                                <use href="./images/sprite-icons-mobile.svg#icon-chevron-down-zinc">
+                                                </use>
+                                            </svg></div>
+                                        <ul
+                                            class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-zinc-100 max-h-0">
+                                            @child </ul>
+                                    </li>
+                                </face>
+                                <face level="2" filter="link is null">
+                                    <li class="px-6 py-2 ">
+                                        <div class="flex items-center justify-between cursor-pointer toggle-dropdown"><a
+                                                href="/tour-list.bc?lid=1&catid=@catid"
+                                                class="text-zinc-900 font-medium text-sm">@title</a><svg width="48"
+                                                height="48" class="transition-all duration-300 dropdown-icon">
+                                                <use href="./images/sprite-icons-mobile.svg#icon-chevron-down-zinc">
+                                                </use>
+                                            </svg></div>
+                                        <ul
+                                            class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-zinc-100 max-h-0">
+                                            @child </ul>
+                                    </li>
+                                </face>
+                                <face level="2">
+                                    <li class="px-6 py-2 ">
+                                        <div class="flex items-center justify-between cursor-pointer toggle-dropdown"><a
+                                                href="/@link" class="text-zinc-900 font-medium text-sm">@title</a><svg
+                                                width="48" height="48"
+                                                class="transition-all duration-300 dropdown-icon">
+                                                <use href="./images/sprite-icons-mobile.svg#icon-chevron-down-zinc">
+                                                </use>
+                                            </svg></div>
+                                        <ul
+                                            class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-zinc-100 max-h-0">
+                                            @child </ul>
+                                    </li>
+                                </face>
+                            </basis>
+                            <basis core="tree" datamembername="article.TravelServices" idcol="catid"
+                                parentidcol="parentid" nullvalue="217473">
+                                <layout>
+                                    <li>
+                                        <div class="flex items-center justify-between cursor-pointer toggle-dropdown"><a
+                                                href="" class="text-zinc-900 font-medium text-sm">خدمات مسافرتی</a><svg
+                                                width="48" height="48"
+                                                class="transition-all duration-300 dropdown-icon">
+                                                <use href="./images/sprite-icons-mobile.svg#icon-chevron-down-zinc">
+                                                </use>
+                                            </svg></div>
+                                        <ul
+                                            class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-zinc-100 max-h-0">
+                                            @child </ul>
+                                    </li>
+                                </layout>
+                                <face level="1" filter="link is null">
+                                    <li class="px-6 py-2 ">
+                                        <div class="flex items-center justify-between cursor-pointer toggle-dropdown"><a
+                                                href="/article-list.bc?lid=1&catid=@catid"
+                                                class="text-zinc-900 font-medium text-sm">@title</a><svg width="48"
+                                                height="48" class="transition-all duration-300 dropdown-icon">
+                                                <use href="./images/sprite-icons-mobile.svg#icon-chevron-down-zinc">
+                                                </use>
+                                            </svg></div>
+                                        <ul
+                                            class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-zinc-100 max-h-0">
+                                            @child </ul>
+                                    </li>
+                                </face>
+                                <face level="end" filter="link is null">
+                                    <li class="px-6 py-2"><a href="/article-list.bc?lid=1&catid=@catid"
+                                            class="text-zinc-900">@title</a></li>
+                                </face>
+                                <face level="end">
+                                    <li class="px-6 py-2"><a href="/@link" class="text-zinc-900">@title</a></li>
+                                </face>
+                                <face level="1">
+                                    <li class="px-6 py-2 ">
+                                        <div class="flex items-center justify-between cursor-pointer toggle-dropdown"><a
+                                                href="/@link" class="text-zinc-900 font-medium text-sm">@title</a><svg
+                                                width="48" height="48"
+                                                class="transition-all duration-300 dropdown-icon">
+                                                <use href="./images/sprite-icons-mobile.svg#icon-chevron-down-zinc">
+                                                </use>
+                                            </svg></div>
+                                        <ul
+                                            class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-zinc-100 max-h-0">
+                                            @child </ul>
+                                    </li>
+                                </face>
+                                <face level="2" filter="link is null">
+                                    <li class="px-6 py-2 ">
+                                        <div class="flex items-center justify-between cursor-pointer toggle-dropdown"><a
+                                                href="/article-list.bc?lid=1&catid=@catid"
+                                                class="text-zinc-900 font-medium text-sm">@title</a><svg width="48"
+                                                height="48" class="transition-all duration-300 dropdown-icon">
+                                                <use href="./images/sprite-icons-mobile.svg#icon-chevron-down-zinc">
+                                                </use>
+                                            </svg></div>
+                                        <ul
+                                            class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-zinc-100 max-h-0">
+                                            @child </ul>
+                                    </li>
+                                </face>
+                                <face level="2">
+                                    <li class="px-6 py-2 ">
+                                        <div class="flex items-center justify-between cursor-pointer toggle-dropdown"><a
+                                                href="/@link" class="text-zinc-900 font-medium text-sm">@title</a><svg
+                                                width="48" height="48"
+                                                class="transition-all duration-300 dropdown-icon">
+                                                <use href="./images/sprite-icons-mobile.svg#icon-chevron-down-zinc">
+                                                </use>
+                                            </svg></div>
+                                        <ul
+                                            class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-zinc-100 max-h-0">
+                                            @child </ul>
+                                    </li>
+                                </face>
+                            </basis>
+
+
+                            <li>
+
+                                <div class="flex items-center justify-between cursor-pointer toggle-dropdown"><a href=""
+                                        class="text-zinc-900 font-medium text-sm">سایر خدمات</a>
+                                    <svg width="48" height="48" class="transition-all duration-300 dropdown-icon">
+                                        <use href="./images/sprite-icons-mobile.svg#icon-chevron-down-zinc"></use>
+                                    </svg>
+                                </div>
+
+                                <ul
+                                    class="flex flex-col overflow-hidden transition-all duration-300 bg-white divide-y opacity-0 divide-zinc-100 max-h-0">
+
+                                    <li class="px-6 py-2"><a href="/اجاره-خودرو" class="text-zinc-900">فرم درخواست اجاره خودرو</a>
+                                    </li>
+                                    <li class="px-6 py-2"><a href="/بیمه-مسافرتی" class="text-zinc-900">فرم درخواست بیمه مسافرتی</a>
+                                    </li>
+                                    <li class="px-6 py-2"><a href="/پیک-آپ-فرودگاهی" class="text-zinc-900">فرم درخواست پیک آپ
+                                            فرودگاهی</a></li>
+                                    <li class="px-6 py-2"><a href="/درخواست-ویزا" class="text-zinc-900">فرم درخواست ویزا</a></li>
+
+                                </ul>
+
+                            </li>
+
+                            <li class="pt-4 pb-5"><a href="/ارتباط-با-ما" class="font-medium text-sm text-zinc-900">ارتباط
+                                    با ما</a></li>
+                        </ul>
+                    </nav>
+                </section>
+            </div>
+        </div>
+    </section>
+</header>

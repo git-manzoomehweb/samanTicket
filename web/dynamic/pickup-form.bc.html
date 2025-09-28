@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover" />
+  <title>[##cms.seo.title|(پیک آپ فرودگاهی)##]</title>
+  <meta name="description" content="[##cms.seo.description|(پیک آپ فرودگاهی)##]">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="canonical" href="[##cms.request.:scheme##]://[##cms.request.full-url##]" />
+  <basis core="call" file="pwa.inc" />
+  <basis core="call" file="style.inc" pageindex="[##cms.cms.pageindex##]"  />
+  <style>#formRequest [data-bc-answer-container] input[type="text"], #formRequest [data-bc-answer-container] input[type="password"], #formRequest [data-bc-answer-container] input[type="time"], #formRequest [data-bc-answer-container] input[type="color"], #formRequest [data-bc-answer-container] input[type="file"], #formRequest [data-bc-answer-container] select{ height: 55px !important; background: white !important; border-radius: 1em !important; border: none !important; font-size: 16px !important; line-height: 37px;} #formRequest [data-bc-answer-container] input[type="text"], #formRequest [data-bc-answer-container] input[type="password"], #formRequest [data-bc-answer-container] input[type="time"], #formRequest [data-bc-answer-container] input[type="file"], #formRequest [data-bc-answer-container] select, #formRequest [data-bc-answer-container] textarea{ background: white !important; border-radius: 1em !important; border: none !important; font-size: 16px !important;} #formRequest [data-bc-schema-direction="rtl"] [data-bc-title-container] [data-bc-question-title], #formRequest legend{ display: none !important;} #formRequest [data-bc-answer-container]{ width: 100% !important;} #formRequest [data-bc-part-container], #formRequest [data-bc-btn-container]{ width: 100% !important;} #formRequest [data-bc-answer-title-container]{ width: 100% !important; font-size: 12px !important;} @media screen and (max-width: 1024px){ #formRequest [data-bc-schema-info-part="3"] [data-bc-part-related-cell], #formRequest [data-bc-schema-info-part="2"] [data-bc-part-related-cell]{ width: 100%;} #formRequest [data-bc-part-container]{ display: flex; flex-wrap: wrap !important;} #formRequest [data-bc-answer-title-container]{ display: flex; flex-wrap: wrap !important;}} </style>
+</head>
+<body class="font-danaregular bg-zinc-100">
+  <basis core="call" file="header.inc" pageindex="[##cms.cms.pageindex##]" />
+  <main id="formRequest" class="mt-[132px] flex flex-col justify-center items-center"><div class="flex flex-col justify-center items-center my-10 max-w-7xl mx-auto w-full "><h2 class="text-2xl font-danabold text-center">فرم درخواست پیک آپ فرودگاهی</h2><p class="text-sm font-danaregular m-2">لطفاً اطلاعات خود را وارد کنید تا تیم ما در سریع‌ترین زمان ممکن، خدمات پیک‌آپ فرودگاهی را برای شما ترتیب دهد. سفر راحت و بدون نگرانی شما اولویت ماست. </p><div class="free-form-container form-container w-full"><basis core="schema" run="atclient" schemaurl="/schema/domainform/B22881E0-4961-4D04-8553-58C3008E04EF/9DF58AE4-DAD4-4D50-9921-51E4AD12B235/fa/درخواست-پیک-آپ-فرودگاهی" displaymode="new" button="[data-btn-upload-request]" resultsourceid="upload.data" onrendered="RenderFormRequest"></basis><basis core="api" if="{##cms.uploadrequest.run|(false)##}" run="atclient" url="/schema/domainform/B22881E0-4961-4D04-8553-58C3008E04EF/fa/editobject" method="post" body="object_edit={##cms.uploadrequest.value##}&captcha={##cms.uploadrequest.captcha##}&captchaid={##cms.uploadrequest.captchaid##}" content-type="application/x-www-form-urlencoded" triggers="cms.uploadrequest" onprocessed="OnProcessedEditObjectRequest"></basis><div class="free-form-content"><div class="flex flex-col items-center"><div id="captchaContainerRequest" class="captchaContainerclass captcha-sefaresh" data-bc-answer-container data-bc-schema-info-multi="0" data-bc-schema-info-word="58" data-bc-schema-info-part="1" data-bc-schema-info-part-0-type="text"><basis core="dbsource" source="trust_login" name="captchaRequest" run="atclient" triggers="captchaRequest.refresh"><member name="code" type="scalar" request="captcha"></member></basis><basis datamembername="captchaRequest.code" core="print" run="atclient" onrendered="captchaRenderedRequest"><face><script type="text/template"><div class="flex justify-start gap-x-2"><div><input type="text" class="contactUsInput codeinputm" placeholder="کد امنیتی" name="captcha" maxlength="4" /><input type="hidden" name="captchaid" value="@captcha@" /></div><div class="flex flex-row-reverse items-center"><svg class="cursor-pointer min-w-12 min-h-12" onclick="refreshCaptchaRequest()" width="48" height="49" viewBox="0 0 48 49" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M25.7857 18.5L26.5807 20.5021C25.8273 20.0776 24.9442 19.8333 24 19.8333C21.2386 19.8333 19 21.9227 19 24.5C19 24.9149 19.058 25.3171 19.1669 25.7M22.2143 30.5L21.4193 28.4978C22.1727 28.9224 23.0558 29.1667 24 29.1667C26.7614 29.1667 29 27.0773 29 24.5C29 24.0851 28.942 23.6829 28.8331 23.3" stroke="#020121" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="24" cy="24.5" r="10" stroke="#020121" stroke-width="1.5"/></svg><img class="inline-block rounded-xl" src="/@captcha@" width="90" height="45" alt="captcha code" /></div></div></script></face></basis></div><basis core="callback" run="atclient" method="uploadDocumentRequest" triggers="upload.data"></basis><div class="text-center bg-secondary-1-700 hover:bg-primary-600 rounded-xl text-white sendform-btn mt-1 cursor-pointer h-[50px] w-[148px] leading-[50px]"><button class="data-body-btn w-full" type="button" data-btn-upload-request><span>ثبت درخواست</span></button></div></div><div class="message-api text-center mt-2"></div><div class="clear-both"></div></div></div></div></main>
+  <basis core="call" file="footer.inc" pageindex="[##cms.cms.pageindex##]" />
+  <script>
+    function uploadDocumentRequest(args) {
+      const formEl = document.getElementById("formRequest");
+      const captcha = formEl.querySelector("#captchaContainerRequest input[name='captcha']").value;
+      const captchaid = formEl.querySelector("#captchaContainerRequest input[name='captchaid']").value;
+      const stringJson = JSON.stringify(args.source?.rows[0] || {});
+      $bc.setSource("cms.uploadrequest", {
+        value: stringJson,
+        captcha: captcha,
+        captchaid: captchaid,
+        run: true
+      });
+    }
+
+    function refreshCaptchaRequest() {
+      $bc.setSource("captchaRequest.refresh", true);
+    }
+
+    function captchaRenderedRequest() {
+      const formEl = document.getElementById("formRequest");
+      const input = formEl.querySelector(".contactUsInput");
+      if (input) input.placeholder = "کد امنیتی";
+    }
+
+    async function OnProcessedEditObjectRequest(args) {
+      const formEl = document.getElementById("formRequest");
+      const msgBox = formEl.querySelector(".message-api");
+
+      // پاک کردن تمام ورودی‌ها
+      const inputs = formEl.querySelectorAll("input, textarea");
+      inputs.forEach(input => input.value = '');
+
+      try {
+        const response = args.response;
+        const json = await response.json();
+        const errorid = json.errorid;
+
+        if (errorid == "6") {
+          // پیغام موفقیت
+          msgBox.innerHTML = "درخواست شما با موفقیت ثبت شد";
+          msgBox.style.color = "green"; // سبز برای موفقیت
+
+          // بعد از 5 ثانیه پیام پاک شود
+          setTimeout(() => {
+            msgBox.innerHTML = '';
+          }, 5000);
+        } else {
+          // پیغام خطا
+          msgBox.innerHTML = "خطایی رخ داده, لطفا مجدد اقدام کنید";
+          msgBox.style.color = "red"; // قرمز برای خطا
+
+          // بعد از 5 ثانیه پیام پاک شود
+          setTimeout(() => {
+            msgBox.innerHTML = '';
+          }, 5000);
+        }
+      } catch (e) {
+        // پیغام خطا در صورت بروز مشکل
+        msgBox.innerHTML = "مشکلی در پردازش پاسخ رخ داد.";
+        msgBox.style.color = "red"; // قرمز برای خطا
+
+        // بعد از 5 ثانیه پیام پاک شود
+        setTimeout(() => {
+          msgBox.innerHTML = '';
+        }, 5000);
+      }
+    }
+
+    async function RenderFormRequest() {
+      const formEl = document.getElementById("formRequest");
+      const nameInput = formEl.querySelector(".f-l-name input");
+      const phoneInput = formEl.querySelector(".phon-num input");
+
+      const emailInput = formEl.querySelector(".email-address input");
+      
+      const fightnumInput = formEl.querySelector(".fight-num input");
+      const airlinenameInput = formEl.querySelector(".airline-name input");
+      const entertimeInput = formEl.querySelector(".enter-time input");
+      const enterairportInput = formEl.querySelector(".enter-airport input");
+      const destinationInput = formEl.querySelector(".destination input");
+      const passengercountInput = formEl.querySelector(".passenger-count input");
+      const baggagetypeInput = formEl.querySelector(".baggage-type input");
+      const cartypeInput = formEl.querySelector(".car-type input");
+      const otherrequestInput = formEl.querySelector(".other-request input");
+      const payementInput = formEl.querySelector(".payement input");
+
+      if (nameInput) nameInput.placeholder = " نام مسافر";
+      if (phoneInput) phoneInput.placeholder = "شماره تماس";
+      if (emailInput) emailInput.placeholder = "ایمیل";
+
+      if (fightnumInput) fightnumInput.placeholder = "شماره پرواز";
+      
+      if (airlinenameInput) airlinenameInput.placeholder = "نام شرکت هواپیمایی";
+      if (entertimeInput) entertimeInput.placeholder = "تاریخ و ساعت ورود";
+      if (enterairportInput) enterairportInput.placeholder = "فرودگاه و ترمینال ورود";
+      if (destinationInput) destinationInput.placeholder = "نشانی مقصد ( محل پیاده شدن )";
+      if (passengercountInput) passengercountInput.placeholder = "تعداد مسافران";
+      if (baggagetypeInput) baggagetypeInput.placeholder = "تعداد و نوع چمدان ها";
+      if (cartypeInput) cartypeInput.placeholder = "نوع خودروی ترجیحی( در صورت تمایل )";
+      if (otherrequestInput) otherrequestInput.placeholder = "درخواست های اضافی ( در صورت وجود)";
+      if (payementInput) payementInput.placeholder = "روش پرداخت";
+
+
+
+    }
+  </script>
+</body>
+</html>

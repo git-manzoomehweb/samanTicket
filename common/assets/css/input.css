@@ -13,7 +13,7 @@ table {
 
 @media screen and (min-width: 1024px) {
   body {
-    padding-top: 80px;
+    padding-top: 132px !important;
   }
 }
 
@@ -85,7 +85,7 @@ table {
 
 html,
 body {
-  font-family: "Yekan_Bakh_Regular_fa";
+  font-family: "Dana_regular";
   direction: rtl
 }
 
