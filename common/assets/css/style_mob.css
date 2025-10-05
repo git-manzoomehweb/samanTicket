@@ -5,7 +5,7 @@
 .fab{font-family:'fontawesome';font-weight:400;}
 @font-face{font-family:'fontawesome';font-style:normal;font-weight:400;font-display:block;src:url("../_fonts/fa-regular.eot");src:url("../_fonts/fa-regular.eot") format("embedded-opentype"), url("../_fonts/fa-regular.woff") format("woff"), url("../_fonts/fa-regular.ttf") format("truetype"), url("../_fonts/fa-regular.svg") format("svg");}
 .far{font-family:'fontawesome';font-weight:400;}
-@font-face{font-family:'fontawesome';font-style:normal;font-weight:900;font-display:block;src:url("../_fonts/fa-solid.eot");src:url("../_fonts/fa-solid.eot") format("embedded-opentype"), url("../_fonts/fa-solid.woff") format("woff"), url("../_fonts/fa-solid.ttf") format("truetype"), url("../_fonts/fa-solid.svg") format("svg");}
+@font-face{font-family:'fontawesome';font-style:normal;font-weight:900;font-display:block;src:url("../_fonts/fontawesome5-solid-900.eot");src:url("../_fonts/fontawesome5-solid-900.eot") format("embedded-opentype"), url("../_fonts/reservation_fontawesome5-solid-900.woff") format("woff"), url("../_fonts/fontawesome5-solid-900.ttf") format("truetype"), url("../_fonts/fontawesome5-solid-900.svg") format("svg");}
 .fa,
 .fas{font-family:'fontawesome';font-weight:900;}
 @font-face{font-family:'IRANSansWeb';src:url('../_fonts/IRANSansWeb(FaNum).ttf') format('truetype'), url('../_fonts/IRANSansWeb(FaNum).eot') format('embedded-opentype');font-weight:normal;font-style:normal;}

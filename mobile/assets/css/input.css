@@ -932,7 +932,16 @@ span.label-text
 
 p.clear-both.text-base.text-textColor .selected-day ,  p.clear-both.text-base.text-textColor .selected-month{display: none !important;}
 
-
+.flighttype-items {
+    display: flex !important;
+    justify-content: center !important;
+}
+.searchList , .passengerbox , .FlightClass {
+    z-index: 9999 !important;
+}
+.warningColor-100{
+  color: #dc2626 ;
+}
 /* searchbox design */
 
 
@@ -995,3 +1004,4 @@ p.clear-both.text-base.text-textColor .selected-day ,  p.clear-both.text-base.te
 /* about */
 .map-bg{background-image: url(../images/iran-bg-map.svg);background-position: center;background-size: cover; }
 /* about */
+

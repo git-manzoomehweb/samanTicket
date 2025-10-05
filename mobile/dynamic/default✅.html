@@ -91,7 +91,7 @@
                 <figure class="relative [grid-area:1/1] w-full h-full -z-10"><img src="./images/hero-banner-default.jpg"
                         alt="saman parvaz banner" class="w-full h-full object-cover" /><span
                         class="absolute inset-0 bg-gradient-to-t from-[#081230] to-[#020a21]/85"></span></figure>
-                <div class="[grid-area:1/1] text-white mt-36 mb-10">
+                <div class="[grid-area:1/1] text-white mt-64 mb-10">
                     <div class="w-full search-box-container mobile-search-box  mx-auto">
                         <div id="search-box" class="dir-rtl"><span class="loader mx-auto block"></span></div>
                     </div>
@@ -391,28 +391,7 @@
                 <div class=" flex flex-col gap-y-2 justify-center mx-auto my-4">
 
 
-                    <basis core="list" datamembername="articles.latest">
-                        <layout>
-                            <div class="w-full flex flex-col gap-y-2">
-                                @child
-                            </div>
-                        </layout>
-                        <face filter="rownumber in(1,2)">
-                            <article class="w-full h-[171px] rounded-xl overflow-hidden group">
-                                <a href="@link">
-                                    <figure class="relative w-full h-[171px]">
-                                        <img class="w-full h-[171px] object-cover"
-                                            src="[##cms.cms.cdn##]/@00380X00180prp" alt="@title">
-                                        <figcaption
-                                            class="absolute top-0 left-0 bottom-0 transition-all ease-in-out duration-100  bg-black/45 w-full text-white p-4 flex flex-col justify-end">
-                                            <h2 class="font-danabold text-base leading-6 mb-2">@title</h2>
-                                            <div class="text-xs leading-5 font-danaregular line-clamp-2">@prp_7244</div>
-                                        </figcaption>
-                                    </figure>
-                                </a>
-                            </article>
-                        </face>
-                    </basis>
+
 
 
                     <basis core="list" datamembername="articles.latest">
@@ -461,7 +440,28 @@
                             </article>
                         </face>
                     </basis>
-
+                    <basis core="list" datamembername="articles.latest">
+                        <layout>
+                            <div class="w-full flex flex-col gap-y-2">
+                                @child
+                            </div>
+                        </layout>
+                        <face filter="rownumber in(1,2)">
+                            <article class="w-full h-[171px] rounded-xl overflow-hidden group">
+                                <a href="@link">
+                                    <figure class="relative w-full h-[171px]">
+                                        <img class="w-full h-[171px] object-cover"
+                                            src="[##cms.cms.cdn##]/@00380X00180prp" alt="@title">
+                                        <figcaption
+                                            class="absolute top-0 left-0 bottom-0 transition-all ease-in-out duration-100  bg-black/45 w-full text-white p-4 flex flex-col justify-end">
+                                            <h2 class="font-danabold text-base leading-6 mb-2">@title</h2>
+                                            <div class="text-xs leading-5 font-danaregular line-clamp-2">@prp_7244</div>
+                                        </figcaption>
+                                    </figure>
+                                </a>
+                            </article>
+                        </face>
+                    </basis>
 
                 </div>
 
@@ -474,7 +474,7 @@
             <div class="w-full mx-auto flex justify-between gap-x-4 flex-col ">
                 <div class="w-full">
                     <figure class="w-full h-[418px] bg-secondary-1-700 rounded-3xl relative"><img
-                            class="mx-auto  absolute left-0 right-0" src="./images/young-man-with-headset 1.png" alt=""
+                            class="mx-auto absolute left-0 right-0 bottom-0" src="./images/young-man-with-headset 1.png" alt=""
                             srcset="">
                         <figcaption
                             class="absolute bottom-0 left-0 right-0 bg-primary-500 h-[75px] rounded-b-3xl leading-[75px] text-center text-white">

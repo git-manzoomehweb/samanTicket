@@ -56,6 +56,51 @@ document.addEventListener("DOMContentLoaded", function () {
 // searchbox
 
 // header
+
+// if( innerWidth > 1024){
+  if (document.querySelector(".transparent-header")) {
+    let navbar;
+    if(document.getElementById("navbar-desktop")){
+      navbar = document.getElementById("navbar-desktop");
+
+      
+    }else if(document.getElementById("mobile-header-menu")){
+      navbar = document.getElementById("mobile-header-menu");
+
+    }
+
+
+
+      
+          navbar.classList.add("bg-transparent");
+          navbar.classList.remove(
+            "bg-gradient-to-b",
+            "from-[#081230]",
+            "to-[#020a21]/85"
+          );
+
+          window.addEventListener("scroll", function () {
+            if (window.scrollY > 10) {
+              navbar.classList.remove("bg-transparent");
+              navbar.classList.add(
+                "bg-gradient-to-b",
+                "from-[#081230]",
+                "to-[#020a21]/85"
+              );
+            } else {
+              navbar.classList.add("bg-transparent");
+              navbar.classList.remove(
+                "bg-gradient-to-b",
+                "from-[#081230]",
+                "to-[#020a21]/85"
+              );
+            }
+          });
+
+  }
+
+// }
+
 function openHamburgerMenu() {
   // document.querySelector('#navitems').classList.toggle('max-lg\:hidden');
   document.getElementById("navitems").classList.add("max-lg:translate-x-0");
@@ -216,29 +261,7 @@ function OpenSubMenu() {
 //   }
 // });
 
-if( innerWidth > 1024){
-  if (document.querySelector(".transparent-header")) {
-    window.addEventListener("scroll", function () {
-      const navbar = document.getElementById("navbar-desktop");
-      if (window.scrollY > 10) {
-        navbar.classList.remove("bg-transparent");
-        navbar.classList.add(
-          "bg-gradient-to-b",
-          "from-[#081230]",
-          "to-[#020a21]/85"
-        );
-      } else {
-        navbar.classList.add("bg-transparent");
-        navbar.classList.remove(
-          "bg-gradient-to-b",
-          "from-[#081230]",
-          "to-[#020a21]/85"
-        );
-      }
-    });
-  }
 
-}
 // header
 
 // category load

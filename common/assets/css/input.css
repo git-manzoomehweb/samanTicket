@@ -345,3 +345,21 @@ input {
 }
 
 /* login */
+
+/* add to home screen */
+#mobile_add_to_screen .z-60, #mobile_add_to_screen.z-60 {
+    z-index: 9999 !important;
+}
+
+#mobile_add_to_screen img.mb-10.max-w-max.h-auto {
+    margin-right: auto !important;
+    margin-left: auto !important;
+}
+#navbar-desktop i.hasNot-login-icon {
+    display: none !important;
+}
+/* add to home screen */
+
+.exchangeRoute {
+    z-index: 999 !important;
+}

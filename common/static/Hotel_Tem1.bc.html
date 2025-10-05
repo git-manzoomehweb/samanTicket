@@ -1,0 +1,510 @@
+<basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="[##cms.query.id##]" >
+    <member request="json-ld" type="scalar" name="json"  />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="[##cms.query.id##]">
+    <member name="view" type="view" />
+    <member name="related-tours" type="list" blgid="221" link="tour.bc" propertyid="8077" typeid="159" order="ord" perpage="10" />
+    <member name="related-articles" type="list" blgid="222" link="article.bc" propertyid="7244,7249" typeid="159"  order="ord" perpage="10" />
+    <member name="artdata" type="view" request="rdfa" />
+</basis>
+<basis core="dbsource" source="media" name="db" lid="1" usedforid="[##cms.query.id##]" sourcemid="article">
+    <member name="gallery" type="list" format="4" perpage="200" order="ord" />
+    <member name="countmedia" type="list" postsql="select count(*) as picture from [db.countmedia]" order="ord"/>
+</basis>
+
+<basis core="dbsource" source="trust_login" name="captcha" grade="simple">
+  <member name="OpinionCode" type="scalar" request="captcha" />
+</basis>
+<basis core="dbsource" source="userbehavior" name="db" usedforid="[##cms.query.id##]">
+    <member name="comment" type="list" order="ord" request="listcomment" />
+</basis>
+<basis core="dbsource" source="basiscore" name="db" lid="1" mid="1" usedforid="[##cms.query.id##]">
+    <member name="navigation" type="tree" request="navigationcat" />
+</basis>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="BasisCore">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,shrink-to-fit=no,viewport-fit=cover">
+    <!-- Title & Description -->
+    <title>[##cms.seo.title##]</title>
+    <meta name="description" content="[##cms.seo.description##]">
+    <!-- Title & Description -->
+    <basis core="dbsource" source="hosting" name="tag" urlid="[##cms.seo.urlid##]">
+        <member type="list" name="list" request="taglist" preview=""></member>
+    </basis>
+    <basis core="print" datamembername="tag.list">
+        <face filter="key = 'canonical'">
+            <link rel="canonical" href="@value" />
+        </face>
+        <face>
+            <meta property="@key" content="@value" />
+        </face>
+    </basis>
+    <!-- pwa metatags -->
+    <basis core="call" file="pwa.inc" />
+    <!----CSS LIBRARY---->
+    <link href="https://cdn.basiscore.net/basisfly.com/css/reservation_tem2_style.css" type="text/css" rel="stylesheet" />
+    <link href="https://cdn.basiscore.net/basisfly.com/css/Hotel_Tem1_Style.css" type="text/css" rel="stylesheet" />
+    <link href="https://cdn.basiscore.net/basisfly.com/css/reservation_font_awesome.css" type="text/css" rel="stylesheet" />
+    <link href="https://cdn.basiscore.net/basisfly.com/css/reservation_sliderPro.css" type="text/css" rel="stylesheet" media="screen"/>
+    <!----CSS CUSTOMIZE---->
+    <link href="[##cms.cms.cdn##]/css/style_tem.css" type="text/css" rel="stylesheet" />
+    <!----JS LIBRARY---->
+    <script src="[##cms.cms.cdn##]/_js/jquery/jquery-3.6.3.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <div class="opinionResult-Box">
+        <div class="opinionResult">
+            <a class="fa"></a>
+            <p class="OpinionResult-text" style="text-align:center"></p>
+        </div>
+    </div>
+    <main>
+        <div class="loginRegister"></div>
+        <basis core="call" file="header.inc"></basis>
+                        <section class="content">
+            <div class="items-container banner-hotel">
+                 <div class="main-topImg-section main-topImg-section-hotels-article main-content-resize" style="background-image: url(https://cdn.basiscore.net/basisfly.com/images/hotel-view-banner.jpg);">
+                    <div class="topImg-title-wrpr main-content-resize">
+                        <div class="container topImg-title-wrpr-inner">
+                            <div class="topImg-title-sctn">
+                                <basis core="print" datamembername="db.view">
+                                    <face filter="typeid=150">
+                                        <h1>@text</h1>
+                                    </face> 
+                                    <face filter="prpID=177337">
+                                       <span> @text</span>
+                                    </face>
+                                    <face filter="Question='star'">
+                                        <p><img src="https://cdn.basiscore.net/basisfly.com/images/@Answer-star-rating.png" alt="@Answer Star Hotel" width="" height="24"></p>
+                                    </face>
+                                </basis>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bc-main">
+                    <div class="breadcrumbs">
+                        <ul itemscope itemtype="https://schema.org/BreadcrumbList">
+                            <li itemprop="itemListElement" itemscope
+                            itemtype="https://schema.org/ListItem"> <a itemprop="item"  href="[##cms.Host.FA_redirect|(/)##]"><span itemprop="name">خانه</span> <meta itemprop="position" content="1" />
+                            </a> </li>
+                            <basis core="print" datamembername="db.navigation">
+                                <face filter="RowNumber=max(RowNumber) and Title<>'ریشه'">
+                                    <li itemprop="itemListElement" itemscope
+                                    itemtype="https://schema.org/ListItem"> <span itemprop="name">@title</span> <meta itemprop="position" content="@rownumber" /></li>
+                                </face>
+                                <face filter="link is null and Title<>'ریشه'">
+                                    <li itemprop="itemListElement" itemscope
+                                    itemtype="https://schema.org/ListItem"> <a itemprop="item" href="/hotel-list.bc?catid=@parentcatid"><span itemprop="name">@title</span><meta itemprop="position" content="@rownumber" /></a> </li>
+                                </face>
+                                <face filter="Title<>'ریشه'">
+                                    <li itemprop="itemListElement" itemscope
+                                    itemtype="https://schema.org/ListItem"> <a itemprop="item" href="@link"><span itemprop="name">@title</span><meta itemprop="position" content="@rownumber" /></a> </li>
+                                </face>
+                            </basis>
+                        </ul>
+                    </div>
+                    <div class="right-show-article">
+                        <div class="main-side-inner">
+                            <basis core="group"  if="[##db.countmedia.picture##]>1" >
+                            <div id="hotel-slider-pro" class="slider-pro">
+                                <div class="sp-slides">
+                                    <basis core="print" datamembername="db.gallery">
+                                        <face filter="RowNumber<>1">
+                                            <div class="sp-slide">
+                                                <img class="sp-image" src="" 
+                                                    data-src="/@largeIMG" 
+                                                    data-small="/@largeIMG"
+                                                    data-medium="/@largeIMG"
+                                                    data-large="/@largeIMG"
+                                                    data-retina="/@largeIMG"/>
+                                            </div>
+                                        </face>
+                                    </basis>
+                                </div>
+                                <div class="sp-thumbnails" style="display: none;">
+                                    <basis core="print" datamembername="db.gallery">
+                                        <face filter="RowNumber<>1">
+                                            <img class="sp-thumbnail" src="/@largeIMG"/>
+                                        </face>
+                                    </basis>
+                                </div>
+                            </div>
+                        </basis>
+                        <div class="hotel-options">
+                            <div class="hotel-options-inner">
+                                <div class="hotel-opt-each rooms-opt"><a href="#3" class="mm"><img src="https://cdn.basiscore.net/basisfly.com/images/hotel-options-rooms.jpg" alt="hotel-option"/><div class="option-hover"><span><p>اتاق ها</p><img class="opt-hover-img" src="https://cdn.basiscore.net/basisfly.com/images/room-hover.png" alt="opt-hover"/></span></div></a></div>
+                                <div class="hotel-opt-each resturant-opt"><a href="#4" class="mm"><img src="https://cdn.basiscore.net/basisfly.com/images/hotel-options-resturant.jpg" alt="hotel-option"/><div class="option-hover"><span><p>رستوران ها</p> <img class="opt-hover-img" src="https://cdn.basiscore.net/basisfly.com/images/resturant-hover.png" alt="opt-hover"/></span></div></a></div>
+                                <div class="hotel-opt-each ammues-opt"><a href="#5" class="mm"><img src="https://cdn.basiscore.net/basisfly.com/images/hotel-options-ammues.png" alt="hotel-option"/><div class="option-hover"><span><p>خدمات و سرگرمی</p> <img class="opt-hover-img" src="https://cdn.basiscore.net/basisfly.com/images/ammuesment-hover.png" alt="opt-hover"/></span></div></a></div>
+                                <div class="hotel-opt-each facility-opt"><a href="#6" class="mm"><img src="https://cdn.basiscore.net/basisfly.com/images/hotel-options-facility.jpg" alt="hotel-option"/><div class="option-hover"><span><p>امکانات</p> <img class="opt-hover-img" src="https://cdn.basiscore.net/basisfly.com/images/facility-hover.png" alt="opt-hover"/></span></div></a></div>
+                            </div>
+                            <div class="clr"></div>
+                        </div>
+                            <div class="article-description-main text-main white-back shadow-art-details justify-align">
+                                <div class="article-context">
+                                    <header class="header-art-desc wide hotel-info-parts">
+                                        
+                                            <basis core="print" datamembername="db.view">
+                                                <face filter="Question='booking'">
+                                                    <div class="topImg-prc-sctn"> 
+                                                        <span> @Answer</span>
+                                                        <img src="https://cdn.basiscore.net/basisfly.com/images/hotelpage-booking.png" alt="Booking" width="50" height="50">
+                                                    </div>
+                                               </face>
+
+                                                <face filter="prpID=177411">
+                                                    <div class="pass-opinion"><i class="far fa-thumbs-up"></i><span> نظر مسافران : </span><span class="pass-rate">@Answer</span></div> 
+                                                    <p class="blue-rating"><img src="" alt="Hotel Rate" width="" height="11"></p>
+                                                </face>
+                                            </basis>
+                                            
+            
+                                    </header>
+                                    <basis core="print" datamembername="db.view">
+                                        <face  filter="typeid not in(128,159,150,160,161,162,200)" replace="true">
+                                            <h2 itemprop="@vocabulary" id="@RowNumber">@text</h2>
+                                            <p itemprop="@vocabulary">@largetext</p>
+                                        </face>
+                                        <replace tagname="img"><img src="/@val2" alt="@val3" style="display:block;margin:15px auto;max-width:800px;height:auto;width: 96%;float:@val4"></replace>
+                                        <replace tagname="link"> <a style="color:@val4;" href="@val3">@val2</a> </replace>
+                                        <replace tagname="style"><a href="/@val3" style="color:@val4;font-size:@val5;font-weight:@val6;font-style:@val7">@val2</a></replace>
+                                        <replace tagname="bold"><b style="font-weight:@val3;color:@val4">@val2</b></replace>
+                                        <replace tagname="strong"><strong style="font-weight: normal;">@val2</strong></replace>
+                                        <replace tagname="mv">
+                                            <div id="@val2" style="display:block;margin:15px auto;max-width:800px;height:auto;width: 96%">
+                                                <script type="text/JavaScript" src="https://www.aparat.com/embed/@val3?data[rnddiv]=@val2&data[responsive]=yes"></script>
+                                            </div>
+                                        </replace>
+                                    </basis>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                            <div class="clr"></div>
+                            <div id="opinion-resize">
+                              <div class="article-description-main text-main white-back shadow-art-details justify-align">
+                                <div class="section_info">
+                                  <div class="section_info_header">
+                                    <div class="section_info_header_inner">
+                                      <div class="info_header comment_tab active_tab" data-type="1"><span>ثبت دیدگاه</span></div>
+                                      <div class="info_header submit_comment_tab" data-type="2">نظرات کاربران</div>
+                                      <div class="clr"></div>
+                                    </div>
+                                    <div class="clr"></div>
+                                  </div>
+                                  <div class="section_info_body">
+                                    <div class="info_submit_comment">
+                                      <div id="OpinioUser-box">
+                                        <form id="opinionForm" method="post" action="/Tem1_OpinionAction.bc">
+                                          <div><input name="Username" placeholder="نام و نام خانوادگی" type="text" required></div>
+                                          <div><input name="_root.Phone" placeholder="تلفن همراه" type="text"></div>
+                                          <div><input name="_root.Email" placeholder="ایمیل" type="text"></div>
+                                          <div><_textarea name="OpinionMessage" placeholder="نظرات و پیشنهادات" required></_textarea></div>
+                                          <div>
+                                            <div class="SecurityCodeRight">
+                                              <input name="Captcha" placeholder="کد امنیتی" type="text" required></div>
+                                            <div class="SecurityCodeLeft">
+                                              <span class="fa"></span>
+                                              <a><img src="/[##captcha.OpinionCode.captcha##]" width="120" height="32" />
+                                                <input id="Captchaid" name="Captchaid" value="[##captcha.OpinionCode.captcha##]"
+                                                  type="hidden" /></a>
+                                            </div>
+                                            <div class="clr"></div>
+                                          </div>
+                                          <div><input name="Opinionproductid" value="[##cms.query.id##]" type="hidden"><input name="mid" value="1" type="hidden"></div>
+                                          <div><input name="OpinionSubmit" id="OpinionSubmit" value="ثبت" type="submit"></div>
+                                          <div id="ResultOpinion">
+                                          </div>
+                                        </form>
+                                      </div>
+                                    </div>
+                                    <div class="info_comment">
+                                      <basis core="tree" datamembername="db.comment" idcol="id" parentidcol="parentid" nullvalue="0">
+                                        <layout>
+                                          <div class="user-opinion-txt-box">@Child</div>
+                                        </layout>
+                                        <face level="1">
+                                          <div class="opinionRow">
+                                            <div class="user-opinion-txt">
+                                              <span class="fa userIcon"></span>
+                                              <span class="username-opinion">کاربر : @username</span>
+                                              <p>@comment</p>
+                                            </div>
+                                            <div class="replyCommentTxt">@Child</div>
+                                            <div class="replyComment"><a>پاسخ به نظر</a></div>
+                                            <div class="replyCommentForm">
+                                              <form method="post" action="Tem1_ReplyComment.bc" id="ReplyComment">
+                                                <_textarea placeholder="پاسخ خود را تایپ کنید..." name="ReplyComment" required></_textarea>
+                                                <input type="hidden" name="parentid" value="@id">
+                                                <input type="hidden" name="replyProductid" value="[##cms.query.id##]">
+                                                    <input name="mid" value="1" type="hidden">
+                                                <input type="submit" value="ثبت">
+                                              </form>
+                                            </div>
+                                          </div>
+                                        </face>
+                                        <face level="2">
+                                          <div><span class="fa fa-reply"></span>@comment</div>
+                                        </face>
+                                      </basis>
+                                    </div>
+                                    <div class="clr"></div>
+                                  </div>
+                                  <div class="clr"></div>
+                                </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                    <aside class="left-show-article">
+                        <div class="item-aside-art tabs-as shadow-art-details white-back">
+                            <div class="sidebar-position">
+                                <div class="sidebar-inner">
+                                    <basis core="print" datamembername="db.view">
+                                        <face filter="Question='map'">
+                                            <div class="hotel-side-map">
+                                                <a href="@Answer" target="_blank"><img src="https://cdn.basiscore.net/basisfly.com/images/google-maps.png" alt="googlemap"/></a>
+                                            </div>
+                                        </face>
+                                    </basis>
+                                    <basis core="print" datamembername="db.view">
+                                        <face filter="prpID=177413" replace="true">
+                                            <div class="hotel-side-vid">
+                                                <div>@Answer</div>
+                                            </div>
+                                        </face>
+    
+                                        <replace tagname="mv">
+                                            <div id="@val2">
+                                                <script type="text/JavaScript" src="https://www.aparat.com/embed/@val3?data[rnddiv]=@val2&data[responsive]=yes"></script>
+                                            </div>
+                                        </replace>
+                                    </basis>
+                                    <div class="clr"></div>
+                                    <basis core="list" datamembername="db.related-articles">
+                                        <layout>
+                                            <div class="most-visited">
+                                                <div class="title-blog">
+                                                    <span>مقالات مرتبط</span>
+                                                </div>
+                                                @child
+                                               </div>
+                                        </layout>
+                                        <face filter="seo=0">
+                                            <article class="content-articlelist news-eachitem">
+                                                <div class="left-arts-inner">
+                                                    <a href="/article.bc?lid=1&id=@id&catid=[##cms.query.catid##]">
+                                                    <figure class="img"><img src="/@type_159" alt="@title"/></figure>
+                                                    <div class="info">
+                                                        <header><div class="date"><i class="fas fa-calendar-alt"></i><span>@date</span></div></header>
+                                                        <footer><div class="title"><h3>@title</h3></div></footer>
+                                                    </div>
+                                                   </a>
+                                                </div>
+                                            </article>
+                                        </face>
+                                        <face>
+                                            <article class="content-articlelist news-eachitem">
+                                                <div class="left-arts-inner">
+                                                    <a href="/@link">
+                                                    <figure class="img"><img src="/@type_159" alt="@title"/></figure>
+                                                    <div class="info">
+                                                        <header><div class="date"><i class="fas fa-calendar-alt"></i><span>@date</span></div></header>
+                                                        <footer><div class="title"><h3>@title</h3></div></footer>
+                                                    </div>
+                                                   </a>
+                                                </div>
+                                            </article>
+                                        </face>
+                                    </basis>
+    
+                                    <basis core="list" datamembername="db.related-tours">
+                                        <layout>
+                                            <div class="most-visited">
+                                                <div class="title-blog">
+                                                    <span>تورهای مرتبط</span>
+                                                </div>
+                                                @child
+                                               </div>
+                                        </layout>
+                                        <face filter="seo=0">
+                                            <article class="content-articlelist news-eachitem">
+                                                <div class="left-arts-inner">
+                                                    <a href="/tour.bc?lid=1&id=@id">
+                                                    <figure class="img"><img src="/@type_159" alt="@title"/></figure>
+                                                    <div class="info">
+                                                        <header><div class="date"><i class="fas fa-calendar-alt"></i><span>@prp_8077</span></div></header>
+                                                        <footer>  <div class="title"><h3>@title</h3></div></footer>
+                                                    </div>
+                                                   </a>
+                                                </div>
+                                            </article>
+                                        </face>
+                                        <face>
+                                            <article class="content-articlelist news-eachitem">
+                                                <div class="left-arts-inner">
+                                                    <a href="/@link">
+                                                    <figure class="img"><img src="/@type_159" alt="@title"/></figure>
+                                                    <div class="info">
+                                                        <header><div class="date"><i class="fas fa-calendar-alt"></i><span>@prp_8077</span></div></header>
+                                                        <footer>  <div class="title"><h3>@title</h3></div></footer>
+                                                    </div>
+                                                   </a>
+                                                </div>
+                                            </article>
+                                        </face>
+                                    </basis>
+                                    <div class="download-button-wrapp">
+                                        <div class="but-box">
+                                            <a>
+                                                <button class="share-b">اشتراک گذاری</button>
+                                            </a>
+                                            <div class="drop-share">
+                                                <div class="inner-drop-share">
+                                                    <ul>
+                                                        <li><a id="share-whatsapp" href="#"><i class="fa fa-whatsapp"></i></a></li>
+                                                        <li><a id="share-telegram" href="#"><i class="fa fa-paper-plane"></i></a>
+                                                        </li>
+                                                        <li><a id="share-email" href="#"><i class="fa fa-envelope"></i></a></li>
+                                                        <li><a id="share-facebook" href="#"><i class="fa fa-facebook-f"></i></a>
+                                                        </li>
+                                                        <li><a id="share-twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="clr"></div>
+                                </div>
+                                <div class="sidebar-inner">
+                                    <div class="call-action-wrapp">
+                                        <div class="call-action">
+                                            <div><p class="img-ph-act"><i class="fas fa-phone-alt"></i></p><p class="txt-ph-act">رزرو (خرید) آنلاین</p></div>
+                                            <basis core="view" datamembername="db.info">
+                                                <face level="1" filter="prpid=8000">
+                                                    @child
+                                                </face>
+                                                <face level="2" filter="prpid=8000">
+                                                    <a href="tel:@Answer"><span>@Answer</span></a>
+                                                </face>
+                                            </basis>
+                                            <div class="clr"></div>
+                                        </div>
+                                        <div class="clr"></div>
+                                    </div>
+                                </div>
+                                <div class="clr"></div>
+                            </div>
+                            <div class="clr"></div>
+                        </div>
+                        <div class="clr"></div>
+                    </aside>
+                    <div class="clr"></div>
+                </div>
+                <div class="clr"></div>
+            </div>
+        </section>
+        <basis core="call" file="footer.inc"></basis>
+    </main>
+    <script src="https://cdn.basiscore.net/basisfly.com/js/reservation_sliderPro.js" type="text/javascript"></script>
+    <script type="text/javascript">
+$( document ).ready(function( $ ) {
+	$( '#hotel-slider-pro' ).sliderPro({
+		width: 960,
+		height: 500,
+		fade: true,
+		arrows: true,
+		buttons: false,
+		fullScreen: true,
+		shuffle: true,
+		smallSize: 500,
+		mediumSize: 1000,
+		largeSize: 3000,
+		thumbnailArrows: true,
+		autoplay: false
+	});
+});
+</script>
+        <script>
+
+           $(document).ready(function () {
+                $(".share-b").click(function () {
+                    $(this).closest(".download-button-wrapp").find(".drop-share").slideToggle();
+                });
+                var currentUrl = window.location.href;
+                $("#share-facebook").attr("href", "https://www.facebook.com/sharer/sharer.php?u=" + currentUrl);
+                $("#share-whatsapp").attr("href", "whatsapp://send?text=" + currentUrl);
+                $("#share-twitter").attr("href", "https://twitter.com/home?status=" + currentUrl);
+                $("#share-email").attr("href", "mailto:info@example.com?&subject=&body=" + currentUrl);
+                $("#share-telegram").attr("href", "https://telegram.me/share/url?url=" + currentUrl + "&text=");
+            })
+        //<!---------------------------JS COMMENT--------------------------->
+        $(function () {
+            $("#opinionForm").on("submit", function (event) {
+                event.preventDefault();
+                $.ajax({
+                    url: $(this).attr("action"),
+                    type: $(this).attr("method"),
+                    data: $(this).serialize(),
+                    success: function (response) {
+                        $(".SecurityCodeLeft a").load("/Client_Captcha_Grade.bc")
+                        $(".OpinionResult-text").empty().html(response);
+                        $(".opinionResult-Box,.opinionResult").fadeIn()
+                    }
+                });
+            });
+            $("#ReplyComment").on("submit", function (event) {
+                event.preventDefault();
+                $.ajax({
+                    url: $(this).attr("action"),
+                    type: $(this).attr("method"),
+                    data: $(this).serialize(),
+                    success: function (response) {
+                        $(".OpinionResult-text").empty().html(response);
+                        $(".opinionResult-Box,.opinionResult").fadeIn()
+                    }
+                });
+            });
+        });
+        $(".SecurityCodeLeft span").click(function () {
+            $(".SecurityCodeLeft a").load("/Client_Captcha_Grade.bc");
+        })
+        $(".opinionResult a").click(function () {
+            $(".opinionResult-Box,.opinionResult").fadeOut();
+        })
+        $(".replyComment").click(function () {
+            $(this).closest(".opinionRow").find(".replyCommentForm").slideToggle("speed")
+        })
+        $(".info_header").click(function () {
+            if ($(this).attr("data-type") == 1) {
+                $(this).css("border-left", "1px solid #fff")
+                $(this).closest(".section_info").find(".info_submit_comment").show()
+                $(this).closest(".section_info").find(".info_related_article").hide()
+                $(this).closest(".section_info").find(".info_comment").hide()
+            } else if ($(this).attr("data-type") == 2) {
+                $(this).closest(".section_info").find(".info_submit_comment").hide()
+                $(this).closest(".section_info").find(".info_related_article").hide()
+                $(this).closest(".section_info").find(".info_comment").show()
+            }
+            $(this).addClass("active_tab")
+            $(this).siblings(".info_header").removeClass("active_tab")
+        });
+
+        $(document).ready(function(){
+            $(".hotel-options").find("a.mm").click(function(e) {
+            e.preventDefault();
+            var section = $(this).attr("href");
+            $("html, body").animate({
+                scrollTop: $(section).offset().top-100
+            
+              });
+           });
+        });
+    </script>
+    <script  type="application/ld+json" >
+        [##db.json.Column1##]
+    </script>
+</body>
+</html>
