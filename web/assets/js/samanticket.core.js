@@ -1,27 +1,42 @@
 // searchbox
 document.addEventListener("DOMContentLoaded", function () {
-  if(document.getElementById("search-box")){
+  if (document.getElementById("search-box")) {
     function checkAllResourcesLoaded() {
       const resources = performance.getEntriesByType("resource");
       const requiredFiles = ["/css/customized.ui.min.css"];
       const loadedFiles = resources
-        .filter((res) => requiredFiles.includes(res.name) && res.responseEnd > 0)
+        .filter(
+          (res) => requiredFiles.includes(res.name) && res.responseEnd > 0
+        )
         .map((res) => res.name);
-  
+
       return requiredFiles.every((file) => loadedFiles.includes(file));
     }
-  
+
     function fetchEngine() {
       try {
         var xhrobj = new XMLHttpRequest();
         xhrobj.open("GET", "search-engine.bc");
         xhrobj.send();
-  
+
         xhrobj.onreadystatechange = function () {
           if (this.readyState == 4 && this.status == 200) {
             var container = document.getElementById("search-box");
             container.innerHTML = xhrobj.responseText;
-  
+
+            document.querySelector(
+              "#r-flight .departure-route input.departure "
+            ).value = "تهران";
+            document.querySelector("#r-flight .departure-route input.from").value =
+              "1203548";
+
+
+              document.querySelector(
+              "#r-flight .destination-route input.destination "
+            ).value = "دوشنبه";
+            document.querySelector("#r-flight .destination-route input.to").value =
+              "1173637";
+
             var scripts = container.getElementsByTagName("script");
             for (var i = 0; i < scripts.length; i++) {
               var scriptTag = document.createElement("script");
@@ -49,7 +64,7 @@ document.addEventListener("DOMContentLoaded", function () {
     //     setTimeout(waitForFiles, 500);
     //   }
     // }
-  
+
     // waitForFiles();
   }
 });
@@ -58,46 +73,39 @@ document.addEventListener("DOMContentLoaded", function () {
 // header
 
 // if( innerWidth > 1024){
-  if (document.querySelector(".transparent-header")) {
-    let navbar;
-    if(document.getElementById("navbar-desktop")){
-      navbar = document.getElementById("navbar-desktop");
-
-      
-    }else if(document.getElementById("mobile-header-menu")){
-      navbar = document.getElementById("mobile-header-menu");
-
-    }
-
-
-
-      
-          navbar.classList.add("bg-transparent");
-          navbar.classList.remove(
-            "bg-gradient-to-b",
-            "from-[#081230]",
-            "to-[#020a21]/85"
-          );
-
-          window.addEventListener("scroll", function () {
-            if (window.scrollY > 10) {
-              navbar.classList.remove("bg-transparent");
-              navbar.classList.add(
-                "bg-gradient-to-b",
-                "from-[#081230]",
-                "to-[#020a21]/85"
-              );
-            } else {
-              navbar.classList.add("bg-transparent");
-              navbar.classList.remove(
-                "bg-gradient-to-b",
-                "from-[#081230]",
-                "to-[#020a21]/85"
-              );
-            }
-          });
-
+if (document.querySelector(".transparent-header")) {
+  let navbar;
+  if (document.getElementById("navbar-desktop")) {
+    navbar = document.getElementById("navbar-desktop");
+  } else if (document.getElementById("mobile-header-menu")) {
+    navbar = document.getElementById("mobile-header-menu");
   }
+
+  navbar.classList.add("bg-transparent");
+  navbar.classList.remove(
+    "bg-gradient-to-b",
+    "from-[#081230]",
+    "to-[#020a21]/85"
+  );
+
+  window.addEventListener("scroll", function () {
+    if (window.scrollY > 10) {
+      navbar.classList.remove("bg-transparent");
+      navbar.classList.add(
+        "bg-gradient-to-b",
+        "from-[#081230]",
+        "to-[#020a21]/85"
+      );
+    } else {
+      navbar.classList.add("bg-transparent");
+      navbar.classList.remove(
+        "bg-gradient-to-b",
+        "from-[#081230]",
+        "to-[#020a21]/85"
+      );
+    }
+  });
+}
 
 // }
 
@@ -144,21 +152,26 @@ document.addEventListener("DOMContentLoaded", function (event) {
 });
 document.querySelectorAll(".has-megamenu").forEach((element) => {
   element.addEventListener("click", function (event) {
-    event.stopPropagation();  // Prevent the click from bubbling up
-    element.closest("li")
+    event.stopPropagation(); // Prevent the click from bubbling up
+    element
+      .closest("li")
       .querySelector(".megamenu-container")
       .classList.toggle("hidden");
-    element.closest("li")
+    element
+      .closest("li")
       .querySelector(".megamenu-container")
       .classList.toggle("flex");
   });
 });
 
 // Close mega menu if clicked outside
-document.addEventListener("click", function(event) {
+document.addEventListener("click", function (event) {
   // Check if click is outside the mega menu
   document.querySelectorAll(".megamenu-container").forEach((menu) => {
-    if (!menu.contains(event.target) && !menu.closest("li").contains(event.target)) {
+    if (
+      !menu.contains(event.target) &&
+      !menu.closest("li").contains(event.target)
+    ) {
       menu.classList.add("hidden");
       menu.classList.remove("flex");
     }
@@ -219,8 +232,8 @@ async function LoadCatHeader(catid, typecat, element) {
       element
         .closest(".megamenu-container")
         .querySelector(".load-category-items").innerHTML = content;
-    } 
-    
+    }
+
     // else if (window.innerWidth < 1024) {
 
     //   const subItem = element.querySelector(".sub-item-hamburgermenu");
@@ -260,7 +273,6 @@ function OpenSubMenu() {
 //     });
 //   }
 // });
-
 
 // header
 
@@ -451,28 +463,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
 // swiper
 
-
 if (document.querySelector(".swiper-airline")) {
-   var swiper = new Swiper(".swiper-airline", {
-    slidesPerView: 'auto' ,
+  var swiper = new Swiper(".swiper-airline", {
+    slidesPerView: "auto",
     // centeredSlides: true,
     loop: true,
-        autoplay: {
+    autoplay: {
       delay: 2500,
       disableOnInteraction: false, // حتی بعد از تعامل کاربر، ادامه بده
     },
   });
 }
 
-
 if (document.querySelector(".swiper-bannercard")) {
-   var swiper = new Swiper(".swiper-bannercard", {
-    slidesPerView: 'auto' ,
+  var swiper = new Swiper(".swiper-bannercard", {
+    slidesPerView: "auto",
     // centeredSlides: true,
-      spaceBetween: 10,
+    spaceBetween: 10,
 
     loop: true,
-        autoplay: {
+    autoplay: {
       delay: 2500,
       disableOnInteraction: false, // حتی بعد از تعامل کاربر، ادامه بده
     },
@@ -501,7 +511,7 @@ function setSwiperSlides(type) {
       clickable: true,
     },
     spaceBetween: 10, // فاصله بین کارت‌ها (پیکسل) - اگر نمی‌خوای، 0 کن
-    breakpoints: {} // اینجا ریسپنسیو می‌شه
+    breakpoints: {}, // اینجا ریسپنسیو می‌شه
   };
 
   if (type === "specialtour" || type === "offeredtour") {
@@ -513,7 +523,7 @@ function setSwiperSlides(type) {
         768: { slidesPerView: 2.8 },
         1024: { slidesPerView: 3.3 }, // دسکتاپ min
         1280: { slidesPerView: 3.5 },
-        1440: { slidesPerView: 4 }
+        1440: { slidesPerView: 4 },
       };
       swiperInstance = new Swiper(`.${type}-swiper`, config);
     }
@@ -528,8 +538,10 @@ function setSwiperSlides(type) {
       };
       swiperInstance = new Swiper(".visa-swiper", config);
     }
-  } else if (type === "destination") { // جدید: اضافه کردم
-    if (document.querySelector(".destination-swiper")) { // فرض کن کلاس سوایپر اینه - اگر فرق داره، تغییر بده
+  } else if (type === "destination") {
+    // جدید: اضافه کردم
+    if (document.querySelector(".destination-swiper")) {
+      // فرض کن کلاس سوایپر اینه - اگر فرق داره، تغییر بده
       config.breakpoints = {
         320: { slidesPerView: 1.8 },
         414: { slidesPerView: 2.2 },
@@ -559,7 +571,9 @@ function setSwiperSlides(type) {
 // support form
 // Function for displaying success or error messages
 function showMessage(formId, message, isSuccess) {
-  const messageElement = document.getElementById(formId).querySelector(".message-api");
+  const messageElement = document
+    .getElementById(formId)
+    .querySelector(".message-api");
   messageElement.innerHTML = message;
   messageElement.style.color = isSuccess ? "green" : "red"; // Green for success, Red for error
   setTimeout(() => {
@@ -702,76 +716,83 @@ async function RenderFormCounselingform() {
 }
 // js form support
 
-
 // article search
-var input = document.getElementById('input');
+var input = document.getElementById("input");
 var isItemSelected = false; // برای بررسی اینکه آیا چیزی انتخاب شده است یا خیر
 
 if (input) {
-    input.onkeyup = function () {
-        if (this.value.length !== 0) {
-            document.querySelector('ul.searchlistcategory').classList.remove('hidden'); // لیست را نمایش دهید
-            var filter = input.value.toUpperCase();
-            var lis = document.querySelectorAll('li');
-            isItemSelected = false; // ریست کردن وقتی که کاربر چیزی در ورودی می‌نویسد
+  input.onkeyup = function () {
+    if (this.value.length !== 0) {
+      document
+        .querySelector("ul.searchlistcategory")
+        .classList.remove("hidden"); // لیست را نمایش دهید
+      var filter = input.value.toUpperCase();
+      var lis = document.querySelectorAll("li");
+      isItemSelected = false; // ریست کردن وقتی که کاربر چیزی در ورودی می‌نویسد
 
-            for (var i = 0; i < lis.length; i++) {
-                var name = lis[i].innerHTML;
-                if (name.toUpperCase().indexOf(filter) == 0) {
-                    lis[i].style.display = 'list-item';
-                } else {
-                    lis[i].style.display = 'none';
-                }
-            }
+      for (var i = 0; i < lis.length; i++) {
+        var name = lis[i].innerHTML;
+        if (name.toUpperCase().indexOf(filter) == 0) {
+          lis[i].style.display = "list-item";
         } else {
-            var lis = document.querySelectorAll('li');
-            for (var i = 0; i < lis.length; i++) {
-                lis[i].style.display = 'list-item';
-            }
-            document.querySelector('ul.searchlistcategory').classList.remove('hidden');
+          lis[i].style.display = "none";
         }
-    };
+      }
+    } else {
+      var lis = document.querySelectorAll("li");
+      for (var i = 0; i < lis.length; i++) {
+        lis[i].style.display = "list-item";
+      }
+      document
+        .querySelector("ul.searchlistcategory")
+        .classList.remove("hidden");
+    }
+  };
 
-    document.getElementById('search-content-article').addEventListener('submit', function (e) {
-        if (!isItemSelected) {
-            e.preventDefault();
-            document.getElementById('catidsearched').value = 0; // اگر هیچ چیزی انتخاب نشده باشد catid را 0 قرار دهید
-            var lis = document.querySelectorAll('li');
-            for (var i = 0; i < lis.length; i++) {
-                lis[i].style.display = 'list-item';
-            }
-            document.querySelector('ul.searchlistcategory').classList.remove('hidden');
+  document
+    .getElementById("search-content-article")
+    .addEventListener("submit", function (e) {
+      if (!isItemSelected) {
+        e.preventDefault();
+        document.getElementById("catidsearched").value = 0; // اگر هیچ چیزی انتخاب نشده باشد catid را 0 قرار دهید
+        var lis = document.querySelectorAll("li");
+        for (var i = 0; i < lis.length; i++) {
+          lis[i].style.display = "list-item";
         }
+        document
+          .querySelector("ul.searchlistcategory")
+          .classList.remove("hidden");
+      }
     });
 }
 
 function contentSearched(datatitle, datacatid) {
-    input.value = datatitle;
-    document.getElementById('catidsearched').value = datacatid;
-    document.querySelector('ul.searchlistcategory').classList.add('hidden');
-    isItemSelected = true; // وقتی آیتمی انتخاب می‌شود، این متغیر true شود
+  input.value = datatitle;
+  document.getElementById("catidsearched").value = datacatid;
+  document.querySelector("ul.searchlistcategory").classList.add("hidden");
+  isItemSelected = true; // وقتی آیتمی انتخاب می‌شود، این متغیر true شود
 }
 
 // article search
 
-
-// filter hotel 
+// filter hotel
 /* ===== Hotel Filters (name + stars) ===== */
-(function initHotelFilters(){
+(function initHotelFilters() {
   const state = {
-    stars: new Set(),     // e.g., {1,3,5}
-    name: "",             // lowercased query
-    loadedAll: false,     // once we fetched hotellistItemsFilter
-    catid: null
+    stars: new Set(), // e.g., {1,3,5}
+    name: "", // lowercased query
+    loadedAll: false, // once we fetched hotellistItemsFilter
+    catid: null,
   };
 
   // تبدیل اعداد فارسی به انگلیسی
-  const fa2en = (s) => (s||"").replace(/[۰-۹]/g, d => "۰۱۲۳۴۵۶۷۸۹".indexOf(d));
+  const fa2en = (s) =>
+    (s || "").replace(/[۰-۹]/g, (d) => "۰۱۲۳۴۵۶۷۸۹".indexOf(d));
 
   // پیدا کردن ورودی جستجو (بدون نیاز به id)
-  function getSearchInput(){
+  function getSearchInput() {
     // ترجیح: id مشخص اگر داشتی
-    let el = document.getElementById('hotelNameSearch');
+    let el = document.getElementById("hotelNameSearch");
     if (el) return el;
     // fallback: ورودی با placeholder "جستجوی هتل"
     el = document.querySelector('input[placeholder="جستجوی هتل"]');
@@ -779,106 +800,116 @@ function contentSearched(datatitle, datacatid) {
   }
 
   // استخراج تعداد ستاره از کارت (متن prp_3088066)
-  function extractStarsFromCard(card){
-    // دومین سطر آیکون‌ها ستاره است (بر اساس مارک‌آپ فایل) 
+  function extractStarsFromCard(card) {
+    // دومین سطر آیکون‌ها ستاره است (بر اساس مارک‌آپ فایل)
     // <use href="./images/sprite-icons.svg#star-hotel-icon"></use> -> h2 کناری‌اش مقدار ستاره
-    const starsEl = card.querySelector('svg use[href*="star-hotel-icon"]')?.closest('div')?.querySelector('h2');
+    const starsEl = card
+      .querySelector('svg use[href*="star-hotel-icon"]')
+      ?.closest("div")
+      ?.querySelector("h2");
     if (!starsEl) return null;
-    const num = parseInt(fa2en(starsEl.textContent.match(/\d+/)?.[0] || ""), 10);
+    const num = parseInt(
+      fa2en(starsEl.textContent.match(/\d+/)?.[0] || ""),
+      10
+    );
     return isNaN(num) ? null : num;
   }
 
   // نام هتل از عنوان کارت
-  function extractName(card){
-    const h2 = card.querySelector('h2');
+  function extractName(card) {
+    const h2 = card.querySelector("h2");
     return (h2?.textContent || "").trim().toLowerCase();
   }
 
   // اعمال فیلترها روی کارت‌ها
-  function applyFilters(){
-    const container = document.querySelector('.hotels-container');
+  function applyFilters() {
+    const container = document.querySelector(".hotels-container");
     if (!container) return;
 
-    const cards = container.querySelectorAll('article');
+    const cards = container.querySelectorAll("article");
     let visibleCount = 0;
 
-    cards.forEach(card => {
+    cards.forEach((card) => {
       const name = extractName(card);
       const stars = extractStarsFromCard(card);
 
       // شرط نام
-      const nameOk = !state.name || (name.includes(state.name));
+      const nameOk = !state.name || name.includes(state.name);
       // شرط ستاره‌ها (اگر هیچ ستاره‌ای انتخاب نشده، همه اوکی)
-      const starOk = (state.stars.size === 0) || (stars != null && state.stars.has(stars));
+      const starOk =
+        state.stars.size === 0 || (stars != null && state.stars.has(stars));
 
       const show = nameOk && starOk;
-      card.style.display = show ? 'block' : 'none';
+      card.style.display = show ? "block" : "none";
       if (show) visibleCount++;
     });
 
     // پیام «موردی یافت نشد»
-    const noMsgSel = '.no-results-message';
+    const noMsgSel = ".no-results-message";
     let noMsg = document.querySelector(noMsgSel);
     if (visibleCount === 0) {
       if (!noMsg) {
-        noMsg = document.createElement('p');
-        noMsg.className = 'no-results-message text-center w-full my-6';
-        noMsg.textContent = 'موردی یافت نشد !';
+        noMsg = document.createElement("p");
+        noMsg.className = "no-results-message text-center w-full my-6";
+        noMsg.textContent = "موردی یافت نشد !";
         container.appendChild(noMsg);
       }
-      const paging = document.getElementById('paging');
-      if (paging) paging.style.display = 'none';
+      const paging = document.getElementById("paging");
+      if (paging) paging.style.display = "none";
     } else {
       if (noMsg) noMsg.remove();
-      const paging = document.getElementById('paging');
-      if (paging) paging.style.display = 'flex';
+      const paging = document.getElementById("paging");
+      if (paging) paging.style.display = "flex";
     }
   }
 
   // بعد از هر بار لود HTML (صفحه‌بندی/فچ)، دوباره ایونت‌ها را وصل و فیلتر اعمال کن
-  function rebind(){
+  function rebind() {
     wireSearch();
     applyFilters();
   }
 
   // اتصال ورودی جستجو
-  function wireSearch(){
+  function wireSearch() {
     const input = getSearchInput();
     if (!input) return;
     if (input._hotelSearchBound) return; // جلوگیری از دوباره‌بستن
     input._hotelSearchBound = true;
-    input.addEventListener('input', (e)=>{
-      state.name = (e.target.value || '').trim().toLowerCase();
+    input.addEventListener("input", (e) => {
+      state.name = (e.target.value || "").trim().toLowerCase();
       applyFilters();
     });
   }
 
   // بارگیری «لیست کامل‌تر» وقتی اولین‌بار فیلتر زده می‌شود
-  async function ensureLoadedAll(){
+  async function ensureLoadedAll() {
     if (state.loadedAll) return;
 
-    const container = document.querySelector('.hotels-container');
+    const container = document.querySelector(".hotels-container");
     if (!container) return;
     if (!state.catid) {
-      state.catid = container.getAttribute('data-catid');
+      state.catid = container.getAttribute("data-catid");
     }
     try {
-      const url = `/load-items.bc?catid=${encodeURIComponent(state.catid||0)}&typecat=hotellistItemsFilter&pagenum=1`;
+      const url = `/load-items.bc?catid=${encodeURIComponent(
+        state.catid || 0
+      )}&typecat=hotellistItemsFilter&pagenum=1`;
       const res = await fetch(url);
       const html = await res.text();
       container.innerHTML = html;
       state.loadedAll = true;
       rebind();
-    } catch(e){
-      console.error('Hotel filter fetch failed:', e);
+    } catch (e) {
+      console.error("Hotel filter fetch failed:", e);
     }
   }
 
   // اکسپورت سراسری برای onclick های چک‌باکس‌ها
-  window.filterHotelResult = async function(value, typecat, catid, mode){
+  window.filterHotelResult = async function (value, typecat, catid, mode) {
     // ستاره‌ها را toggle کن
     const v = parseInt(value, 10);
-    if (state.stars.has(v)) state.stars.delete(v); else state.stars.add(v);
+    if (state.stars.has(v)) state.stars.delete(v);
+    else state.stars.add(v);
 
     // catid را نگه داریم
     if (!state.catid) state.catid = catid;
@@ -892,10 +923,10 @@ function contentSearched(datatitle, datacatid) {
 
   // وقتی صفحه‌بندی AJAX انجام می‌شود، DOM عوض می‌شود؛
   // MutationObserver بگذار تا به‌محض تغییر، دوباره فیلتر اعمال شود.
-  const mo = new MutationObserver((muts)=>{
+  const mo = new MutationObserver((muts) => {
     let touched = false;
-    muts.forEach(m => {
-      if (m.type === 'childList') touched = true;
+    muts.forEach((m) => {
+      if (m.type === "childList") touched = true;
     });
     if (touched) {
       // اگر قبلاً لیست کامل را لود کرده‌ایم، دوباره به همان ساختار جدید اعمال کن
@@ -903,18 +934,17 @@ function contentSearched(datatitle, datacatid) {
     }
   });
 
-  document.addEventListener('DOMContentLoaded', ()=>{
-    const container = document.querySelector('.hotels-container');
+  document.addEventListener("DOMContentLoaded", () => {
+    const container = document.querySelector(".hotels-container");
     if (container) {
-      if (!state.catid) state.catid = container.getAttribute('data-catid');
+      if (!state.catid) state.catid = container.getAttribute("data-catid");
       mo.observe(container, { childList: true, subtree: true });
     }
     wireSearch();
   });
 })();
 
-// filter hotel 
-
+// filter hotel
 
 // hamburger menu
 document.addEventListener("DOMContentLoaded", function () {
