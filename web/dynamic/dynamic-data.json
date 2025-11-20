@@ -44,12 +44,12 @@
   "hotel": {
     "destination": {
       "labelText": "مقصد",
-      "cityName": "استانبول",
+      "cityName": "",
       "input": {
         "placeholder": "مقصد خود را انتخاب کنید",
-        "value": "استانبول - Istanbul"
+        "value": ""
       },
-      "locationId": "1177676"
+      "locationId": ""
     },
     "dates": {
       "checkin_datelabel": "تاریخ ورود به هتل",

@@ -24,18 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
             var container = document.getElementById("search-box");
             container.innerHTML = xhrobj.responseText;
 
-            document.querySelector(
-              "#r-flight .departure-route input.departure "
-            ).value = "تهران";
-            document.querySelector("#r-flight .departure-route input.from").value =
-              "1203548";
-
-
-              document.querySelector(
-              "#r-flight .destination-route input.destination "
-            ).value = "دوشنبه";
-            document.querySelector("#r-flight .destination-route input.to").value =
-              "1173637";
+          
 
             var scripts = container.getElementsByTagName("script");
             for (var i = 0; i < scripts.length; i++) {
@@ -68,6 +57,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // waitForFiles();
   }
 });
+
+
+
 // searchbox
 
 // header
