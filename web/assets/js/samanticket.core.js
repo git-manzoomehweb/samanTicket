@@ -693,6 +693,7 @@ async function OnProcessedEditObjectCounselingform(args) {
 function refreshCaptchaCounselingform(e) {
   $bc.setSource("captchaCounselingform.refresh", true);
 }
+
 function captchaRenderedCounselingform() {
   document.querySelector(".contactUsInput").placeholder = "کد امنیتی";
 }

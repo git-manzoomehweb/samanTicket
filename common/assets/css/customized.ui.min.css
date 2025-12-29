@@ -1457,6 +1457,18 @@ table {
   --secondary-1-800: #E56919;
   --secondary-1-900: #DA5117;
   --secondary-1-950: #C54008;
+  /* base */
+  --secondary-50: #FEF2E1;
+  --secondary-100: #FDDEB4;
+  --secondary-200: #FBC884;
+  --secondary-300: #F9B254;
+  --secondary-400: #F8A233;
+  --secondary-500: #F6931F;
+  --secondary-600: #F2881D;
+  --secondary-700: #EB781B;
+  --secondary-800: #E56919;
+  --secondary-900: #DA5117;
+  --secondary-950: #C54008;
   /* ===================== *
    * Secondary-2 (azure/cyan)
    * ===================== */
